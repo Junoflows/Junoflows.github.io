@@ -26,11 +26,16 @@
   </script>
 
   {% if page.math %}
-  <!-- kramdown은 $$...$$ 수식을 <script type="math/tex"> 로 변환한다.
-       이를 그대로 렌더링하는 MathJax 2.7을 사용 (GitHub Pages 표준 조합) -->
+  <!-- GitHub Pages kramdown은 $$...$$ 수식을 \( \)(인라인)·\[ \](디스플레이)
+       MathJax 델리미터로 변환한다. tex2jax가 이를 스캔하도록 설정 -->
   <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
-      tex2jax: { inlineMath: [], displayMath: [] },
+      tex2jax: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+        processEscapes: true,
+        ignoreClass: "highlight"
+      },
       "HTML-CSS": { availableFonts: ["TeX"], scale: 96 },
       showProcessingMessages: false,
       messageStyle: "none"
