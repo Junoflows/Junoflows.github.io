@@ -1,0 +1,68 @@
+# --- Site settings ---
+title: Junoflows
+tagline: 논문 리뷰와 사이드 프로젝트 기록
+description: >-
+  AI·LLM·RAG를 중심으로 읽은 논문을 정리하고, 사이드 프로젝트와
+  다양한 기술 주제를 기록하는 개인 기술 블로그입니다.
+author: Junoflows
+lang: ko-KR
+
+# 배포 주소 (GitHub Pages: https://<username>.github.io)
+url: "https://junoflows.github.io"
+baseurl: ""
+
+# --- Social / nav ---
+github_username: Junoflows
+social:
+  - name: GitHub
+    url: https://github.com/Junoflows
+
+nav:
+  - title: Home
+    url: /
+  - title: Categories
+    url: /categories/
+  - title: Tags
+    url: /tags/
+  - title: Archive
+    url: /archive/
+  - title: About
+    url: /about/
+
+# --- Build settings ---
+markdown: kramdown
+highlighter: rouge
+permalink: /posts/:title/
+paginate: 8
+paginate_path: "/page:num/"
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: false
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+
+sass:
+  style: compressed

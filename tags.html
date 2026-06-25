@@ -1,0 +1,36 @@
+---
+layout: default
+title: Tags
+permalink: /tags/
+---
+<div class="wrap">
+  <header class="page-header">
+    <h1 class="page-title">Tags</h1>
+    <p class="page-subtitle">{{ site.tags.size }}개 태그</p>
+  </header>
+
+  <div class="tag-cloud">
+    {% assign sorted_tags = site.tags | sort %}
+    {% for tag in sorted_tags %}
+      <a href="#{{ tag[0] }}" class="tag">#{{ tag[0] }} <span class="tag-count">{{ tag[1].size }}</span></a>
+    {% endfor %}
+  </div>
+
+  <div class="taxo-list">
+    {% assign sorted_tags = site.tags | sort %}
+    {% for tag in sorted_tags %}
+      <section class="taxo-group" id="{{ tag[0] }}">
+        <h2 class="taxo-name">#{{ tag[0] }} <span class="taxo-count">{{ tag[1].size }}</span></h2>
+        <ul class="taxo-posts">
+          {% assign posts = tag[1] | sort: 'date' | reverse %}
+          {% for post in posts %}
+            <li>
+              <time>{{ post.date | date: "%Y.%m.%d" }}</time>
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endfor %}
+  </div>
+</div>

@@ -1,0 +1,33 @@
+---
+layout: default
+---
+<div class="wrap">
+  {% if paginator.page == 1 %}
+  <section class="home-hero">
+    <h1 class="hero-title">{{ site.title }}</h1>
+    <p class="hero-tagline">{{ site.tagline }}</p>
+  </section>
+  {% endif %}
+
+  <section class="post-list">
+    {% for post in paginator.posts %}
+      {% include post-card.html post=post %}
+    {% endfor %}
+  </section>
+
+  {% if paginator.total_pages > 1 %}
+  <nav class="pagination" aria-label="페이지 이동">
+    {% if paginator.previous_page %}
+      <a class="page-prev" href="{{ paginator.previous_page_path | relative_url }}">← 이전</a>
+    {% else %}
+      <span class="page-prev disabled">← 이전</span>
+    {% endif %}
+    <span class="page-count">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+      <a class="page-next" href="{{ paginator.next_page_path | relative_url }}">다음 →</a>
+    {% else %}
+      <span class="page-next disabled">다음 →</span>
+    {% endif %}
+  </nav>
+  {% endif %}
+</div>

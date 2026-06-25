@@ -1,0 +1,11 @@
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-social">
+      {% for s in site.social %}
+        <a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a>
+      {% endfor %}
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </div>
+    <p class="footer-copy">© {{ 'now' | date: "%Y" }} {{ site.author }}. Built with Jekyll &amp; GitHub Pages.</p>
+  </div>
+</footer>

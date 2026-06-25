@@ -1,0 +1,43 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% seo %}
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}"
+        href="{{ '/feed.xml' | relative_url }}">
+
+  <!-- 새로고침 시 다크모드 깜빡임 방지: CSS 적용 전 테마 결정 -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
+
+  {% if page.math %}
+  <!-- kramdown은 $$...$$ 수식을 <script type="math/tex"> 로 변환한다.
+       이를 그대로 렌더링하는 MathJax 2.7을 사용 (GitHub Pages 표준 조합) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: { inlineMath: [], displayMath: [] },
+      "HTML-CSS": { availableFonts: ["TeX"], scale: 96 },
+      showProcessingMessages: false,
+      messageStyle: "none"
+    });
+  </script>
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+  </script>
+  {% endif %}
+</head>

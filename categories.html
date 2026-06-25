@@ -1,0 +1,29 @@
+---
+layout: default
+title: Categories
+permalink: /categories/
+---
+<div class="wrap">
+  <header class="page-header">
+    <h1 class="page-title">Categories</h1>
+    <p class="page-subtitle">{{ site.categories.size }}개 카테고리 · {{ site.posts.size }}개 글</p>
+  </header>
+
+  <div class="taxo-list">
+    {% assign sorted_cats = site.categories | sort %}
+    {% for cat in sorted_cats %}
+      <section class="taxo-group" id="{{ cat[0] }}">
+        <h2 class="taxo-name">{{ cat[0] }} <span class="taxo-count">{{ cat[1].size }}</span></h2>
+        <ul class="taxo-posts">
+          {% assign posts = cat[1] | sort: 'date' | reverse %}
+          {% for post in posts %}
+            <li>
+              <time>{{ post.date | date: "%Y.%m.%d" }}</time>
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endfor %}
+  </div>
+</div>

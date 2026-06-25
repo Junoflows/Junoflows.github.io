@@ -1,0 +1,69 @@
+---
+layout: default
+---
+<div class="wrap post-wrap">
+  <article class="post">
+    <header class="post-header">
+      <div class="post-meta">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y년 %m월 %d일" }}</time>
+        {% if page.categories.size > 0 %}
+          <span class="dot">·</span>
+          <a class="post-cat" href="{{ '/categories/#' | append: page.categories.first | relative_url }}">{{ page.categories | first }}</a>
+        {% endif %}
+        <span class="dot">·</span>
+        <span class="read-time">{{ content | strip_html | number_of_words | divided_by: 400 | plus: 1 }}분 읽기</span>
+      </div>
+      <h1 class="post-title">{{ page.title }}</h1>
+      {% if page.description %}<p class="post-description">{{ page.description }}</p>{% endif %}
+      {% if page.tags.size > 0 %}
+        <ul class="tag-list">
+          {% for tag in page.tags %}
+            <li><a href="{{ '/tags/#' | append: tag | relative_url }}" class="tag">#{{ tag }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </header>
+
+    <div class="post-body prose" id="post-body">
+      {{ content }}
+    </div>
+
+    <footer class="post-footer">
+      {% if page.tags.size > 0 %}
+        <ul class="tag-list">
+          {% for tag in page.tags %}
+            <li><a href="{{ '/tags/#' | append: tag | relative_url }}" class="tag">#{{ tag }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </footer>
+
+    {% assign posts = site.posts %}
+    {% for post in posts %}
+      {% if post.url == page.url %}
+        {% assign idx = forloop.index0 %}
+      {% endif %}
+    {% endfor %}
+    {% assign newer = idx | minus: 1 %}
+    {% assign older = idx | plus: 1 %}
+    <nav class="post-nav">
+      <div class="post-nav-item prev">
+        {% if older < posts.size %}
+          <span class="post-nav-label">이전 글</span>
+          <a href="{{ posts[older].url | relative_url }}">{{ posts[older].title }}</a>
+        {% endif %}
+      </div>
+      <div class="post-nav-item next">
+        {% if newer >= 0 %}
+          <span class="post-nav-label">다음 글</span>
+          <a href="{{ posts[newer].url | relative_url }}">{{ posts[newer].title }}</a>
+        {% endif %}
+      </div>
+    </nav>
+  </article>
+
+  <aside class="post-toc" id="toc" aria-label="목차">
+    <p class="toc-title">목차</p>
+    <nav id="toc-nav"></nav>
+  </aside>
+</div>
