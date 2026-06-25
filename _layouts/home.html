@@ -1,33 +1,84 @@
 ---
 layout: default
 ---
+{% assign posts = site.posts %}
 <div class="wrap">
-  {% if paginator.page == 1 %}
-  <section class="home-hero">
-    <h1 class="hero-title">{{ site.title }}</h1>
-    <p class="hero-tagline">{{ site.tagline }}</p>
+
+  <!-- ===== Hero banner ===== -->
+  <section class="hero">
+    {% if site.hero.greeting %}<p class="hero-greeting">{{ site.hero.greeting }}</p>{% endif %}
+    <h1 class="hero-title">{{ site.hero.headline | default: site.tagline }}</h1>
+    <p class="hero-bio">{{ site.hero.bio | default: site.description }}</p>
+    <div class="hero-actions">
+      {% for s in site.social %}
+        <a class="hero-btn" href="{{ s.url }}" target="_blank" rel="noopener">{{ s.name }}</a>
+      {% endfor %}
+      <a class="hero-btn" href="{{ '/about/' | relative_url }}">About</a>
+      <a class="hero-btn" href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </div>
+  </section>
+
+  {% if posts.size > 0 %}
+  <!-- ===== Featured (최신 글) ===== -->
+  {% assign featured = posts.first %}
+  <section class="home-section">
+    <div class="section-head"><span class="section-label">Featured</span></div>
+    <article class="featured-card">
+      {% if featured.image %}
+      <a class="featured-cover" href="{{ featured.url | relative_url }}">
+        <img src="{{ featured.image | relative_url }}" alt="{{ featured.title }}">
+      </a>
+      {% endif %}
+      <div class="featured-body">
+        <div class="post-card-meta">
+          <time datetime="{{ featured.date | date_to_xmlschema }}">{{ featured.date | date: "%Y.%m.%d" }}</time>
+          <span class="dot">·</span>
+          <span>{{ featured.content | strip_html | number_of_words | divided_by: 400 | plus: 1 }}분 읽기</span>
+          {% if featured.categories.size > 0 %}<span class="dot">·</span><span class="post-card-cat">{{ featured.categories | first }}</span>{% endif %}
+        </div>
+        <h2 class="featured-title"><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
+        <p class="featured-desc">{% if featured.description %}{{ featured.description }}{% else %}{{ featured.excerpt | strip_html | truncate: 160 }}{% endif %}</p>
+        <a class="read-more" href="{{ featured.url | relative_url }}">글 읽기 →</a>
+      </div>
+    </article>
   </section>
   {% endif %}
 
-  <section class="post-list">
-    {% for post in paginator.posts %}
-      {% include post-card.html post=post %}
-    {% endfor %}
+  <!-- ===== 최근 글 ===== -->
+  {% assign recent = posts | slice: 1, 6 %}
+  {% if recent.size > 0 %}
+  <section class="home-section">
+    <div class="section-head">
+      <span class="section-label">최근 글</span>
+      <a class="section-more" href="{{ '/archive/' | relative_url }}">전체 글 보기 →</a>
+    </div>
+    <div class="post-list">
+      {% for post in recent %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- ===== Projects ===== -->
+  <section class="home-section">
+    <div class="section-head"><span class="section-label">Projects</span></div>
+    {% if site.projects.size > 0 %}
+    <div class="project-grid">
+      {% for p in site.projects %}
+      <a class="project-card" href="{{ p.url }}" target="_blank" rel="noopener">
+        <h3 class="project-name">{{ p.name }}</h3>
+        <p class="project-desc">{{ p.description }}</p>
+        {% if p.tech %}<span class="project-tech">{{ p.tech }}</span>{% endif %}
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="projects-teaser">
+      <p>사이드 프로젝트를 준비 중입니다. 진행 중인 작업은 GitHub에서 볼 수 있어요.</p>
+      <a class="read-more" href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">GitHub에서 보기 →</a>
+    </div>
+    {% endif %}
   </section>
 
-  {% if paginator.total_pages > 1 %}
-  <nav class="pagination" aria-label="페이지 이동">
-    {% if paginator.previous_page %}
-      <a class="page-prev" href="{{ paginator.previous_page_path | relative_url }}">← 이전</a>
-    {% else %}
-      <span class="page-prev disabled">← 이전</span>
-    {% endif %}
-    <span class="page-count">{{ paginator.page }} / {{ paginator.total_pages }}</span>
-    {% if paginator.next_page %}
-      <a class="page-next" href="{{ paginator.next_page_path | relative_url }}">다음 →</a>
-    {% else %}
-      <span class="page-next disabled">다음 →</span>
-    {% endif %}
-  </nav>
-  {% endif %}
 </div>
