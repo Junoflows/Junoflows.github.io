@@ -33,7 +33,7 @@ nav:
 hero:
   greeting: "안녕하세요, Junoflows입니다 👋"
   headline: "읽은 논문을 다시 쓰고, 만든 것을 기록합니다"
-  bio: "AI·LLM·RAG를 중심으로 논문을 first-principles로 정리하고, 사이드 프로젝트와 그 과정에서 배운 것을 남깁니다."
+  bio: "Agent, Vision, multimodal 등 다양한 주제의 논문을 다시 정리하고, 사이드 프로젝트와 그 과정에서 배운 것들을 기록합니다. "
 
 # --- 대표 프로젝트 (채우면 홈 Projects 섹션에 카드로 표시됨) ---
 projects: []
