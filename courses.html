@@ -16,34 +16,21 @@ description: "Anthropic Academy의 영어 강의를 한글로 정리한 학습 �
 
   <div class="course-grid">
     {% for c in site.data.courses %}
-      {% assign n = forloop.index %}
-      {% if c.done %}
-      <a class="course-card is-done" href="{{ c.file | relative_url }}">
+      {% assign n = forloop.index | prepend: '0' | slice: -2, 2 %}
+      <div class="course-card {% if c.done %}is-done{% else %}is-soon{% endif %}">
         <div class="course-top">
-          <span class="course-idx">{{ n | prepend: '0' | slice: -2, 2 }}</span>
-          <span class="course-chip done">✓ 정리 완료</span>
+          <span class="course-idx">{{ n }}</span>
+          {% if c.done %}<span class="course-chip done">✓ 정리 완료</span>{% else %}<span class="course-chip">예정</span>{% endif %}
         </div>
-        <h3 class="course-name">{{ c.title }}</h3>
+        <h3 class="course-name">
+          {% if c.done %}<a href="{{ c.file | relative_url }}">{{ c.title }}</a>{% else %}{{ c.title }}{% endif %}
+        </h3>
         <p class="course-desc">{{ c.desc }}</p>
         <div class="course-foot">
-          <span class="course-open">레슨 보기 →</span>
-          <a class="course-src" href="https://anthropic.skilljar.com/{{ c.slug }}" target="_blank" rel="noopener" onclick="event.stopPropagation()">원문 ↗</a>
-        </div>
-      </a>
-      {% else %}
-      <div class="course-card is-soon">
-        <div class="course-top">
-          <span class="course-idx">{{ n | prepend: '0' | slice: -2, 2 }}</span>
-          <span class="course-chip">예정</span>
-        </div>
-        <h3 class="course-name">{{ c.title }}</h3>
-        <p class="course-desc">{{ c.desc }}</p>
-        <div class="course-foot">
-          <span></span>
+          {% if c.done %}<span class="course-open">레슨 보기 →</span>{% else %}<span></span>{% endif %}
           <a class="course-src" href="https://anthropic.skilljar.com/{{ c.slug }}" target="_blank" rel="noopener">원문 ↗</a>
         </div>
       </div>
-      {% endif %}
     {% endfor %}
   </div>
 </div>
@@ -52,21 +39,25 @@ description: "Anthropic Academy의 영어 강의를 한글로 정리한 학습 �
   .course-progress{color:var(--text-muted);font-size:0.9rem;margin:-0.4rem 0 1.6rem;}
   .course-progress strong{color:var(--accent);}
   .course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;}
-  .course-card{display:flex;flex-direction:column;background:var(--bg);border:1px solid var(--border);
-    border-radius:var(--radius);padding:20px 20px 16px;min-height:166px;transition:all var(--transition);}
+  .course-card{position:relative;display:flex;flex-direction:column;background:var(--bg);border:1px solid var(--border);
+    border-radius:var(--radius);padding:20px 20px 16px;min-height:166px;transition:transform var(--transition),box-shadow var(--transition),border-color var(--transition);}
   .course-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px;}
   .course-idx{font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);letter-spacing:0.06em;}
-  .course-name{font-size:1.12rem;font-weight:700;letter-spacing:-0.01em;margin:0 0 8px;color:var(--text);line-height:1.3;}
+  .course-name{font-size:1.12rem;font-weight:700;letter-spacing:-0.01em;margin:0 0 8px;line-height:1.3;}
+  .course-name a{color:var(--text);}
+  .course-name a:hover{color:var(--accent);text-decoration:none;}
+  /* stretched link: 카드 전체를 클릭 가능하게(중첩 앵커 없이) */
+  .course-card.is-done .course-name a::after{content:"";position:absolute;inset:0;z-index:1;border-radius:var(--radius);}
   .course-desc{font-size:0.85rem;color:var(--text-soft);margin:0;flex:1;line-height:1.55;}
   .course-foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px;}
   .course-open{font-family:var(--font-mono);font-size:0.78rem;color:var(--accent);opacity:0;transition:opacity var(--transition);}
-  .course-src{font-family:var(--font-mono);font-size:0.68rem;letter-spacing:0.04em;color:var(--text-muted);text-transform:uppercase;}
-  .course-src:hover{color:var(--accent);}
+  .course-src{position:relative;z-index:2;font-family:var(--font-mono);font-size:0.68rem;letter-spacing:0.04em;color:var(--text-muted);text-transform:uppercase;}
+  .course-src:hover{color:var(--accent);text-decoration:none;}
   .course-chip{font-family:var(--font-mono);font-size:0.66rem;letter-spacing:0.04em;padding:3px 9px;border-radius:30px;
     border:1px solid var(--border);background:var(--bg-soft);color:var(--text-muted);}
   .course-chip.done{border-color:var(--accent-soft);background:var(--accent-soft);color:var(--accent);font-weight:700;}
-  a.course-card.is-done:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--accent);text-decoration:none;}
-  a.course-card.is-done:hover .course-open{opacity:1;}
+  .course-card.is-done:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--accent);}
+  .course-card.is-done:hover .course-open{opacity:1;}
   .course-card.is-soon{opacity:0.6;}
   @media (prefers-reduced-motion:reduce){.course-card{transition:none;}}
 </style>
