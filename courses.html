@@ -1,0 +1,23 @@
+---
+layout: default
+title: 강의 정리
+permalink: /courses/
+description: "Anthropic Academy의 영어 강의를 한글로 정리한 학습 노트 모음."
+---
+<div class="wrap">
+  <header class="page-header">
+    <h1 class="page-title">강의 정리</h1>
+    <p class="page-subtitle">Anthropic Academy의 영어 강의를 한글로 옮겨 정리한 학습 노트 모음입니다.</p>
+  </header>
+
+  {% assign course_posts = site.categories['강의 정리'] %}
+  {% if course_posts.size > 0 %}
+  <div class="post-list">
+    {% for post in course_posts %}
+      {% include post-card.html post=post %}
+    {% endfor %}
+  </div>
+  {% else %}
+  <p>아직 정리된 강의가 없습니다.</p>
+  {% endif %}
+</div>
