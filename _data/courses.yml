@@ -1,0 +1,83 @@
+# Anthropic Academy 강의 목록 (anthropic.skilljar.com 노출 순서)
+# done: true + file 지정 시 카드가 활성화되어 해당 페이지로 연결됨
+- title: "Claude 101"
+  slug: claude-101
+  file: /courses/claude-101.html
+  done: true
+  desc: "일상 업무를 위한 Claude 핵심 기능과 활용법, 그리고 더 깊은 학습 자료."
+- title: "Claude Code 101"
+  slug: claude-code-101
+  done: false
+  desc: "일상 개발 흐름에서 Claude Code를 효과적으로 사용하는 법."
+- title: "Claude Platform 101"
+  slug: claude-platform-101
+  done: false
+  desc: "Claude 개발자 플랫폼 위에서 처음부터 빌드하는 법을 배우는 코스."
+- title: "Introduction to Claude Cowork"
+  slug: introduction-to-claude-cowork
+  done: false
+  desc: "Cowork 작업 루프, 플러그인·스킬, 파일·리서치 워크플로우를 다루는 핸즈온."
+- title: "Claude Code in Action"
+  slug: claude-code-in-action
+  done: false
+  desc: "Claude Code를 실제 개발 워크플로우에 통합하기."
+- title: "AI Fluency: Framework & Foundations"
+  slug: ai-fluency-framework-foundations
+  done: false
+  desc: "AI 시스템과 효과적·효율적·윤리적·안전하게 협업하는 법."
+- title: "Building with the Claude API"
+  slug: claude-with-the-anthropic-api
+  done: false
+  desc: "Claude API로 Anthropic 모델을 다루는 전 범위를 아우르는 코스."
+- title: "Introduction to Model Context Protocol"
+  slug: introduction-to-model-context-protocol
+  done: false
+  desc: "Python으로 MCP 서버와 클라이언트를 처음부터 만들기."
+- title: "AI Fluency for educators"
+  slug: ai-fluency-for-educators
+  done: false
+  desc: "교수·교육 설계자·교육 리더가 자신의 수업에 AI Fluency를 적용하기."
+- title: "AI Fluency for students"
+  slug: ai-fluency-for-students
+  done: false
+  desc: "학습·진로 설계·학업 성공을 돕는 AI Fluency 역량을 학생이 기르기."
+- title: "Model Context Protocol: Advanced Topics"
+  slug: model-context-protocol-advanced-topics
+  done: false
+  desc: "샘플링·알림·파일시스템 접근 등 고급 MCP 구현 패턴."
+- title: "Claude with Amazon Bedrock"
+  slug: claude-in-amazon-bedrock
+  done: false
+  desc: "Amazon Bedrock을 통해 Claude를 사용하는 법 (AWS 대상)."
+- title: "Claude with Google Cloud's Vertex AI"
+  slug: claude-with-google-vertex
+  done: false
+  desc: "Google Cloud Vertex AI를 통해 Anthropic 모델을 다루는 전 범위."
+- title: "Teaching AI Fluency"
+  slug: teaching-ai-fluency
+  done: false
+  desc: "강의 환경에서 AI Fluency를 가르치고 평가하는 법."
+- title: "AI Fluency for nonprofits"
+  slug: ai-fluency-for-nonprofits
+  done: false
+  desc: "비영리 전문가가 조직의 임팩트와 효율을 높이는 AI 역량을 기르기."
+- title: "Introduction to agent skills"
+  slug: introduction-to-agent-skills
+  done: false
+  desc: "Claude Code에서 Skills(재사용 가능한 마크다운 지침)를 만들고·구성하고·공유하기."
+- title: "Introduction to subagents"
+  slug: introduction-to-subagents
+  done: false
+  desc: "Claude Code의 서브에이전트로 컨텍스트를 관리하고 작업을 위임하기."
+- title: "AI Capabilities and Limitations"
+  slug: ai-capabilities-and-limitations
+  done: false
+  desc: "AI가 어떻게 작동하는지 — 할 수 있는 것과 없는 것 — 다루는 입문 코스."
+- title: "AI Fluency for Small Businesses"
+  slug: ai-fluency-for-small-businesses
+  done: false
+  desc: "소상공인이 조직의 임팩트와 효율을 높이는 AI 역량을 기르기."
+- title: "AI Fluency for Builders"
+  slug: ai-fluency-for-builders
+  done: false
+  desc: "빌더가 더 빠르게 솔루션을 출시하며 임팩트와 효율을 높이는 AI 역량."

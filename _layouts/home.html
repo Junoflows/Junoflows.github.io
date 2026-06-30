@@ -44,6 +44,29 @@ layout: default
   </section>
   {% endif %}
 
+  <!-- ===== 강의 정리 ===== -->
+  {% assign done_courses = site.data.courses | where: "done", true %}
+  {% if done_courses.size > 0 %}
+  <section class="home-section">
+    <div class="section-head">
+      <span class="section-label">강의 정리</span>
+      <a class="section-more" href="{{ '/courses/' | relative_url }}">전체 강의 보기 →</a>
+    </div>
+    <div class="post-list">
+      {% for c in done_courses %}
+      <article class="post-card">
+        <div class="post-card-main">
+          <div class="post-card-meta"><span class="post-card-cat">Anthropic Academy 한글 정리</span></div>
+          <h2 class="post-card-title"><a href="{{ c.file | relative_url }}">{{ c.title }}</a></h2>
+          <p class="post-card-excerpt">{{ c.desc }}</p>
+          <div class="post-card-foot"><a class="read-more sm" href="{{ c.file | relative_url }}">레슨 보기 →</a></div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
   <!-- ===== 최근 글 ===== -->
   {% assign recent = posts | slice: 1, 6 %}
   {% if recent.size > 0 %}
