@@ -26,6 +26,8 @@ nav:
     url: /tags/
   - title: Archive
     url: /archive/
+  - title: 강의 정리
+    url: /courses/
   - title: About
     url: /about/
 
