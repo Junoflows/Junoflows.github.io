@@ -1,0 +1,377 @@
+---
+layout: default
+title: "Claude Code in Action"
+date: 2026-07-01
+categories: [강의 정리]
+tags: [Claude Code, Anthropic, AI, 개발]
+permalink: /courses/anthropic/claude-code-in-action.html
+description: "Anthropic 공식 영어 강의 Claude Code in Action의 한글 개요 — 영상 중심 강의의 레슨별 핵심 주제와 원문 영상 링크."
+---
+{% include course-styles.html %}
+
+<div class="course-page">
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <a class="backlink" href="/courses/anthropic/">← Anthropic Courses</a>
+      <p class="kicker">Anthropic Academy</p>
+      <h1>Claude <em>Code in Action</em></h1>
+      <p class="sub">Anthropic Academy 공식 영상 강의의 한글 개요 노트</p>
+      <a class="srcnote" href="https://anthropic.skilljar.com/claude-code-in-action" target="_blank" rel="noopener">원문 강의 (영어) ↗</a>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-text"><span id="progressPos">레슨 01 / 21</span><span id="progressPct">영상 강의 개요</span></div>
+      </div>
+    </div>
+    <nav class="spine" id="nav"></nav>
+  </aside>
+
+  <main class="content">
+   <div class="reading" id="reading">
+
+    <!-- LESSON: introduction -->
+    <section class="lesson active" id="introduction">
+      <div class="lesson-head">
+        <div class="lesson-num">01</div>
+        <div class="eyebrow">Intro · 레슨 01</div>
+        <h1 class="lesson-title">Introduction</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
+      </div>
+
+      <div class="callout">이 강의는 <strong>영상 중심 강의</strong>입니다. 레슨 대부분이 별도 아티클 본문 없이 영상으로 진행되므로, 이 페이지는 각 레슨의 <strong>핵심 주제 개요 + 원문 영상 링크</strong>로 정리했습니다. 자세한 실습·화면 시연은 <strong>원문 영상</strong>을 직접 참고하세요.</div>
+
+      <p>이 코스가 무엇을 다루는지, 어떻게 진행되는지 소개하는 오리엔테이션 레슨입니다. Claude Code를 실제 프로젝트에 적용해 코드를 이해·수정하고, MCP·GitHub·Hooks·SDK로 확장하는 전체 여정을 개관합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 코딩 어시스턴트란 무엇인가 — 개념 소개</div></div>
+    </section>
+
+    <!-- LESSON: what-is-a-coding-assistant -->
+    <section class="lesson" id="what-is-a-coding-assistant">
+      <div class="lesson-head">
+        <div class="lesson-num">02</div>
+        <div class="eyebrow">Intro · 레슨 02</div>
+        <h1 class="lesson-title">코딩 어시스턴트란?</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>코딩 어시스턴트가 무엇이고, 기존 챗봇형 AI와 어떻게 다른지 개념을 잡는 레슨입니다. Claude Code 같은 에이전트형 도구가 코드 작업에서 어떤 역할을 하는지 살펴봅니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Claude Code를 실제로 동작시키는 모습</div></div>
+    </section>
+
+    <!-- LESSON: claude-code-in-action -->
+    <section class="lesson" id="claude-code-in-action">
+      <div class="lesson-head">
+        <div class="lesson-num">03</div>
+        <div class="eyebrow">Intro · 레슨 03</div>
+        <h1 class="lesson-title">Claude Code in action</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>Claude Code가 실제로 코드베이스와 상호작용하며 작업을 수행하는 모습을 시연으로 보여주는 레슨입니다. 앞으로 다룰 기능들이 실전에서 어떻게 쓰이는지 감을 잡을 수 있습니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · Claude Code를 내 컴퓨터에 설치하기</div></div>
+    </section>
+
+    <!-- LESSON: claude-code-setup -->
+    <section class="lesson" id="claude-code-setup">
+      <div class="lesson-head">
+        <div class="lesson-num">04</div>
+        <div class="eyebrow">Setup · 레슨 04</div>
+        <h1 class="lesson-title">Claude Code 설치</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>Claude Code를 로컬에 설치하는 방법을 다룹니다. 전체 설치 가이드는 <a href="https://code.claude.com/docs/en/quickstart" target="_blank" rel="noopener">공식 quickstart 문서</a>를 참고하세요.</p>
+
+      <h3>설치 명령</h3>
+      <div class="card"><ul>
+        <li><strong>macOS · Linux · WSL</strong> — <code>curl -fsSL https://claude.ai/install.sh | bash</code></li>
+        <li><strong>Windows PowerShell</strong> — <code>irm https://claude.ai/install.ps1 | iex</code></li>
+        <li><strong>Windows CMD</strong> — <code>curl -fsSL https://claude.ai/install.cmd -o install.cmd &amp;&amp; install.cmd &amp;&amp; del install.cmd</code></li>
+        <li><strong>macOS (Homebrew)</strong> — <code>brew install --cask claude-code</code></li>
+      </ul></div>
+      <p>설치 후 터미널에서 <code>claude</code>를 실행합니다. 처음 실행하면 컬러 테마 선택과 claude.ai 계정 인증을 거칩니다.</p>
+      <div class="tip"><strong>문제 해결</strong> · <code>claude</code>가 인식되지 않거나 네트워크·권한 오류가 나면 문서의 "Troubleshoot installation issues"를 확인하세요. Amazon Bedrock·Google Cloud Vertex AI·Microsoft Foundry를 통해 쓰는 경우 third-party provider setup 안내를 따르세요.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 실습용 예제 프로젝트 세팅</div></div>
+    </section>
+
+    <!-- LESSON: project-setup -->
+    <section class="lesson" id="project-setup">
+      <div class="lesson-head">
+        <div class="lesson-num">05</div>
+        <div class="eyebrow">Setup · 레슨 05</div>
+        <h1 class="lesson-title">프로젝트 세팅</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>Claude Code를 체험하기 좋은 예제 프로젝트를 준비합니다. 이전 영상에 등장한 <strong>UI 생성 앱(uigen)</strong>과 동일한 프로젝트로, 강의를 따라가는 데 사용합니다. 꼭 이 프로젝트를 쓰지 않아도 되며, 자신의 코드베이스로 진행해도 됩니다.</p>
+
+      <h3>세팅 절차</h3>
+      <div class="card"><ul>
+        <li>로컬에 <strong>Node.js</strong>가 설치되어 있는지 확인</li>
+        <li>강의에 첨부된 <code>uigen.zip</code>을 내려받아 압축 해제</li>
+        <li>프로젝트 디렉터리에서 <code>npm run setup</code> — 의존성 설치 + 로컬 SQLite DB 생성</li>
+        <li><code>npm run dev</code>로 프로젝트 시작</li>
+      </ul></div>
+      <div class="tip"><strong>선택</strong> · 이 앱은 Anthropic API로 UI 컴포넌트를 생성합니다. 전체 기능을 테스트하려면 <a href="https://console.anthropic.com/" target="_blank" rel="noopener">Anthropic 콘솔</a>에서 API 키를 받아 <code>.env</code> 파일의 <code>your-api-key-here</code>를 교체하세요. 생략해도 앱은 정적 예시 코드를 생성합니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 코드 작업 — Claude에게 컨텍스트 제공하기</div></div>
+    </section>
+
+    <!-- LESSON: adding-context -->
+    <section class="lesson" id="adding-context">
+      <div class="lesson-head">
+        <div class="lesson-num">06</div>
+        <div class="eyebrow">Working with code · 레슨 06</div>
+        <h1 class="lesson-title">컨텍스트 추가하기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>Claude가 코드베이스를 잘 이해하도록 <strong>필요한 컨텍스트를 제공</strong>하는 방법을 다룹니다. 어떤 파일·정보를 언제 Claude에게 전달할지가 좋은 결과의 출발점입니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Claude로 코드에 실제 변경 적용하기</div></div>
+    </section>
+
+    <!-- LESSON: making-changes -->
+    <section class="lesson" id="making-changes">
+      <div class="lesson-head">
+        <div class="lesson-num">07</div>
+        <div class="eyebrow">Working with code · 레슨 07</div>
+        <h1 class="lesson-title">코드 변경하기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>Claude Code에게 코드 수정을 요청하고 <strong>변경을 적용·검토</strong>하는 과정을 다룹니다. 파일 편집을 승인하고 결과를 확인하는 실전 흐름을 볼 수 있습니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 컨텍스트 윈도우를 효율적으로 관리하기</div></div>
+    </section>
+
+    <!-- LESSON: controlling-context -->
+    <section class="lesson" id="controlling-context">
+      <div class="lesson-head">
+        <div class="lesson-num">08</div>
+        <div class="eyebrow">Working with code · 레슨 08</div>
+        <h1 class="lesson-title">컨텍스트 제어하기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>컨텍스트 윈도우가 유한하다는 점을 전제로, <strong>무엇을 담고 무엇을 비울지</strong> 관리하는 방법을 다룹니다. 컨텍스트를 깨끗하게 유지해 Claude의 작업 품질을 높이는 기법을 살펴봅니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 커스텀 명령(custom commands) 만들기</div></div>
+    </section>
+
+    <!-- LESSON: custom-commands -->
+    <section class="lesson" id="custom-commands">
+      <div class="lesson-head">
+        <div class="lesson-num">09</div>
+        <div class="eyebrow">Working with code · 레슨 09</div>
+        <h1 class="lesson-title">커스텀 명령 (Custom commands)</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>반복하는 작업을 <strong>커스텀 명령(슬래시 커맨드)</strong>으로 만들어 재사용하는 방법을 다룹니다. 자주 쓰는 프롬프트·워크플로우를 명령으로 정의해 일관되게 실행할 수 있습니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · MCP 서버로 외부 도구 연결하기</div></div>
+    </section>
+
+    <!-- LESSON: mcp-servers -->
+    <section class="lesson" id="mcp-servers">
+      <div class="lesson-head">
+        <div class="lesson-num">10</div>
+        <div class="eyebrow">Integrations · 레슨 10</div>
+        <h1 class="lesson-title">MCP 서버 연동</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>MCP(Model Context Protocol) 서버를 Claude Code에 붙여 <strong>외부 도구·데이터 소스</strong>에 연결하는 방법을 다룹니다. 코드베이스 밖에 있는 컨텍스트를 에이전트가 활용할 수 있게 됩니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · GitHub 통합</div></div>
+    </section>
+
+    <!-- LESSON: github-integration -->
+    <section class="lesson" id="github-integration">
+      <div class="lesson-head">
+        <div class="lesson-num">11</div>
+        <div class="eyebrow">Integrations · 레슨 11</div>
+        <h1 class="lesson-title">GitHub 통합</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>Claude Code를 <strong>GitHub와 연동</strong>해 PR·이슈 등 협업 워크플로우에 활용하는 방법을 다룹니다. git 기반 작업을 에이전트와 함께 매끄럽게 이어가는 방식을 살펴봅니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · Hooks 소개 — 결정론적 자동화</div></div>
+    </section>
+
+    <!-- LESSON: introducing-hooks -->
+    <section class="lesson" id="introducing-hooks">
+      <div class="lesson-head">
+        <div class="lesson-num">12</div>
+        <div class="eyebrow">Hooks · 레슨 12</div>
+        <h1 class="lesson-title">Hooks 소개</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>Hooks가 무엇이고 왜 필요한지 소개하는 레슨입니다. Claude Code 생명주기의 특정 지점에서 <strong>항상 실행되는 명령</strong>으로, 프롬프트에 의존하지 않는 결정론적 제어를 제공합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Hooks 정의하기 — 이벤트와 설정</div></div>
+    </section>
+
+    <!-- LESSON: defining-hooks -->
+    <section class="lesson" id="defining-hooks">
+      <div class="lesson-head">
+        <div class="lesson-num">13</div>
+        <div class="eyebrow">Hooks · 레슨 13</div>
+        <h1 class="lesson-title">Hooks 정의하기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>어떤 <strong>이벤트</strong>(예: PreToolUse·PostToolUse)에서, 어떤 도구를 대상으로(matcher), 어떤 명령을 실행할지 <strong>hook을 정의</strong>하는 방법을 다룹니다. 설정 구조를 이해하는 레슨입니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 실제 hook 구현해 보기</div></div>
+    </section>
+
+    <!-- LESSON: implementing-a-hook -->
+    <section class="lesson" id="implementing-a-hook">
+      <div class="lesson-head">
+        <div class="lesson-num">14</div>
+        <div class="eyebrow">Hooks · 레슨 14</div>
+        <h1 class="lesson-title">Hook 구현하기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>앞서 배운 개념을 바탕으로 실제 hook을 <strong>구현·동작 확인</strong>하는 실습 레슨입니다. 설정 파일에 hook을 작성하고 트리거되는 모습을 살펴봅니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Hooks 관련 주의점 — 절대경로와 설정 공유</div></div>
+    </section>
+
+    <!-- LESSON: gotchas-around-hooks -->
+    <section class="lesson" id="gotchas-around-hooks">
+      <div class="lesson-head">
+        <div class="lesson-num">15</div>
+        <div class="eyebrow">Hooks · 레슨 15</div>
+        <h1 class="lesson-title">Hooks 관련 주의점</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+      </div>
+
+      <p><code>npm run setup</code> 후 <code>.claude</code> 디렉터리에 <code>settings.json</code> 파일이 두 개 생기는 이유와, hook 설정을 팀과 공유할 때의 함정을 다룹니다.</p>
+
+      <div class="card"><ul>
+        <li><strong>절대경로 권장</strong> — Claude Code 문서는 보안상 스크립트를 <strong>상대경로 대신 절대경로</strong>로 지정하길 권장합니다(경로 가로채기·바이너리 심기 공격 완화).</li>
+        <li><strong>공유의 어려움</strong> — 하지만 절대경로는 사람마다 프로젝트 위치가 달라 <code>settings.json</code>을 그대로 공유하기 어렵게 만듭니다.</li>
+        <li><strong>해결책 — <code>$PWD</code> 플레이스홀더</strong> — 프로젝트에는 <code>settings.example.json</code>이 있고, 스크립트 참조에 <code>$PWD</code> 플레이스홀더를 씁니다.</li>
+        <li><strong><code>init-claude.js</code></strong> — <code>npm run setup</code>이 실행하는 이 스크립트가 <code>$PWD</code>를 내 머신의 절대경로로 치환하고, <code>settings.example.json</code>을 복사해 <code>settings.local.json</code>으로 만듭니다.</li>
+      </ul></div>
+      <div class="callout">덕분에 <strong>권장 방식(절대경로)</strong>을 지키면서도 <strong>설정 파일을 팀과 공유</strong>할 수 있습니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 실전에서 유용한 hook 모음</div></div>
+    </section>
+
+    <!-- LESSON: useful-hooks -->
+    <section class="lesson" id="useful-hooks">
+      <div class="lesson-head">
+        <div class="lesson-num">16</div>
+        <div class="eyebrow">Hooks · 레슨 16</div>
+        <h1 class="lesson-title">유용한 Hooks</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>실무에서 바로 쓸 만한 <strong>유용한 hook 예시</strong>들을 살펴보는 레슨입니다. 자동 포매팅·로깅·차단 등 대표 패턴을 실전 시연으로 보여줍니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 또 하나의 유용한 hook — 다양한 이벤트와 디버깅</div></div>
+    </section>
+
+    <!-- LESSON: another-useful-hook -->
+    <section class="lesson" id="another-useful-hook">
+      <div class="lesson-head">
+        <div class="lesson-num">17</div>
+        <div class="eyebrow">Hooks · 레슨 17</div>
+        <h1 class="lesson-title">또 하나의 유용한 Hook</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+      </div>
+
+      <p>이 코스에서 다룬 <code>PreToolUse</code>·<code>PostToolUse</code> 외에도 다양한 hook 이벤트가 있으며, 각 이벤트마다 명령에 전달되는 <strong>stdin 입력 구조가 다르다</strong>는 점을 다룹니다.</p>
+
+      <h3>추가 hook 이벤트</h3>
+      <div class="card"><ul>
+        <li><strong>Notification</strong> — Claude가 권한을 요청하거나 60초간 유휴 상태일 때</li>
+        <li><strong>Stop</strong> — Claude가 응답을 마쳤을 때 / <strong>SubagentStop</strong> — 서브에이전트(Task) 완료 시</li>
+        <li><strong>PreCompact</strong> — 수동·자동 compact 직전 / <strong>UserPromptSubmit</strong> — 프롬프트 제출 시</li>
+        <li><strong>SessionStart</strong> · <strong>SessionEnd</strong> — 세션 시작·재개 / 종료 시</li>
+      </ul></div>
+      <p>헷갈리는 부분은 <strong>hook 종류에 따라 stdin 입력 구조가 바뀌고</strong>, PreToolUse·PostToolUse에서는 호출된 도구에 따라 <code>tool_input</code>도 달라진다는 점입니다.</p>
+      <div class="tip"><strong>디버깅 팁</strong> · 어떤 데이터가 들어오는지 모를 때, matcher <code>*</code>에 <code>jq . &gt; post-log.json</code> 명령을 거는 <strong>헬퍼 hook</strong>을 만들면 실제 입력 전체를 파일로 확인할 수 있어, 내 명령이 무엇을 검사해야 할지 파악하기 쉬워집니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · Claude Code SDK</div></div>
+    </section>
+
+    <!-- LESSON: claude-code-sdk -->
+    <section class="lesson" id="claude-code-sdk">
+      <div class="lesson-head">
+        <div class="lesson-num">18</div>
+        <div class="eyebrow">SDK &amp; wrap-up · 레슨 18</div>
+        <h1 class="lesson-title">The Claude Code SDK</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>Claude Code의 기능을 <strong>프로그래밍 방식으로 활용</strong>할 수 있게 해주는 SDK를 소개합니다. 에이전트 기능을 자신의 애플리케이션·워크플로우에 통합하는 방법의 출발점입니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 정리 및 다음 단계</div></div>
+    </section>
+
+    <!-- LESSON: summary-and-next-steps -->
+    <section class="lesson" id="summary-and-next-steps">
+      <div class="lesson-head">
+        <div class="lesson-num">19</div>
+        <div class="eyebrow">SDK &amp; wrap-up · 레슨 19</div>
+        <h1 class="lesson-title">정리 및 다음 단계</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>코스에서 다룬 내용을 정리하고 앞으로의 학습 방향을 제시하는 마무리 레슨입니다. 설치부터 코드 작업, MCP·GitHub 통합, Hooks, SDK까지 배운 것을 실전에 적용해 볼 차례입니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>완주</b> · Claude Code in Action의 레슨들을 모두 개관했습니다. 세부 실습은 원문 영상을 참고하세요.</div></div>
+    </section>
+
+   </div>
+  </main>
+</div>
+</div>
+
+<script>
+  const curriculum = [
+    { n:"01", section:"Intro", lessons:[
+      { id:"introduction", title:"Introduction", done:true },
+      { id:"what-is-a-coding-assistant", title:"코딩 어시스턴트란?", done:true },
+      { id:"claude-code-in-action", title:"Claude Code in action", done:true },
+    ]},
+    { n:"02", section:"Setup", lessons:[
+      { id:"claude-code-setup", title:"Claude Code 설치", done:true },
+      { id:"project-setup", title:"프로젝트 세팅", done:true },
+    ]},
+    { n:"03", section:"Working with code", lessons:[
+      { id:"adding-context", title:"컨텍스트 추가하기", done:true },
+      { id:"making-changes", title:"코드 변경하기", done:true },
+      { id:"controlling-context", title:"컨텍스트 제어하기", done:true },
+      { id:"custom-commands", title:"커스텀 명령", done:true },
+    ]},
+    { n:"04", section:"Integrations", lessons:[
+      { id:"mcp-servers", title:"MCP 서버 연동", done:true },
+      { id:"github-integration", title:"GitHub 통합", done:true },
+    ]},
+    { n:"05", section:"Hooks", lessons:[
+      { id:"introducing-hooks", title:"Hooks 소개", done:true },
+      { id:"defining-hooks", title:"Hooks 정의하기", done:true },
+      { id:"implementing-a-hook", title:"Hook 구현하기", done:true },
+      { id:"gotchas-around-hooks", title:"Hooks 주의점", done:true },
+      { id:"useful-hooks", title:"유용한 Hooks", done:true },
+      { id:"another-useful-hook", title:"또 하나의 Hook", done:true },
+    ]},
+    { n:"06", section:"SDK & wrap-up", lessons:[
+      { id:"claude-code-sdk", title:"Claude Code SDK", done:true },
+      { id:"summary-and-next-steps", title:"정리 및 다음 단계", done:true },
+    ]},
+  ];
+</script>
+{% include course-nav.html %}

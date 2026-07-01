@@ -1,0 +1,398 @@
+---
+layout: default
+title: "AI Fluency: Framework & Foundations"
+date: 2026-07-01
+categories: [강의 정리]
+tags: [AI Fluency, Anthropic, AI]
+permalink: /courses/anthropic/ai-fluency-framework-foundations.html
+description: "Anthropic 공식 영어 강의 AI Fluency: Framework & Foundations를 한글로 정리한 학습 노트 — 4D 프레임워크(Delegation·Description·Discernment·Diligence)."
+---
+{% include course-styles.html %}
+
+<div class="course-page">
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <a class="backlink" href="/courses/anthropic/">← Anthropic Courses</a>
+      <p class="kicker">Anthropic Academy</p>
+      <h1>AI <em>Fluency</em></h1>
+      <p class="sub">Anthropic Academy 공식 영어 강의를 한글로 정리한 학습 노트</p>
+      <a class="srcnote" href="https://anthropic.skilljar.com/ai-fluency-framework-foundations" target="_blank" rel="noopener">원문 강의 (영어) ↗</a>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-text"><span id="progressPos">레슨 01 / 12</span><span id="progressPct">전체 정리 완료</span></div>
+      </div>
+    </div>
+    <nav class="spine" id="nav"></nav>
+  </aside>
+
+  <main class="content">
+   <div class="reading" id="reading">
+
+    <!-- L1 -->
+    <section class="lesson active" id="intro-ai-fluency">
+      <div class="lesson-head">
+        <div class="lesson-num">01</div>
+        <div class="eyebrow">Framework · 레슨 01</div>
+        <h1 class="lesson-title">AI Fluency 소개</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=JpGtOfSgR-c" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>이 강의의 초점은 <strong>AI 기술 자체를 배우는 것이 아니라, AI와 의미 있게 협업하는 법</strong>을 익히는 데 있습니다. 잠깐 쓰이는 팁·트릭이 아니라, AI 시스템과 일하는 <strong>지속 가능한 프레임워크</strong>를 만드는 것이 목표입니다.</p>
+
+      <div class="callout"><strong>AI Fluency란</strong> — AI와 <strong>효과적(effective)·효율적(efficient)·윤리적(ethical)·안전한(safe)</strong> 방식으로 협업하는 능력.</div>
+
+      <h3>4D 프레임워크</h3>
+      <p>AI Fluency 프레임워크의 핵심은 네 가지 역량, 즉 <strong>4D</strong>입니다.</p>
+      <div class="card"><ul>
+        <li><strong>Delegation(위임)</strong> — AI와 함께 할 일 vs. 직접 할 일을 결정</li>
+        <li><strong>Description(기술)</strong> — AI 시스템과 명확히 소통</li>
+        <li><strong>Discernment(분별)</strong> — AI 출력·행동을 비판적으로 평가</li>
+        <li><strong>Diligence(성실)</strong> — 책임 있게 AI와 상호작용</li>
+      </ul></div>
+
+      <h3>이 강의로 얻는 것</h3>
+      <ul>
+        <li>사려 깊은 AI 상호작용을 위한 프레임워크</li>
+        <li>언제·어떻게 AI와 일할지 선택하는 자신감</li>
+        <li>실전 협업 기술</li>
+        <li>AI 보조 결과물을 책임 있게 평가·공유하는 능력</li>
+      </ul>
+      <p>기술이 진화해도 유효한 <strong>지속적 역량</strong>을 기르는 것이 핵심이며, 이는 실전 기술뿐 아니라 <strong>AI와 일하는 방식에 대한 근본적 사고 전환</strong>을 요구합니다.</p>
+
+      <div class="tip">강의 내내 언어 모델과 직접 실습합니다. 예시는 Claude(claude.ai 무료 계정)를 쓰지만, 다른 AI로도 무방합니다 — 원칙과 기술은 시스템을 가리지 않습니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 왜 AI Fluency가 필요한가 — 협업의 세 가지 방식</div></div>
+    </section>
+
+    <!-- L2 -->
+    <section class="lesson" id="why-ai-fluency">
+      <div class="lesson-head">
+        <div class="lesson-num">02</div>
+        <div class="eyebrow">Framework · 레슨 02</div>
+        <h1 class="lesson-title">왜 AI Fluency가 필요한가?</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=4szRHy_CT7s" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>AI에 "능숙하다(fluent)"는 것은 단순한 조작을 넘어, AI와 <strong>효과적·효율적·윤리적·안전하게</strong> 상호작용하도록 돕는 <strong>실전 기술·지식·통찰·가치관</strong>을 기르는 것입니다.</p>
+
+      <h3>AI와 협업하는 세 가지 방식</h3>
+      <table>
+        <colgroup><col style="width:24%"><col></colgroup>
+        <tr><th>방식</th><th>설명</th></tr>
+        <tr><td><strong>Automation<br>(자동화)</strong></td><td>내 지시에 따라 AI가 <strong>특정 작업을 완수</strong>.</td></tr>
+        <tr><td><strong>Augmentation<br>(증강)</strong></td><td>나와 AI가 <strong>창의적 사고·작업 실행 파트너</strong>로 협업.</td></tr>
+        <tr><td><strong>Agency<br>(대리)</strong></td><td>특정 작업을 주는 대신, AI의 <strong>지식·행동 패턴을 설정</strong>해 내 대신 독립적으로 일하게 함.</td></tr>
+      </table>
+
+      <div class="callout">세 방식은 상반된 것이 아니라 <strong>협업의 스펙트럼</strong>입니다. 4D 역량은 이 세 방식 모두에 걸쳐 적용됩니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 4D 프레임워크를 하나씩 뜯어보기</div></div>
+    </section>
+
+    <!-- L3 -->
+    <section class="lesson" id="the-4d-framework">
+      <div class="lesson-head">
+        <div class="lesson-num">03</div>
+        <div class="eyebrow">Framework · 레슨 03</div>
+        <h1 class="lesson-title">4D 프레임워크</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=W4Ua6XFfX9w" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>AI Fluency의 네 핵심 역량 <strong>4D</strong>를 종합합니다. 이 역량들은 앞의 세 협업 방식(Automation·Augmentation·Agency) <strong>전반에 걸쳐 함께 작동</strong>합니다.</p>
+      <table>
+        <colgroup><col style="width:24%"><col></colgroup>
+        <tr><th>역량</th><th>핵심 질문</th></tr>
+        <tr><td><strong>Delegation</strong></td><td>무엇을 AI와 하고 무엇을 직접 할 것인가?</td></tr>
+        <tr><td><strong>Description</strong></td><td>AI에게 어떻게 명확히 전달할 것인가?</td></tr>
+        <tr><td><strong>Discernment</strong></td><td>AI 출력을 어떻게 비판적으로 평가할 것인가?</td></tr>
+        <tr><td><strong>Diligence</strong></td><td>어떻게 책임 있게 협업할 것인가?</td></tr>
+      </table>
+      <div class="callout">이 네 역량을 기르면 <strong>진화하는 AI 역량에 대비</strong>할 수 있습니다 — 도구는 바뀌어도 협업의 원칙은 남습니다.</div>
+
+      <div class="example"><strong>연습: 4D 적용하기</strong> — 마케팅 이메일 초안, 데이터 분석 논문, 스토리 캐릭터 구상 같은 시나리오를 하나 골라, 각 D를 대입해 봅니다. 예) Delegation(무엇을 직접/AI와?), Description(톤·목적·성공 기준 전달), Discernment(결과 평가 기준), Diligence(투명성·책임).</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · Generative AI의 작동 원리 — Delegation을 위한 기술적 토대</div></div>
+    </section>
+
+    <!-- L4 -->
+    <section class="lesson" id="generative-ai-fundamentals">
+      <div class="lesson-head">
+        <div class="lesson-num">04</div>
+        <div class="eyebrow">Generative AI · 레슨 04</div>
+        <h1 class="lesson-title">Generative AI 기초</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=RyvXxApfHkk" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p><strong>Generative AI</strong>는 기존 데이터를 분석만 하는 것이 아니라 <strong>새로운 콘텐츠(텍스트·이미지·코드)를 생성</strong>합니다. Claude 같은 <strong>대규모 언어 모델(LLM)</strong>이 대표적입니다.</p>
+
+      <h3>LLM을 가능케 한 세 가지</h3>
+      <div class="card"><ul>
+        <li><strong>알고리즘·아키텍처 돌파구</strong> — 특히 <strong>트랜스포머(transformer) 아키텍처</strong></li>
+        <li>방대한 <strong>디지털 학습 데이터</strong></li>
+        <li>극적으로 향상된 <strong>연산 능력</strong></li>
+      </ul></div>
+
+      <h3>학습의 두 단계</h3>
+      <table>
+        <colgroup><col style="width:26%"><col></colgroup>
+        <tr><th>단계</th><th>설명</th></tr>
+        <tr><td><strong>Pre-training</strong></td><td>수십억 개 예시에서 <strong>패턴을 분석</strong>하며 학습.</td></tr>
+        <tr><td><strong>Fine-tuning</strong></td><td>지시를 따르고 <strong>도움이 되는 응답</strong>을 하도록 학습.</td></tr>
+      </table>
+      <p>이 과정에서 <strong>컨텍스트 윈도우(context window)</strong>, <strong>창발적 역량(emergent capabilities)</strong> 같은 개념이 등장합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Generative AI가 할 수 있는 것과 없는 것</div></div>
+    </section>
+
+    <!-- L5 -->
+    <section class="lesson" id="capabilities-limitations">
+      <div class="lesson-head">
+        <div class="lesson-num">05</div>
+        <div class="eyebrow">Generative AI · 레슨 05</div>
+        <h1 class="lesson-title">역량과 한계</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=W5cga7xipRI" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>현재 시점의 Generative AI가 <strong>잘하는 것과 못하는 것</strong>을 짚습니다.</p>
+      <table>
+        <colgroup><col style="width:50%"><col></colgroup>
+        <tr><th>역량(Capabilities)</th><th>한계(Limitations)</th></tr>
+        <tr><td>다양한 언어 작업에서의 <strong>범용성</strong></td><td>지식 <strong>컷오프 날짜(knowledge cutoff)</strong></td></tr>
+        <tr><td><strong>대화 흐름</strong> 유지·맥락 인식</td><td><strong>환각(hallucination)</strong> — 사실과 다른 출력</td></tr>
+        <tr><td>추가 학습 없이 <strong>다양한 작업 전환</strong></td><td><strong>컨텍스트 윈도우</strong> 제약</td></tr>
+        <tr><td>외부 <strong>도구 연결</strong> 가능</td><td>복잡한 <strong>추론(reasoning)</strong>의 어려움</td></tr>
+      </table>
+
+      <div class="callout">가장 효과적인 활용은 <strong>인간과 AI의 강점을 결합</strong>하는 것 — 인간은 <strong>비판적 사고·판단·창의성·윤리적 감독</strong>을 제공합니다.</div>
+
+      <div class="tip">기술적 토대(학습 데이터, pre-training/fine-tuning)를 이해하면 이 시스템과 일하는 방식과 <strong>윤리적 고려</strong>를 다시 생각하게 됩니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 첫 번째 역량 Delegation 자세히 보기</div></div>
+    </section>
+
+    <!-- L6 -->
+    <section class="lesson" id="closer-look-delegation">
+      <div class="lesson-head">
+        <div class="lesson-num">06</div>
+        <div class="eyebrow">Delegation · 레슨 06</div>
+        <h1 class="lesson-title">Delegation 자세히 보기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=EljzyfdYkrc" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p><strong>Delegation(위임)</strong>은 무엇을 직접 하고, 무엇을 AI와 협업하고, 무엇을 AI에 맡길지 — 그리고 그 일을 <strong>어떻게 분배할지</strong>를 결정하는 역량입니다.</p>
+
+      <h3>세 가지 구성요소</h3>
+      <table>
+        <colgroup><col style="width:28%"><col></colgroup>
+        <tr><th>구성요소</th><th>설명</th></tr>
+        <tr><td><strong>Problem Awareness</strong><br>(문제 인식)</td><td>AI를 끌어들이기 전에 <strong>목표와 일의 성격</strong>을 명확히 이해.</td></tr>
+        <tr><td><strong>Platform Awareness</strong><br>(플랫폼 인식)</td><td>다양한 AI 시스템의 <strong>역량과 한계</strong>를 파악.</td></tr>
+        <tr><td><strong>Task Delegation</strong><br>(작업 위임)</td><td>각자의 강점을 살려 <strong>사람과 AI 사이에 일을 분배</strong>.</td></tr>
+      </table>
+
+      <div class="callout">효과적인 Delegation은 <strong>내 분야의 전문성 + AI 역량에 대한 이해</strong>를 모두 요구합니다. 목표는 모든 것을 자동화하는 게 아니라, 주어진 과제에 <strong>가장 효과적인 인간-AI 파트너십</strong>을 만드는 것.</div>
+
+      <div class="example"><strong>연습</strong> — 이메일 초안, 발표 개요 같은 작은 작업을 골라 Claude와 대화하며 <strong>위임 계획</strong>을 세웁니다. "좋은 결과란?", "필요한 작업 조각은?", "어떤 부분이 인간의 전문성·판단을 요하는가?"를 <strong>일방적 나열이 아니라 진짜 대화</strong>로 탐색.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Delegation을 실전 프로젝트에 적용하기</div></div>
+    </section>
+
+    <!-- L7 -->
+    <section class="lesson" id="project-planning-delegation">
+      <div class="lesson-head">
+        <div class="lesson-num">07</div>
+        <div class="eyebrow">Delegation · 레슨 07</div>
+        <h1 class="lesson-title">프로젝트 기획과 Delegation</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>이제 Delegation을 <strong>강의 내내 이어갈 실전 프로젝트</strong>에 적용합니다. 프로젝트는 <strong>여러 유형의 작업을 포함할 만큼 충분하되, 약 1시간 안에 끝낼 만큼 관리 가능</strong>하고, 스스로 흥미를 느끼는 것이어야 합니다. (커뮤니케이션·리서치·창작·학습 프로젝트 예시 제공)</p>
+
+      <h3>진행 단계</h3>
+      <ol>
+        <li><strong>프로젝트 선택</strong> — 다단계·중간 규모의 과제 고르기.</li>
+        <li><strong>비전·목표</strong> — Claude와 대화하며 "성공의 모습", "이 프로젝트가 특별히 가치 있는 이유"를 명확화. Claude가 질문하게 유도.</li>
+        <li><strong>작업 분해 + 위임 분석</strong> — 주요 작업을 나열하고, 각각에 대해 필요한 <strong>기술·지식·AI 역량</strong>, <strong>인간 고유 강점</strong>이 필요한 부분, <strong>협업이 가장 임팩트 있는 지점</strong>을 하나씩 논의.</li>
+      </ol>
+      <div class="tip">완성한 <strong>프로젝트 계획을 저장</strong>하세요 — 이후 Description·Discernment·Diligence 연습에서 이 프로젝트로 되돌아옵니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 두 번째 역량 Description</div></div>
+    </section>
+
+    <!-- L8 -->
+    <section class="lesson" id="closer-look-description">
+      <div class="lesson-head">
+        <div class="lesson-num">08</div>
+        <div class="eyebrow">Description · 레슨 08</div>
+        <h1 class="lesson-title">Description 자세히 보기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=DmgujoZ1mmk" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p><strong>Description(기술)</strong>은 AI와 효과적으로 소통하는 기술입니다. 단순히 프롬프트를 작성하는 것을 넘어, <strong>둘이 함께 잘 일할 수 있는 협업 환경</strong>을 만드는 것입니다.</p>
+
+      <h3>세 가지 구성요소</h3>
+      <table>
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tr><th>구성요소</th><th>설명</th></tr>
+        <tr><td><strong>Product Description</strong></td><td>무엇을 만들지 — <strong>출력·형식·대상·스타일</strong>을 명확히 정의.</td></tr>
+        <tr><td><strong>Process Description</strong></td><td>AI가 <strong>어떻게 접근할지</strong> 안내 (때로 목표만큼 중요).</td></tr>
+        <tr><td><strong>Performance Description</strong></td><td>AI가 <strong>어떻게 행동할지</strong> — 간결/상세, 도전적/지지적 등.</td></tr>
+      </table>
+
+      <div class="callout">AI는 <strong>내 마음을 읽지 못합니다.</strong> 결과의 질은 필요·접근 방식·상호작용 스타일을 <strong>얼마나 명확히 표현하느냐</strong>에 달려 있습니다. AI는 데이터베이스나 자판기가 아니라 <strong>상호작용하는 파트너</strong>입니다.</div>
+
+      <div class="example"><strong>연습: Bad Prompt Makeover</strong> — Claude에게 형편없는 프롬프트를 만들어 달라고 한 뒤, Product·Process·Performance 관점으로 개선합니다. 역할을 바꿔 내가 나쁜 프롬프트를 주고 Claude가 어떤 정보를 보강하는지 관찰.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 효과적인 프롬프트 기법 6가지</div></div>
+    </section>
+
+    <!-- L9 -->
+    <section class="lesson" id="effective-prompting">
+      <div class="lesson-head">
+        <div class="lesson-num">09</div>
+        <div class="eyebrow">Description · 레슨 09</div>
+        <h1 class="lesson-title">효과적인 프롬프트 기법</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=2YCaBqP8muw" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p><strong>프롬프트 엔지니어링</strong>은 AI 시스템을 위한 효과적 지시를 설계하는 실천으로, <strong>인간 소통 원칙 + AI 특유의 고려사항</strong>을 결합합니다.</p>
+
+      <h3>여섯 가지 기초 기법</h3>
+      <div class="card"><ul>
+        <li><strong>맥락 주기</strong> — 무엇을·왜 원하는지, 관련 배경을 구체적으로.</li>
+        <li><strong>예시 보여주기</strong> — 원하는 출력 스타일·형식을 시연.</li>
+        <li><strong>제약 명시</strong> — 형식·길이 등 출력 요건을 명확히.</li>
+        <li><strong>복잡한 작업을 단계로 쪼개기</strong> — 다단계 추론을 안내.</li>
+        <li><strong>먼저 생각하게 하기</strong> — AI가 과정을 정리할 여지를 제공.</li>
+        <li><strong>역할·톤 정의</strong> — 어떻게 소통할지 지정.</li>
+      </ul></div>
+
+      <div class="callout"><strong>비밀 무기</strong>: <strong>AI 자신에게 내 프롬프트를 개선해 달라고</strong> 요청하기. 성공적 프롬프팅은 <strong>반복적(iterative)이며 AI와의 협업적</strong> 과정입니다 — 결과를 보며 계속 다듬으세요.</div>
+
+      <p>이 기법들은 프레임워크의 <strong>Description 역량</strong>과 직접 연결됩니다 — 명확한 작업 개요, 형식 지정, 명시적 제약, 관련 배경 제공이 성공 패턴입니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 세 번째 역량 Discernment</div></div>
+    </section>
+
+    <!-- L10 -->
+    <section class="lesson" id="closer-look-discernment">
+      <div class="lesson-head">
+        <div class="lesson-num">10</div>
+        <div class="eyebrow">Discernment · 레슨 10</div>
+        <h1 class="lesson-title">Discernment 자세히 보기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=Y0KidGr9Z2Y" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p><strong>Discernment(분별)</strong>는 AI의 <strong>출력·과정·행동을 사려 깊게 평가</strong>하는 역량입니다. Description의 <strong>반대편(flip side)</strong> — Description이 의도를 명확히 전달한다면, Discernment는 받은 것이 필요를 충족하는지 판단합니다.</p>
+
+      <h3>세 가지 유형</h3>
+      <table>
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tr><th>유형</th><th>평가 대상</th></tr>
+        <tr><td><strong>Product Discernment</strong></td><td>출력의 <strong>품질</strong> — 정확성·적절성·일관성·관련성.</td></tr>
+        <tr><td><strong>Process Discernment</strong></td><td>AI가 <strong>어떻게 도달했는지</strong> — 논리 오류·주의 누락·부적절한 추론.</td></tr>
+        <tr><td><strong>Performance Discernment</strong></td><td>협업 중 AI의 <strong>행동·소통 스타일</strong>이 내 필요에 효과적인가.</td></tr>
+      </table>
+
+      <div class="callout">Discernment는 Description과 <strong>연속적인 피드백 루프</strong>로 맞물려 작동합니다. 가장 앞선 AI도 <strong>인간의 판단과 감독</strong>에서 이득을 얻습니다.</div>
+
+      <div class="example"><strong>연습: Expert Discernment</strong> — 내가 잘 아는 주제에 대해 Claude에게 <strong>세 가지 설명</strong>을 요청하고, 전문성을 바탕으로 Product·Process·Performance 관점에서 각각을 평가합니다. 가장 강한/약한 설명을 짚고 피드백해 개선판을 만듭니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Description-Discernment 루프를 프로젝트에 적용</div></div>
+    </section>
+
+    <!-- L11 -->
+    <section class="lesson" id="description-discernment-loop">
+      <div class="lesson-head">
+        <div class="lesson-num">11</div>
+        <div class="eyebrow">Discernment · 레슨 11</div>
+        <h1 class="lesson-title">Description-Discernment 루프</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>레슨 07에서 기획한 프로젝트를, 지금까지 기른 <strong>Description·Discernment 기술로 실제 실행</strong>합니다. 목표는 <strong>어느 한쪽 혼자보다 나은 결과</strong>를 인간-AI 협업으로 만들어내는 것.</p>
+
+      <h3>각 작업마다 도는 루프</h3>
+      <ol>
+        <li><strong>Describe</strong> — 원하는 것(Product)·접근법(Process)·상호작용 방식(Performance)을 명확히 전달.</li>
+        <li><strong>Discern</strong> — 받은 출력·과정·행동을 세 관점으로 평가.</li>
+        <li><strong>Refine</strong> — 무엇이 되고 안 됐는지 피드백하고, 만족할 때까지 반복 요청.</li>
+        <li><strong>Integrate</strong> — 내 전문성·창의성·판단을 더하고, 무엇을 남길지 <strong>최종 결정과 책임</strong>을 진다.</li>
+      </ol>
+
+      <div class="callout">이 <strong>Description-Discernment 루프</strong>를 프로젝트의 각 작업마다 완성될 때까지 반복합니다. 어떤 종류의 기술(description)이 최고의 결과를 낳는지 패턴을 관찰하세요.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 마지막 역량 Diligence — 윤리와 책임</div></div>
+    </section>
+
+    <!-- L12 -->
+    <section class="lesson" id="closer-look-diligence">
+      <div class="lesson-head">
+        <div class="lesson-num">12</div>
+        <div class="eyebrow">Diligence & Conclusion · 레슨 12</div>
+        <h1 class="lesson-title">Diligence 자세히 보기 & 마무리</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=QbLf2zb3oPc" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p><strong>Diligence(성실)</strong>는 <strong>책임 있고 윤리적인 AI 협업</strong>에 초점을 둡니다. 다른 세 역량이 주로 효과·효율을 다룬다면, Diligence는 그만큼 중요한 <strong>윤리·안전</strong>을 다룹니다 — 곧, AI 협업에 대한 <strong>책임을 지는 것</strong>.</p>
+
+      <h3>세 가지 구성요소</h3>
+      <table>
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tr><th>구성요소</th><th>설명</th></tr>
+        <tr><td><strong>Creation Diligence</strong></td><td>어떤 AI를 쓰고 어떻게 상호작용할지 <strong>신중히 선택</strong> (프라이버시·보안·윤리 고려).</td></tr>
+        <tr><td><strong>Transparency Diligence</strong></td><td>알아야 할 사람에게 <strong>AI의 역할을 정직하게 공개</strong>.</td></tr>
+        <tr><td><strong>Deployment Diligence</strong></td><td>공유하는 결과물을 <strong>검증하고 책임지기(vouch for)</strong>.</td></tr>
+      </table>
+      <p>맥락(개인·학술·직업)마다 공개·검증에 대한 기대가 다르며, 우리는 그 기대를 <strong>이해하고 충족할 책임</strong>이 있습니다.</p>
+
+      <div class="example"><strong>연습: Diligence Statement 작성</strong> — 어떤 AI를 왜 썼고, AI가 어떻게 기여했으며, 어떤 검토를 거쳤고, 최종 결과에 <strong>책임을 진다는 선언</strong>을 담은 투명성 명시문을 Claude와 함께 작성해 프로젝트에 첨부합니다.</div>
+
+      <h3>마무리 — 프레임워크를 하나로</h3>
+      <p>4D는 세 협업 방식(Automation·Augmentation·Agency) <strong>모두에 적용</strong>되며, 유창함은 하룻밤이 아니라 <strong>연습을 통해</strong> 자랍니다.</p>
+      <div class="card"><ul>
+        <li><strong>Delegation</strong> — 우리의 전문성·판단이 협업의 <strong>토대</strong>임을 강조.</li>
+        <li><strong>Description</strong> — 의도와 AI 역량을 잇는 <strong>명확한 소통</strong>.</li>
+        <li><strong>Discernment</strong> — 출력을 비판적으로 평가.</li>
+        <li><strong>Diligence</strong> — 책임·투명성·설명 가능성 확보.</li>
+      </ul></div>
+      <div class="callout">AI는 강력하지만 <strong>마법 같은 만능 해결책이 아닙니다</strong> — 우리의 사려 깊은 참여만큼만 유용하고 안전합니다. AI를 단순한 도구가 아니라 <strong>사고의 파트너</strong>로 대하고, 효과·효율·윤리·안전에 대한 헌신을 유지하세요. 프레임워크는 AI가 진화해도 <strong>유효하도록</strong> 설계되었습니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>완주</b> · AI Fluency: Framework & Foundations의 12개 레슨을 모두 정리했습니다. 4D(Delegation·Description·Discernment·Diligence)를 실제 상호작용마다 연습하며 자신만의 AI 협업 원칙을 다져 나갈 차례입니다.</div></div>
+    </section>
+
+   </div>
+  </main>
+</div>
+</div>
+
+<script>
+  const curriculum = [
+    { n:"01", section:"Framework", lessons:[
+      { id:"intro-ai-fluency", title:"AI Fluency 소개", done:true },
+      { id:"why-ai-fluency", title:"왜 AI Fluency가 필요한가?", done:true },
+      { id:"the-4d-framework", title:"4D 프레임워크", done:true },
+    ]},
+    { n:"02", section:"Generative AI", lessons:[
+      { id:"generative-ai-fundamentals", title:"Generative AI 기초", done:true },
+      { id:"capabilities-limitations", title:"역량과 한계", done:true },
+    ]},
+    { n:"03", section:"Delegation", lessons:[
+      { id:"closer-look-delegation", title:"Delegation 자세히 보기", done:true },
+      { id:"project-planning-delegation", title:"프로젝트 기획과 Delegation", done:true },
+    ]},
+    { n:"04", section:"Description", lessons:[
+      { id:"closer-look-description", title:"Description 자세히 보기", done:true },
+      { id:"effective-prompting", title:"효과적인 프롬프트 기법", done:true },
+    ]},
+    { n:"05", section:"Discernment", lessons:[
+      { id:"closer-look-discernment", title:"Discernment 자세히 보기", done:true },
+      { id:"description-discernment-loop", title:"Description-Discernment 루프", done:true },
+    ]},
+    { n:"06", section:"Diligence & Conclusion", lessons:[
+      { id:"closer-look-diligence", title:"Diligence & 마무리", done:true },
+    ]},
+  ];
+</script>
+{% include course-nav.html %}

@@ -29,16 +29,19 @@
       desc: "위임형 에이전트 Cowork — 프로젝트·스킬·플러그인, Chrome·M365, 안전하게 쓰기."
     - title: "Claude Code in Action"
       slug: claude-code-in-action
-      done: false
-      desc: "Claude Code를 실제 개발 워크플로우에 통합하기."
+      file: /courses/anthropic/claude-code-in-action.html
+      done: true
+      desc: "Claude Code를 실제 개발 워크플로우에 통합하기 (영상 강의 — 개요 + 레슨별 영상 링크)."
     - title: "AI Fluency: Framework & Foundations"
       slug: ai-fluency-framework-foundations
-      done: false
-      desc: "AI 시스템과 효과적·효율적·윤리적·안전하게 협업하는 법."
+      file: /courses/anthropic/ai-fluency-framework-foundations.html
+      done: true
+      desc: "AI와 효과적·효율적·윤리적·안전하게 협업하는 법 — 4D 프레임워크(위임·기술·분별·성실)."
     - title: "Building with the Claude API"
       slug: claude-with-the-anthropic-api
-      done: false
-      desc: "Claude API로 Anthropic 모델을 다루는 전 범위를 아우르는 코스."
+      file: /courses/anthropic/claude-with-the-anthropic-api.html
+      done: true
+      desc: "Claude API 전 범위 (영상 강의 — 모듈별 개요 + 레슨별 영상 링크): 프롬프트·도구·RAG·MCP·에이전트."
     - title: "Introduction to Model Context Protocol"
       slug: introduction-to-model-context-protocol
       done: false
