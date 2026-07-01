@@ -44,16 +44,19 @@
       desc: "Claude API 전 범위 (영상 강의 — 모듈별 개요 + 레슨별 영상 링크): 프롬프트·도구·RAG·MCP·에이전트."
     - title: "Introduction to Model Context Protocol"
       slug: introduction-to-model-context-protocol
-      done: false
-      desc: "Python으로 MCP 서버와 클라이언트를 처음부터 만들기."
+      file: /courses/anthropic/introduction-to-model-context-protocol.html
+      done: true
+      desc: "Python으로 MCP 서버·클라이언트를 처음부터 만들기 (영상 강의 — 개요 + 레슨별 영상 링크)."
     - title: "AI Fluency for educators"
       slug: ai-fluency-for-educators
-      done: false
-      desc: "교수·교육 설계자·교육 리더가 자신의 수업에 AI Fluency를 적용하기."
+      file: /courses/anthropic/ai-fluency-for-educators.html
+      done: true
+      desc: "교수·교육 설계자가 4D 프레임워크를 수업 설계·학습 자료·과제에 적용."
     - title: "AI Fluency for students"
       slug: ai-fluency-for-students
-      done: false
-      desc: "학습·진로 설계·학업 성공을 돕는 AI Fluency 역량을 학생이 기르기."
+      file: /courses/anthropic/ai-fluency-for-students.html
+      done: true
+      desc: "학생이 4D 프레임워크로 AI를 학습 파트너·진로 설계에 활용하고 human-in-the-loop 실천."
     - title: "Model Context Protocol: Advanced Topics"
       slug: model-context-protocol-advanced-topics
       done: false

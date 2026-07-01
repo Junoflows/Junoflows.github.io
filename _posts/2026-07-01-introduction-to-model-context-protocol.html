@@ -1,0 +1,231 @@
+---
+layout: default
+title: "Introduction to Model Context Protocol"
+date: 2026-07-01
+categories: [강의 정리]
+tags: [MCP, Anthropic, AI, 개발]
+permalink: /courses/anthropic/introduction-to-model-context-protocol.html
+description: "Anthropic 공식 영어 강의 Introduction to Model Context Protocol의 한글 개요 — MCP 서버·클라이언트·도구·리소스·프롬프트를 다루는 영상 강의의 레슨별 개요와 원문 영상 링크."
+---
+{% include course-styles.html %}
+
+<div class="course-page">
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <a class="backlink" href="/courses/anthropic/">← Anthropic Courses</a>
+      <p class="kicker">Anthropic Academy</p>
+      <h1>Model Context <em>Protocol</em></h1>
+      <p class="sub">Anthropic Academy 공식 영상 강의의 한글 개요 노트</p>
+      <a class="srcnote" href="https://anthropic.skilljar.com/introduction-to-model-context-protocol" target="_blank" rel="noopener">원문 강의 (영어) ↗</a>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-text"><span id="progressPos">레슨 01 / 12</span><span id="progressPct">영상 강의 개요</span></div>
+      </div>
+    </div>
+    <nav class="spine" id="nav"></nav>
+  </aside>
+
+  <main class="content">
+   <div class="reading" id="reading">
+
+    <!-- LESSON: welcome -->
+    <section class="lesson active" id="welcome">
+      <div class="lesson-head">
+        <div class="lesson-num">01</div>
+        <div class="eyebrow">소개 · 레슨 01</div>
+        <h1 class="lesson-title">코스 소개</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <div class="callout">이 강의는 <strong>영상 중심 강의</strong>입니다. 레슨 대부분이 별도 아티클 본문 없이 영상으로 진행되므로, 이 페이지는 각 레슨의 <strong>핵심 주제 개요 + 원문 영상 링크</strong>로 정리했습니다. 자세한 실습·화면 시연은 <strong>원문 영상</strong>을 직접 참고하세요.</div>
+
+      <p>이 코스가 무엇을 다루는지, 어떻게 진행되는지 소개하는 오리엔테이션 레슨입니다. MCP(Model Context Protocol)의 개념부터 서버·클라이언트를 직접 구축하고 도구·리소스·프롬프트를 다루는 전체 여정을 개관합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · MCP란 무엇인가 — 개념 소개</div></div>
+    </section>
+
+    <!-- LESSON: introducing-mcp -->
+    <section class="lesson" id="introducing-mcp">
+      <div class="lesson-head">
+        <div class="lesson-num">02</div>
+        <div class="eyebrow">소개 · 레슨 02</div>
+        <h1 class="lesson-title">MCP 소개</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>MCP(Model Context Protocol)가 무엇이고 왜 필요한지 개념을 잡는 레슨입니다. Claude 같은 AI 모델을 외부 도구·데이터 소스에 표준화된 방식으로 연결해 주는 개방형 프로토콜로서, 통합을 매번 새로 만들 필요 없이 재사용 가능한 인터페이스를 제공한다는 점을 살펴봅니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · MCP 클라이언트의 역할</div></div>
+    </section>
+
+    <!-- LESSON: mcp-clients -->
+    <section class="lesson" id="mcp-clients">
+      <div class="lesson-head">
+        <div class="lesson-num">03</div>
+        <div class="eyebrow">소개 · 레슨 03</div>
+        <h1 class="lesson-title">MCP 클라이언트</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>MCP 아키텍처에서 <strong>클라이언트</strong>가 어떤 역할을 하는지 다룹니다. 클라이언트는 AI 애플리케이션 쪽에서 MCP 서버와 연결을 맺고, 서버가 노출하는 도구·리소스·프롬프트를 발견해 모델이 활용할 수 있게 중개합니다. 서버와 클라이언트가 어떻게 짝을 이루는지 큰 그림을 잡습니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · MCP 서버 구축 — 프로젝트 세팅</div></div>
+    </section>
+
+    <!-- LESSON: project-setup -->
+    <section class="lesson" id="project-setup">
+      <div class="lesson-head">
+        <div class="lesson-num">04</div>
+        <div class="eyebrow">서버 구축 · 레슨 04</div>
+        <h1 class="lesson-title">프로젝트 세팅</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>MCP 서버를 직접 만들어 보기 위한 실습 프로젝트를 준비하는 레슨입니다. 개발 환경과 기본 프로젝트 구조를 세팅하고, 이후 레슨에서 도구·리소스·프롬프트를 붙여 나갈 뼈대를 마련합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · MCP로 도구(tool) 정의하기</div></div>
+    </section>
+
+    <!-- LESSON: defining-tools -->
+    <section class="lesson" id="defining-tools">
+      <div class="lesson-head">
+        <div class="lesson-num">05</div>
+        <div class="eyebrow">서버 구축 · 레슨 05</div>
+        <h1 class="lesson-title">MCP로 도구 정의하기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>MCP 서버에서 <strong>도구(tool)</strong>를 정의하는 방법을 다룹니다. 도구는 모델이 호출해 실제 동작을 수행하는 함수로, 이름·설명·입력 스키마를 지정해 노출합니다. Claude가 언제 어떤 도구를 쓸지 판단할 수 있도록 설계하는 방법을 살펴봅니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 서버 인스펙터로 점검하기</div></div>
+    </section>
+
+    <!-- LESSON: server-inspector -->
+    <section class="lesson" id="server-inspector">
+      <div class="lesson-head">
+        <div class="lesson-num">06</div>
+        <div class="eyebrow">서버 구축 · 레슨 06</div>
+        <h1 class="lesson-title">서버 인스펙터</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
+      </div>
+
+      <p>MCP 서버를 개발하며 동작을 확인할 수 있는 <strong>인스펙터(inspector)</strong> 도구를 다룹니다. 서버가 노출한 도구·리소스·프롬프트를 시각적으로 살펴보고, 실제 클라이언트 없이도 요청을 보내 응답을 검증하며 디버깅할 수 있습니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 클라이언트 구현하기</div></div>
+    </section>
+
+    <!-- LESSON: implementing-a-client -->
+    <section class="lesson" id="implementing-a-client">
+      <div class="lesson-head">
+        <div class="lesson-num">07</div>
+        <div class="eyebrow">클라이언트·리소스·프롬프트 · 레슨 07</div>
+        <h1 class="lesson-title">클라이언트 구현하기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>MCP <strong>클라이언트를 직접 구현</strong>하는 실습 레슨입니다. 서버에 연결을 맺고, 노출된 도구 목록을 받아와 호출하는 흐름을 코드로 작성해 봅니다. 서버와 클라이언트가 프로토콜을 통해 어떻게 주고받는지 실제로 확인합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 리소스(resource) 정의하기</div></div>
+    </section>
+
+    <!-- LESSON: defining-resources -->
+    <section class="lesson" id="defining-resources">
+      <div class="lesson-head">
+        <div class="lesson-num">08</div>
+        <div class="eyebrow">클라이언트·리소스·프롬프트 · 레슨 08</div>
+        <h1 class="lesson-title">리소스 정의하기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>MCP 서버에서 <strong>리소스(resource)</strong>를 정의하는 방법을 다룹니다. 리소스는 모델에 읽기 전용 컨텍스트를 제공하는 데이터로, 파일·문서·DB 레코드 등을 URI로 노출합니다. 도구가 "행동"이라면 리소스는 "참조 데이터"라는 구분을 이해하는 레슨입니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 리소스에 접근하기</div></div>
+    </section>
+
+    <!-- LESSON: accessing-resources -->
+    <section class="lesson" id="accessing-resources">
+      <div class="lesson-head">
+        <div class="lesson-num">09</div>
+        <div class="eyebrow">클라이언트·리소스·프롬프트 · 레슨 09</div>
+        <h1 class="lesson-title">리소스에 접근하기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>클라이언트 쪽에서 서버가 노출한 <strong>리소스를 조회·접근</strong>하는 방법을 다룹니다. 사용 가능한 리소스 목록을 받아오고, 특정 리소스를 읽어 그 내용을 모델의 컨텍스트로 넘기는 실전 흐름을 살펴봅니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 프롬프트(prompt) 정의하기</div></div>
+    </section>
+
+    <!-- LESSON: defining-prompts -->
+    <section class="lesson" id="defining-prompts">
+      <div class="lesson-head">
+        <div class="lesson-num">10</div>
+        <div class="eyebrow">클라이언트·리소스·프롬프트 · 레슨 10</div>
+        <h1 class="lesson-title">프롬프트 정의하기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>MCP 서버에서 <strong>프롬프트(prompt)</strong>를 정의하는 방법을 다룹니다. 프롬프트는 서버가 미리 제공하는 재사용 가능한 프롬프트 템플릿으로, 사용자가 선택하면 정해진 형식의 요청을 손쉽게 구성할 수 있습니다. 도구·리소스와 함께 MCP의 세 번째 핵심 기본 요소입니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 클라이언트에서 프롬프트 사용하기</div></div>
+    </section>
+
+    <!-- LESSON: prompts-in-the-client -->
+    <section class="lesson" id="prompts-in-the-client">
+      <div class="lesson-head">
+        <div class="lesson-num">11</div>
+        <div class="eyebrow">클라이언트·리소스·프롬프트 · 레슨 11</div>
+        <h1 class="lesson-title">클라이언트에서 프롬프트 사용하기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>클라이언트에서 서버가 제공한 <strong>프롬프트를 불러와 사용</strong>하는 방법을 다룹니다. 사용 가능한 프롬프트 목록을 조회하고, 인자를 채워 완성된 메시지를 만들어 모델에 전달하는 흐름을 살펴봅니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 정리 및 복습</div></div>
+    </section>
+
+    <!-- LESSON: mcp-review -->
+    <section class="lesson" id="mcp-review">
+      <div class="lesson-head">
+        <div class="lesson-num">12</div>
+        <div class="eyebrow">정리 · 레슨 12</div>
+        <h1 class="lesson-title">MCP 복습</h1>
+        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+      </div>
+
+      <p>코스에서 다룬 내용을 정리하는 마무리 레슨입니다. MCP의 개념, 서버·클라이언트 아키텍처, 그리고 도구·리소스·프롬프트라는 세 가지 핵심 요소를 되짚으며 배운 것을 실전에 적용해 볼 채비를 합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>완주</b> · Introduction to Model Context Protocol의 레슨들을 모두 개관했습니다. 세부 실습은 원문 영상을 참고하세요.</div></div>
+    </section>
+
+   </div>
+  </main>
+</div>
+</div>
+
+<script>
+  const curriculum = [
+    { n:"01", section:"소개", lessons:[
+      { id:"welcome", title:"코스 소개", done:true },
+      { id:"introducing-mcp", title:"MCP 소개", done:true },
+      { id:"mcp-clients", title:"MCP 클라이언트", done:true },
+    ]},
+    { n:"02", section:"서버 구축", lessons:[
+      { id:"project-setup", title:"프로젝트 세팅", done:true },
+      { id:"defining-tools", title:"MCP로 도구 정의하기", done:true },
+      { id:"server-inspector", title:"서버 인스펙터", done:true },
+    ]},
+    { n:"03", section:"클라이언트·리소스·프롬프트", lessons:[
+      { id:"implementing-a-client", title:"클라이언트 구현하기", done:true },
+      { id:"defining-resources", title:"리소스 정의하기", done:true },
+      { id:"accessing-resources", title:"리소스에 접근하기", done:true },
+      { id:"defining-prompts", title:"프롬프트 정의하기", done:true },
+      { id:"prompts-in-the-client", title:"클라이언트에서 프롬프트 사용하기", done:true },
+    ]},
+    { n:"04", section:"정리", lessons:[
+      { id:"mcp-review", title:"MCP 복습", done:true },
+    ]},
+  ];
+</script>
+{% include course-nav.html %}
