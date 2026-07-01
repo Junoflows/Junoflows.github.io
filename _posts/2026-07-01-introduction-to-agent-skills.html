@@ -1,0 +1,381 @@
+---
+layout: default
+title: "Introduction to agent skills"
+date: 2026-07-01
+categories: [강의 정리]
+tags: [Agent Skills, Claude Code, Anthropic, AI, 개발]
+permalink: /courses/anthropic/introduction-to-agent-skills.html
+description: "Anthropic 공식 영어 강의 Introduction to agent skills를 한글로 정리한 학습 노트 — Claude에서 Skills(재사용 가능한 지침 폴더)를 만들고·구성하고·공유하기."
+---
+{% include course-styles.html %}
+
+<div class="course-page">
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <a class="backlink" href="/courses/anthropic/">← Anthropic Courses</a>
+      <p class="kicker">Anthropic Academy</p>
+      <h1>Agent <em>Skills</em></h1>
+      <p class="sub">Anthropic Academy 공식 영어 강의를 한글로 정리한 학습 노트</p>
+      <a class="srcnote" href="https://anthropic.skilljar.com/introduction-to-agent-skills" target="_blank" rel="noopener">원문 강의 (영어) ↗</a>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-text"><span id="progressPos">레슨 01 / 6</span><span id="progressPct">전체 정리 완료</span></div>
+      </div>
+    </div>
+    <nav class="spine" id="nav"></nav>
+  </aside>
+
+  <main class="content">
+   <div class="reading" id="reading">
+
+    <!-- L1 -->
+    <section class="lesson active" id="what-are-skills">
+      <div class="lesson-head">
+        <div class="lesson-num">01</div>
+        <div class="eyebrow">Understanding Skills · 레슨 01</div>
+        <h1 class="lesson-title">Skills란 무엇인가?</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=bjdBVZa66oU" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>팀의 코딩 표준을 설명할 때마다, PR 리뷰 방식을 다시 설명할 때마다, 선호하는 커밋 메시지 형식을 상기시킬 때마다 — 당신은 <strong>같은 말을 반복</strong>하고 있습니다. <strong>Skill</strong>은 이 문제를 해결합니다.</p>
+      <div class="callout">Skill은 Claude에게 <strong>무언가를 하는 법을 한 번 가르치는 마크다운 파일</strong>입니다. 이후 Claude는 관련 상황이 오면 그 지식을 <strong>자동으로 적용</strong>합니다.</div>
+
+      <h3>Skill의 정체</h3>
+      <p>Skill은 Claude Code가 <strong>발견해서 사용</strong>하는 지침·자료 폴더입니다. 각 Skill은 <code>SKILL.md</code> 파일에 담기며, 그 <strong>frontmatter에 name과 description</strong>이 들어갑니다.</p>
+      <p><strong>description이 곧 매칭 기준</strong>입니다. 요청을 보내면 Claude는 그 메시지를 사용 가능한 모든 Skill의 description과 비교해, 맞는 것을 골라 활성화합니다.</p>
+      <pre><code>---
+name: pr-review
+description: Reviews pull requests for code quality. Use when reviewing PRs or checking code changes.
+---</code></pre>
+      <p>frontmatter 아래에는 실제 지침 — 리뷰 체크리스트, 형식 선호, Claude가 그 작업에 알아야 할 내용 — 을 씁니다.</p>
+
+      <h3>Skill이 사는 곳</h3>
+      <table>
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tr><th>위치</th><th>범위</th></tr>
+        <tr><td><strong>Personal</strong> · <code>~/.claude/skills</code></td><td>홈 디렉터리 — 모든 프로젝트에 <strong>나를 따라다님</strong>(커밋 스타일·문서 형식·설명 방식). Windows는 <code>C:/Users/&lt;user&gt;/.claude/skills</code>.</td></tr>
+        <tr><td><strong>Project</strong> · <code>.claude/skills</code></td><td>레포 루트에 위치 — 클론하는 누구나 <strong>자동으로 공유</strong>받음. 팀 표준(브랜드 가이드·폰트·색상)이 사는 곳. 버전 관리에 함께 커밋됩니다.</td></tr>
+      </table>
+
+      <h3>Skills vs. CLAUDE.md vs. 슬래시 커맨드</h3>
+      <p>Skill이 특별한 이유는 <strong>자동이면서 작업별</strong>이기 때문입니다.</p>
+      <ul>
+        <li><strong>CLAUDE.md</strong> — <strong>모든 대화</strong>에 로드됨. "항상 TypeScript strict 모드 사용" 같은 건 여기에.</li>
+        <li><strong>Skills</strong> — 요청과 매칭될 때 <strong>온디맨드</strong>로 로드. 처음엔 name·description만 읽어 <strong>컨텍스트 윈도우를 채우지 않음</strong>. 디버깅 중엔 PR 리뷰 체크리스트가 필요 없으니, 실제로 리뷰를 요청할 때 로드.</li>
+        <li><strong>슬래시 커맨드</strong> — 직접 타이핑해야 함. Skill은 상황을 인식하면 스스로 적용.</li>
+      </ul>
+
+      <h3>Skill을 쓸 때</h3>
+      <div class="card"><ul>
+        <li>팀이 따르는 <strong>코드 리뷰 표준</strong></li>
+        <li>선호하는 <strong>커밋 메시지 형식</strong></li>
+        <li>조직의 <strong>브랜드 가이드라인</strong></li>
+        <li>특정 문서 유형의 <strong>템플릿</strong></li>
+        <li>특정 프레임워크의 <strong>디버깅 체크리스트</strong></li>
+      </ul></div>
+      <div class="tip"><strong>경험칙</strong> · Claude에게 같은 것을 반복해서 설명하고 있다면, 그건 <strong>아직 쓰이지 않은 Skill</strong>입니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 첫 Skill을 밑바닥부터 만들고 로딩·매칭 원리 이해하기</div></div>
+    </section>
+
+    <!-- L2 -->
+    <section class="lesson" id="creating-first-skill">
+      <div class="lesson-head">
+        <div class="lesson-num">02</div>
+        <div class="eyebrow">Understanding Skills · 레슨 02</div>
+        <h1 class="lesson-title">첫 Skill 만들기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=Wx6_vjFFyHM" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>모든 프로젝트에서 쓸 수 있는 <strong>개인 PR 설명 Skill</strong>을 밑바닥부터 만들어 봅니다. 개인 Skill이므로 홈 디렉터리에 놓입니다.</p>
+
+      <h3>Skill 생성 — 디렉터리 + SKILL.md</h3>
+      <p>먼저 Skill 이름과 같은 디렉터리를 만들고, 그 안에 <code>SKILL.md</code>를 둡니다.</p>
+      <pre><code>mkdir -p ~/.claude/skills/pr-description</code></pre>
+      <pre><code>---
+name: pr-description
+description: Writes pull request descriptions. Use when creating a PR, writing a PR, or when the user asks to summarize changes for a pull request.
+---
+
+When writing a PR description:
+
+1. Run `git diff main...HEAD` to see all changes on this branch
+2. Write a description following this format:
+
+## What
+One sentence explaining what this PR does.
+
+## Why
+Brief context on why this change is needed
+
+## Changes
+- Bullet points of specific changes made
+- Group related changes together
+- Mention any files deleted or renamed</code></pre>
+      <p><strong>name</strong>은 Skill을 식별하고, <strong>description</strong>은 언제 쓸지(매칭 기준)를 알려주며, 두 번째 대시 이후의 모든 것이 활성화 시 Claude가 따르는 <strong>지침</strong>입니다.</p>
+
+      <h3>테스트</h3>
+      <p>Claude Code는 <strong>시작 시 Skill을 로드</strong>하므로, 만든 뒤 세션을 재시작해야 합니다. 사용 가능한 Skill 목록에서 확인한 뒤, 브랜치에 변경을 만들고 "내 변경사항에 대한 PR 설명을 써줘"라고 말하면 — Claude가 해당 Skill을 쓴다고 표시하고 diff를 확인해 템플릿대로 매번 같은 형식으로 작성합니다.</p>
+
+      <h3>매칭이 작동하는 방식</h3>
+      <p>시작 시 Claude Code는 <strong>네 위치를 스캔</strong>하되 <strong>name과 description만</strong> 로드합니다(전체 내용 아님). 요청을 보내면 그 메시지를 모든 Skill의 description과 비교 — 예: "이 함수가 뭐 하는지 설명해줘"는 의도가 겹치므로 "explain code with visual diagrams" Skill과 매칭됩니다.</p>
+      <div class="callout">매칭되면 Claude는 <strong>로드해도 되는지 확인</strong>을 요청합니다. 이 확인 단계가 어떤 컨텍스트가 들어오는지 인지하게 해줍니다. 승인 후 전체 <code>SKILL.md</code>를 읽고 지침을 따릅니다.</div>
+
+      <h3>Skill 우선순위 (이름 충돌 시)</h3>
+      <table>
+        <colgroup><col style="width:34%"><col></colgroup>
+        <tr><th>우선순위</th><th>설명</th></tr>
+        <tr><td><strong>1. Enterprise</strong></td><td>관리형 설정 — <strong>최고 우선순위</strong></td></tr>
+        <tr><td><strong>2. Personal</strong></td><td>홈 디렉터리(<code>~/.claude/skills</code>)</td></tr>
+        <tr><td><strong>3. Project</strong></td><td>레포의 <code>.claude/skills</code></td></tr>
+        <tr><td><strong>4. Plugins</strong></td><td>설치된 플러그인 — <strong>최저 우선순위</strong></td></tr>
+      </table>
+      <p>조직은 enterprise Skill로 표준을 강제하고, 개인은 여전히 커스터마이즈할 수 있습니다. 회사의 enterprise "code-review"와 내 personal "code-review"가 같은 이름이면 <strong>enterprise가 이깁니다.</strong></p>
+      <div class="tip"><strong>충돌 회피</strong> · 그냥 "review" 대신 <code>frontend-review</code>·<code>backend-review</code>처럼 <strong>서술적인 이름</strong>을 쓰세요.</div>
+
+      <h3>업데이트와 삭제</h3>
+      <p>업데이트하려면 <code>SKILL.md</code>를 편집, 제거하려면 디렉터리를 삭제 — 어느 경우든 변경을 적용하려면 <strong>Claude Code를 재시작</strong>합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 고급 메타데이터·allowed-tools·점진적 공개로 큰 Skill 구성하기</div></div>
+    </section>
+
+    <!-- L3 -->
+    <section class="lesson" id="configuration-multi-file">
+      <div class="lesson-head">
+        <div class="lesson-num">03</div>
+        <div class="eyebrow">Building Skills · 레슨 03</div>
+        <h1 class="lesson-title">구성과 멀티파일 Skill</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=98KaK_rn5rQ" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>기본 Skill은 name·description만으로 동작하지만, 몇 가지 고급 기법이 Skill을 훨씬 강력하게 만듭니다.</p>
+
+      <h3>메타데이터 필드</h3>
+      <p>agent skills 오픈 표준은 여러 frontmatter 필드를 지원합니다 — 두 개는 필수, 나머지는 선택.</p>
+      <table>
+        <colgroup><col style="width:26%"><col></colgroup>
+        <tr><th>필드</th><th>역할</th></tr>
+        <tr><td><strong>name</strong> (필수)</td><td>Skill 식별. 소문자·숫자·하이픈만, 최대 64자, 디렉터리명과 일치.</td></tr>
+        <tr><td><strong>description</strong> (필수)</td><td>언제 쓸지 명시. 최대 1,024자. 매칭에 쓰이는 <strong>가장 중요한 필드</strong>.</td></tr>
+        <tr><td><strong>allowed-tools</strong> (선택)</td><td>Skill 활성 시 Claude가 쓸 수 있는 도구를 제한.</td></tr>
+        <tr><td><strong>model</strong> (선택)</td><td>Skill에 사용할 Claude 모델 지정.</td></tr>
+      </table>
+
+      <h3>효과적인 description 쓰기</h3>
+      <p><strong>명시적으로</strong> 쓰세요. 누가 "네 일은 문서를 돕는 거야"라고만 하면 뭘 해야 할지 모르듯, Claude도 마찬가지입니다. 좋은 description은 두 질문에 답합니다.</p>
+      <div class="card"><ul>
+        <li>이 Skill은 <strong>무엇을 하는가?</strong></li>
+        <li>Claude는 <strong>언제 이걸 써야 하는가?</strong></li>
+      </ul></div>
+      <p>기대할 때 트리거되지 않으면, <strong>실제로 요청을 표현하는 방식의 키워드</strong>를 더 추가하세요.</p>
+
+      <h3>allowed-tools로 도구 제한</h3>
+      <p>파일을 읽기만 하고 수정은 못 하게 하고 싶을 때 — 보안 민감 워크플로우, 읽기 전용 작업, 가드레일이 필요한 상황에 유용합니다.</p>
+      <div class="example">
+      <pre><code>---
+name: codebase-onboarding
+description: Helps new developers understand the system works.
+allowed-tools: Read, Grep, Glob, Bash
+model: sonnet
+---</code></pre>
+      </div>
+      <p>이 Skill이 활성일 때 Claude는 나열된 도구만 쓸 수 있고 <strong>편집·쓰기는 못 합니다.</strong> <code>allowed-tools</code>를 아예 생략하면 아무 제한도 없고 일반 권한 모델을 씁니다.</p>
+
+      <h3>점진적 공개 (Progressive disclosure)</h3>
+      <p>Skill은 대화와 <strong>컨텍스트 윈도우를 공유</strong>합니다. 활성화되면 <code>SKILL.md</code> 내용이 컨텍스트에 로드됩니다. 하지만 참조·예시·유틸 스크립트가 필요할 때, 2,000줄짜리 파일 하나에 다 넣으면 <strong>컨텍스트를 잡아먹고 유지보수도 괴롭습니다.</strong></p>
+      <div class="callout">해법은 <strong>핵심 지침만 SKILL.md에 두고, 상세 참조는 별도 파일</strong>로 빼서 필요할 때만 Claude가 읽게 하는 것. 컨텍스트 안에 <strong>문서 전체가 아니라 목차</strong>를 두는 셈입니다.</div>
+      <p>오픈 표준이 제안하는 디렉터리 구성:</p>
+      <table>
+        <colgroup><col style="width:26%"><col></colgroup>
+        <tr><th>디렉터리</th><th>내용</th></tr>
+        <tr><td><code>scripts/</code></td><td>실행 가능한 코드</td></tr>
+        <tr><td><code>references/</code></td><td>추가 문서</td></tr>
+        <tr><td><code>assets/</code></td><td>이미지·템플릿·기타 데이터 파일</td></tr>
+      </table>
+      <p><code>SKILL.md</code>에서 언제 로드할지 명확한 지침과 함께 링크합니다 — 예: 시스템 설계를 물을 때만 <code>architecture-guide.md</code>를 읽고, 컴포넌트 추가 위치를 물으면 그 파일은 로드되지 않습니다.</p>
+      <div class="tip"><strong>경험칙</strong> · <code>SKILL.md</code>는 <strong>500줄 이하</strong>로 유지. 초과하면 별도 참조 파일로 분리를 고려하세요.</div>
+
+      <h3>스크립트 효율적으로 쓰기</h3>
+      <p>Skill 디렉터리의 스크립트는 <strong>내용을 컨텍스트에 로드하지 않고 실행</strong>됩니다 — <strong>출력만 토큰을 소비</strong>합니다. 핵심은 <code>SKILL.md</code>에 "스크립트를 <strong>읽지 말고 실행</strong>하라"고 지시하는 것. 환경 검증, 일관성이 필요한 데이터 변환, 생성 코드보다 테스트된 코드가 더 안정적인 작업에 특히 유용합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Skills를 CLAUDE.md·서브에이전트·훅·MCP와 비교하기</div></div>
+    </section>
+
+    <!-- L4 -->
+    <section class="lesson" id="skills-vs-features">
+      <div class="lesson-head">
+        <div class="lesson-num">04</div>
+        <div class="eyebrow">Building Skills · 레슨 04</div>
+        <h1 class="lesson-title">Skills vs. 다른 Claude Code 기능</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=IgNN4v0BJdU" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>Claude Code는 여러 커스터마이즈 옵션을 제공합니다 — <strong>Skills · CLAUDE.md · 서브에이전트 · 훅 · MCP 서버</strong>. 각기 다른 문제를 풀며, 언제 뭘 쓸지 알면 엉뚱한 걸 만드는 걸 막습니다.</p>
+
+      <h3>CLAUDE.md vs Skills</h3>
+      <p><strong>CLAUDE.md는 항상 모든 대화에 로드</strong>됩니다(예: TypeScript strict 모드). <strong>Skills는 온디맨드</strong> — 요청이 매칭될 때 지침이 대화에 합류합니다.</p>
+      <table>
+        <colgroup><col style="width:50%"><col></colgroup>
+        <tr><th>CLAUDE.md를 쓸 때</th><th>Skills를 쓸 때</th></tr>
+        <tr><td>항상 적용되는 프로젝트 전역 표준, "DB 스키마 절대 수정 금지" 같은 제약, 프레임워크·코딩 스타일</td><td>작업별 전문 지식, 가끔만 관련되는 지식, 매 대화를 어지럽힐 상세 절차</td></tr>
+      </table>
+
+      <h3>Skills vs 서브에이전트</h3>
+      <p><strong>Skills는 현재 대화에 지식을 더합니다</strong>(기존 컨텍스트에 합류). <strong>서브에이전트는 별도 컨텍스트에서</strong> 작업을 받아 독립적으로 처리하고 결과만 돌려줍니다(격리됨).</p>
+      <table>
+        <colgroup><col style="width:50%"><col></colgroup>
+        <tr><th>서브에이전트를 쓸 때</th><th>Skills를 쓸 때</th></tr>
+        <tr><td>별도 실행 컨텍스트로 위임, 다른 도구 접근이 필요, 위임 작업과 메인 컨텍스트를 격리</td><td>현재 작업의 지식을 강화, 그 전문성이 대화 전반에 적용</td></tr>
+      </table>
+
+      <h3>Skills vs 훅</h3>
+      <p><strong>훅은 이벤트에 발화</strong>합니다 — 파일 저장 시 린터 실행, 특정 도구 호출 전 검증(이벤트 구동). <strong>Skills는 요청 구동</strong> — 무엇을 요청하는지에 따라 활성화됩니다.</p>
+      <table>
+        <colgroup><col style="width:50%"><col></colgroup>
+        <tr><th>훅을 쓸 때</th><th>Skills를 쓸 때</th></tr>
+        <tr><td>매 파일 저장마다 실행할 작업, 특정 도구 호출 전 검증, Claude 행동의 자동 부수효과</td><td>요청 처리 방식을 알려주는 지식, Claude의 추론에 영향을 주는 가이드라인</td></tr>
+      </table>
+
+      <h3>종합</h3>
+      <div class="callout">전형적 셋업: <strong>CLAUDE.md</strong>(항상 켜진 표준) + <strong>Skills</strong>(온디맨드 작업 전문성) + <strong>훅</strong>(이벤트 기반 자동화) + <strong>서브에이전트</strong>(격리 위임) + <strong>MCP 서버</strong>(외부 도구·통합). 각자 전문 영역을 맡으니 <strong>하나에 다 몰아넣지 말고 조합</strong>하세요 — 여러 개를 동시에 쓸 수 있습니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Skills를 팀·조직과 공유하기 — 레포·플러그인·엔터프라이즈</div></div>
+    </section>
+
+    <!-- L5 -->
+    <section class="lesson" id="sharing-skills">
+      <div class="lesson-head">
+        <div class="lesson-num">05</div>
+        <div class="eyebrow">Sharing & Scaling · 레슨 05</div>
+        <h1 class="lesson-title">Skills 공유하기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=OCBi3eScNLk" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>Skill은 <strong>공유될 때 훨씬 가치가 커집니다.</strong> 나만 쓰는 PR 리뷰 Skill도 도움되지만, 팀 전체가 공유하면 코드 리뷰가 표준화되고 조직 전반에 일관된 경험이 생깁니다.</p>
+
+      <h3>1. 레포에 커밋 (가장 간단)</h3>
+      <p><code>.claude/skills</code>에 두면 클론하는 누구나 <strong>추가 설치 없이 자동으로</strong> 얻습니다. 푸시하면 다음 pull에서 모두가 받습니다. 팀 코딩 표준·프로젝트 워크플로우·코드베이스 구조를 참조하는 Skill에 적합합니다.</p>
+      <div class="callout"><code>.claude</code> 디렉터리는 agents·hooks·skills·settings를 담으며 — 전부 버전 관리되어 일반 Git 흐름으로 팀과 공유됩니다.</div>
+
+      <h3>2. 플러그인으로 배포</h3>
+      <p>플러그인은 Claude Code를 <strong>팀·프로젝트를 넘어 공유</strong>하도록 설계된 확장 방식입니다. 플러그인 프로젝트에 <code>skills</code> 디렉터리를 만들어 <code>.claude</code>와 유사한 구조로 각 Skill을 폴더+SKILL.md로 둡니다. 마켓플레이스에 배포하면 다른 사용자가 발견·설치할 수 있습니다. <strong>프로젝트 특정성이 낮고 커뮤니티에 유용</strong>할 때 적합합니다.</p>
+
+      <h3>3. 엔터프라이즈 관리형 설정</h3>
+      <p>관리자는 관리형 설정으로 Skill을 <strong>조직 전체에 배포</strong>합니다. Enterprise Skill은 <strong>최고 우선순위</strong> — 같은 이름의 personal·project·plugin Skill을 덮어씁니다. <code>strictKnownMarketplaces</code>로 플러그인 설치처를 제어할 수 있습니다.</p>
+      <pre><code>"strictKnownMarketplaces": [
+  {
+    "source": "github",
+    "repo": "acme-corp/approved-plugins"
+  },
+  {
+    "source": "npm",
+    "package": "@acme-corp/compliance-plugins"
+  }
+]</code></pre>
+      <p>필수 표준·보안 요건·컴플라이언스·조직 전반에 일관돼야 하는 관행에 적합합니다 — 키워드는 <strong>"반드시(must)"</strong>.</p>
+
+      <h3>Skills와 서브에이전트 (중요한 함정)</h3>
+      <div class="tip"><strong>주의</strong> · 서브에이전트는 <strong>Skill을 자동으로 보지 못합니다.</strong> 위임하면 깨끗한 새 컨텍스트로 시작합니다.</div>
+      <ul>
+        <li><strong>내장 에이전트</strong>(Explorer·Plan·Verify)는 Skill에 <strong>전혀 접근 불가</strong>.</li>
+        <li><strong>커스텀 서브에이전트</strong>는 <strong>명시적으로 나열할 때만</strong> Skill 사용 가능.</li>
+        <li>Skill은 서브에이전트 <strong>시작 시 로드</strong>됩니다(메인 대화처럼 온디맨드가 아님).</li>
+      </ul>
+      <p><code>.claude/agents</code>에 에이전트 마크다운을 추가(또는 <code>/agents</code> 커맨드로 대화식 생성)하고, frontmatter의 <code>skills</code> 필드에 로드할 Skill을 나열합니다.</p>
+      <pre><code>---
+name: frontend-security-accessibility-reviewer
+description: "Use this agent when you need to review frontend code for accessibility..."
+tools: Bash, Glob, Grep, Read, WebFetch, WebSearch, Skill...
+model: sonnet
+color: blue
+skills: accessibility-audit, performance-check
+---</code></pre>
+      <p>먼저 <code>.claude/skills</code>에 해당 Skill이 존재하는지 확인한 뒤 새 서브에이전트를 만들거나 기존 에이전트에 <code>skills</code> 필드를 더합니다. 격리된 위임 + 특정 전문성, 서브에이전트별 다른 Skill(프론트엔드 vs 백엔드 리뷰어), 프롬프트에 의존하지 않는 표준 강제에 잘 맞습니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Skill 문제 해결 — 트리거·로딩·우선순위·런타임</div></div>
+    </section>
+
+    <!-- L6 -->
+    <section class="lesson" id="troubleshooting-skills">
+      <div class="lesson-head">
+        <div class="lesson-num">06</div>
+        <div class="eyebrow">Sharing & Scaling · 레슨 06</div>
+        <h1 class="lesson-title">Skill 문제 해결</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=YBa1cwaG7is" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>Skill이 기대대로 안 될 때, 문제는 대개 몇 가지 예측 가능한 범주로 나뉩니다 — <strong>트리거 안 됨 · 로드 안 됨 · 충돌 · 런타임 실패.</strong> 다행히 대부분의 수정은 간단합니다.</p>
+
+      <h3>먼저 Skills Validator</h3>
+      <p>가장 먼저 <strong>agent skills verifier 커맨드</strong>를 실행하세요. 설치는 OS마다 다르지만 <code>uv</code>가 가장 빠릅니다. 설치 후 Skill 디렉터리로 이동하거나 어디서든 실행하면 — <strong>구조적 문제를 먼저 잡아</strong> 헛디버깅을 막아줍니다.</p>
+
+      <h3>트리거 안 됨</h3>
+      <p>존재하고 검증도 통과하는데 Claude가 안 쓴다면 — 원인은 <strong>거의 항상 description</strong>입니다. Claude는 <strong>의미 기반 매칭</strong>을 쓰므로 요청과 description의 의미가 겹쳐야 합니다.</p>
+      <ul>
+        <li>실제로 요청을 표현하는 방식과 description을 대조</li>
+        <li>사용자가 실제로 말할 <strong>트리거 문구</strong>를 추가</li>
+        <li>"help me profile this", "why is this slow?", "make this faster" 같은 <strong>변형으로 테스트</strong> — 실패하는 변형의 키워드를 description에 추가</li>
+      </ul>
+
+      <h3>로드 안 됨</h3>
+      <p>"어떤 Skill이 있어?"에 안 뜨면 구조 요건을 확인하세요.</p>
+      <div class="card"><ul>
+        <li><code>SKILL.md</code>는 <strong>이름 있는 디렉터리 안</strong>에 있어야 함(skills 루트가 아님)</li>
+        <li>파일명은 정확히 <code>SKILL.md</code> — "SKILL" 대문자, "md" 소문자</li>
+      </ul></div>
+      <p><code>claude --debug</code>를 실행해 로딩 에러를 보고 Skill 이름이 언급된 메시지를 찾으면 종종 곧장 문제로 안내됩니다.</p>
+
+      <h3>엉뚱한 Skill이 쓰임</h3>
+      <p>Claude가 잘못된 Skill을 쓰거나 헷갈려하면 <strong>description이 너무 비슷</strong>한 것입니다. 최대한 <strong>구체적으로</strong> 만들어 구별하세요 — 이는 언제 쓸지 판단을 도울 뿐 아니라 유사 Skill과의 충돌도 막습니다.</p>
+
+      <h3>우선순위 충돌 / 플러그인 Skill 미표시</h3>
+      <ul>
+        <li>personal Skill이 무시되면 같은 이름의 <strong>enterprise 등 상위 Skill</strong>이 있을 수 있음 → <strong>이름을 더 구별되게 바꾸거나</strong> 관리자와 상의.</li>
+        <li>플러그인을 설치했는데 Skill이 안 보이면 <strong>캐시를 지우고 재시작·재설치</strong>. 그래도 안 되면 플러그인 구조가 잘못된 것 — <strong>validator</strong>가 진가를 발휘.</li>
+      </ul>
+
+      <h3>런타임 에러</h3>
+      <table>
+        <colgroup><col style="width:26%"><col></colgroup>
+        <tr><th>원인</th><th>대처</th></tr>
+        <tr><td><strong>의존성 누락</strong></td><td>외부 패키지는 설치돼 있어야 함. Claude가 알도록 <strong>description에 의존성 정보</strong>를 추가.</td></tr>
+        <tr><td><strong>권한 문제</strong></td><td>스크립트엔 실행 권한 필요 — 참조하는 스크립트에 <code>chmod +x</code>.</td></tr>
+        <tr><td><strong>경로 구분자</strong></td><td>Windows에서도 <strong>슬래시(/)를 일관되게</strong> 사용.</td></tr>
+      </table>
+
+      <h3>빠른 체크리스트</h3>
+      <div class="example"><ul>
+        <li><strong>트리거 안 됨?</strong> → description 개선 + 트리거 문구 추가</li>
+        <li><strong>로드 안 됨?</strong> → 경로·파일명·YAML 문법 확인</li>
+        <li><strong>엉뚱한 Skill?</strong> → description을 서로 더 구별되게</li>
+        <li><strong>가려짐(shadowed)?</strong> → 우선순위 확인 후 이름 변경</li>
+        <li><strong>플러그인 Skill 없음?</strong> → 캐시 지우고 재설치</li>
+        <li><strong>런타임 실패?</strong> → 의존성·권한·경로 확인</li>
+      </ul></div>
+
+      <div class="next"><span class="arrow">→</span><div><b>완주</b> · Introduction to Agent Skills의 6개 레슨을 모두 정리했습니다. Skills를 만들고·구성하고·공유하고·디버깅하는 법을 익혔습니다 — 가장 좋은 Skill은 <strong>가장 자주 반복하는 지침</strong>이라는 실제 고충에서 시작합니다.</div></div>
+    </section>
+
+   </div>
+  </main>
+</div>
+</div>
+
+<script>
+  const curriculum = [
+    { n:"01", section:"Understanding Skills", lessons:[
+      { id:"what-are-skills", title:"Skills란 무엇인가?", done:true },
+      { id:"creating-first-skill", title:"첫 Skill 만들기", done:true },
+    ]},
+    { n:"02", section:"Building Skills", lessons:[
+      { id:"configuration-multi-file", title:"구성과 멀티파일 Skill", done:true },
+      { id:"skills-vs-features", title:"Skills vs. 다른 기능", done:true },
+    ]},
+    { n:"03", section:"Sharing & Scaling", lessons:[
+      { id:"sharing-skills", title:"Skills 공유하기", done:true },
+      { id:"troubleshooting-skills", title:"Skill 문제 해결", done:true },
+    ]},
+  ];
+</script>
+{% include course-nav.html %}

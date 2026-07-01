@@ -1,0 +1,366 @@
+---
+layout: default
+title: "Teaching AI Fluency"
+date: 2026-07-01
+categories: [강의 정리]
+tags: [AI Fluency, Anthropic, AI, 교육]
+permalink: /courses/anthropic/teaching-ai-fluency.html
+description: "Anthropic 공식 영어 강의 Teaching AI Fluency를 한글로 정리한 학습 노트 — 강의 환경에서 4D 프레임워크를 가르치고 평가하는 법."
+---
+{% include course-styles.html %}
+
+<div class="course-page">
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <a class="backlink" href="/courses/anthropic/">← Anthropic Courses</a>
+      <p class="kicker">Anthropic Academy</p>
+      <h1>Teaching <em>AI Fluency</em></h1>
+      <p class="sub">Anthropic Academy 공식 영어 강의를 한글로 정리한 학습 노트</p>
+      <a class="srcnote" href="https://anthropic.skilljar.com/teaching-ai-fluency" target="_blank" rel="noopener">원문 강의 (영어) ↗</a>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-text"><span id="progressPos">레슨 01 / 7</span><span id="progressPct">전체 정리 완료</span></div>
+      </div>
+    </div>
+    <nav class="spine" id="nav"></nav>
+  </aside>
+
+  <main class="content">
+   <div class="reading" id="reading">
+
+    <!-- L1 -->
+    <section class="lesson active" id="welcome-approaches">
+      <div class="lesson-head">
+        <div class="lesson-num">01</div>
+        <div class="eyebrow">Introduction · 레슨 01</div>
+        <h1 class="lesson-title">환영 & AI Fluency를 가르치는 접근법</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=tbNz5IaoNl8" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>이 강의는 이미 <strong>AI Fluency 프레임워크를 다뤄본 교육자</strong>가 이제 <strong>이를 학생에게 가르칠</strong> 준비를 하도록 돕습니다. 핵심 전제는, AI Fluency 프레임워크가 <strong>두 개의 층위</strong>에서 작동한다는 것입니다.</p>
+
+      <div class="callout"><strong>프레임워크의 이중성</strong> — 이 프레임워크는 (1) 사람이 AI와 일할 때 <strong>실제로 무슨 일이 일어나는지 기술(descriptive)</strong>하는 모델이자, (2) 더 나은 실천으로 이끄는 <strong>규범적(normative) 가이드</strong>입니다. 가르칠 때는 학생이 <strong>AI 상호작용이 어떻게 작동하는지</strong>와 <strong>그것을 어떻게 개선하는지</strong> 둘 다 파악하게 해야 합니다.</div>
+
+      <h3>4가지 교수 접근법</h3>
+      <p>프레임워크를 가르치는 진입점은 하나가 아닙니다. 학생의 준비도·가용 시간·학습 목표에 맞춰 네 가지 접근법 중에서 고릅니다.</p>
+      <table>
+        <colgroup><col style="width:26%"><col></colgroup>
+        <tr><th>접근법</th><th>내용 · 적합 대상</th></tr>
+        <tr><td><strong>Linear<br>(선형)</strong></td><td>Delegation → Description → Discernment → Diligence 순서로 <strong>단계적으로</strong> 진행. <strong>초보자</strong>에게 적합 — 구조와 순차적 기술 축적이 필요할 때.</td></tr>
+        <tr><td><strong>Non-linear<br>(비선형)</strong></td><td>어디서든 시작해 역량 사이를 <strong>유연하게 오감</strong>. 실제 현실의 복잡성을 반영 — <strong>경험 있는 학생</strong>에게 적합.</td></tr>
+        <tr><td><strong>Focused<br>(집중)</strong></td><td>단일 역량 하나를 <strong>깊이 파고듦</strong>. 더 큰 깊이가 필요할 때.</td></tr>
+        <tr><td><strong>Two-loops<br>(두 루프)</strong></td><td>프레임워크를 <strong>전략적·전술적 루프가 중첩된 과정</strong>으로 가르침. 실세계의 복잡성을 반영.</td></tr>
+      </table>
+
+      <div class="tip">접근법 선택은 학생의 <strong>준비도, 가용 시간, 학습 목표</strong>에 맞춰야 합니다. 선형은 기초를 다지고, 비선형·루프는 현실적 복잡성을, 집중은 깊이를 제공합니다.</div>
+
+      <h3>연습 · 나의 교수 맥락 매핑하기</h3>
+      <h4>Step 1 · 교수 맥락 문서 만들기 (10분)</h4>
+      <p>AI(Claude 등 선호하는 어떤 AI든)와 대화를 시작합니다. 먼저 <strong>fluency 요약본</strong>과 <strong>영상 스크립트</strong>를 공유해 AI가 어떤 프레임워크와 네 접근법을 말하는지 이해하게 합니다. 그다음:</p>
+      <ul>
+        <li>본인이 <strong>프레임워크를 가르칠 준비 중인 교육자</strong>임을 설명하고, 수업·과목 정보를 공유.</li>
+        <li>학생의 배경(개인정보 보호 유의), 평소 AI 경험, 학습 동기를 기술.</li>
+        <li>수업 시간·기술 접근성·기관 정책 등 <strong>제약</strong>을 논의.</li>
+        <li>AI에게 내 교수 맥락의 <strong>고유함, 학생의 강점·난점, 성공의 모습, 가용 자원</strong>을 함께 짚게 함.</li>
+      </ul>
+      <p>대화를 <strong>구조화된 교수 맥락 요약</strong>으로 종합하게 하고, 검토 후 저장합니다. 이 문서는 <strong>이후 레슨의 대화 시작 시 재사용</strong>해 맥락을 빠르게 세울 수 있습니다.</p>
+
+      <h4>Step 2 · 서로 다른 접근법으로 설계하기 (20분)</h4>
+      <div class="card"><ul>
+        <li><strong>선형 설계</strong> — 4D를 순차적으로 가르치는 흐름을 스케치하고, 각 역량별 활동과 <strong>역량 간 전환</strong>을 학생에 맞게 설계. 이 구조가 내 학생에게 줄 수 있는 난점도 논의.</li>
+        <li><strong>비선형 설계</strong> — 학과 관련 시나리오를 만들고, 특정 시나리오에서 <strong>어떤 D를 시작점으로 삼을지</strong>와 그 이유를 탐색. 학생의 목표·제약에 따라 <strong>어느 시점에 어떤 역량을 다룰지</strong> 기준을 매핑.</li>
+        <li><strong>집중 설계</strong> — 제약을 고려해 <strong>가장 가치 있는 단일 D</strong>를 고르고, 그 역량의 세 하위 요소를 깊게 파고들 활동을 다각도로 설계.</li>
+      </ul></div>
+      <div class="tip">루프 기반 수업(두 루프 접근) 설계는 <strong>레슨 02·03</strong>에서 이어서 다룹니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 두 개의 루프 — 먼저 Delegation-Diligence 루프</div></div>
+    </section>
+
+    <!-- L2 -->
+    <section class="lesson" id="delegation-diligence-loop">
+      <div class="lesson-head">
+        <div class="lesson-num">02</div>
+        <div class="eyebrow">Two Loops · 레슨 02</div>
+        <h1 class="lesson-title">Delegation-Diligence 루프</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=Z6UB6BEXJTs" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>이 루프는 AI 협업에서 <strong>책임 있는 설계와 의사결정</strong>을 다룹니다. 질문을 <em>"AI를 어떻게 쓰지?"</em>에서 <em>"AI에 대해 어떻게 좋은 결정을 내리지?"</em>로 옮기며, AI를 <strong>쓸지·언제·어떻게</strong> 쓸지에 대한 전략적·윤리적 질문을 다룹니다.</p>
+
+      <div class="callout"><strong>루프는 양방향으로 돈다</strong> — Delegation 결정은 Diligence 질문을 불러오고, Diligence 고려는 다시 Delegation 전략을 재구성합니다. 두 역량은 <strong>서로를 형성하는 관계</strong>이지, 체크리스트가 아닙니다.</div>
+
+      <h3>핵심 정리</h3>
+      <ul>
+        <li>Delegation-Diligence 루프는 AI 사용에 대한 <strong>큰 그림의 전략적·윤리적 의사결정</strong>을 담당한다.</li>
+        <li>시나리오로 가르치면 학생이 역량을 <strong>체크박스가 아니라 연결된 관계</strong>로 본다.</li>
+        <li>이 루프를 익힌 학생은 자기 선택에 대한 <strong>명확한 근거</strong>를 갖고, 접근이 목표·가치와 왜 맞는지 설명할 수 있다.</li>
+        <li>책임·투명성은 창의적 가능성을 <strong>제한하는 게 아니라 강화</strong>한다 — 제약을 <strong>창의적 촉매</strong>로 본다.</li>
+      </ul>
+
+      <h3>연습 · 루프 수업안 만들기</h3>
+      <h4>Step 1 · 루프 시나리오 만들기 (10분)</h4>
+      <p>레슨 1의 대화를 이어, AI에게 <strong>Delegation-Diligence 루프 중심 수업</strong>을 설계 중임을 알립니다.</p>
+      <ul>
+        <li>내 전공에서 <strong>현실적인 시나리오·워크플로</strong>를 함께 만든다.</li>
+        <li>일의 성격, 인간·AI의 역량과 한계, 윤리, 투명성, 책임을 학생이 생각하게 하는 <strong>구체적 디테일</strong>을 넣는다.</li>
+        <li>학생이 <strong>전략적 선택과 윤리적 고려 사이를 오가야 하는 결정 지점</strong>을 만든다.</li>
+        <li>학생이 사고 과정을 <strong>어떻게 문서화</strong>할지 계획한다.</li>
+      </ul>
+
+      <h4>Step 2 · 학습 경험 구조화하기 (20분)</h4>
+      <div class="card">
+      <p><strong>순방향 (Delegation → Diligence)</strong></p>
+      <ul>
+        <li>학생이 <strong>문제 인식·플랫폼 선택</strong>에서 출발하도록 돕는 워크시트/가이드를 만든다.</li>
+        <li>Delegation 결정이 <strong>언제 윤리적 질문을 낳는지</strong> 인식하게 하는 프롬프트를 설계한다.</li>
+        <li>투명성·책임을 고려해야 하는 <strong>체크포인트</strong>를 넣는다.</li>
+      </ul>
+      <p><strong>역방향 (Diligence → Delegation)</strong></p>
+      <ul>
+        <li>학생이 <strong>윤리적 제약·투명성 요구</strong>에서 시작하는 변형을 만든다.</li>
+        <li>이런 제약이 오히려 작업 위임을 <strong>명료하게·개선</strong>하는 것을 보여주는 활동을 설계한다.</li>
+        <li>책임을 <strong>제한이 아니라 힘을 실어주는 것</strong>으로 보게 하는 성찰 프롬프트를 넣는다.</li>
+      </ul>
+      </div>
+      <div class="tip">(선택) AI에게 시나리오·활동·평가를 <strong>완성된 수업안</strong>으로 컴파일하게 할 수 있습니다 — 루프 사고를 강조한 학습 목표, 진행자용 단계별 노트, 학생용 워크시트·성찰 프롬프트 포함.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 순간순간의 협업 기술을 다루는 Description-Discernment 루프</div></div>
+    </section>
+
+    <!-- L3 -->
+    <section class="lesson" id="description-discernment-loop">
+      <div class="lesson-head">
+        <div class="lesson-num">03</div>
+        <div class="eyebrow">Two Loops · 레슨 03</div>
+        <h1 class="lesson-title">Description-Discernment 루프</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=HD_zv4mh0vA" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>이 루프는 인간과 AI가 효과적으로 협업하는 <strong>인지 환경(cognitive environment)</strong>을 <strong>순간순간 만들어 가는 기술</strong>에 집중합니다. 단일 프롬프트를 넘어 <strong>지속되는 대화</strong>로 나아가며, AI와 <strong>공유된 맥락과 이해</strong>를 쌓는 법을 가르칩니다.</p>
+
+      <div class="callout"><strong>Product · Process · Performance</strong> — 같은 협업을 보는 세 개의 렌즈입니다. <strong>무엇을 만드는가(Product), 어떻게 접근하는가(Process), 어떻게 상호작용하는가(Performance)</strong>. 학생은 흔히 <em>"프롬프트 요령"</em>을 생각하며 오지만, 진짜 필요한 것은 AI와 <strong>진정한 협업 관계</strong>를 쌓는 더 정교한 이해입니다.</div>
+
+      <h3>핵심 정리</h3>
+      <ul>
+        <li>이 루프는 AI 상호작용을 <strong>명령에서 대화로</strong> 바꿔, 맥락으로 인지 환경을 쌓는다.</li>
+        <li>Product·Process·Performance는 같은 협업 과정을 보는 <strong>서로 다른 렌즈</strong>다.</li>
+        <li>이 루프를 가르친다는 건 학생을 <strong>자동화(automation)에서 진정한 증강(augmentation)</strong>으로 이끄는 것.</li>
+        <li>좋은 인지 환경에는 <strong>공유 어휘, 정착된 상호작용 패턴, 이전 대화 위에 쌓아가는 장치</strong>가 있다.</li>
+      </ul>
+
+      <div class="callout"><strong>두 루프는 중첩 시스템</strong> — Delegation-Diligence가 <strong>전략적 방향(그릇)</strong>을 정하면, Description-Discernment가 그 그릇을 <strong>풍부하고 반복적인 상호작용</strong>으로 채웁니다.</div>
+
+      <h3>연습 · 루프 수업안 만들기</h3>
+      <h4>Step 1 · 루프 시나리오 만들기 (10분)</h4>
+      <p>레슨 2의 대화를 이어, <strong>같은 시나리오</strong>를 바탕으로 Description-Discernment 루프 수업을 설계 중임을 AI에게 알립니다. Delegation-Diligence 루프에서 이 루프로 <strong>전환</strong>할 필요를 논의하고, Product·Process·Performance 기술이 <strong>Discernment와 반복을 거쳐 어떻게 진화</strong>하는지 학생이 탐구할 요소를 만듭니다. AI와의 <strong>공유 맥락의 진화를 문서화</strong>할 방법도 계획합니다.</p>
+
+      <h4>Step 2 · 학습 경험 구조화하기 (20분)</h4>
+      <div class="card"><ul>
+        <li><strong>Product 진화</strong> — 학생이 <strong>모호한 목표</strong>에서 출발해 반복적으로 명료화하는 진행을 설계. "좋음"에 대한 자기 관점이 <strong>언제·어떻게 진화</strong>하는지 인식하고 문서화하게 한다.</li>
+        <li><strong>Process 발전</strong> — 학생이 AI와 함께 <strong>공유된 문제 해결 방식</strong>을 시간에 걸쳐 발전시키는 진행을 설계. 선호하는 접근이 어떻게 변하는지 체크포인트에서 기록하게 한다.</li>
+        <li><strong>Performance 관계</strong> — 학생이 <strong>다양한 상호작용 스타일과 그 효과</strong>를 실험하게 한다. 어떤 AI 행동이 목표에 <strong>적절·유용</strong>한지 인식하고, 그 변화를 시간에 걸쳐 문서화하게 한다.</li>
+      </ul></div>
+      <div class="tip">(선택) AI에게 시나리오·활동·평가를 완성된 수업안으로 컴파일하게 하세요 — 루프 사고 학습 목표, 진행자 노트, 학생용 자료 포함.</div>
+
+      <div class="example"><strong>성찰</strong> — 어떤 접근법이 내 학생의 학습 목표에 가장 맞는가? 어떤 접근법이 나의 교수 스타일·선호에 가장 맞는가?</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 4D를 어떻게 평가할 것인가</div></div>
+    </section>
+
+    <!-- L4 -->
+    <section class="lesson" id="assess-4ds">
+      <div class="lesson-head">
+        <div class="lesson-num">04</div>
+        <div class="eyebrow">Assessment · 레슨 04</div>
+        <h1 class="lesson-title">4D를 어떻게 평가할까?</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=jskB42hvdPI" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>AI Fluency를 평가하는 <strong>세 가지 상호 보완적 접근</strong>을 다룹니다. 이 셋을 <strong>함께</strong> 쓸 때 학생의 AI Fluency 발달을 가장 온전히 볼 수 있습니다.</p>
+      <table>
+        <colgroup><col style="width:26%"><col></colgroup>
+        <tr><th>접근</th><th>초점</th></tr>
+        <tr><td><strong>Outcome-based<br>(결과 기반)</strong></td><td>학생이 AI 협업을 통해 <strong>산출한 결과물</strong>에 집중.</td></tr>
+        <tr><td><strong>Process-based<br>(과정 기반)</strong></td><td>학생이 시간에 걸쳐 <strong>AI와 어떻게 일하는지</strong>(그 여정)를 살핀다.</td></tr>
+        <tr><td><strong>Reflection-based<br>(성찰 기반)</strong></td><td><strong>메타인지적 자각</strong>을 평가한다.</td></tr>
+      </table>
+
+      <h3>4D별로 무엇을 보는가</h3>
+      <div class="card"><ul>
+        <li><strong>Delegation</strong> — 목표 설정, 작업 분해, 도구 선택.</li>
+        <li><strong>Description</strong> — 대화의 질, 반복적 다듬기.</li>
+        <li><strong>Discernment</strong> — 비판적 평가 능력.</li>
+        <li><strong>Diligence</strong> — 윤리적 의사결정과 책임.</li>
+      </ul></div>
+
+      <div class="callout"><strong>관찰 가능한 행동과 구체적 산출물</strong>이 이해에 대한 <em>추측</em>보다 신뢰할 만합니다. 그리고 평가는 단순 측정이 아니라 <strong>학습의 기회</strong>여야 합니다.</div>
+
+      <h3>연습 · 나만의 AI Fluency 루브릭 만들기</h3>
+      <h4>Step 1 · 평가의 토대 세우기 (5분)</h4>
+      <p>Claude와 새 대화를 시작하거나 레슨 1의 대화를 잇습니다. 영상 스크립트를 제공하고, 학생이 AI를 쓸 <strong>구체적 과제/프로젝트</strong>를 설명한 뒤 그 과제에 가장 중요한 AI Fluency 측면을 밝힙니다. 어떤 D·하위 역량이 목표에 가장 관련되는지, 성공의 모습, 예상되는 오개념, <strong>무엇을 증거로 삼을지</strong>를 논의합니다.</p>
+
+      <h4>Step 2 · 평가 접근 선택하기 (10분)</h4>
+      <p>평가할 각 D에 대해 탐색합니다.</p>
+      <ul>
+        <li><strong>결과 기반</strong>이 통하는가 — 어떤 산출물이 역량을 보여주나?</li>
+        <li><strong>과정 기반</strong>이 실행 가능한가 — 채팅 로그에 접근·평가할 수 있나?</li>
+        <li><strong>성찰 기반</strong>이 가치를 더하나 — 어떤 질문이 이해를 드러내거나 촉진하나?</li>
+      </ul>
+      <p>실제로 가용한 시간·자원 안에서 <strong>무엇이 평가 가능한지</strong>, 무엇을 <strong>동료·자기 평가</strong>로 돌릴지, 무엇을 직접 평가할지를 정해 <strong>채점 효율</strong>과 균형을 맞춥니다.</p>
+
+      <h4>Step 3 · 관찰 가능한 지표 만들기 (10분)</h4>
+      <p><strong>emerging · developing · proficient</strong> 같은 <strong>세 수준</strong>을 만들고, 각 수준에서 <strong>실제로 보게 될 것</strong>을 과목·과제에 특화된 언어로 기술합니다. "좋은 이해" 같은 모호한 말을 <strong>구체적 행동</strong>으로 바꾸고, 각 지표를 과제 요구와 직접 연결해 <strong>실제 평가 가능</strong>하게 만듭니다.</p>
+
+      <h4>Step 4 · 루브릭 포맷팅 (5분)</h4>
+      <p>AI와 함께 명료하고 사용 가능한 형식으로 구조화합니다. 각 기준이 <strong>구별 가능</strong>한지, 수준 간 진행이 <strong>논리적·달성 가능</strong>한지, 학습 목표와 정렬되는지 확인하고, 학생에게 어떻게 전달할지도 고려합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · AI Fluency를 기르고 드러내는 과제 설계하기</div></div>
+    </section>
+
+    <!-- L5 -->
+    <section class="lesson" id="designing-assignments">
+      <div class="lesson-head">
+        <div class="lesson-num">05</div>
+        <div class="eyebrow">Assessment · 레슨 05</div>
+        <h1 class="lesson-title">AI Fluency를 위한 과제 설계</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=zqho5KSgnjw" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>학생이 AI Fluency를 <strong>기르는 동시에 드러내도록</strong> 하는 과제를 설계합니다. 세 가지 원칙이 핵심입니다.</p>
+      <div class="callout"><strong>세 원칙</strong> — (1) <strong>진정성(Authenticity)</strong>: 현실의 AI 협업을 반영하는 과제, (2) <strong>반복(Iteration)</strong>: 성장을 드러내는 다듬기의 기회, (3) <strong>교육적 투명성(Pedagogical transparency)</strong>: 산출물만이 아니라 <strong>협업 과정을 평가한다</strong>는 점을 분명히 하기.</div>
+
+      <h3>과제 유형</h3>
+      <div class="card"><ul>
+        <li><strong>결과 기반</strong> — AI 출력 개선하기, 서로 다른 AI 시스템 비교하기 등. 산출물에 집중하지만 <strong>협업 기술을 드러낸다</strong>.</li>
+        <li><strong>과정 기반</strong> — 주석 달린 채팅 로그, 녹음된 내레이션 등. <strong>보이지 않는 의사결정을 문서로 가시화</strong>한다.</li>
+        <li><strong>성찰 기반</strong> — 학습 저널, 개인 정책 선언문 등. 메타인지를 기르되 <strong>피로를 막기 위해 다양성</strong>이 필요하다.</li>
+      </ul></div>
+
+      <div class="tip"><strong>늘어나는 분량 관리</strong> — AI 강화 과제는 콘텐츠 양이 늘어납니다. 상세 루브릭, <strong>동료 평가</strong> 강조, <strong>라이트닝 라운드 컨퍼런스</strong>, 학생 작업의 <strong>선택적 샘플링</strong> 같은 전략으로 대응하세요.</div>
+
+      <h3>연습 · AI Fluency 종합 과제 만들기</h3>
+      <h4>Step 1 · 과제 아키텍처 (10분)</h4>
+      <p>레슨 4의 루브릭 대화를 잇습니다. 방금 만든 루브릭과 강조한 역량을 참조해, 그 역량을 가장 잘 드러낼 <strong>과제 유형/구성 요소</strong>를 논의합니다. 결과·과정·성찰 또는 그 조합 중 무엇에 초점을 둘지 정하고, <strong>서로 잘 맞물리는 2–3개 요소</strong>를 골라 과목 맥락에 자연스럽게 맞춥니다. 내 분야의 <strong>현실적 AI 협업을 반영</strong>하고 AI 파트너십이 진짜 가치를 더하는 문제를 넣습니다.</p>
+
+      <h4>Step 2 · 반복과 성장 심기 (10분)</h4>
+      <ul>
+        <li>학생이 <strong>멈춰서 다듬어야</strong> 할 지점을 정한다.</li>
+        <li>초기 시도에서 배우게 하는 <strong>체크포인트</strong>를 계획한다.</li>
+        <li>핵심 <strong>결정 순간을 포착</strong>할 템플릿·가이드를 만든다.</li>
+        <li>성찰을 어려워하는 학생을 위한 <strong>지원 구조</strong>를 설계한다.</li>
+      </ul>
+
+      <h4>Step 3 · 실행 계획 (10분)</h4>
+      <p>구체적이되 압도적이지 않은 <strong>과제 지침</strong>을 작성합니다. <strong>산출물만이 아니라 과정·성찰을 평가</strong>한다는 점을 분명히 밝히고, 제출물·형식·요건을 명시하며, 과제를 AI Fluency 발달에 명시적으로 연결합니다. <strong>채점을 관리 가능</strong>하게 유지하는 방법(상세 평가 vs. 빠른 검토 구분, 부담 없이 가치를 더하는 동료 평가, 광범위한 서면 피드백 대신 샘플링·컨퍼런스)도 논의합니다.</p>
+
+      <div class="example"><strong>레슨 성찰</strong> — 이 평가를 실행할 때 어떤 어려움이 예상되나? 학생에게 <strong>과정과 성찰의 가치</strong>를 어떻게 전달할 것인가?</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 내 분야에 대한 AI의 영향과 전문성 적용</div></div>
+    </section>
+
+    <!-- L6 -->
+    <section class="lesson" id="ai-impact-discipline">
+      <div class="lesson-head">
+        <div class="lesson-num">06</div>
+        <div class="eyebrow">Discipline · 레슨 06</div>
+        <h1 class="lesson-title">AI의 영향과 내 학문 분야</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=biNOM9jAkFY" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>AI는 분야마다 <strong>커리큘럼·교수법·평가</strong>에 고유한 방식으로 영향을 줍니다. 이 혼란을 헤쳐 나가는 데 필수인 것은 바로 <strong>당신의 학문적 전문성</strong> — 그 분야의 핵심 가치·방법·사고방식에 대한 이해입니다.</p>
+
+      <div class="callout"><strong>전문성이 판단을 가른다</strong> — 어떤 변화(disruption)는 <strong>활용할 기회</strong>이고 어떤 것은 <strong>풀어야 할 문제</strong>인데, 그 둘을 가려내는 것이 바로 당신의 전문성입니다. AI Fluency는 학문적 전문성을 <strong>대체하는 게 아니라 증폭</strong>합니다.</div>
+
+      <h3>세 가지 핵심 질문</h3>
+      <ul>
+        <li>내 분야에서 <strong>무엇이 자동화되는가?</strong></li>
+        <li><strong>인간-AI 협업이 어디서 가장 큰 가치</strong>를 더하는가?</li>
+        <li>학생이 미래 경력에서 AI 시스템을 <strong>관리하고 책임지도록</strong> 어떻게 준비시키는가?</li>
+      </ul>
+      <div class="tip">변화는 균일하지 않습니다 — 커리큘럼은 안정적인데 평가가 바뀔 수도, 교수법이 진화하는데 핵심 내용은 그대로일 수도 있습니다.</div>
+
+      <h3>연습 · 내 분야에 대한 AI의 영향 분석 & 입장문 쓰기</h3>
+      <h4>Step 1 · 커리큘럼에의 영향 (10분)</h4>
+      <p>AI에 이 강의 스크립트와 교수·학문 맥락을 제공하고, <strong>입장문(position paper)</strong>을 만들 것임을 알립니다. 내 분야에서 AI가 <strong>자동화하는(또는 곧 할) 루틴 작업</strong>, 그로 인해 어떤 기초 개념이 더/덜 중요해지는지, <em>"AI가 하는데 왜 XYZ를 배워?"</em>라는 물음에 대한 <strong>분야 특화 답변</strong>, 더 중요해지는 인간 기술, 협업이 가장 가치 있는 지점을 논의합니다.</p>
+
+      <h4>Step 2 · 교수법의 변화 (10분)</h4>
+      <div class="card"><ul>
+        <li><strong>강화 기회</strong> — AI로 가능해진 학습 경험(개인화 튜터링, 즉각 피드백, 인터랙티브 시뮬레이션). 단, <strong>진짜 학습을 돕는 것</strong>과 그냥 쉽고 빠르게 만드는 것을 구분.</li>
+        <li><strong>위험과 엄밀성 유지</strong> — AI가 <strong>진정한 학습을 단락(short-circuit)</strong>시킬 지점을 찾고, 피하거나 수정할 교수법을 정하며, <strong>인간 중심으로 남아야</strong> 가치가 유지되는 학습 경험을 지킨다. AI를 <strong>학습 도구로, 대체물이 아니게</strong>.</li>
+      </ul></div>
+
+      <h4>Step 3 · 평가 전략 재구상 (10분)</h4>
+      <p>학생이 AI에 접근 가능할 때 <strong>진정한 이해</strong>가 무엇으로 드러나는지, 최종 산출물과 나란히 <strong>과정·성장·비판적 사고</strong>를 어떻게 평가할지, AI로 <strong>단축할 수 없는</strong> 새 평가 형식을 브레인스토밍합니다. 창의성·판단·종합을 가치 있게 다루고, 적절/부적절한 AI 사용을 구분하도록 설계합니다.</p>
+
+      <h4>Step 4 · 입장 종합하기 (10분)</h4>
+      <p>논의를 <strong>일관된 입장문</strong>으로 종합하게 합니다 — 커리큘럼 진화, 교수법 변화, 평가 혁신에 대한 관점을 담고, 내 분야에서 AI를 <strong>어떻게 써야/쓰지 말아야</strong> 하는지 명확한 원칙과, 동료를 설득할 구체적 예시·근거를 넣습니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 학문적 전문성을 4D에 적용하고 동료와 함께 구축하기</div></div>
+    </section>
+
+    <!-- L7 -->
+    <section class="lesson" id="applying-discipline-expertise">
+      <div class="lesson-head">
+        <div class="lesson-num">07</div>
+        <div class="eyebrow">Discipline · 레슨 07</div>
+        <h1 class="lesson-title">학문적 전문성을 AI Fluency에 적용하기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=BUj8mjy6oxI" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>깊은 학문적 지식을 적용해 AI Fluency 프레임워크를 <strong>내 분야에 특화</strong>합니다. 핵심은 <strong>암묵지(tacit knowledge)를 명시적으로 만드는 것</strong> — 질이 어떤 모습인지, 전문가가 어떻게 소통하는지, 어떤 문제가 중요한지, 어떤 기준이 적용되는지를 <strong>언어화</strong>하는 것입니다.</p>
+
+      <div class="callout"><strong>목표는 대체 불가능한 학생을 기르는 것</strong> — 질을 <strong>언어화할 수 있는</strong> 학생은 어떤 출력이든 더 잘 평가하고, 방법을 <strong>이해하는</strong> 학생은 어떤 과정이든 이끌며, 윤리를 <strong>내면화한</strong> 학생은 어떤 협업이든 책임 있게 헤쳐 나갑니다. 곧 <strong>고유하게 인간적인 역량</strong>을 기르는 일입니다.</div>
+
+      <h3>4D를 분야별로 해석하기</h3>
+      <table>
+        <colgroup><col style="width:26%"><col></colgroup>
+        <tr><th>역량</th><th>분야 특화 작업</th></tr>
+        <tr><td><strong>Discernment</strong></td><td><strong>질의 기준 정의</strong> — 우리 분야에서 우수함이란?</td></tr>
+        <tr><td><strong>Description</strong></td><td><strong>소통 규범 매핑</strong> — 우리 분야는 어떻게 소통하는가?</td></tr>
+        <tr><td><strong>Delegation</strong></td><td><strong>작업 분해 이해</strong> — 우리 분야에서 어떤 일이 일어나는가?</td></tr>
+        <tr><td><strong>Diligence</strong></td><td><strong>윤리 기준 성문화</strong> — 우리 분야의 가치와 표준은?</td></tr>
+      </table>
+
+      <h3>연습 · 이번엔 AI가 아니라 동료와 대화하기</h3>
+      <p>마지막 연습은 <strong>AI 파트너에게 잠시 쉬는 시간을 주고</strong>, 인간 동료와 이야기합니다. 다만 참가자 각자가 <strong>레슨 6의 연습을 개별로 해오면</strong> 대화가 훨씬 수월합니다. 조직화된 시간을 잡아 4D 프레임워크를 함께 다룹니다.</p>
+      <div class="card"><ul>
+        <li><strong>Discernment — "우리 분야에서 질이란?"</strong> 우수함을 모호한 말 없이 언어화하고, 뛰어난 작업과 평범한 작업을 가르는 <strong>구체적 특징</strong>을 찾아, 학생이 인간·AI 산출물을 평가할 기준을 문서화.</li>
+        <li><strong>Description — "우리는 어떻게 소통하나?"</strong> 핵심 산출물을 정밀하게 매핑(단순 "보고서"가 아니라 구체적 아티팩트와 그 이유), 전문가의 사고 과정과 <strong>행동 규범·관례</strong>를 문서화.</li>
+        <li><strong>Delegation — "우리 분야에선 어떤 일이 있나?"</strong> 전형적 작업을 구성 요소로 분해하고, <strong>인간 판단·창의·전문성</strong>이 필요한 부분을 식별하며, AI가 자동화·증강·에이전트로 개입할 지점과 <strong>결정 프레임워크</strong>를 만든다.</li>
+        <li><strong>Diligence — "우리 분야의 가치·표준은?"</strong> 윤리 프레임워크를 성문화하고, 투명성·공개 기대, 책임 표준·전문가 책무를 명확히 하며, AI가 개입할 때 어떻게 적용되는지 고려.</li>
+      </ul></div>
+
+      <h3>공유 문서 만들기</h3>
+      <p>각 D의 분야별 해석과 <strong>구체적 예시</strong>, 동료가 제안한 교수 전략을 모읍니다. <strong>합의된 지점과 관점이 갈리는 지점</strong>을 밝히고, 이를 학생과 공유해 AI Fluency를 구체화하는 법, 커리큘럼에 통합하는 법, 프레임워크가 학생에게 도움이 되는지 평가하는 법, 그리고 <strong>다음 단계</strong>를 합의합니다.</p>
+
+      <div class="callout">이 강의를 마치면 당신은 <strong>(1) 네 가지 교수 접근법, (2) 두 개의 중첩된 루프로 4D를 가르치는 법, (3) 결과·과정·성찰을 결합한 평가와 루브릭, (4) 진정성·반복·투명성에 기반한 과제 설계, (5) 내 분야에 특화된 4D와 입장문</strong>을 갖추게 됩니다 — AI Fluency의 단순한 실천자를 넘어, 이를 <strong>가르치는 교육자</strong>로.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>완주</b> · Teaching AI Fluency의 7개 레슨을 모두 정리했습니다. 네 접근법과 두 루프로 4D를 가르치고, 결과·과정·성찰로 평가하며, 내 학문 분야의 암묵지를 명시적으로 만들어 학생을 대체 불가능한 존재로 기를 차례입니다.</div></div>
+    </section>
+
+   </div>
+  </main>
+</div>
+</div>
+
+<script>
+  const curriculum = [
+    { n:"01", section:"Introduction", lessons:[
+      { id:"welcome-approaches", title:"환영 & AI Fluency를 가르치는 접근법", done:true },
+    ]},
+    { n:"02", section:"Two Loops", lessons:[
+      { id:"delegation-diligence-loop", title:"Delegation-Diligence 루프", done:true },
+      { id:"description-discernment-loop", title:"Description-Discernment 루프", done:true },
+    ]},
+    { n:"03", section:"Assessment", lessons:[
+      { id:"assess-4ds", title:"4D를 어떻게 평가할까?", done:true },
+      { id:"designing-assignments", title:"AI Fluency를 위한 과제 설계", done:true },
+    ]},
+    { n:"04", section:"Discipline", lessons:[
+      { id:"ai-impact-discipline", title:"AI의 영향과 내 학문 분야", done:true },
+      { id:"applying-discipline-expertise", title:"학문적 전문성을 AI Fluency에 적용하기", done:true },
+    ]},
+  ];
+</script>
+{% include course-nav.html %}

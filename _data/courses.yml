@@ -74,16 +74,19 @@
       desc: "Google Cloud Vertex AI에서 Claude 사용 (영상 강의 — 모듈별 개요 + 레슨별 영상 링크)."
     - title: "Teaching AI Fluency"
       slug: teaching-ai-fluency
-      done: false
-      desc: "강의 환경에서 AI Fluency를 가르치고 평가하는 법."
+      file: /courses/anthropic/teaching-ai-fluency.html
+      done: true
+      desc: "강의 환경에서 4D 프레임워크를 가르치고 평가하는 법 (전문 정리)."
     - title: "AI Fluency for nonprofits"
       slug: ai-fluency-for-nonprofits
-      done: false
-      desc: "비영리 전문가가 조직의 임팩트와 효율을 높이는 AI 역량을 기르기."
+      file: /courses/anthropic/ai-fluency-for-nonprofits.html
+      done: true
+      desc: "비영리 전문가가 4D 프레임워크로 조직의 임팩트·효율을 높이기 (전문 정리)."
     - title: "Introduction to agent skills"
       slug: introduction-to-agent-skills
-      done: false
-      desc: "Claude Code에서 Skills(재사용 가능한 마크다운 지침)를 만들고·구성하고·공유하기."
+      file: /courses/anthropic/introduction-to-agent-skills.html
+      done: true
+      desc: "Claude에서 Skills(재사용 지침 폴더)를 만들고·구성하고·공유하기 (전문 정리)."
     - title: "Introduction to subagents"
       slug: introduction-to-subagents
       done: false
