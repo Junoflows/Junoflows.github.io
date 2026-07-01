@@ -1,0 +1,442 @@
+---
+layout: default
+title: "Introduction to Claude Cowork"
+date: 2026-07-01
+categories: [강의 정리]
+tags: [Claude Cowork, Anthropic, AI]
+permalink: /courses/anthropic/introduction-to-claude-cowork.html
+description: "Anthropic 공식 영어 강의 Introduction to Claude Cowork를 한글로 정리한 학습 노트 — 위임형 에이전트, 프로젝트·스킬·플러그인, 안전하게 쓰기."
+---
+{% include course-styles.html %}
+
+<div class="course-page">
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <a class="backlink" href="/courses/anthropic/">← Anthropic Courses</a>
+      <p class="kicker">Anthropic Academy</p>
+      <h1>Claude <em>Cowork</em></h1>
+      <p class="sub">Anthropic Academy 공식 영어 강의를 한글로 정리한 학습 노트</p>
+      <a class="srcnote" href="https://anthropic.skilljar.com/introduction-to-claude-cowork" target="_blank" rel="noopener">원문 강의 (영어) ↗</a>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-text"><span id="progressPos">레슨 01 / 14</span><span id="progressPct">전체 정리 완료</span></div>
+      </div>
+    </div>
+    <nav class="spine" id="nav"></nav>
+  </aside>
+
+  <main class="content">
+   <div class="reading" id="reading">
+
+    <!-- L1 -->
+    <section class="lesson active" id="what-is-cowork">
+      <div class="lesson-head">
+        <div class="lesson-num">01</div>
+        <div class="eyebrow">Meet Cowork · 레슨 01</div>
+        <h1 class="lesson-title">Claude Cowork란?</h1>
+        <div class="meta-row"><span class="chip">⏱ 8분</span></div>
+      </div>
+
+      <p>Cowork는 Claude 데스크톱 앱 안의 <strong>모드</strong>로, Claude가 <strong>내 환경에서 — 내 파일, 내 앱, 내 도구로</strong> 나와 함께 작업합니다. 폴더를 가리키고, 앱(Gmail·Slack·Drive·캘린더)을 연결하고, 원하는 결과를 <strong>기술(describe)</strong>하면 — Claude가 계획을 세우고 단계를 밟아 <strong>실제 산출물</strong>을 폴더에 저장합니다.</p>
+      <div class="callout">가장 중요한 멘탈 모델: <strong>Cowork는 '대화'가 아니라 '위임(delegating)'</strong>입니다. Chat은 여전히 생각을 소리 내고 초안을 다듬는 곳이고, Cowork는 <strong>일 전체(맥락 수집·분석·파일 작업)를 통째로 넘기는</strong> 능력을 더합니다.</p>
+      <h3>핵심 요약</h3>
+      <div class="card"><ul>
+        <li><strong>답이 아니라 '일'을 위한 Claude</strong> — 로컬·클라우드 앱·브라우저 어디든 나를 찾아옴.</li>
+        <li><strong>다단계·장시간 작업</strong>에 설계됨 — 여러 도구를 넘나들고 실제 아티팩트로 끝나는 작업의 전 과정.</li>
+        <li><strong>통제권은 나에게</strong> — 시작 전 계획을 보여주고, 기본적으로 중요한 행동(전송·삭제·공유) 전에 물으며, 언제든 방향을 잡을 수 있음.</li>
+      </ul></div>
+      <table>
+        <colgroup><col style="width:18%"><col></colgroup>
+        <tr><th>모드</th><th>언제</th></tr>
+        <tr><td><strong>Chat</strong></td><td>생각 정리·초안·질문 (사고 파트너)</td></tr>
+        <tr><td><strong>Cowork</strong></td><td>결과를 기술하고 통째로 위임 (다도구·다단계·실제 산출물)</td></tr>
+        <tr><td><strong>Code</strong></td><td>소프트웨어 빌드</td></tr>
+      </table>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Cowork 설치 · 폴더 가리키기 · 권한 모델</div></div>
+    </section>
+
+    <!-- L2 -->
+    <section class="lesson" id="setup">
+      <div class="lesson-head">
+        <div class="lesson-num">02</div>
+        <div class="eyebrow">Meet Cowork · 레슨 02</div>
+        <h1 class="lesson-title">Cowork 설정하기</h1>
+        <div class="meta-row"><span class="chip">⏱ 8분</span></div>
+      </div>
+
+      <p>Cowork는 Mac·Windows의 <strong>Claude 데스크톱 앱</strong>에서 돕니다(claude.com/download). 우측 상단 모드 선택기에서 Cowork를 찾습니다. 안 보이면 유료 플랜이나 최신 버전이 필요할 수 있습니다.</p>
+
+      <h3>폴더 가리키기 — 가장 중요한 선택</h3>
+      <p>프롬프트 바의 <strong>Work in a project</strong>로 폴더를 고릅니다. 그 폴더가 <strong>작업이 사는 곳</strong> — Claude가 안의 모든 파일(Word·Excel·PDF·PPT)을 읽고, 완성물을 같은 위치에 저장합니다.</p>
+      <div class="callout"><strong>하나의 프로젝트로 좁혀진 폴더</strong>를 고르세요. 전체 문서 폴더가 아니라, 그 작업에 필요한 파일이 든 폴더면 충분. 필요하면 나중에 폴더를 더 추가할 수 있습니다. Chat과의 결정적 차이: <strong>Chat은 업로드한 걸 읽기만, Cowork는 내 컴퓨터에 저장까지</strong>.</p>
+      <div class="tip">클라우드 커넥터는 다르게 동작합니다 — Google Drive·M365 기본 커넥터는 대개 <strong>읽기·검색 전용</strong>. 문서를 만들고 반복 편집하기엔 <strong>로컬 작업 폴더</strong>가 가장 안정적입니다.</p>
+
+      <h3>커넥터 추가</h3>
+      <p>커넥터는 Claude가 <strong>일이 사는 앱</strong>(이메일·캘린더·메신저·CRM·클라우드 저장소)에 닿는 통로입니다. Customize에서 한 번 설정하고 작업별로 on/off. 처음 설정하면 좋은 것: <strong>이메일·캘린더(M365/Gmail)</strong>, <strong>메신저(Slack/Teams)</strong>, <strong>클라우드 저장소(SharePoint·OneDrive·Drive·Box)</strong>, <strong>CRM·프로젝트 도구</strong>. 켜두면 “Slack에서 런칭 관련 논의 확인해줘”처럼 자연어로 참조.</p>
+      <div class="tip">커넥터 없는 도구(내부 대시보드·벤더 포털·로그인 뒤 웹앱)는 <strong>Claude in Chrome</strong>이 다리 역할(모듈 3).</p>
+
+      <h3>권한 모델</h3>
+      <table>
+        <colgroup><col style="width:26%"><col></colgroup>
+        <tr><th>모드</th><th>동작</th></tr>
+        <tr><td><strong>Ask before acting</strong> (기본)</td><td>외부에 닿는 행동(이메일 전송·메시지 게시·파일 공유)마다 승인을 기다림.</td></tr>
+        <tr><td><strong>Act without asking</strong></td><td>멈추지 않음(더 빠르나 위험). 신뢰하는 도구·작업에만.</td></tr>
+      </table>
+      <div class="callout">두 모드 모두 <strong>파일 영구 삭제 전에는 항상 묻고, 이 확인은 건너뛸 수 없습니다.</strong> 그래서 “상당한 일을 맡겨도 놀랄 행동을 하지 않는다”가 성립 — 이게 '대화가 아닌 위임'의 실제 감각입니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Cowork에 맞는 일 알아보기 + 예약 작업 · Dispatch</div></div>
+    </section>
+
+    <!-- L3 -->
+    <section class="lesson" id="what-cowork-can-do">
+      <div class="lesson-head">
+        <div class="lesson-num">03</div>
+        <div class="eyebrow">Meet Cowork · 레슨 03</div>
+        <h1 class="lesson-title">Cowork가 해줄 수 있는 일</h1>
+        <div class="meta-row"><span class="chip">⏱ 11분</span></div>
+      </div>
+
+      <h3>Cowork에 맞는 세 가지 패턴</h3>
+      <table>
+        <colgroup><col style="width:22%"><col></colgroup>
+        <tr><th>패턴</th><th>예시</th></tr>
+        <tr><td><strong>다단계(multi-step)</strong></td><td>한 프롬프트로 수집·비교·리서치·초안·서식까지. 예: 한 주치 고객 피드백 이메일을 테마별로 분류(대표 인용 포함).</td></tr>
+        <tr><td><strong>실제 파일 기반</strong></td><td>결과가 실제 아티팩트(Word·시트·덱·PDF)이고 입력도 실제 파일. 예: 표준 템플릿+회의록으로 클라이언트 제안서.</td></tr>
+        <tr><td><strong>여러 도구에 걸침</strong></td><td>Gmail·Slack·M365·캘린더·CRM을 커넥터로 넘나들며 계획·실행. 예: 회의 후 초대장·참석자·회의록 기반 후속 이메일 초안.</td></tr>
+      </table>
+      <div class="callout">공통 관통선: <strong>머릿속에서 단계·파일·도구를 저글링하던 일을 하나의 작업으로 넘긴다.</strong> 그 모양이 보이면 Cowork에.</p>
+
+      <h3>예약 작업 (Scheduled tasks)</h3>
+      <p><code>/schedule</code>로 작업+주기를 기술하거나, <strong>한 번 해본 뒤</strong> 결과가 맞으면 <code>/schedule</code>로 그 과정을 반복화합니다(매시간·매일·평일·수동). 예: 금요일 주간 리뷰, 매월 1일 지표 롤업, 아침 브리핑.</p>
+      <div class="tip">예약 작업은 <strong>컴퓨터가 켜져 있고 Claude가 실행 중일 때만</strong> 돕니다. 노트북이 닫혀 있었으면 복귀 시 따라잡고 지연을 알려줍니다.</p>
+
+      <h3>Dispatch — 폰에서 작업 보내기</h3>
+      <p>자리를 떠나 있을 때 <strong>모바일 앱에서 Cowork 작업을 시작</strong>합니다 — 작업은 <strong>내 데스크톱에서</strong>(같은 파일·커넥터·권한) 돌고, 끝나면 푸시 알림. 역시 데스크톱이 켜져 있고 Cowork가 열려 있어야 함. (리서치 프리뷰, Pro·Max)</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 첫 작업을 통째로 위임하기</div></div>
+    </section>
+
+    <!-- L4 -->
+    <section class="lesson" id="first-task">
+      <div class="lesson-head">
+        <div class="lesson-num">04</div>
+        <div class="eyebrow">Meet Cowork · 레슨 04</div>
+        <h1 class="lesson-title">첫 작업 위임하기</h1>
+        <div class="meta-row"><span class="chip">⏱ 15분</span></div>
+      </div>
+
+      <div class="callout">리듬은 챗봇 프롬프트보다 <strong>똑똑한 동료에게 브리핑</strong>하는 것에 가깝습니다 — 동료가 작업 속으로 사라졌다가 완성물을 들고 돌아오는.</p>
+
+      <h3>좋은 Cowork 프롬프트 3요소</h3>
+      <ul>
+        <li><strong>산출물을 명명</strong> — “1페이지 브리프”, “QBR용 슬라이드”, “후보별 메모가 붙은 순위 목록”.</li>
+        <li><strong>입력을 명명</strong> — 어느 폴더·채널·기간·앱. Cowork는 가리킨 맥락만큼만 좋습니다.</li>
+        <li><strong>추가 뉘앙스</strong> — “base·best·worst 시나리오, Q3에 연 신규 3개 지점 반영” 같은 내 전문성.</li>
+      </ul>
+      <p>행을 비우면 Cowork가 대개 <strong>명확화 질문</strong>으로 물어옵니다. Chat이 턴마다 맥락을 쌓는다면, Cowork는 <strong>시작 전에</strong> 걸릴 만한 것을 질문으로 메웁니다. 대개 옵션 중 클릭, 맞는 게 없으면 직접 답변.</p>
+
+      <h3>중간에 방향 잡기 (Steer mid-task)</h3>
+      <p>계획·진행을 지켜보다 <strong>어긋나면 즉시 개입</strong>하세요. Chat 습관대로 끝날 때까지 기다렸다 재생성하지 말 것 — Cowork는 <strong>중간 교정</strong>에 설계됐고 방향 전환 비용이 낮습니다.</p>
+
+      <h3>완성물 리뷰</h3>
+      <div class="card"><ul>
+        <li><strong>실제 목표를 충족?</strong> 미묘하게 다른 걸 만들지 않았나.</li>
+        <li><strong>사실이 정확?</strong> 참조 문서를 Claude에게 물어 직접 대조.</li>
+        <li><strong>지어낸 티?</strong> 입력에서 추적 안 되는 날짜·이름·인용은 <strong>기능이 아니라 위험 신호</strong>.</li>
+      </ul></div>
+      <p>대체로 맞으면 처음부터가 아니라 <strong>바꿀 점만 말하기</strong>(재생성보다 편집이 빠름). 핵심적으로 틀렸다면 프롬프트에 <strong>load-bearing 맥락</strong>이 빠진 것.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · Cowork를 '내 것'으로 — 반복 없이 쌓이는 4가지</div></div>
+    </section>
+
+    <!-- L5 -->
+    <section class="lesson" id="better-results">
+      <div class="lesson-head">
+        <div class="lesson-num">05</div>
+        <div class="eyebrow">Make it yours · 레슨 05</div>
+        <h1 class="lesson-title">더 나은 결과를 더 빠르게</h1>
+        <div class="meta-row"><span class="chip">⏱ 5분</span></div>
+      </div>
+
+      <p>이 모듈이 더하는 건 <strong>복리로 쌓이는</strong> 부분입니다 — Claude가 나·내 일·팀 방식을 알수록 다음 산출물이 더 좋고 빨라집니다. 네 가지 빌딩 블록이 이를 만들며, <strong>서로 독립적이고 복리로 누적</strong>됩니다.</p>
+      <table>
+        <colgroup><col style="width:24%"><col></colgroup>
+        <tr><th>블록</th><th>Cowork가 배우는 것 → 얻는 것</th></tr>
+        <tr><td><strong>Global instructions</strong> (L6)</td><td>내가 누구고 어떻게 일하는지 → 모든 작업이 역할·형식·선호에 맞춰 시작.</td></tr>
+        <tr><td><strong>Projects</strong> (L6)</td><td>한 워크스트림의 맥락 → 프로젝트 안에선 '팀원'처럼 파일·기록·결정을 앎.</td></tr>
+        <tr><td><strong>Skills</strong> (L7)</td><td>특정 절차를 어떻게 하는지 → 매칭 작업을 팀 방식(템플릿·기준·단계)대로.</td></tr>
+        <tr><td><strong>Plugins</strong> (L8)</td><td>역할·분야의 전문성 → 제너럴리스트에서 스페셜리스트로.</td></tr>
+      </table>
+      <div class="callout">Day 1에 넷 다 필요하진 않습니다. 반복 교정이 보이면 → global instructions, 반복 워크스트림이 보이면 → project, 같은 워크플로우를 여러 번 설명하면 → skill, 공유할 가치가 생기면 → plugin.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Global instructions & Projects — 서 있는 맥락</div></div>
+    </section>
+
+    <!-- L6 -->
+    <section class="lesson" id="standing-context">
+      <div class="lesson-head">
+        <div class="lesson-num">06</div>
+        <div class="eyebrow">Make it yours · 레슨 06</div>
+        <h1 class="lesson-title">Global instructions & Projects</h1>
+        <div class="meta-row"><span class="chip">⏱ 7분</span></div>
+      </div>
+
+      <p>Chat은 메모리가 자동으로 쌓이지만, Cowork에서 작업 간 이어지는 맥락은 <strong>대부분 내가 설정</strong>합니다 — 모든 세션에 적용되는 <strong>global instructions</strong>, 그리고 대화에서 메모리가 자동으로 쌓이는 <strong>projects</strong>.</p>
+
+      <h3>Global instructions — 모든 세션에 적용되는 브리프</h3>
+      <p>Settings → Cowork에서 한 번 작성하면 모든 챗·예약 작업·Dispatch가 참조합니다. 담을 것: <strong>내가 누구고 뭘 하는지</strong>, 쓰는 <strong>약어·줄임말</strong>(“QBR 덱”을 안 묻도록), <strong>출력 선호</strong>(형식·길이·톤). 완벽할 필요 없이 반복 교정(“핵심을 앞에”, “옥스퍼드 콤마 금지”)이 후보.</p>
+
+      <h3>Projects — 워크스트림 전용 워크스페이스</h3>
+      <p>global instructions가 '나'를 덮는다면 project는 '지금 하는 일'을 덮습니다. 안에는:</p>
+      <table>
+        <colgroup><col style="width:22%"><col></colgroup>
+        <tr><th>구성</th><th>역할</th></tr>
+        <tr><td><strong>Instructions</strong></td><td>이 프로젝트에 한정된 지침.</td></tr>
+        <tr><td><strong>Scheduled tasks</strong></td><td>프로젝트 맥락으로 도는 반복 작업(금요일 상태 풀 등).</td></tr>
+        <tr><td><strong>Context</strong></td><td>모든 대화가 접근하는 폴더·링크.</td></tr>
+        <tr><td><strong>Memory</strong></td><td>대화에서 Claude가 <strong>자동으로 쌓는</strong> 것 — 내가 쓰지 않음.</td></tr>
+      </table>
+      <div class="callout">그 마지막(Memory)이 프로젝트의 차이입니다 — 밖에선 매 세션이 새로 시작하지만, 안에선 매 대화가 앎을 더해 다음 작업이 <strong>클라이언트 상황·지난주 결정·미결 사항</strong>을 이미 손에 쥐고 엽니다.</p>
+      <p>시작 방법 3가지: <strong>빈 상태에서</strong> · <strong>기존 폴더에서</strong>(그 폴더가 작업 디렉터리) · <strong>Chat 프로젝트에서</strong>(단방향 이전).</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Skills — 내 방식을 가르치기</div></div>
+    </section>
+
+    <!-- L7 -->
+    <section class="lesson" id="skills">
+      <div class="lesson-head">
+        <div class="lesson-num">07</div>
+        <div class="eyebrow">Make it yours · 레슨 07</div>
+        <h1 class="lesson-title">Skills — Cowork에 내 방식 가르치기</h1>
+        <div class="meta-row"><span class="chip">⏱ 12분</span></div>
+      </div>
+
+      <p>스킬은 <strong>재사용 가능한 플레이북</strong> — 특정 종류의 일을 내가 원하는 방식대로 하도록 가르치는 파일·자료 폴더입니다. 매칭 작업이 오면 Claude가 <strong>자동으로</strong> 로드해 따릅니다(이름으로 명시 호출도 가능).</p>
+      <h3>스킬 안의 4가지</h3>
+      <table>
+        <colgroup><col style="width:22%"><col></colgroup>
+        <tr><th>구성</th><th>역할</th></tr>
+        <tr><td><strong>Instructions</strong> (SKILL.md)</td><td>무엇을·언제·어떻게. 새 동료용 런북처럼 구체적으로.</td></tr>
+        <tr><td><strong>Assets</strong></td><td>로고·브랜드 템플릿·슬라이드 마스터·폰트 등 원재료.</td></tr>
+        <tr><td><strong>References</strong></td><td>좋은 출력 예시·스타일 가이드·조항 라이브러리 — '좋음'의 기준.</td></tr>
+        <tr><td><strong>Scripts</strong></td><td>매번 같아야 할 부분의 코드(변동 계산·비교·차트 포매터).</td></tr>
+      </table>
+      <p>조합은 일에 따라 — SKILL.md만으로도, 브랜드 자산까지도, 넷 다도 가능. 필요한 것만 넣습니다.</p>
+      <div class="callout"><strong>가장 빠른 제작법 = Claude와 대화.</strong> 새 대화에서 “[반복 절차]용 스킬을 만들고 싶어. 뭘 알아야 하는지 안내해줘”라고 하면, Claude가 질문하며 SKILL.md+자산·참조·스크립트가 든 <strong>설치 가능한 스킬 폴더</strong>를 만듭니다. 수정은 “$100K 넘고 2단계 미끄러진 딜을 플래그하는 단계 추가”처럼 말하면 제자리 갱신.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Plugins — 팀 전문성을 부호화</div></div>
+    </section>
+
+    <!-- L8 -->
+    <section class="lesson" id="plugins">
+      <div class="lesson-head">
+        <div class="lesson-num">08</div>
+        <div class="eyebrow">Make it yours · 레슨 08</div>
+        <h1 class="lesson-title">Plugins — 팀 전문성 부호화</h1>
+        <div class="meta-row"><span class="chip">⏱ 12분</span></div>
+      </div>
+
+      <p>스킬 하나가 플레이북 하나라면, <strong>플러그인은 하나의 '직무'를 중심으로 묶은 여러 스킬</strong> + 그들이 의존하는 커넥터·서브에이전트입니다. 설치하면 전문성이 <strong>사람이 아니라 설치와 함께</strong> 이동합니다.</p>
+      <table>
+        <colgroup><col style="width:26%"><col></colgroup>
+        <tr><th>두 가지 형태</th><th>설명</th></tr>
+        <tr><td><strong>엔드투엔드 파이프라인</strong></td><td>순차 단계를 하나로. 예: 월마감 플러그인 = 실적 수집·변동표·이사회 메모 스킬을 이어 한 프로세스로.</td></tr>
+        <tr><td><strong>팀 상용 스킬 묶음</strong></td><td>서로 독립적이나 자주 쓰는 스킬 묶음. 예: 재무 플러그인 = 변동 분석·모델링·투자 메모·분기 리포트. 새 팀원이 하나 설치로 툴킷 전부.</td></tr>
+      </table>
+      <p>Anthropic이 흔한 직무(재무·법무·영업·마케팅·CS·PM 등)용 플러그인을 마켓플레이스에 게시합니다. Customize → Plugins에서 <strong>설치</strong> 후 커넥터 승인 → 스킬 즉시 사용. 마켓플레이스 버전은 <strong>강한 기본값이지 최종답이 아니므로</strong>, Customize로 우리 팀 템플릿·정의에 맞게 조정(“이 3개 NDA에 맞춰 /nda-triage 스킬을 업데이트해줘”).</p>
+      <div class="callout"><strong>/setup-cowork</strong>를 치면 짧은 인터뷰로 내 일에 맞는 플러그인을 추천·바로 설치해 테스트할 수 있습니다. (자체 워크플로우는 Cowork와 함께 직접 빌드 가능 — 대개 스킬 하나로 작게 시작)</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 데스크톱 너머 — Chrome & M365</div></div>
+    </section>
+
+    <!-- L9 -->
+    <section class="lesson" id="chrome">
+      <div class="lesson-head">
+        <div class="lesson-num">09</div>
+        <div class="eyebrow">Use everywhere · 레슨 09</div>
+        <h1 class="lesson-title">Claude in Chrome</h1>
+        <div class="meta-row"><span class="chip">⏱ 10분</span></div>
+      </div>
+
+      <p>Claude in Chrome은 <strong>커넥터가 없는 도구를 위한 다리</strong>입니다 — 브라우저에 사는 것이면 Claude가 페이지를 읽고 행동합니다. Chrome에서 정보·행동을 처리하고, 그 결과로 <strong>Cowork에서 산출물을 빌드</strong> — 한 대화, 두 표면.</p>
+      <h3>무엇이 열리나</h3>
+      <ul>
+        <li><strong>내부 대시보드</strong> — Tableau·Looker·BI. 숫자를 뽑아 다운로드 후 Cowork 작업에 활용.</li>
+        <li><strong>벤더 포털·고객 시스템</strong> — API 없는 조달 포털, SSO 뒤 CRM, 티켓 트리아지 도구를 탐색·처리.</li>
+        <li><strong>로그인 뒤 웹앱</strong> — “조달 시스템 열어 Q3 상위 10개 공급사 PO의 라인 아이템을 시트로.”</li>
+        <li><strong>산출물로 끝나는 웹 리서치</strong> — 탭 10개를 열어 브리프로(복붙 없이).</li>
+      </ul>
+      <div class="tip"><strong>주의</strong> · Claude가 대신 로그인할 수 없습니다 — 내가 브라우저에서 로그인하면 그 세션에서 작업. 민감한 사이트는 행동 범위를 좁히고 승인 전에 검토하세요.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Claude for Microsoft 365</div></div>
+    </section>
+
+    <!-- L10 -->
+    <section class="lesson" id="m365">
+      <div class="lesson-head">
+        <div class="lesson-num">10</div>
+        <div class="eyebrow">Use everywhere · 레슨 10</div>
+        <h1 class="lesson-title">Claude for Microsoft 365</h1>
+        <div class="meta-row"><span class="chip">⏱ 5분</span></div>
+      </div>
+
+      <p>Claude가 <strong>Word·Excel·PowerPoint·Outlook 안의 add-in</strong>으로 등장해, 열려 있는 파일에서 직접 작업합니다. 한 대화가 <strong>앱을 넘나들며 맥락을 운반</strong>합니다.</p>
+      <table>
+        <colgroup><col style="width:20%"><col></colgroup>
+        <tr><th>앱</th><th>대표 동작</th></tr>
+        <tr><td><strong>Excel</strong></td><td>분석·수식·#REF!·순환참조 디버깅. “Q3 실적을 계획과 비교해 F열에 변동 코멘트를 셀 참조와 함께.”</td></tr>
+        <tr><td><strong>PowerPoint</strong></td><td>슬라이드 마스터·폰트·색을 읽어 맞춤 슬라이드, 네이티브 편집형 차트. “Excel 분석을 우리 덱 템플릿으로 3슬라이드 QBR 덱으로.”</td></tr>
+        <tr><td><strong>Word</strong></td><td>제자리 초안·수정·재서식, 코멘트·변경추적. “본문+부록 원자료로 경영 요약 초안.”</td></tr>
+        <tr><td><strong>Outlook</strong></td><td>맥락 있는 메일 트리아지, 이전 스레드·캘린더·결정 반영 답장 초안.</td></tr>
+      </table>
+      <p>크로스 앱 이동이 진가 — Outlook→Word→Excel→PowerPoint→Outlook을 <strong>한 대화</strong>로 맥락을 운반.</p>
+      <div class="callout"><strong>언제 무엇을</strong> · 여러 출처에서 끌어와 산출물로 끝나면 <strong>Cowork</strong>, Office 파일 자체를 제자리 편집하며 앱 간 맥락을 나르면 <strong>M365 안의 Claude</strong>. 대부분의 실제 작업은 둘을 함께 씁니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 안전하게 일하기</div></div>
+    </section>
+
+    <!-- L11 -->
+    <section class="lesson" id="safety">
+      <div class="lesson-head">
+        <div class="lesson-num">11</div>
+        <div class="eyebrow">Sharing & safety · 레슨 11</div>
+        <h1 class="lesson-title">안전하게 일하기</h1>
+        <div class="meta-row"><span class="chip">⏱ 8분</span></div>
+      </div>
+
+      <p>Claude는 삭제 전, 그리고 기본 모드에선 전송·공유 전에도 묻습니다 — 그게 '바닥'. 이 레슨은 그 위에 내가 얹는 <strong>사전 조치</strong>입니다.</p>
+      <h3>실수가 중요한 것에 닿지 못하게 설정</h3>
+      <div class="card"><ul>
+        <li><strong>전용 작업 폴더</strong>를 쓰기 — Documents·Downloads·Desktop을 가리키는 건 새 동료에게 모든 파일을 뒤지게 하는 것.</li>
+        <li><strong>대체 불가한 것은 미리 백업</strong> — Cowork가 닿지 못하는 곳에.</li>
+        <li><strong>새 워크플로우는 복사본으로 먼저 테스트</strong>.</li>
+      </ul></div>
+      <h3>잘못된 행동의 여지를 안 주는 프롬프트</h3>
+      <ul>
+        <li><strong>파괴적 동사에 구체적으로</strong> — “섹션을 잘라내”가 화면에서 제거인지 파일에서 삭제인지. “초안에서 제거하되 파일은 유지.”</li>
+        <li><strong>범위를 명시</strong> — “이 폴더에서 최근 업데이트된 3개만”, “아무에게도 메시지 금지 — 초안만.”</li>
+        <li><strong>초기엔 예약 작업을 '초안'으로</strong> 돌리기.</li>
+      </ul>
+      <h3>그 순간의 3가지 점검</h3>
+      <p><strong>계획을 한 번 읽고</strong>(순서·출처가 맞나), <strong>예상 밖 패턴을 경계</strong>하며(언급 안 한 파일·사이트를 건드리면 중단 — “뭔가 이상하다”는 진짜 신호), <strong>확인 프롬프트를 신중히 승인</strong>합니다(대부분의 실수는 안전장치 실패가 아니라 대충 클릭에서).</p>
+      <div class="callout"><strong>Cowork가 맞지 않을 때</strong> · 감사 추적이 필요한 규제 워크플로우(Cowork 활동은 감사 로그·Compliance API에 안 잡힘), 감독 없이 맡기기 어려운 일(상대방에 법무 문서 전송·공개 발표·고객 대면 변경 — Claude는 준비, 발송은 내가), IT가 명시 승인하지 않은 고민감 개인정보.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 스킬·플러그인 검증(evals)</div></div>
+    </section>
+
+    <!-- L12 -->
+    <section class="lesson" id="validating-skills">
+      <div class="lesson-head">
+        <div class="lesson-num">12</div>
+        <div class="eyebrow">Sharing & safety · 레슨 12</div>
+        <h1 class="lesson-title">스킬 검증하기 (Evals)</h1>
+        <div class="meta-row"><span class="chip">⏱ 8분</span></div>
+      </div>
+
+      <p>스킬·플러그인을 만들면 사실상 <strong>남이 쓸 작은 제품</strong>을 만드는 것. 내가 쓸 땐 문제를 우회하지만, 동료는 요청을 다르게 표현하거나 <strong>엣지 케이스</strong>에 부딪혀 넘어질 수 있습니다.</p>
+      <div class="callout"><strong>Eval = 시운전.</strong> 현실적 요청을 넣고, 나온 걸 보고, 고칠 점을 Claude에게 말한다. 코드·테스트 스크립트 없이 <strong>“내 이름 걸고 내보낼 만한가”</strong>라는 판단만.</p>
+      <h3>동작 방식 — skill-creator</h3>
+      <p>스킬을 <strong>skill-creator</strong>로 만들면 eval을 과정에 넣어줍니다. 현실적 프롬프트 2개+마다 <strong>스킬 사용 vs 미사용</strong> 출력 쌍을 만들어 <strong>나란히</strong> 비교하게 합니다 — “괜찮은가”가 아니라 “<strong>Claude 혼자보다 나은가</strong>”.</p>
+      <ul>
+        <li><strong>스킬 버전을 내가 쓸 것인가?</strong> 그렇다면 무엇이 낫게 했는지 메모.</li>
+        <li>아니면 <strong>무엇이 빠졌나/틀렸나</strong> 구체적으로(“톤이 너무 격식적”, “요약을 빼먹음”).</li>
+      </ul>
+      <p>피드백을 내면 Claude가 스킬을 <strong>수정</strong>하고, 같은 프롬프트로 다시 돌려봅니다. <strong>한 번에 하나씩</strong> 바꾸세요. 대개 1~2라운드면 준비 완료 — 기준은 완벽한 eval이 아니라 <strong>“내가 신경 쓰는 케이스가 베이스라인보다 의미 있게 낫고, 아직 못 다루는 케이스를 명명했는가”</strong>.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 팀에 공유하기</div></div>
+    </section>
+
+    <!-- L13 -->
+    <section class="lesson" id="sharing">
+      <div class="lesson-head">
+        <div class="lesson-num">13</div>
+        <div class="eyebrow">Sharing & safety · 레슨 13</div>
+        <h1 class="lesson-title">팀에 공유하기</h1>
+        <div class="meta-row"><span class="chip">⏱ 7분</span></div>
+      </div>
+
+      <p>eval을 통과하고 한 사람 이상에서 버틴 스킬들을 <strong>플러그인으로 묶어</strong>(L8) 필요한 모두에게 전달합니다. 큰 회사에선 <strong>조직의 프라이빗 마켓플레이스</strong>(관리자가 관리하는 승인 플러그인 카탈로그)로 공유하는 게 권장 방식.</p>
+      <p>실무적으로 <strong>핸드오프</strong>입니다 — 마켓플레이스 담당(팀 리드·이네이블먼트·IT)에게 가져가면 게시하며 배포 수준을 고릅니다:</p>
+      <table>
+        <colgroup><col style="width:26%"><col></colgroup>
+        <tr><th>수준</th><th>의미</th></tr>
+        <tr><td><strong>Available</strong></td><td>디렉터리에 노출, 원하면 설치.</td></tr>
+        <tr><td><strong>Installed by default</strong></td><td>열면 이미 있음, 끌 수 있음.</td></tr>
+        <tr><td><strong>Required</strong></td><td>설치·유지(끌 수 없음). 컴플라이언스 등.</td></tr>
+        <tr><td><strong>Hidden</strong></td><td>마켓엔 있으나 디렉터리 비노출(스테이징·제한 배포).</td></tr>
+      </table>
+      <h3>건강하게 유지하는 습관</h3>
+      <div class="card"><ul>
+        <li><strong>한 명의 오너</strong> — 변경 검토·eval 재실행·갱신/폐기 결정.</li>
+        <li><strong>게시 전 항상 eval</strong> — 신경 쓰는 케이스가 안 버티면 배포 금지.</li>
+        <li><strong>구체적 이름</strong> — “meeting-prep”보다 “sales-customer-renewal-prep”.</li>
+        <li><strong>리뷰 주기</strong>(분기 권장) — 안 쓰는 건 폐기, 개선점 반영.</li>
+      </ul></div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 마무리 & 다음 단계</div></div>
+    </section>
+
+    <!-- L14 -->
+    <section class="lesson" id="wrap-up">
+      <div class="lesson-head">
+        <div class="lesson-num">14</div>
+        <div class="eyebrow">Sharing & safety · 레슨 14</div>
+        <h1 class="lesson-title">마무리 & 다음 단계</h1>
+        <div class="meta-row"><span class="chip">⏱ 5분</span></div>
+      </div>
+
+      <h3>다룬 내용</h3>
+      <table>
+        <colgroup><col style="width:26%"><col></colgroup>
+        <tr><th>모듈</th><th>핵심</th></tr>
+        <tr><td><strong>1. Cowork 만나기</strong></td><td>Cowork란·Chat/Code와의 차이·맞는 일·첫 실제 작업.</td></tr>
+        <tr><td><strong>2. 내 것으로</strong></td><td>global instructions·projects·skills·plugins로 복리 강화.</td></tr>
+        <tr><td><strong>3. 어디서나</strong></td><td>Claude in Chrome, M365(Word·Excel·PPT·Outlook).</td></tr>
+        <tr><td><strong>4. 공유 & 안전</strong></td><td>책임 있는 자율 사용·검증·팀 인프라화.</td></tr>
+      </table>
+      <div class="callout"><strong>관통선</strong> · Cowork는 대화를 넘어 <strong>실제 일을 위임</strong>하게 합니다. 나머지 모든 것이 그 위에 쌓입니다 — 일을 넘기고, 다듬어진 산출물을 받는다.</p>
+      <h3>이번 주 하나 해보기</h3>
+      <ul>
+        <li>메모리 설정(5문장 global instructions 또는 프로젝트 하나).</li>
+        <li>예약 작업 또는 Dispatch 설정.</li>
+        <li>내 역할에 가까운 플러그인 설치·실행.</li>
+        <li>Claude in Chrome 또는 M365를 한 작업에.</li>
+        <li>만든 것을 팀에 공유.</li>
+      </ul>
+      <div class="next"><span class="arrow">→</span><div><b>완주</b> · Introduction to Claude Cowork의 14개 레슨을 모두 정리했습니다. 이제 폴더 하나를 가리키고 실제 작업 하나를 통째로 위임해볼 차례입니다.</div></div>
+    </section>
+
+   </div>
+  </main>
+</div>
+</div>
+
+<script>
+  const curriculum = [
+    { n:"01", section:"Meet Cowork", lessons:[
+      { id:"what-is-cowork", title:"Claude Cowork란?", done:true },
+      { id:"setup", title:"설정하기", done:true },
+      { id:"what-cowork-can-do", title:"해줄 수 있는 일", done:true },
+      { id:"first-task", title:"첫 작업 위임", done:true },
+    ]},
+    { n:"02", section:"Make it yours", lessons:[
+      { id:"better-results", title:"더 나은 결과를 더 빠르게", done:true },
+      { id:"standing-context", title:"Global instructions & Projects", done:true },
+      { id:"skills", title:"Skills", done:true },
+      { id:"plugins", title:"Plugins", done:true },
+    ]},
+    { n:"03", section:"Use everywhere", lessons:[
+      { id:"chrome", title:"Claude in Chrome", done:true },
+      { id:"m365", title:"Claude for M365", done:true },
+    ]},
+    { n:"04", section:"Sharing & safety", lessons:[
+      { id:"safety", title:"안전하게 일하기", done:true },
+      { id:"validating-skills", title:"스킬 검증(Evals)", done:true },
+      { id:"sharing", title:"팀에 공유하기", done:true },
+      { id:"wrap-up", title:"마무리 & 다음 단계", done:true },
+    ]},
+  ];
+</script>
+{% include course-nav.html %}

@@ -1,0 +1,454 @@
+---
+layout: default
+title: "Claude Platform 101"
+date: 2026-07-01
+categories: [강의 정리]
+tags: [Claude API, Anthropic, AI, 개발]
+permalink: /courses/anthropic/claude-platform-101.html
+description: "Anthropic 공식 영어 강의 Claude Platform 101을 한글로 정리한 학습 노트 — Messages API·에이전트 루프·도구 사용·MCP·매니지드 에이전트."
+---
+{% include course-styles.html %}
+
+<div class="course-page">
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <a class="backlink" href="/courses/anthropic/">← Anthropic Courses</a>
+      <p class="kicker">Anthropic Academy</p>
+      <h1>Claude <em>Platform 101</em></h1>
+      <p class="sub">Anthropic Academy 공식 영어 강의를 한글로 정리한 학습 노트</p>
+      <a class="srcnote" href="https://anthropic.skilljar.com/claude-platform-101" target="_blank" rel="noopener">원문 강의 (영어) ↗</a>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-text"><span id="progressPos">레슨 01 / 13</span><span id="progressPct">전체 정리 완료</span></div>
+      </div>
+    </div>
+    <nav class="spine" id="nav"></nav>
+  </aside>
+
+  <main class="content">
+   <div class="reading" id="reading">
+
+    <!-- L1 -->
+    <section class="lesson active" id="what-is-platform">
+      <div class="lesson-head">
+        <div class="lesson-num">01</div>
+        <div class="eyebrow">Getting started · 레슨 01</div>
+        <h1 class="lesson-title">Claude Developer Platform이란?</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+      </div>
+
+      <p>Claude Developer Platform은 <strong>Claude를 프로그래밍으로(programmatically) 활용</strong>하기 위한 Anthropic의 인프라입니다. 브라우저에서 대화하는 대신, 코드에서 <strong>구조화된 요청</strong>을 보내고 구조화된 응답을 받으며 — 모델·토큰·도구·시스템 지침까지 <strong>모든 세부를 제어</strong>합니다.</p>
+      <div class="card"><ul>
+        <li>어떤 언어에서든 호출하는 <strong>REST API</strong></li>
+        <li>언어별 <strong>SDK</strong>와 <strong>CLI</strong></li>
+        <li>API 키·사용량·매니지드 에이전트·프롬프트 테스트를 관리하는 <strong>Console</strong></li>
+      </ul></div>
+
+      <h3>플랫폼의 3계층</h3>
+      <table>
+        <colgroup><col style="width:26%"><col></colgroup>
+        <tr><th>계층</th><th>내용</th></tr>
+        <tr><td><strong>Primitives</strong> (빌드)</td><td>Messages API, 도구 사용, files, 웹 검색, 코드 실행, MCP 서버, Skills — 코드에서 직접 호출하는 조각들.</td></tr>
+        <tr><td><strong>Infrastructure</strong> (확장)</td><td>매니지드 에이전트, 재시도, 큐, 관측성 — 한 번의 호출이 천 번이 돼도 굴러가게 하는 배관.</td></tr>
+        <tr><td><strong>Controls</strong> (운영)</td><td>대시보드, evals 등 프로덕션에서 돌리는 다이얼.</td></tr>
+      </table>
+      <div class="callout">한 줄 요약: <strong>Primitives로 만들고, Infrastructure로 확장하고, Controls로 운영</strong>한다.</div>
+
+      <h3>예시 — 헬프데스크 답변 초안</h3>
+      <p>티켓 내용을 기반으로 팀의 톤·가이드라인에 맞춰 답변 초안을 만드는 기능은 <strong>Messages API</strong>의 전형적 사례입니다.</p>
+      <pre><code>response = client.messages.create(
+    model="claude-haiku-4-5",   # 단순 초안엔 Haiku가 적합
+    max_tokens=1024,
+    system=TONE_AND_GUIDELINES, # 시스템 프롬프트 = Claude의 역할
+    messages=[{"role": "user", "content": ticket_content}],
+)
+draft = response.content</code></pre>
+      <p>핵심은 <strong>챗봇을 새로 만드는 게 아니라, 이미 존재하는 제품에 Claude를 끼워 넣는 것</strong>입니다. “Claude에게 질문하기”에서 <strong>“Claude가 내 제품의 일부가 되기”</strong>로.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 20줄 미만으로 첫 API 호출 보내기</div></div>
+    </section>
+
+    <!-- L2 -->
+    <section class="lesson" id="first-api-call">
+      <div class="lesson-head">
+        <div class="lesson-num">02</div>
+        <div class="eyebrow">Getting started · 레슨 02</div>
+        <h1 class="lesson-title">첫 API 호출</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+      </div>
+
+      <h3>준비</h3>
+      <ul>
+        <li>platform.claude.com에서 <strong>API 키</strong> 발급(크레딧 구매 필요).</li>
+        <li>키는 <code>.env.local</code>에 저장 — 소스에 하드코딩하면 GitHub에 유출됩니다.</li>
+        <li>SDK 설치: <code>npm install @anthropic-ai/sdk</code></li>
+      </ul>
+
+      <h3>요청의 해부 — messages.create</h3>
+      <p>모든 호출은 <code>messages.create</code>를 거치며 <strong>model · max_tokens · messages</strong> 세 가지를 지정합니다.</p>
+      <pre><code>const response = await client.messages.create({
+  model: "claude-opus-4-8",
+  max_tokens: 1024,
+  system: "You are a terse senior code reviewer. Give feedback in one paragraph.",
+  messages: [{ role: "user", content: `Review this code:\n${buggyCode}` }],
+});
+
+for (const block of response.content) {
+  if (block.type === "text") console.log(block.text);
+}</code></pre>
+      <div class="card"><ul>
+        <li><strong>system 프롬프트</strong>에서 페르소나를 빚습니다(“간결한 시니어 리뷰어”).</li>
+        <li>응답 <strong>content는 문자열이 아니라 블록 배열</strong> — text·tool call·thinking이 섞일 수 있어 항상 <strong>루프를 돌며 type을 확인</strong>합니다.</li>
+      </ul></div>
+      <div class="callout">실제 제품에선 이 동일한 <code>messages.create</code>가 “요약 엔드포인트”의 엔진이 됩니다 — DB에서 회의록을 꺼내 시스템 프롬프트와 함께 넘기고, 결과를 저장·반환. 같은 호출을 라우트 핸들러로 감쌌을 뿐.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 어떤 모델을 고를까 — 품질과 비용의 균형</div></div>
+    </section>
+
+    <!-- L3 -->
+    <section class="lesson" id="choosing-model">
+      <div class="lesson-head">
+        <div class="lesson-num">03</div>
+        <div class="eyebrow">Getting started · 레슨 03</div>
+        <h1 class="lesson-title">알맞은 모델 고르기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+      </div>
+
+      <p>제일 똑똑한 모델을 기본값으로 쓰면 <strong>청구서가 놀라게</strong> 하고, 제일 싼 걸 쓰면 <strong>출력이 못 버팁니다.</strong> 각 모델은 트레이드오프가 다릅니다.</p>
+      <table>
+        <colgroup><col style="width:20%"><col></colgroup>
+        <tr><th>티어</th><th>용도</th></tr>
+        <tr><td><strong>Fable</strong></td><td>Opus 위의 최상위 티어(가장 강력·고비용). 가장 어려운 과제에만. (강의 촬영 시점엔 미출시)</td></tr>
+        <tr><td><strong>Opus</strong></td><td>핵심 3종 중 가장 유능하나 가장 느리고 비쌈. 깊은 추론·복잡 분석·다단계 코딩·미묘한 글쓰기.</td></tr>
+        <tr><td><strong>Sonnet</strong></td><td>지능·속도·비용의 스위트 스팟 — 대부분의 프로덕션 작업.</td></tr>
+        <tr><td><strong>Haiku</strong></td><td>가장 빠르고 저렴. 분류·추출·라우팅 등 대량·저복잡 작업.</td></tr>
+      </table>
+
+      <h3>간단한 eval부터</h3>
+      <p>프로덕션 코드를 짜기 전, 실제 워크로드에서 <strong>대표 예시 20~30개</strong>를 각 모델에 돌려 “좋은 출력” 기준으로 채점하세요. 그리고 <strong>티어를 올려가며</strong>:</p>
+      <ol>
+        <li>먼저 <strong>Haiku</strong>로 — 품질이 버티면 끝(비용 대폭 절약).</li>
+        <li>아니면 <strong>Sonnet</strong>으로.</li>
+        <li>정말 필요할 때만 <strong>Opus</strong>.</li>
+      </ol>
+      <div class="callout">핵심: <strong>“실제로 출시할 만한 출력 중 가장 싼 모델”</strong>이 정답. <code>response.usage</code>가 입력·출력 토큰(=청구 근거)을 돌려줍니다.</div>
+      <p>실제 앱에선 <strong>한 엔드포인트 안에서 작업별로 라우팅</strong>합니다 — 파일 분류는 Haiku, 고객 업데이트 초안은 Sonnet, RFP 응답만 Opus.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 에이전트 루프 — 단일 호출을 넘어 자동화로</div></div>
+    </section>
+
+    <!-- L4 -->
+    <section class="lesson" id="agent-loop">
+      <div class="lesson-head">
+        <div class="lesson-num">04</div>
+        <div class="eyebrow">Teaching your Agent · 레슨 04</div>
+        <h1 class="lesson-title">에이전트 루프</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+      </div>
+
+      <p>단일 호출은 한 번의 응답만 줍니다. 워크플로우를 자동화하려면 Claude가 <strong>행동 → 결과 확인 → 다음 결정</strong>을 반복해야 합니다. 이게 <strong>에이전트적(agentic) 워크플로우</strong>입니다.</p>
+      <p><strong>에이전트</strong>는 사람 없이 메시징 루프의 양쪽을 스스로 도는 Claude입니다.</p>
+      <ol>
+        <li>도구를 붙여 Claude에 메시지 전송</li>
+        <li>Claude가 <strong>최종 답</strong> 또는 <strong>도구 사용 요청</strong>으로 응답</li>
+        <li>내 코드가 그 도구를 실행</li>
+        <li>결과를 다시 Claude에 전달</li>
+        <li><code>stop_reason</code>이 <code>end_turn</code>일 때까지 반복</li>
+      </ol>
+      <pre><code>while True:
+    response = client.messages.create(
+        model="claude-sonnet-4-6", max_tokens=1024,
+        tools=tools, messages=messages)
+    if response.stop_reason == "end_turn":
+        # 최종 답 출력 후 종료
+        break
+    if response.stop_reason == "tool_use":
+        tool_results = []
+        for block in response.content:
+            if block.type == "tool_use":
+                result = run_tool(block.name, block.input)
+                tool_results.append({"type":"tool_result",
+                    "tool_use_id": block.id, "content": result})
+        messages.append({"role":"assistant","content":response.content})
+        messages.append({"role":"user","content":tool_results})</code></pre>
+      <div class="callout"><strong>루프와 도구는 내가 소유하고, 추론은 Claude가 소유</strong>합니다. 모의 날씨 데모부터 프로덕션 컴플라이언스 에이전트까지 <strong>루프의 모양은 동일</strong>하고 도구와 배관만 달라집니다. 루프를 직접 돌리기 싫으면 <strong>매니지드 에이전트</strong>가 대신 돌려줍니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 도구 사용(tool use) 자세히 — 스키마·다중 도구·tool runner</div></div>
+    </section>
+
+    <!-- L5 -->
+    <section class="lesson" id="tool-use">
+      <div class="lesson-head">
+        <div class="lesson-num">05</div>
+        <div class="eyebrow">Teaching your Agent · 레슨 05</div>
+        <h1 class="lesson-title">도구 사용이란?</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+      </div>
+
+      <p>Claude는 프로젝트 관리 도구·DB·파일을 스스로 확인할 수 없습니다. 대신 <strong>도구(tool)</strong>로 외부 데이터·행동에 접근합니다. <strong>도구를 실행하는 건 Claude가 아니라 내 코드</strong>입니다.</p>
+      <p>도구는 <strong>name · description · input_schema</strong>로 이뤄진 JSON 스키마이며, 요청 본문의 <code>tools</code> 배열로 넘깁니다.</p>
+      <div class="callout"><strong>description을 구체적으로!</strong> Claude가 호출 여부를 판단하는 근거가 바로 description입니다. 모호하면 도구를 잘못 쓰거나 안 씁니다 — 에이전트 오작동의 <strong>1순위 원인</strong>.</div>
+
+      <h3>다중 도구 — Claude가 고르게</h3>
+      <p>도구를 여러 개 주면 Claude가 프롬프트를 읽고 <strong>어떤 걸 어떤 순서로</strong> 쓸지 스스로 고릅니다(그래서 description이 중요). 루프는 동일하고, tool name으로 분기하는 <code>runTool</code> switch만 추가됩니다. 도구 추가 = 배열에 추가 + case 추가.</p>
+
+      <h3>Tool runner — 보일러플레이트 제거</h3>
+      <p>SDK(TypeScript·Python·Ruby)의 <strong>tool runner</strong>는 실제 함수의 타입·독을 읽어 <strong>스키마를 자동 생성</strong>하고, tool use/result 루프 전체를 내부에서 처리합니다.</p>
+      <pre><code>const runner = client.beta.messages.toolRunner({
+  model: "claude-sonnet-4-6", max_tokens: 1024,
+  messages: [{ role: "user", content: "..." }],
+  tools: [getWeather, getForecast],   // 평범한 함수를 그대로
+});
+const finalMessage = await runner.untilDone();</code></pre>
+      <p><strong>while 루프·stop_reason 분기·JSON 스키마 없이</strong> 코드가 크게 줄고, 실제 코드베이스의 기존 함수를 그대로 감싸 쓸 수 있습니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 확장 사고(thinking) — 언제 켜고 언제 끄나</div></div>
+    </section>
+
+    <!-- L6 -->
+    <section class="lesson" id="thinking">
+      <div class="lesson-head">
+        <div class="lesson-num">06</div>
+        <div class="eyebrow">Teaching your Agent · 레슨 06</div>
+        <h1 class="lesson-title">확장 사고(thinking)란?</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+      </div>
+
+      <p><strong>확장 사고(extended thinking)</strong>는 Claude가 최종 응답 전에 <strong>단계별로 추론</strong>하게 합니다. 내부 추론 토큰(chain of thought)이 생성되고, 그 추론은 <strong>숨겨지지 않고 응답에 함께 보입니다.</strong></p>
+      <h3>Opus의 적응형 사고</h3>
+      <p>토큰 예산을 정할 필요 없이 <strong>켜기만 하면</strong> Claude가 언제·얼마나 생각할지 동적으로 결정합니다. 깊이는 <code>effort</code> 파라미터로 조절하되, <strong>output_config 안에</strong> 넣습니다.</p>
+      <pre><code>response = client.messages.create(
+    model="claude-opus-4-7", max_tokens=16000,
+    thinking={"type": "adaptive"},
+    output_config={"effort": "high"},  # low | medium | high | xhigh | max
+    tools=[weather_tool], messages=[...])</code></pre>
+      <table>
+        <colgroup><col style="width:34%"><col></colgroup>
+        <tr><th>쓸 때</th><th>건너뛸 때</th></tr>
+        <tr><td>수학·다단계 논리, 코드 디버깅, 규제 분석, 트레이드오프·옵션 비교</td><td>단순 분류·추출·보일러플레이트 — 지연·비용만 늘고 품질 개선 없음</td></tr>
+      </table>
+      <div class="callout">프로덕션에선 이게 “문제를 하나씩 찾는 에이전트”와 “문제를 <strong>연결</strong>하는 에이전트”의 차이 — 예: 리포트 3절의 풍하중 스펙이 다른 곳의 재료 스펙과 <strong>충돌</strong>함을 잡아냄.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 내장 도구 — Anthropic이 실행하는 서버 도구</div></div>
+    </section>
+
+    <!-- L7 -->
+    <section class="lesson" id="built-in-tools">
+      <div class="lesson-head">
+        <div class="lesson-num">07</div>
+        <div class="eyebrow">Extending your Agent · 레슨 07</div>
+        <h1 class="lesson-title">내장 도구(Built-in tools)</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+      </div>
+
+      <h3>서버 도구 — 선언은 내가, 실행은 Anthropic이</h3>
+      <p><strong>서버 도구</strong>는 Anthropic 인프라에서 실행됩니다. 내가 실행하지 않으므로 <strong>에이전트 루프가 필요 없고</strong>, 결과가 같은 응답 안에 담겨 돌아옵니다.</p>
+      <table>
+        <colgroup><col style="width:26%"><col></colgroup>
+        <tr><th>서버 도구</th><th>기능</th></tr>
+        <tr><td><strong>Web search</strong></td><td>인터넷 검색 + 인용 포함 결과</td></tr>
+        <tr><td><strong>Code execution</strong></td><td>샌드박스에서 Python 작성·실행</td></tr>
+        <tr><td><strong>Web fetch</strong></td><td>URL 전체 내용 가져오기</td></tr>
+      </table>
+      <p>응답엔 새 블록 타입이 등장합니다 — <code>server_tool_use</code>(도구 호출), 코드 실행 결과 블록, 그리고 일반 text 블록.</p>
+      <div class="tip"><strong>주의</strong> · 웹에서 검증됐다고 참인 건 아닙니다. Claude의 작업은 항상 재확인하세요.</div>
+
+      <h3>클라이언트 도구</h3>
+      <p>또 다른 범주. <strong>내 코드가 도는 곳에서 실행</strong>되며 SDK가 스키마·러너를 제공: <strong>Memory</strong>(세션 간 읽기/쓰기), <strong>Bash</strong>(영속 셸). “Anthropic이 호스팅” 아이디어는 <strong>매니지드 에이전트</strong>에서 도구 하나가 아니라 에이전트 전체로 확장됩니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Skills — 절차를 가르치는 SKILL.md</div></div>
+    </section>
+
+    <!-- L8 -->
+    <section class="lesson" id="skills">
+      <div class="lesson-head">
+        <div class="lesson-num">08</div>
+        <div class="eyebrow">Extending your Agent · 레슨 08</div>
+        <h1 class="lesson-title">Skills</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+      </div>
+
+      <p>Skills는 Claude가 특정 작업을 잘하도록 <strong>동적으로 로드하는 지침·스크립트·자료 폴더</strong>입니다. 중심엔 <strong>SKILL.md</strong> — 한 번 업로드하고 어떤 <code>messages.create</code>에도 붙일 수 있는 지침 묶음. 내 상태 리포트 형식·리뷰 체크리스트·릴리스 노트 방식을 가르칩니다.</p>
+      <table>
+        <colgroup><col style="width:20%"><col></colgroup>
+        <tr><th>구분</th><th>역할</th></tr>
+        <tr><td><strong>Tools</strong></td><td>Claude가 <strong>무엇을 할 수 있나</strong>(데이터·행동 연결)</td></tr>
+        <tr><td><strong>Skills</strong></td><td>Claude가 <strong>어떻게 하길 원하나</strong>(절차·플레이북)</td></tr>
+      </table>
+      <div class="callout">Skills는 시작 시 전체가 로드되지 않습니다 — <strong>이름·설명만</strong> 먼저, 관련되다고 판단할 때 전체를 로드해 <strong>컨텍스트를 가볍게</strong> 유지.</div>
+      <p>워크스페이스에 한 번 업로드(<code>client.beta.skills.create</code>)하고 ID로 참조합니다. 요청엔 <code>container.skills</code> 배열로 붙이며(여러 개 레이어링 가능), 절차가 실제 작업을 하도록 <strong>code execution</strong>과 자주 짝지어 씁니다. (촬영 시점 기준 beta 헤더 필요)</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · MCP — 서드파티 통합의 유지보수를 넘기기</div></div>
+    </section>
+
+    <!-- L9 -->
+    <section class="lesson" id="mcp">
+      <div class="lesson-head">
+        <div class="lesson-num">09</div>
+        <div class="eyebrow">Extending your Agent · 레슨 09</div>
+        <h1 class="lesson-title">MCP</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+      </div>
+
+      <p>도구·스킬·커넥터가 있는데 MCP는 왜 있을까? 답은 <strong>통합 코드를 누가 유지보수하느냐</strong>입니다. 커스텀 도구로 Asana·Slack·Google을 붙이면, 그 서비스 API가 바뀔 때마다 <strong>내가</strong> 유지보수해야 합니다.</p>
+      <div class="callout"><strong>MCP는 그 유지보수를 서비스 제공자에게 넘깁니다.</strong> Asana가 MCP 서버를 게시하고, API가 바뀌면 그들이 서버를 갱신 — 나는 아무것도 안 바꿔도 됩니다.</div>
+      <table>
+        <colgroup><col style="width:16%"><col></colgroup>
+        <tr><th>기능</th><th>대상</th></tr>
+        <tr><td><strong>Tools</strong></td><td>내 것(내부 시스템·DB·독점 API) — 유지보수도 내 몫</td></tr>
+        <tr><td><strong>Skills</strong></td><td>내 절차(리포트 템플릿·리뷰 체크리스트)</td></tr>
+        <tr><td><strong>MCP</strong></td><td>남의 것(서드파티 서비스) — 제공자가 유지보수</td></tr>
+      </table>
+      <pre><code>response = client.beta.messages.create(
+    model="claude-opus-4-8", max_tokens=1000,
+    messages=[{"role":"user","content":"What tools do you have?"}],
+    mcp_servers=[{"type":"url","url":"https://mcp.linear.app/mcp",
+        "name":"linear","authorization_token":os.environ["LINEAR_MCP_TOKEN"]}],
+    tools=[{"type":"mcp_toolset","mcp_server_name":"linear"}],
+    betas=["mcp-client-2025-11-20"])</code></pre>
+      <p>스키마를 하나도 안 씁니다 — Claude가 서버를 introspect해 도구 목록을 가져와 고릅니다. <strong>범위 제한</strong>도 가능: <code>default_config.enabled=False</code>로 전부 끄고 특정 도구만 켜서(예: 읽기 전용) 안전하게 씁니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 컨텍스트 관리 4패턴</div></div>
+    </section>
+
+    <!-- L10 -->
+    <section class="lesson" id="context">
+      <div class="lesson-head">
+        <div class="lesson-num">10</div>
+        <div class="eyebrow">Extending your Agent · 레슨 10</div>
+        <h1 class="lesson-title">컨텍스트 관리</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+      </div>
+
+      <p>모든 요청엔 컨텍스트 윈도우가 있고, 100만 토큰도 실전 에이전트에선 <strong>생각보다 빨리</strong> 소진됩니다. 컨텍스트는 시스템 프롬프트·메시지 기록·도구 정의/결과·첨부·스킬·thinking 블록 등 <strong>Claude가 그 턴에 보는 모든 것</strong>이며, 들어갈 때·나올 때 모두 과금되고 <strong>가득 차면 요청이 실패</strong>합니다. 목표는 “전부”가 아니라 <strong>“맞는 것”</strong>을 넣는 것.</p>
+      <table>
+        <colgroup><col style="width:26%"><col></colgroup>
+        <tr><th>패턴</th><th>설명</th></tr>
+        <tr><td><strong>Just-in-time</strong> (설계 패턴)</td><td>전부 미리 로드하지 말고, 지금 필요한 것만. 나머지는 도구로 그때그때 가져오게(예: <code>lookup_building_code</code>).</td></tr>
+        <tr><td><strong>서버측 compaction</strong></td><td><code>context_management={"edits":[{"type":"compact"}]}</code> — 임계치 넘으면 옛 턴을 자동 요약. 길이를 직접 추적할 필요 없음.</td></tr>
+        <tr><td><strong>Prompt caching</strong></td><td>시스템 프롬프트·도구 정의·긴 문서 등 <strong>안정적 부분</strong>을 표시해 저비용으로 재사용. 4,000토큰 프롬프트를 시간당 100번 부르면 캐싱이 청구서를 좌우.</td></tr>
+        <tr><td><strong>Memory tool</strong></td><td>세션을 넘겨 남길 컨텍스트(선호·메모·지난주 결정). Claude가 메모리 디렉터리를 읽고 씀 — 저장 백엔드는 내가 구현.</td></tr>
+      </table>
+      <div class="callout">프로덕션에선 보통 <strong>4개를 동시에</strong> 레이어링. 각 패턴은 다른 실패 모드(비용·창 크기·무상태)를 다룹니다. 매니지드 에이전트는 caching·compaction이 <strong>기본 on</strong>.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 매니지드 에이전트란?</div></div>
+    </section>
+
+    <!-- L11 -->
+    <section class="lesson" id="managed-agents">
+      <div class="lesson-head">
+        <div class="lesson-num">11</div>
+        <div class="eyebrow">Managed Agents · 레슨 11</div>
+        <h1 class="lesson-title">매니지드 에이전트란?</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+      </div>
+
+      <p><strong>Claude Managed Agents</strong>는 에이전트를 대규모로 구축·배포하는 API 묶음입니다. 도구·페르소나·역량으로 에이전트를 정의하고, 패키지·네트워크가 갖춰진 샌드박스 환경을 구성한 뒤, 내 앱에서 <strong>세션</strong>을 발사하면 — Claude가 <strong>격리 컨테이너</strong>(파일시스템·bash·웹 검색)에서 일합니다.</p>
+      <div class="callout">내부는 익숙한 <strong>에이전트 루프</strong>(추론→도구→결과→반복)이며, 그 루프를 <strong>Anthropic 인프라에서 호스팅</strong>해 내가 돌리지 않아도 됩니다.</div>
+      <h3>세 가지 예시</h3>
+      <ul>
+        <li><strong>일하는 칸반 보드</strong> — 티켓을 "진행 중"으로 끌면 세션 발사. Lighthouse·Puppeteer가 깔린 환경 + GitHub 레포 마운트 → 감사·최적화. <strong>루브릭 채점기</strong>가 별도 컨텍스트에서 평가하고 Claude가 재작업(데모에서 96점까지). 두 번째 티켓을 병렬로.</li>
+        <li><strong>메모리 있는 반복 리서치</strong> — 매주 SaaS 가격을 추적, Python 비용 분석, Excel 스킬, Slack·Asana(MCP) 게시. <strong>메모리</strong>로 지난주와 비교("전주 대비 15%↓").</li>
+        <li><strong>다중 에이전트 인시던트 대응</strong> — 코디네이터가 세 전문가에게 위임, 공유 파일시스템에서 각자 작업 → 종합. 민감 액션은 <strong>권한 정책</strong>으로 사람 승인 대기.</li>
+      </ul>
+      <p>구성 블록: <strong>Agents · Sessions · Environments · Tools · MCP · Memory · Outcomes(루브릭·채점기) · 다중 에이전트 조율.</strong></p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 첫 매니지드 에이전트 만들기</div></div>
+    </section>
+
+    <!-- L12 -->
+    <section class="lesson" id="first-managed-agent">
+      <div class="lesson-head">
+        <div class="lesson-num">12</div>
+        <div class="eyebrow">Managed Agents · 레슨 12</div>
+        <h1 class="lesson-title">첫 매니지드 에이전트 만들기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+      </div>
+
+      <p>직접 만든 while 루프도 많은 기능엔 맞지만, 때로 루프가 <strong>수 분~수 시간</strong> 돌고 상태·파일·재개가 필요합니다. 그럴 땐 서버에서 돌리지 말고 <strong>위임</strong>하세요. 매니지드 에이전트는 <strong>모든 API 계정에 기본 활성화</strong>돼 있습니다.</p>
+      <h3>네 가지 프리미티브 (순서대로)</h3>
+      <table>
+        <colgroup><col style="width:22%"><col></colgroup>
+        <tr><th>프리미티브</th><th>역할</th></tr>
+        <tr><td><strong>Agent</strong></td><td>페르소나(모델·시스템 프롬프트·툴셋). 여러 실행에 <strong>재사용</strong>.</td></tr>
+        <tr><td><strong>Environment</strong></td><td>실행 장소(클라우드/로컬·네트워킹).</td></tr>
+        <tr><td><strong>Session</strong></td><td>특정 환경에서의 <strong>단일 실행</strong> = 작업 단위.</td></tr>
+        <tr><td><strong>Events</strong></td><td>드나드는 메시지(행동·도구 호출·결과·응답).</td></tr>
+      </table>
+      <pre><code>agent = client.beta.agents.create(name="Line Counter",
+    model="claude-opus-4-8", system="...",
+    tools=[{"type":"agent_toolset_20260401","default_config":{"enabled":True}}])
+environment = client.beta.environments.create(name="line-counter-env",
+    config={"type":"cloud","networking":{"type":"unrestricted"}})
+session = client.beta.sessions.create(agent=agent.id,
+    environment_id=environment.id, title="Count lines demo")
+
+with client.beta.sessions.events.stream(session_id=session.id) as stream:
+    client.beta.sessions.events.send(session_id=session.id, events=[
+        {"type":"user.message","content":[{"type":"text","text":"..."}]}])
+    for event in stream:
+        if event.type == "session.status_idle": break</code></pre>
+      <div class="tip"><strong>중요</strong> · 스트림은 열린 <strong>이후</strong>의 이벤트만 전달하므로, <strong>kickoff 메시지 전에 스트림을 먼저 여세요.</strong> 주목할 이벤트: <code>agent.message</code>(텍스트)·<code>agent.tool_use</code>(도구)·<code>session.status_idle</code>(완료).</p>
+      <p>while 루프를 도는 대신 <strong>이벤트를 보내고 읽습니다.</strong> 루프가 너무 길거나, 너무 많은 일을 하거나, 중단을 견뎌야 할 때 매니지드 에이전트를, 완전 제어가 필요하면 수동 루프를 고르세요.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · Claude Code로 API 통합 코드 짜기</div></div>
+    </section>
+
+    <!-- L13 -->
+    <section class="lesson" id="building-with-cc">
+      <div class="lesson-head">
+        <div class="lesson-num">13</div>
+        <div class="eyebrow">Building with Claude Code · 레슨 13</div>
+        <h1 class="lesson-title">Claude Code로 만들기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+      </div>
+
+      <p>API 호출 코드를 손으로 짜도 되지만, 더 빠른 길은 <strong>Claude가 대신 짜게</strong> 하는 것입니다. 스텁만 있는 파일을 Claude Code에 넘겨 이 코스에서 배운 프리미티브로 채웁니다.</p>
+      <h3>Claude API 스킬</h3>
+      <p>Claude Code엔 내장 <strong>Claude API 스킬</strong>이 있어 <code>/claude-api</code>로 부르거나, TypeScript SDK 사용을 감지하면 자동 호출됩니다. 없으면 마켓플레이스에서: <code>/plugin marketplace add AnthropicsSkills</code> (끝의 <strong>s</strong> 주의).</p>
+      <h3>좋은 프롬프트 3요소</h3>
+      <ul>
+        <li>바꿀 <strong>파일</strong>을 지목</li>
+        <li>쓸 <strong>패턴</strong>을 지목(예: tool runner)</li>
+        <li>기대하는 <strong>최종 상태</strong>를 지목</li>
+      </ul>
+      <p>Claude Code가 타입에 맞춰 함수를 채우고, 파일 끝에 호출을 붙여 실행하고, 에러가 나면 메시지를 읽어 그 자리에서 고칩니다.</p>
+      <div class="callout"><strong>기억할 패턴</strong>: 도구를 정의하고 → 러너에 넘기고 → 결과를 반환. 매번 외워 타이핑하지 말고 <strong>스텁 → 위임 → diff 리뷰</strong>.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>완주</b> · Claude Platform 101의 13개 레슨을 모두 정리했습니다. Messages API에서 매니지드 에이전트까지 — 이제 API 키를 발급받아 첫 호출부터 직접 돌려볼 차례입니다.</div></div>
+    </section>
+
+   </div>
+  </main>
+</div>
+</div>
+
+<script>
+  const curriculum = [
+    { n:"01", section:"Getting started", lessons:[
+      { id:"what-is-platform", title:"Developer Platform이란?", done:true },
+      { id:"first-api-call", title:"첫 API 호출", done:true },
+      { id:"choosing-model", title:"알맞은 모델 고르기", done:true },
+    ]},
+    { n:"02", section:"Teaching your Agent", lessons:[
+      { id:"agent-loop", title:"에이전트 루프", done:true },
+      { id:"tool-use", title:"도구 사용이란?", done:true },
+      { id:"thinking", title:"확장 사고(thinking)", done:true },
+    ]},
+    { n:"03", section:"Extending your Agent", lessons:[
+      { id:"built-in-tools", title:"내장 도구", done:true },
+      { id:"skills", title:"Skills", done:true },
+      { id:"mcp", title:"MCP", done:true },
+      { id:"context", title:"컨텍스트 관리", done:true },
+    ]},
+    { n:"04", section:"Managed Agents", lessons:[
+      { id:"managed-agents", title:"매니지드 에이전트란?", done:true },
+      { id:"first-managed-agent", title:"첫 매니지드 에이전트", done:true },
+    ]},
+    { n:"05", section:"Building with Claude Code", lessons:[
+      { id:"building-with-cc", title:"Claude Code로 만들기", done:true },
+    ]},
+  ];
+</script>
+{% include course-nav.html %}

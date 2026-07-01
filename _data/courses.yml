@@ -14,16 +14,19 @@
       desc: "일상 업무를 위한 Claude 핵심 기능과 활용법, 그리고 더 깊은 학습 자료."
     - title: "Claude Code 101"
       slug: claude-code-101
-      done: false
-      desc: "일상 개발 흐름에서 Claude Code를 효과적으로 사용하는 법."
+      file: /courses/anthropic/claude-code-101.html
+      done: true
+      desc: "일상 개발 흐름에서 Claude Code를 효과적으로 사용하는 법 — 에이전트 루프·워크플로우·커스터마이징."
     - title: "Claude Platform 101"
       slug: claude-platform-101
-      done: false
-      desc: "Claude 개발자 플랫폼 위에서 처음부터 빌드하는 법을 배우는 코스."
+      file: /courses/anthropic/claude-platform-101.html
+      done: true
+      desc: "Claude 개발자 플랫폼 위에서 처음부터 빌드 — Messages API·도구·MCP·매니지드 에이전트."
     - title: "Introduction to Claude Cowork"
       slug: introduction-to-claude-cowork
-      done: false
-      desc: "Cowork 작업 루프, 플러그인·스킬, 파일·리서치 워크플로우를 다루는 핸즈온."
+      file: /courses/anthropic/introduction-to-claude-cowork.html
+      done: true
+      desc: "위임형 에이전트 Cowork — 프로젝트·스킬·플러그인, Chrome·M365, 안전하게 쓰기."
     - title: "Claude Code in Action"
       slug: claude-code-in-action
       done: false

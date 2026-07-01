@@ -1,0 +1,88 @@
+<script>
+  // Shared course navigation logic. Expects a global `const curriculum` defined
+  // in the page above this include: [{ n, section, lessons:[{id, title, done}] }]
+  (function(){
+    const order = [];
+    curriculum.forEach(sec => sec.lessons.forEach(les => order.push({ ...les, section: sec.section })));
+    const total = order.length;
+    const indexOf = id => order.findIndex(l => l.id === id);
+
+    const nav = document.getElementById("nav");
+    curriculum.forEach(sec=>{
+      const wrap = document.createElement("div");
+      wrap.className = "spine-section";
+      const eb = document.createElement("div");
+      eb.className = "spine-eyebrow";
+      eb.innerHTML = `<b>${sec.n}</b><span>${sec.section}</span>`;
+      wrap.appendChild(eb);
+      const ul = document.createElement("ul");
+      ul.className = "spine-track";
+      sec.lessons.forEach(les=>{
+        const li = document.createElement("li");
+        li.className = "node";
+        li.dataset.target = les.id;
+        li.tabIndex = 0;
+        li.innerHTML = `<span class="bead"></span><span class="nlabel">${les.title}</span>`;
+        li.addEventListener("click", ()=>showLesson(les.id));
+        li.addEventListener("keydown", e=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault();showLesson(les.id);} });
+        ul.appendChild(li);
+      });
+      wrap.appendChild(ul);
+      nav.appendChild(wrap);
+    });
+
+    const nodes = [...document.querySelectorAll(".node")];
+    const progressFill = document.getElementById("progressFill");
+    const progressPos  = document.getElementById("progressPos");
+
+    document.querySelectorAll(".lesson").forEach(sec=>{
+      const i = indexOf(sec.id);
+      const prev = order[i-1], next = order[i+1];
+      const foot = document.createElement("nav");
+      foot.className = "lesson-nav";
+      foot.setAttribute("aria-label","레슨 이동");
+      const mk = (item, dir) => {
+        if(!item) return `<span class="lnav ${dir==='prev'?'prev-btn':'next-btn'} empty"></span>`;
+        return `<button type="button" class="lnav ${dir==='prev'?'prev-btn':'next-btn'}" data-go="${item.id}">
+          <span class="lnav-dir">${dir==='prev'?'← 이전 레슨':'다음 레슨 →'}</span>
+          <span class="lnav-title">${item.title}</span></button>`;
+      };
+      foot.innerHTML = mk(prev,'prev') + mk(next,'next');
+      sec.appendChild(foot);
+      foot.querySelectorAll("button[data-go]").forEach(b=>b.addEventListener("click",()=>showLesson(b.dataset.go)));
+    });
+
+    const pad = n => String(n).padStart(2,"0");
+
+    window.showLesson = function(id, push=true){
+      const i = indexOf(id);
+      if(i < 0) return;
+      document.querySelectorAll(".lesson").forEach(l=>l.classList.toggle("active", l.id===id));
+      nodes.forEach(n=>{
+        const ni = indexOf(n.dataset.target);
+        n.classList.toggle("active", n.dataset.target===id);
+        n.classList.toggle("traveled", ni <= i);
+      });
+      progressFill.style.width = ((i+1)/total*100)+"%";
+      progressPos.textContent = `레슨 ${pad(i+1)} / ${total}`;
+      const active = nodes[i];
+      if(active) active.scrollIntoView({block:"nearest"});
+      if(push && ("#"+id)!==location.hash) history.replaceState(null,"","#"+id);
+      window.scrollTo({top:0, behavior:"smooth"});
+    };
+
+    const startId = (location.hash && indexOf(location.hash.slice(1))>=0) ? location.hash.slice(1) : order[0].id;
+    showLesson(startId, false);
+    window.addEventListener("hashchange", ()=>{
+      const id = location.hash.slice(1);
+      if(indexOf(id)>=0) showLesson(id, false);
+    });
+
+    document.addEventListener("keydown", e=>{
+      if(e.target.matches("input,textarea") || e.metaKey || e.ctrlKey || e.altKey) return;
+      const cur = order.findIndex(l=>document.getElementById(l.id).classList.contains("active"));
+      if(e.key==="ArrowRight" && cur < total-1) showLesson(order[cur+1].id);
+      if(e.key==="ArrowLeft"  && cur > 0)       showLesson(order[cur-1].id);
+    });
+  })();
+</script>
