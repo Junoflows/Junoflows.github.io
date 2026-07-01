@@ -5,8 +5,9 @@ date: 2026-07-01
 categories: [강의 정리]
 tags: [Claude API, Vertex AI, Google Cloud, Anthropic, AI]
 permalink: /courses/anthropic/claude-with-google-vertex.html
-description: "Anthropic 공식 영어 강의 Claude with Google Cloud's Vertex AI의 한글 개요 — Vertex AI에서 Claude를 사용하는 법을 모듈별로 정리하고 레슨별 원문 영상 링크 제공."
+description: "Anthropic 공식 영어 강의 Claude with Google Cloud's Vertex AI를 한글로 정리한 학습 노트 — Vertex AI에서 Claude 사용(본문 요약 + 강의 도식 이미지): 프롬프트·도구·RAG·MCP·에이전트."
 ---
+
 {% include course-styles.html %}
 
 <div class="course-page">
@@ -16,11 +17,11 @@ description: "Anthropic 공식 영어 강의 Claude with Google Cloud's Vertex A
       <a class="backlink" href="/courses/anthropic/">← Anthropic Courses</a>
       <p class="kicker">Anthropic Academy</p>
       <h1>Claude on <em>Vertex AI</em></h1>
-      <p class="sub">Anthropic Academy 공식 영상 강의의 한글 개요 노트</p>
+      <p class="sub">Anthropic Academy 공식 영어 강의를 한글로 정리한 학습 노트</p>
       <a class="srcnote" href="https://anthropic.skilljar.com/claude-with-google-vertex" target="_blank" rel="noopener">원문 강의 (영어) ↗</a>
       <div class="progress-wrap">
         <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-        <div class="progress-text"><span id="progressPos">모듈 01 / 10</span><span id="progressPct">영상 강의 개요</span></div>
+        <div class="progress-text"><span id="progressPos">레슨 01 / 83</span><span id="progressPct">전체 정리 완료</span></div>
       </div>
     </div>
     <nav class="spine" id="nav"></nav>
@@ -29,239 +30,2809 @@ description: "Anthropic 공식 영어 강의 Claude with Google Cloud's Vertex A
   <main class="content">
    <div class="reading" id="reading">
 
-    <!-- M1 -->
-    <section class="lesson active" id="intro-setup">
+    <!-- L1 -->
+    <section class="lesson active" id="welcome">
       <div class="lesson-head">
         <div class="lesson-num">01</div>
-        <div class="eyebrow">Claude with Vertex AI · 모듈 01</div>
-        <h1 class="lesson-title">코스 소개 & Vertex AI 셋업</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+        <div class="eyebrow">Vertex AI로 Claude 시작하기 · 레슨 01</div>
+        <h1 class="lesson-title">코스 소개</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
-      <div class="callout">이 강의는 83개 레슨이 대부분 <strong>영상으로 진행되는 영상 중심 강의</strong>입니다. 그래서 여기서는 레슨을 하나씩 옮기는 대신 <strong>모듈별 핵심 개요</strong>를 한국어로 정리하고, 각 레슨에는 <strong>원문 영상 링크</strong>를 달아 두는 방식으로 구성했습니다.</div>
 
-      <p>강의의 시작 모듈로, 코스가 무엇을 다루는지 소개하고 Anthropic의 <strong>Claude 모델 라인업</strong>을 개괄합니다. 이어서 Google Cloud <strong>Vertex AI</strong>에서 Claude 모델을 호출하기 위한 사전 셋업 — Model Garden에서 Anthropic 모델 활성화, gcloud CLI 설치와 인증, 프로젝트·기본 자격 증명 설정 — 을 안내합니다.</p>
-      <h3>레슨</h3>
-      <ul>
-        <li><strong>코스에 오신 것을 환영합니다</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a> — 강의 목표와 전체 흐름 소개.</li>
-        <li><strong>Claude 모델 개요</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a> — Claude 모델 종류와 각 모델의 특성.</li>
-        <li><strong>API 접근하기</strong> — Vertex AI를 통해 Claude에 접근하는 방식 개요.</li>
-        <li><strong>Vertex AI 셋업</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a> — Model Garden에서 Anthropic 모델 활성화, gcloud CLI 설치·로그인, 프로젝트 ID와 애플리케이션 기본 자격 증명 설정.</li>
-      </ul>
-      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 첫 요청부터 스트리밍·구조화 출력까지 API 접근 기초</div></div>
+<p>Anthropic 공식 강의 <strong>Claude with Google Cloud's Vertex AI</strong>의 소개 레슨입니다. Google Cloud의 <strong>Vertex AI</strong>를 통해 Claude 모델을 호출하며, 요청 기초부터 프롬프트 엔지니어링·도구 사용·RAG·MCP·에이전트까지 폭넓게 다룹니다.</p>
+<div class="callout">이 학습 노트는 각 레슨의 <strong>본문 요약 + 강의 도식 이미지</strong>를 한글로 정리한 것입니다. 영상/실습 파일은 원문 강의를 참고하세요.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Claude 모델 개요</div></div>
     </section>
 
-    <!-- M2 -->
-    <section class="lesson" id="api-access">
+    <!-- L2 -->
+    <section class="lesson" id="models-overview">
       <div class="lesson-head">
         <div class="lesson-num">02</div>
-        <div class="eyebrow">Claude with Vertex AI · 모듈 02</div>
-        <h1 class="lesson-title">API 접근 기초</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+        <div class="eyebrow">Vertex AI로 Claude 시작하기 · 레슨 02</div>
+        <h1 class="lesson-title">Claude 모델 개요</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
-      <p>Vertex AI 위에서 Claude에 첫 요청을 보내는 방법을 배웁니다. Anthropic SDK가 gcloud 자격 증명을 자동으로 사용해 요청을 만들고, 여러 턴에 걸친 대화, 시스템 프롬프트, temperature, 응답 스트리밍, 구조화된 데이터 출력까지 — Messages API를 다루는 데 필요한 기본기를 폭넓게 익힙니다.</p>
-      <h3>레슨</h3>
-      <ul>
-        <li><strong>요청 보내기</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a> — Vertex를 통한 Claude 첫 호출.</li>
-        <li><strong>멀티턴 대화</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>채팅 실습</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>시스템 프롬프트</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>시스템 프롬프트 실습</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>Temperature</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>응답 스트리밍</strong></li>
-        <li><strong>모델 출력 제어</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>구조화된 데이터</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>구조화된 데이터 실습</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-      </ul>
-      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 프롬프트 품질을 수치로 재는 eval 워크플로우</div></div>
+
+<p>Claude 모델 라인업 개요 레슨입니다. Anthropic은 용도별로 여러 티어의 모델을 제공하며, Vertex AI에서도 동일한 Claude 모델들을 사용할 수 있습니다.</p>
+<div class="card"><ul>
+<li><strong>Opus</strong> — 가장 유능, 깊은 추론·복잡 분석용</li>
+<li><strong>Sonnet</strong> — 지능·속도·비용의 균형, 대부분의 프로덕션 작업</li>
+<li><strong>Haiku</strong> — 가장 빠르고 저렴, 대량·저복잡 작업(분류·추출)</li>
+</ul></div>
+<p>실무 원칙은 <strong>“출시할 만한 출력을 내는 가장 싼 모델”</strong>을 고르는 것 — Haiku부터 시도하고 필요할 때만 티어를 올립니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · API 접근과 요청 흐름</div></div>
     </section>
 
-    <!-- M3 -->
-    <section class="lesson" id="prompt-evals">
+    <!-- L3 -->
+    <section class="lesson" id="accessing-api">
       <div class="lesson-head">
         <div class="lesson-num">03</div>
-        <div class="eyebrow">Claude with Vertex AI · 모듈 03</div>
-        <h1 class="lesson-title">프롬프트 평가 (Evals)</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+        <div class="eyebrow">Vertex AI로 Claude 시작하기 · 레슨 03</div>
+        <h1 class="lesson-title">API 접근과 요청 흐름</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
-      <p>프롬프트가 실제로 잘 작동하는지 <strong>정량적으로 평가</strong>하는 방법을 다룹니다. 전형적인 eval 워크플로우, 테스트 데이터셋 생성, eval 실행, 그리고 모델 기반 채점과 코드 기반 채점 두 가지 그레이딩 방식을 배웁니다.</p>
-      <h3>레슨</h3>
-      <ul>
-        <li><strong>프롬프트 평가 소개</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>전형적인 eval 워크플로우</strong></li>
-        <li><strong>테스트 데이터셋 생성</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>eval 실행하기</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>모델 기반 채점</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>코드 기반 채점</strong></li>
-        <li><strong>프롬프트 eval 실습</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-      </ul>
-      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 더 나은 출력을 끌어내는 프롬프트 엔지니어링 기법</div></div>
+
+<p>사용자가 메시지를 보낼 때부터 AI 응답이 돌아올 때까지의 <strong>전체 요청 라이프사이클</strong>을 이해하면 더 나은 아키텍처를 설계하고 디버깅할 수 있습니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619446%2F03_-_001_-_Accessing_the_API_01.1748619446474.png" alt="강의 도식">
+<h3>전체 요청 흐름 — 5단계</h3>
+<p>사용자 입력 → AI 응답까지는 다섯 단계를 거칩니다: <strong>서버로 요청 → Vertex로 요청 → 모델 처리 → 서버로 응답 → 클라이언트로 응답.</strong></p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619447%2F03_-_001_-_Accessing_the_API_03.1748619446886.png" alt="강의 도식">
+<h3>왜 서버가 필요한가</h3>
+<p>클라이언트 코드에서 <strong>직접 API를 호출하면 안 됩니다.</strong></p>
+<ul>
+<li>API 요청엔 <strong>비밀 자격증명</strong>이 필요한데, 클라이언트에 노출되면 누구나 볼 수 있음</li>
+<li>내가 통제·보호하는 <strong>서버를 중개자</strong>로 두고 그 서버가 Vertex와 통신</li>
+</ul>
+<h3>API 요청 만들기</h3>
+<p>서버는 Anthropic SDK 또는 Google의 공식 Vertex SDK로 통신합니다. Anthropic은 <strong>Python·TypeScript·Go·Ruby</strong> SDK를 제공합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619447%2F03_-_001_-_Accessing_the_API_05.1748619447285.png" alt="강의 도식">
+<p>모든 요청의 핵심 필드: <strong>API Key</strong>(요청 식별), <strong>Model</strong>(모델명), <strong>Messages</strong>(사용자 입력 리스트), <strong>Max Tokens</strong>(생성 토큰 상한). 사용자 입력은 <code>user</code> 메시지로 감싸 messages 리스트에 넣습니다.</p>
+<h3>Claude 내부 — 텍스트 생성 4단계</h3>
+<p>Vertex가 요청을 받으면 <strong>토큰화 → 임베딩 → 문맥화 → 생성</strong>을 거칩니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619448%2F03_-_001_-_Accessing_the_API_07.1748619448446.png" alt="강의 도식">
+<div class="card"><ul>
+<li><strong>토큰화</strong> — 입력을 토큰(단어·단어 조각·기호)으로 분할</li>
+<li><strong>임베딩</strong> — 각 토큰을 의미를 담은 숫자 리스트로 변환("숫자로 된 정의")</li>
+</ul></div>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619449%2F03_-_001_-_Accessing_the_API_09.1748619448923.png" alt="강의 도식">
+<h3>문맥화 (Contextualization)</h3>
+<p>단어는 여러 의미를 가질 수 있어(예: "quantum") 주변 단어의 문맥으로 올바른 해석을 결정합니다. 각 임베딩이 이웃에 따라 조정됩니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619449%2F03_-_001_-_Accessing_the_API_10.1748619449353.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619450%2F03_-_001_-_Accessing_the_API_11.1748619449882.png" alt="강의 도식">
+<h3>생성 (Generation)</h3>
+<p>문맥화된 임베딩이 출력층을 거쳐 <strong>다음 단어의 확률</strong>을 만들고, 확률과 무작위성을 섞어 자연스러운 단어를 고른 뒤 시퀀스에 추가하고 반복합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619450%2F03_-_001_-_Accessing_the_API_13.1748619450513.png" alt="강의 도식">
+<h3>생성이 멈추는 조건</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619451%2F03_-_001_-_Accessing_the_API_15.1748619451060.png" alt="강의 도식">
+<ul>
+<li><strong>Max tokens 도달</strong> — 지정한 한계에 닿음</li>
+<li><strong>자연스러운 종료</strong> — end-of-sequence 토큰(보이지 않는 특수 신호) 생성</li>
+<li><strong>Stop sequence</strong> — 미리 정한 정지 문구에 도달</li>
+</ul>
+<h3>응답</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619451%2F03_-_001_-_Accessing_the_API_17.1748619451445.png" alt="강의 도식">
+<p>Vertex는 <strong>Message</strong>(생성 텍스트)·<strong>Usage</strong>(입력/출력 토큰 수)·<strong>Stop Reason</strong>(멈춘 이유)을 서버로 돌려주고, 서버는 이를 클라이언트 채팅 UI로 전달합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619452%2F03_-_001_-_Accessing_the_API_18.1748619452060.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619452%2F03_-_001_-_Accessing_the_API_19.1748619452534.png" alt="강의 도식">
+<div class="callout">핵심: <strong>항상 서버를 중개자로 쓰고</strong>, 텍스트 생성은 <strong>반복적 과정</strong>임을 이해하며, 응답 메타데이터로 사용량·모델 동작을 모니터링하라.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Vertex AI 셋업</div></div>
     </section>
 
-    <!-- M4 -->
-    <section class="lesson" id="prompt-engineering">
+    <!-- L4 -->
+    <section class="lesson" id="vertex-setup">
       <div class="lesson-head">
         <div class="lesson-num">04</div>
-        <div class="eyebrow">Claude with Vertex AI · 모듈 04</div>
-        <h1 class="lesson-title">프롬프트 엔지니어링</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+        <div class="eyebrow">Vertex AI로 Claude 시작하기 · 레슨 04</div>
+        <h1 class="lesson-title">Vertex AI 셋업</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
-      <p>Claude에게서 더 좋은 결과를 얻기 위한 핵심 프롬프트 기법을 소개합니다. 명확하고 직접적으로 쓰기, 구체적으로 지시하기, XML 태그로 구조 잡기, 예시(few-shot) 제공하기 등 실전에서 바로 쓰는 원칙들을 다룹니다.</p>
-      <h3>레슨</h3>
-      <ul>
-        <li><strong>프롬프트 엔지니어링 소개</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>명확하고 직접적으로</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>구체적으로 지시하기</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>XML 태그로 구조 잡기</strong></li>
-        <li><strong>예시 제공하기</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>프롬프트 실습</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-      </ul>
-      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · Claude가 외부 세계와 상호작용하는 도구 사용(tool use)</div></div>
+
+<p>Vertex AI에서 Claude를 호출하기 위한 사전 셋업입니다.</p>
+<h3>1. Vertex에서 Anthropic 모델 활성화</h3>
+<ul>
+<li><code>https://console.cloud.google.com/vertex-ai/dashboard</code> 접속</li>
+<li>왼쪽 내비에서 <strong>Model Garden</strong> 클릭</li>
+</ul>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1751930983%2F1.1751930983608.png" alt="강의 도식">
+<ul><li>'Search models'에 <strong>Anthropic</strong> 입력 후 원하는 모델 선택</li></ul>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1751931014%2F2.1751931013945.png" alt="강의 도식">
+<h3>2. 모델 Enable</h3>
+<p>모델 정보 페이지에서 <strong>Enable</strong> 버튼 클릭. Enable 버튼이 없으면 이미 접근 권한이 있는 것입니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1751931033%2F3.1751931033360.png" alt="강의 도식">
+<h3>3. gcloud CLI 설치</h3>
+<p><code>https://cloud.google.com/sdk/docs/install</code> 안내에 따라 설치·인증.</p>
+<h3>4. 로그인 및 인증 설정</h3>
+<pre><code>gcloud init
+gcloud auth login</code></pre>
+<p>그다음 프로젝트 ID와 기본 자격증명 설정:</p>
+<pre><code>gcloud config set project YOUR_PROJECT_ID
+gcloud auth application-default login</code></pre>
+<div class="tip">Anthropic SDK는 Vertex 접근 시 이 자격증명을 <strong>자동으로</strong> 사용합니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 첫 요청 보내기</div></div>
     </section>
 
-    <!-- M5 -->
-    <section class="lesson" id="tool-use">
+    <!-- L5 -->
+    <section class="lesson" id="making-request">
       <div class="lesson-head">
         <div class="lesson-num">05</div>
-        <div class="eyebrow">Claude with Vertex AI · 모듈 05</div>
-        <h1 class="lesson-title">도구 사용 (Tool use)</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+        <div class="eyebrow">Vertex AI로 Claude 시작하기 · 레슨 05</div>
+        <h1 class="lesson-title">첫 요청 보내기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
-      <p>Claude가 외부 데이터와 행동에 접근하도록 <strong>도구(tool)</strong>를 붙이는 방법을 다룹니다. 도구 함수와 스키마 정의, 메시지 블록 처리, 도구 결과 전달, 도구를 포함한 멀티턴 대화, 여러 도구 다루기부터 batch 도구, 구조화된 데이터용 도구, text edit 도구, web search 도구까지 폭넓게 실습합니다.</p>
-      <h3>레슨</h3>
-      <ul>
-        <li><strong>도구 사용 소개</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>프로젝트 개요</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>도구 함수</strong></li>
-        <li><strong>도구 스키마</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>메시지 블록 처리</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>도구 결과 전달</strong></li>
-        <li><strong>도구를 포함한 멀티턴 대화</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>여러 턴 구현하기</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>여러 도구 사용하기</strong></li>
-        <li><strong>Batch 도구</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>구조화된 데이터용 도구</strong></li>
-        <li><strong>Text edit 도구</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>Web search 도구</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-      </ul>
-      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 문서를 검색해 답에 근거를 더하는 RAG</div></div>
+
+<p>Anthropic Python SDK로 Vertex AI를 통해 Claude에 <strong>첫 요청</strong>을 보냅니다 — SDK 설치 → 클라이언트 생성 → 호출.</p>
+<h3>SDK 설치</h3>
+<pre><code>%pip install "anthropic[vertex]"</code></pre>
+<p><code>[vertex]</code>는 Vertex AI 연결에 필요한 구성요소를 함께 설치합니다.</p>
+<h3>클라이언트 생성</h3>
+<pre><code>from anthropic import AnthropicVertex
+
+client = AnthropicVertex(region="global", project_id="your-project-id")
+model = "claude-sonnet-4@20250514"</code></pre>
+<p><code>your-project-id</code>는 실제 Google Cloud 프로젝트 ID로 교체. 모델을 변수로 두면 반복 타이핑을 줄입니다.</p>
+<h3>create 함수 — 세 가지 핵심 파라미터</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619440%2F03_-_003_-_Making_a_Request_08.1748619440458.png" alt="강의 도식">
+<ul>
+<li><strong>model</strong> — 사용할 Claude 모델명</li>
+<li><strong>max_tokens</strong> — 응답 길이 안전 상한(목표가 아니라 상한, 넘지만 않음)</li>
+<li><strong>messages</strong> — Claude에 보내는 대화 기록</li>
+</ul>
+<p><code>max_tokens</code>는 목표가 아니라 <strong>예산</strong>으로 생각하세요.</p>
+<h3>메시지 이해</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619441%2F03_-_003_-_Making_a_Request_12.1748619440992.png" alt="강의 도식">
+<ul>
+<li><strong>User 메시지</strong> — 사람이 작성해 Claude에 넣는 내용</li>
+<li><strong>Assistant 메시지</strong> — Claude가 생성해 돌려준 내용</li>
+</ul>
+<h3>첫 요청 구조</h3>
+<pre><code>message = client.messages.create(
+    model=model,
+    max_tokens=1000,
+    messages=[
+        {"role": "user", "content": "What is quantum computing? Answer in one sentence"}
+    ]
+)</code></pre>
+<h3>응답에서 텍스트 추출</h3>
+<pre><code>message.content[0].text</code></pre>
+<p>복잡한 응답 객체 전체 대신 <strong>생성된 텍스트만</strong> 깔끔하게 뽑는 자주 쓰는 패턴입니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 멀티턴 대화</div></div>
     </section>
 
-    <!-- M6 -->
-    <section class="lesson" id="rag">
+    <!-- L6 -->
+    <section class="lesson" id="multi-turn">
       <div class="lesson-head">
         <div class="lesson-num">06</div>
-        <div class="eyebrow">Claude with Vertex AI · 모듈 06</div>
-        <h1 class="lesson-title">RAG & 에이전틱 검색</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+        <div class="eyebrow">Vertex AI로 Claude 시작하기 · 레슨 06</div>
+        <h1 class="lesson-title">멀티턴 대화</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
-      <p>검색 증강 생성(Retrieval Augmented Generation)의 원리와 구현을 다룹니다. 텍스트 청킹 전략, 임베딩, 전체 RAG 플로우 구현, BM25 렉시컬 검색, 멀티 인덱스 파이프라인, 리랭킹, 그리고 컨텍스추얼 리트리벌까지 단계적으로 익힙니다.</p>
-      <h3>레슨</h3>
-      <ul>
-        <li><strong>RAG 소개</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>텍스트 청킹 전략</strong></li>
-        <li><strong>텍스트 임베딩</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>전체 RAG 플로우</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>RAG 플로우 구현</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>BM25 렉시컬 검색</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>멀티 인덱스 RAG 파이프라인</strong></li>
-        <li><strong>결과 리랭킹</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>컨텍스추얼 리트리벌</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-      </ul>
-      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 확장 사고·이미지·PDF·인용·캐싱 등 Claude의 고급 기능</div></div>
+
+<p><strong>Claude는 대화 기록을 저장하지 않습니다.</strong> 매 요청이 완전히 독립적 — 이전 교환을 기억하지 못합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619440%2F03_-_004_-_Multi-Turn_Conversations_01.1748619440499.png" alt="강의 도식">
+<p>따라서 멀티턴 대화를 하려면 <strong>대화 상태를 직접 관리</strong>해야 합니다.</p>
+<h3>무상태 대화의 문제</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619441%2F03_-_004_-_Multi-Turn_Conversations_02.1748619441159.png" alt="강의 도식">
+<p>"양자컴퓨팅이 뭐야?" 다음에 "한 문장 더 써줘"라고 하면, 기록이 없는 Claude는 무엇을 가리키는지 몰라 엉뚱한 문장을 씁니다.</p>
+<h3>멀티턴이 동작하는 방식</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619441%2F03_-_004_-_Multi-Turn_Conversations_05.1748619441704.png" alt="강의 도식">
+<ul>
+<li>코드에서 <strong>모든 메시지 리스트를 직접 유지</strong></li>
+<li>매 요청마다 <strong>전체 기록을 함께 전송</strong></li>
+</ul>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619442%2F03_-_004_-_Multi-Turn_Conversations_08.1748619442168.png" alt="강의 도식">
+<p>흐름: 사용자 메시지 전송 → 응답을 assistant 메시지로 리스트에 추가 → 후속 질문을 user 메시지로 추가 → 전체 기록을 다시 전송.</p>
+<h3>헬퍼 함수</h3>
+<pre><code>def add_user_message(messages, text):
+    messages.append({"role": "user", "content": text})
+
+def add_assistant_message(messages, text):
+    messages.append({"role": "assistant", "content": text})
+
+def chat(messages):
+    message = client.messages.create(
+        model=model, max_tokens=1000, messages=messages,
+    )
+    return message.content[0].text</code></pre>
+<h3>조합해서 사용</h3>
+<pre><code>messages = []
+add_user_message(messages, "Define quantum computing in one sentence")
+answer = chat(messages)
+add_assistant_message(messages, answer)
+add_user_message(messages, "Write another sentence")
+final_answer = chat(messages)</code></pre>
+<div class="callout">기억할 것: 모든 호출은 독립적. 문맥을 유지하려면 <strong>메시지를 로컬 저장</strong>하고 <strong>전체 기록을 매번 전송</strong>하며 user/assistant 역할을 올바르게 포맷하라.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 채팅 실습</div></div>
     </section>
 
-    <!-- M7 -->
-    <section class="lesson" id="claude-features">
+    <!-- L7 -->
+    <section class="lesson" id="chat-exercise">
       <div class="lesson-head">
         <div class="lesson-num">07</div>
-        <div class="eyebrow">Claude with Vertex AI · 모듈 07</div>
-        <h1 class="lesson-title">Claude의 기능들</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+        <div class="eyebrow">Vertex AI로 Claude 시작하기 · 레슨 07</div>
+        <h1 class="lesson-title">채팅 실습</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
-      <p>Claude API가 제공하는 다양한 기능을 살펴봅니다. 확장 사고(extended thinking), 이미지·PDF 입력, 인용(citations), 그리고 프롬프트 캐싱의 규칙과 실제 활용까지 — 실전에서 자주 쓰는 기능들을 다룹니다.</p>
-      <h3>레슨</h3>
-      <ul>
-        <li><strong>확장 사고(Extended thinking)</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>이미지 지원</strong></li>
-        <li><strong>PDF 지원</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>인용(Citations)</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>프롬프트 캐싱</strong></li>
-        <li><strong>프롬프트 캐싱 규칙</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>프롬프트 캐싱 실전</strong></li>
-      </ul>
-      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 통합의 표준, Model Context Protocol(MCP)</div></div>
+
+<p>앞서 배운 헬퍼 함수(<code>add_user_message</code>·<code>add_assistant_message</code>·<code>chat</code>)로 멀티턴 대화를 직접 구현·검증하는 실습 레슨입니다. 메시지 리스트를 유지하며 문맥이 이어지는지 확인합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 시스템 프롬프트</div></div>
     </section>
 
-    <!-- M8 -->
-    <section class="lesson" id="mcp">
+    <!-- L8 -->
+    <section class="lesson" id="system-prompts">
       <div class="lesson-head">
         <div class="lesson-num">08</div>
-        <div class="eyebrow">Claude with Vertex AI · 모듈 08</div>
-        <h1 class="lesson-title">Model Context Protocol (MCP)</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+        <div class="eyebrow">Vertex AI로 Claude 시작하기 · 레슨 08</div>
+        <h1 class="lesson-title">시스템 프롬프트</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
-      <p>MCP가 무엇이고 왜 필요한지 소개하고, 클라이언트와 서버를 직접 구현하며 배웁니다. 프로젝트 셋업, MCP로 도구 정의하기, 서버 인스펙터, 클라이언트 구현, 리소스 정의·접근, 프롬프트 정의와 클라이언트에서의 활용까지 MCP의 핵심 요소를 실습합니다.</p>
-      <h3>레슨</h3>
-      <ul>
-        <li><strong>MCP 소개</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>MCP 클라이언트</strong></li>
-        <li><strong>프로젝트 셋업</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>MCP로 도구 정의하기</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>서버 인스펙터</strong></li>
-        <li><strong>클라이언트 구현</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>리소스 정의</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>리소스 접근</strong></li>
-        <li><strong>프롬프트 정의</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>클라이언트에서 프롬프트 쓰기</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>MCP 정리</strong></li>
-      </ul>
-      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · Anthropic 앱·Claude Code·컴퓨터 사용</div></div>
+
+<p><strong>시스템 프롬프트</strong>는 Claude의 톤·스타일·접근을 내 용도에 맞게 빚는 강력한 방법입니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619444%2F03_-_006_-_System_Prompts_00.1748619444467.png" alt="강의 도식">
+<h3>왜 중요한가 — 수학 튜터 예시</h3>
+<p>"5x + 2 = 3을 어떻게 풀어?"라는 질문에 정답만 뱉는 대신 <strong>진짜 튜터</strong>처럼:</p>
+<ul>
+<li>정답 대신 <strong>힌트</strong>를 먼저 주고, 단계별로 인내심 있게 안내</li>
+<li>비슷한 문제의 풀이를 예시로 제시</li>
+</ul>
+<p>피해야 할 것: 즉시 직접 답 주기, "계산기 쓰라"고 하기.</p>
+<h3>작동 방식</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619445%2F03_-_006_-_System_Prompts_05.1748619444941.png" alt="강의 도식">
+<p>시스템 프롬프트는 평범한 문자열로 정의해 create 호출의 <code>system</code>에 넘깁니다. 지정한 역할처럼 응답하도록 유도하고 Claude를 과제에 집중시킵니다.</p>
+<pre><code>system_prompt = """
+You are a patient math tutor.
+Do not directly answer a student's questions.
+Guide them to a solution step by step.
+"""
+
+client.messages.create(
+    model=model, messages=messages,
+    max_tokens=1000, system=system_prompt
+)</code></pre>
+<h3>유연한 chat 함수</h3>
+<pre><code>def chat(messages, system=None):
+    params = {"model": model, "max_tokens": 1000, "messages": messages}
+    if system:
+        params["system"] = system
+    message = client.messages.create(**params)
+    return message.content[0].text</code></pre>
+<div class="tip">Claude API는 <code>system=None</code>을 받지 않으므로, system 파라미터는 <strong>제공될 때만 조건부로</strong> 포함하세요.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 시스템 프롬프트 실습</div></div>
     </section>
 
-    <!-- M9 -->
-    <section class="lesson" id="apps-claude-code">
+    <!-- L9 -->
+    <section class="lesson" id="system-prompts-exercise">
       <div class="lesson-head">
         <div class="lesson-num">09</div>
-        <div class="eyebrow">Claude with Vertex AI · 모듈 09</div>
-        <h1 class="lesson-title">Anthropic 앱 · Claude Code · 컴퓨터 사용</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+        <div class="eyebrow">Vertex AI로 Claude 시작하기 · 레슨 09</div>
+        <h1 class="lesson-title">시스템 프롬프트 실습</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
-      <p>Anthropic이 제공하는 앱들과 <strong>Claude Code</strong>를 다룹니다. Claude Code 셋업과 실전 활용, MCP 서버로의 확장, 병렬화, 자동 디버깅을 살펴보고, 이어서 <strong>컴퓨터 사용(computer use)</strong>의 개념과 동작 방식을 배웁니다.</p>
-      <h3>레슨</h3>
-      <ul>
-        <li><strong>Anthropic 앱</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>Claude Code 셋업</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>Claude Code 실전</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>MCP 서버로 확장하기</strong></li>
-        <li><strong>Claude Code 병렬화</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>자동 디버깅</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>컴퓨터 사용(Computer use)</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>컴퓨터 사용의 동작 원리</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-      </ul>
-      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 에이전트와 워크플로우로 코스 마무리</div></div>
+
+<p>시스템 프롬프트로 Claude의 페르소나·행동을 특정 용도에 맞게 바꿔보는 실습입니다. 같은 질문에 시스템 프롬프트 유무에 따라 응답이 어떻게 달라지는지 비교합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Temperature</div></div>
     </section>
 
-    <!-- M10 -->
-    <section class="lesson" id="agents-workflows">
+    <!-- L10 -->
+    <section class="lesson" id="temperature">
       <div class="lesson-head">
         <div class="lesson-num">10</div>
-        <div class="eyebrow">Claude with Vertex AI · 모듈 10</div>
-        <h1 class="lesson-title">에이전트 · 워크플로우 & 마무리</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+        <div class="eyebrow">Vertex AI로 Claude 시작하기 · 레슨 10</div>
+        <h1 class="lesson-title">Temperature</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
-      <p>지금까지 배운 것을 종합하는 마지막 모듈입니다. 에이전트와 워크플로우의 차이를 배우고, 병렬화·체이닝·라우팅 같은 워크플로우 패턴과 에이전트·도구·환경 점검을 다룹니다. "워크플로우 vs 에이전트" 판단까지 정리하며 코스를 마무리합니다.</p>
-      <h3>레슨</h3>
-      <ul>
-        <li><strong>에이전트와 워크플로우</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>병렬화 워크플로우</strong></li>
-        <li><strong>체이닝 워크플로우</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>라우팅 워크플로우</strong></li>
-        <li><strong>에이전트와 도구</strong></li>
-        <li><strong>환경 점검</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>워크플로우 vs 에이전트</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-        <li><strong>코스 마무리</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
-      </ul>
-      <div class="next"><span class="arrow">→</span><div><b>완주</b> · Claude with Google Cloud's Vertex AI의 10개 모듈을 모두 정리했습니다. Vertex 셋업부터 프롬프트·도구·RAG·MCP·에이전트까지 — 이제 원문 영상과 함께 직접 코드를 돌려볼 차례입니다.</div></div>
+
+<p><strong>Temperature</strong>는 응답의 예측 가능성 vs 창의성을 조절하는 파라미터입니다.</p>
+<h3>텍스트 생성 3단계</h3>
+<ul>
+<li><strong>토큰화</strong> → <strong>예측</strong>(다음 단어 확률 계산) → <strong>샘플링</strong>(확률 기반 선택)</li>
+</ul>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619496%2F03_-_008_-_Temperature_00.1748619496769.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619497%2F03_-_008_-_Temperature_05.1748619497297.png" alt="강의 도식">
+<h3>Temperature가 하는 일</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619497%2F03_-_008_-_Temperature_06.1748619497674.png" alt="강의 도식">
+<p>0~1 사이 소수값. <strong>낮으면(≈0)</strong> 결정적 — 최고 확률 토큰을 거의 항상 선택. <strong>높으면(≈1)</strong> 확률을 고르게 퍼뜨려 다양·창의적 출력.</p>
+<h3>범위별 용도</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619499%2F03_-_008_-_Temperature_10.1748619499025.png" alt="강의 도식">
+<table><colgroup><col style="width:30%"><col></colgroup>
+<tr><th>범위</th><th>용도</th></tr>
+<tr><td><strong>낮음 (0.0–0.3)</strong></td><td>사실 응답·코딩·데이터 추출·콘텐츠 모더레이션</td></tr>
+<tr><td><strong>중간 (0.4–0.7)</strong></td><td>요약·교육 콘텐츠·문제 해결·제약 있는 창작</td></tr>
+<tr><td><strong>높음 (0.8–1.0)</strong></td><td>브레인스토밍·창작·마케팅·유머 생성</td></tr>
+</table>
+<h3>코드로 구현</h3>
+<pre><code>def chat(messages, system=None, temperature=1.0):
+    params = {"model": model, "max_tokens": 1000,
+              "messages": messages, "temperature": temperature}
+    if system:
+        params["system"] = system
+    message = client.messages.create(**params)
+    return message.content[0].text</code></pre>
+<div class="callout">Temperature는 다른 출력을 <strong>보장하지 않고</strong> 확률만 바꿉니다. 일관·사실엔 낮게, 창의·다양성엔 높게 — 과제에 맞춰 조정하세요.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 응답 스트리밍</div></div>
+    </section>
+
+    <!-- L11 -->
+    <section class="lesson" id="streaming">
+      <div class="lesson-head">
+        <div class="lesson-num">11</div>
+        <div class="eyebrow">Vertex AI로 Claude 시작하기 · 레슨 11</div>
+        <h1 class="lesson-title">응답 스트리밍</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>응답 생성엔 10~30초가 걸려 사용자가 스피너만 보게 됩니다. <strong>응답 스트리밍</strong>은 텍스트를 조각 단위로 즉시 보여줘 훨씬 반응성 있는 경험을 줍니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619503%2F03_-_009_-_Response_Streaming_00.1748619503472.png" alt="강의 도식">
+<h3>표준 응답의 문제</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619504%2F03_-_009_-_Response_Streaming_02.1748619503994.png" alt="강의 도식">
+<p>전체 응답이 완성될 때까지 클라이언트로 아무것도 안 보내 어색한 지연이 생깁니다.</p>
+<h3>스트리밍 동작</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619504%2F03_-_009_-_Response_Streaming_03.1748619504478.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619505%2F03_-_009_-_Response_Streaming_04.1748619504964.png" alt="강의 도식">
+<p>Claude가 즉시 시작 신호를 보내고, 이후 작은 조각들을 연속 이벤트로 전달 — 모두 <strong>단일 요청</strong>의 일부입니다.</p>
+<h3>스트림 이벤트 종류</h3>
+<ul>
+<li><strong>MessageStart</strong> · <strong>ContentBlockStart</strong> · <strong>ContentBlockDelta</strong>(실제 텍스트 조각) · <strong>ContentBlockStop</strong> · <strong>MessageDelta</strong> · <strong>MessageStop</strong></li>
+</ul>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619505%2F03_-_009_-_Response_Streaming_11.1748619505385.png" alt="강의 도식">
+<p><code>ContentBlockDelta</code>에 사용자에게 표시할 실제 텍스트가 담깁니다.</p>
+<h3>기본 구현</h3>
+<pre><code>stream = client.messages.create(
+    model=model, max_tokens=1000, messages=messages, stream=True
+)
+for event in stream:
+    print(event)</code></pre>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619506%2F03_-_009_-_Response_Streaming_12.1748619505920.png" alt="강의 도식">
+<h3>간편 텍스트 스트리밍</h3>
+<pre><code>with client.messages.stream(
+    model=model, max_tokens=1000, messages=messages
+) as stream:
+    for text in stream.text_stream:
+        print(text, end="")</code></pre>
+<h3>최종 메시지 얻기</h3>
+<pre><code>with client.messages.stream(...) as stream:
+    for text in stream.text_stream:
+        pass  # 실제 앱에선 클라이언트로 전송
+    final_message = stream.get_final_message()</code></pre>
+<div class="tip">각 조각은 단어 하나가 아니라 여러 단어/문장일 수 있습니다. 프로덕션에선 WebSocket·SSE로 조각을 즉시 전달하고 서버엔 전체 기록을 유지합니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 출력 제어</div></div>
+    </section>
+
+    <!-- L12 -->
+    <section class="lesson" id="controlling-output">
+      <div class="lesson-head">
+        <div class="lesson-num">12</div>
+        <div class="eyebrow">Vertex AI로 Claude 시작하기 · 레슨 12</div>
+        <h1 class="lesson-title">출력 제어</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>더 나은 프롬프트 외에도 출력을 정밀 제어하는 두 기법: <strong>assistant 메시지 프리필</strong>과 <strong>stop sequence</strong>.</p>
+<h3>Assistant 메시지 프리필</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619499%2F03_-_010_-_Controlling_Model_Output_01.1748619499244.png" alt="강의 도식">
+<p>Claude 응답의 시작을 미리 제공하면 그 지점부터 이어 씁니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619499%2F03_-_010_-_Controlling_Model_Output_05.1748619499761.png" alt="강의 도식">
+<p>"차와 커피 중 뭐가 나아?"에 프리필 없이 물으면 균형 잡힌 답이 오지만, "Coffee is better because"를 assistant 메시지로 넣으면 커피 옹호로 이어집니다. Claude는 프리필 텍스트를 반복하지 않고 <strong>그 뒤부터</strong> 완성합니다.</p>
+<pre><code>messages = []
+add_user_message(messages, "Is tea or coffee better at breakfast?")
+add_assistant_message(messages, "Coffee is better because")
+answer = chat(messages)</code></pre>
+<h3>Stop Sequences</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619500%2F03_-_010_-_Controlling_Model_Output_15.1748619500461.png" alt="강의 도식">
+<p>지정한 문자열이 생성되면 <strong>즉시 멈추고</strong> 그때까지의 내용을 반환합니다.</p>
+<pre><code>add_user_message(messages, "Count from 1 to 10")
+answer = chat(messages, stop_sequences=["5"])
+# "1, 2, 3, 4, " (5 직전에서 멈춤)</code></pre>
+<p>더 정밀하게 <code>stop_sequences=[", 5"]</code>로 하면 "1, 2, 3, 4"로 깔끔.</p>
+<div class="card"><ul>
+<li>리스트 길이 제한 · 특정 마커/구분자에서 정지 · 일관된 출력 포맷 · 과도한 응답 방지</li>
+</ul></div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 구조화된 데이터</div></div>
+    </section>
+
+    <!-- L13 -->
+    <section class="lesson" id="structured-data">
+      <div class="lesson-head">
+        <div class="lesson-num">13</div>
+        <div class="eyebrow">Vertex AI로 Claude 시작하기 · 레슨 13</div>
+        <h1 class="lesson-title">구조화된 데이터</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>JSON·코드·목록 같은 구조화 데이터가 필요할 때, Claude가 도움말·설명을 덧붙이는 문제가 생깁니다. 때론 <strong>원본 데이터만</strong> 필요합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619492%2F03_-_011_-_Structured_Data_02.1748619492360.png" alt="강의 도식">
+<p>예: EventBridge 규칙 JSON을 생성하는데 마크다운 코드블록·헤더·푸터로 감싸면 "전체 복사"가 안 됩니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619493%2F03_-_011_-_Structured_Data_05.1748619492885.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619493%2F03_-_011_-_Structured_Data_06.1748619493294.png" alt="강의 도식">
+<h3>Stop Sequence + Assistant 프리필 조합</h3>
+<pre><code>messages = []
+add_user_message(messages, "Generate a very short event bridge rule as json")
+add_assistant_message(messages, "```json")
+text = chat(messages, stop_sequences=["```"])</code></pre>
+<h3>동작 원리</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619493%2F03_-_011_-_Structured_Data_15.1748619493726.png" alt="강의 도식">
+<ul>
+<li>프리필된 <code>```json</code>을 보고 이미 JSON 블록을 시작했다고 가정</li>
+<li>JSON 내용만 생성 → 닫는 <code>```</code>에서 stop sequence에 걸려 즉시 정지</li>
+</ul>
+<h3>출력 정리</h3>
+<pre><code>import json
+parsed_json = json.loads(text.strip())</code></pre>
+<p>JSON뿐 아니라 <strong>모든 구조화 포맷</strong>에 적용 가능 — 프리필로 시작을, stop sequence로 끝을 정확히 제어합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 구조화 데이터 실습</div></div>
+    </section>
+
+    <!-- L14 -->
+    <section class="lesson" id="structured-data-exercise">
+      <div class="lesson-head">
+        <div class="lesson-num">14</div>
+        <div class="eyebrow">Vertex AI로 Claude 시작하기 · 레슨 14</div>
+        <h1 class="lesson-title">구조화 데이터 실습</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>프리필 + stop sequence 기법으로 Claude에서 깔끔한 구조화 출력(JSON·코드 등)을 얻는 실습입니다. 감싸는 마크다운·설명 없이 파싱 가능한 결과를 만드는 것이 목표입니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 프롬프트 평가란?</div></div>
+    </section>
+
+    <!-- L15 -->
+    <section class="lesson" id="prompt-eval">
+      <div class="lesson-head">
+        <div class="lesson-num">15</div>
+        <div class="eyebrow">평가 · 프롬프트 엔지니어링 · 레슨 15</div>
+        <h1 class="lesson-title">프롬프트 평가란?</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>좋은 프롬프트를 쓰는 것은 시작일 뿐. 신뢰할 앱을 만들려면 <strong>프롬프트 엔지니어링</strong>(더 나은 프롬프트를 쓰는 기법)과 <strong>프롬프트 평가</strong>(그게 실제로 잘 동작하는지 측정)를 모두 알아야 합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619540%2F04_-_001_-_Prompt_Evaluation_00.1748619540294.png" alt="강의 도식">
+<h3>엔지니어링 vs 평가</h3>
+<table><colgroup><col style="width:34%"><col></colgroup>
+<tr><th>구분</th><th>내용</th></tr>
+<tr><td><strong>프롬프트 엔지니어링</strong></td><td>멀티샷·XML 구조화 등 프롬프트를 쓰고 개선하는 <strong>기법 툴킷</strong></td></tr>
+<tr><td><strong>프롬프트 평가</strong></td><td>프롬프트가 실제로 효과적인지 <strong>객관적 지표</strong>로 재는 자동 테스트</td></tr>
+</table>
+<p>평가로 할 수 있는 것: 기대 답과 비교, 프롬프트 버전 비교, 출력 오류 검토.</p>
+<h3>프롬프트를 쓴 뒤의 세 갈래</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619541%2F04_-_001_-_Prompt_Evaluation_10.1748619541009.png" alt="강의 도식">
+<ul>
+<li><strong>옵션 1</strong> — 한 번 테스트하고 "충분해" (프로덕션에서 깨질 위험 큼)</li>
+<li><strong>옵션 2</strong> — 몇 번 테스트 후 코너케이스 한둘 손봄 (예상 못한 입력엔 여전히 실패)</li>
+<li><strong>옵션 3</strong> — <strong>평가 파이프라인</strong>으로 점수 매기고 데이터 기반으로 반복 (선투자 크지만 신뢰 큼)</li>
+</ul>
+<div class="callout">옵션 1·2는 모든 엔지니어가 빠지는 함정. 사용자가 어떻게 쓸지 <strong>다 예측할 수 없으므로</strong>, 진지한 앱엔 객관적 데이터로 반복하는 옵션 3이 정답입니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 전형적 eval 워크플로우</div></div>
+    </section>
+
+    <!-- L16 -->
+    <section class="lesson" id="eval-workflow">
+      <div class="lesson-head">
+        <div class="lesson-num">16</div>
+        <div class="eyebrow">평가 · 프롬프트 엔지니어링 · 레슨 16</div>
+        <h1 class="lesson-title">전형적 eval 워크플로우</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>전형적 프롬프트 평가 워크플로우는 <strong>5단계</strong>입니다. 작게 시작해 필요에 따라 확장하세요.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619547%2F04_-_002_-_A_Typical_Eval_Workflow_00.1748619547713.png" alt="강의 도식">
+<h3>1. 프롬프트 초안</h3>
+<pre><code>prompt = f"""
+Please answer the user's question:
+
+{question}
+"""</code></pre>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619548%2F04_-_002_-_A_Typical_Eval_Workflow_04.1748619548527.png" alt="강의 도식">
+<h3>2. 평가 데이터셋 생성</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619549%2F04_-_002_-_A_Typical_Eval_Workflow_06.1748619549029.png" alt="강의 도식">
+<p>프롬프트에 넣을 샘플 입력 모음. 손으로 만들거나 Claude로 생성. 예시 질문 3개: "What's 2+2?", "How do I make oatmeal?", "How far away is the Moon?"</p>
+<h3>3. Claude에 통과</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619549%2F04_-_002_-_A_Typical_Eval_Workflow_08.1748619549492.png" alt="강의 도식">
+<p>각 질문을 프롬프트 템플릿과 병합해 Claude에 보내고 응답 수집.</p>
+<h3>4. Grader에 통과</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619550%2F04_-_002_-_A_Typical_Eval_Workflow_11.1748619549867.png" alt="강의 도식">
+<p>질문-답 쌍을 채점기에 넣어 <strong>1~10점</strong> 부여(10=완벽, 4=개선 여지). 전체 평균으로 객관 지표 산출(예: 10·4·9 → 7.66).</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619550%2F04_-_002_-_A_Typical_Eval_Workflow_14.1748619550433.png" alt="강의 도식">
+<h3>5. 프롬프트 변경 후 반복</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619551%2F04_-_002_-_A_Typical_Eval_Workflow_15.1748619550921.png" alt="강의 도식">
+<p>기준선을 세운 뒤 프롬프트를 수정해 재실행. 예: "Answer the question with ample detail" 추가.</p>
+<h3>프롬프트 스코어링</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619551%2F04_-_002_-_A_Typical_Eval_Workflow_17.1748619551452.png" alt="강의 도식">
+<div class="callout">예시: v1 = 7.66, v2 = 8.7. 높은 점수가 개선의 <strong>객관적 증거</strong>. 추측 대신 측정으로 최적화합니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 테스트 데이터셋 생성</div></div>
+    </section>
+
+    <!-- L17 -->
+    <section class="lesson" id="gen-datasets">
+      <div class="lesson-head">
+        <div class="lesson-num">17</div>
+        <div class="eyebrow">평가 · 프롬프트 엔지니어링 · 레슨 17</div>
+        <h1 class="lesson-title">테스트 데이터셋 생성</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>커스텀 평가 워크플로우는 <strong>좋은 프롬프트 + 테스트 데이터</strong>로 시작합니다. AWS 관련 코드 작성을 돕는 프롬프트를 예로 듭니다.</p>
+<h3>목표 설정</h3>
+<p>Python 코드·JSON 설정·정규식 세 형식을, <strong>설명·헤더·푸터 없이</strong> 깔끔하게 반환.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619548%2F04_-_003_-_Generating_Test_Datasets_01.1748619548328.png" alt="강의 도식">
+<pre><code>prompt = f"""
+Please provide a solution to the following task:
+{task}
+"""</code></pre>
+<h3>평가 데이터셋</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619548%2F04_-_003_-_Generating_Test_Datasets_05.1748619548824.png" alt="강의 도식">
+<p><code>task</code> 속성을 가진 JSON 객체 배열. 수동 조립 또는 Claude 자동 생성(테스트 데이터라 <strong>Haiku 같은 빠른 모델</strong>이 적합).</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619549%2F04_-_003_-_Generating_Test_Datasets_09.1748619549203.png" alt="강의 도식">
+<pre><code>def generate_dataset():
+    prompt = """
+Generate an evaluation dataset ... for AWS-related tasks.
+Generate an array of objects, each representing a task ...
+* Focus on tasks solvable by a single Python function, JSON object, or regex
+Please generate 3 objects.
+"""</code></pre>
+<h3>생성 로직 — 프리필 + stop</h3>
+<pre><code>messages = []
+add_user_message(messages, prompt)
+add_assistant_message(messages, "```json")
+text = chat(messages, stop_sequences=["```"])
+return json.loads(text)</code></pre>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619549%2F04_-_003_-_Generating_Test_Datasets_16.1748619549748.png" alt="강의 도식">
+<h3>저장</h3>
+<pre><code>dataset = generate_dataset()
+with open('dataset.json', 'w') as f:
+    json.dump(dataset, f, indent=2)</code></pre>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · eval 파이프라인 실행</div></div>
+    </section>
+
+    <!-- L18 -->
+    <section class="lesson" id="running-eval">
+      <div class="lesson-head">
+        <div class="lesson-num">18</div>
+        <div class="eyebrow">평가 · 프롬프트 엔지니어링 · 레슨 18</div>
+        <h1 class="lesson-title">eval 파이프라인 실행</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>데이터셋이 준비됐으니 <strong>핵심 평가 파이프라인</strong>을 만듭니다: 각 테스트케이스를 프롬프트와 병합 → Claude → 채점.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619554%2F04_-_004_-_Running_the_Eval_00.1748619554019.png" alt="강의 도식">
+<h3>run_prompt — 개별 프롬프트</h3>
+<pre><code>def run_prompt(test_case):
+    prompt = f"""
+Please solve the following task:
+
+{test_case["task"]}
+"""
+    messages = []
+    add_user_message(messages, prompt)
+    return chat(messages)</code></pre>
+<h3>run_test_case — 실행 + 채점</h3>
+<pre><code>def run_test_case(test_case):
+    output = run_prompt(test_case)
+    score = 10  # TODO 채점
+    return {"output": output, "test_case": test_case, "score": score}</code></pre>
+<p>지금은 점수를 <strong>10으로 하드코딩</strong> — 파이프라인 전체를 먼저 검증하기 위한 자리표시자.</p>
+<h3>run_eval — 전체 조율</h3>
+<pre><code>def run_eval(dataset):
+    results = []
+    for test_case in dataset:
+        results.append(run_test_case(test_case))
+    return results</code></pre>
+<h3>실행</h3>
+<pre><code>with open("dataset.json", "r") as f:
+    dataset = json.load(f)
+results = run_eval(dataset)</code></pre>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619554%2F04_-_004_-_Running_the_Eval_18.1748619554611.png" alt="강의 도식">
+<p>각 결과는 <strong>output·test_case·score</strong>를 담습니다. 포맷 지침이 없어 아직 장황한 출력이 나옵니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619555%2F04_-_004_-_Running_the_Eval_01.1748619555038.png" alt="강의 도식">
+<div class="tip">이미 eval 파이프라인의 대부분을 만든 것. 남은 핵심은 하드코딩된 10을 실제 <strong>채점 로직</strong>으로 바꾸는 것입니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 모델 기반 채점</div></div>
+    </section>
+
+    <!-- L19 -->
+    <section class="lesson" id="model-grading">
+      <div class="lesson-head">
+        <div class="lesson-num">19</div>
+        <div class="eyebrow">평가 · 프롬프트 엔지니어링 · 레슨 19</div>
+        <h1 class="lesson-title">모델 기반 채점</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>채점기(grader)는 모델 출력을 측정 가능한 피드백(보통 1~10)으로 바꿉니다.</p>
+<h3>세 가지 채점 방식</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619610%2F04_-_005_-_Model_Based_Grading_03.1748619610196.png" alt="강의 도식">
+<table><colgroup><col style="width:26%"><col></colgroup>
+<tr><th>방식</th><th>설명</th></tr>
+<tr><td><strong>Code grader</strong></td><td>코드로 프로그래밍적 검사(길이·특정 단어 유무·JSON/Python/regex 구문·가독성)</td></tr>
+<tr><td><strong>Model grader</strong></td><td>또 다른 AI 호출로 품질 평가(품질·지시 준수·완전성·유용성·안전성)</td></tr>
+<tr><td><strong>Human grader</strong></td><td>사람이 직접 검토 — 가장 유연하나 느리고 지루</td></tr>
+</table>
+<h3>평가 기준 정의</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619610%2F04_-_005_-_Model_Based_Grading_06.1748619610723.png" alt="강의 도식">
+<p>코드 생성 프롬프트라면: <strong>Format</strong>(설명 없이 코드만)·<strong>Valid Syntax</strong>·<strong>Task Following</strong>. 앞 둘은 코드 채점기, 과제 준수는 모델 채점기에 적합.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619611%2F04_-_005_-_Model_Based_Grading_07.1748619611291.png" alt="강의 도식">
+<h3>모델 채점기 구현</h3>
+<pre><code>def grade_by_model(test_case, output):
+    messages = []
+    add_user_message(messages, eval_prompt)
+    add_assistant_message(messages, "```json")
+    eval_text = chat(messages, stop_sequences=["```"])
+    return json.loads(eval_text)</code></pre>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619612%2F04_-_005_-_Model_Based_Grading_11.1748619611803.png" alt="강의 도식">
+<div class="tip">점수만 말고 <strong>강점·약점·근거</strong>도 요청하세요. 그래야 모델이 6 같은 무난한 점수로 도망치지 않고 사려 깊게 평가합니다.</div>
+<h3>워크플로우 통합 + 평균</h3>
+<pre><code>from statistics import mean
+
+def run_eval(dataset):
+    results = [run_test_case(tc) for tc in dataset]
+    average_score = mean([r["score"] for r in results])
+    print(f"Average score: {average_score}")
+    return results</code></pre>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 코드 기반 채점</div></div>
+    </section>
+
+    <!-- L20 -->
+    <section class="lesson" id="code-grading">
+      <div class="lesson-head">
+        <div class="lesson-num">20</div>
+        <div class="eyebrow">평가 · 프롬프트 엔지니어링 · 레슨 20</div>
+        <h1 class="lesson-title">코드 기반 채점</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>코드를 생성하는 모델을 평가할 땐 <strong>구문 유효성·형식</strong>도 검증해야 합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619603%2F04_-_006_-_Code_Based_Grading_00.1748619603473.png" alt="강의 도식">
+<ul>
+<li><strong>Format</strong> — 설명 없이 요청 형식(Python/JSON/Regex)만</li>
+<li><strong>Valid Syntax</strong> — 실제로 올바르게 파싱됨</li>
+<li><strong>Task Following</strong>(모델 채점기 담당)</li>
+</ul>
+<h3>구문 검증 함수</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619604%2F04_-_006_-_Code_Based_Grading_02.1748619604039.png" alt="강의 도식">
+<pre><code>def validate_json(text):
+    try:
+        json.loads(text.strip()); return 10
+    except json.JSONDecodeError:
+        return 0
+
+def validate_python(text):
+    try:
+        ast.parse(text.strip()); return 10
+    except SyntaxError:
+        return 0
+
+def validate_regex(text):
+    try:
+        re.compile(text.strip()); return 10
+    except re.error:
+        return 0</code></pre>
+<h3>데이터셋 형식 요구</h3>
+<pre><code>{"task": "Create a Python function to validate an AWS IAM username",
+ "format": "python"}</code></pre>
+<h3>프롬프트 명확화 + 프리필</h3>
+<pre><code>* Respond only with Python, JSON, or a plain Regex
+* Do not add any comments or commentary or explanation</code></pre>
+<pre><code>add_assistant_message(messages, "```code")</code></pre>
+<h3>점수 결합</h3>
+<pre><code>model_score = grade_by_model(test_case, output)["score"]
+syntax_score = grade_syntax(output, test_case)
+score = (model_score + syntax_score) / 2</code></pre>
+<p>내용 품질과 기술적 정확성에 동등 가중. 용도에 따라 가중치 조정 가능.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 프롬프트 eval 실습</div></div>
+    </section>
+
+    <!-- L21 -->
+    <section class="lesson" id="eval-exercise">
+      <div class="lesson-head">
+        <div class="lesson-num">21</div>
+        <div class="eyebrow">평가 · 프롬프트 엔지니어링 · 레슨 21</div>
+        <h1 class="lesson-title">프롬프트 eval 실습</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>모델 채점기 + 코드 채점기를 결합한 평가 파이프라인을 직접 만들어 기준 점수를 얻고, 프롬프트를 개선해 점수가 오르는지 확인하는 실습입니다. 점수 자체보다 <strong>개선 가능 여부</strong>가 핵심입니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 프롬프트 엔지니어링</div></div>
+    </section>
+
+    <!-- L22 -->
+    <section class="lesson" id="prompt-eng">
+      <div class="lesson-head">
+        <div class="lesson-num">22</div>
+        <div class="eyebrow">평가 · 프롬프트 엔지니어링 · 레슨 22</div>
+        <h1 class="lesson-title">프롬프트 엔지니어링</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>프롬프트 엔지니어링은 쓴 프롬프트를 <strong>반복 개선</strong>해 더 신뢰할 출력을 얻는 과정입니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619608%2F05_-_001_-_Prompt_Engineering_00.1748619608702.png" alt="강의 도식">
+<h3>반복 개선 사이클</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619609%2F05_-_001_-_Prompt_Engineering_01.1748619609168.png" alt="강의 도식">
+<ul>
+<li>목표 설정 → 초기 프롬프트 작성 → 평가 → 기법 적용 → 재평가</li>
+<li>마지막 두 단계를 만족할 때까지 반복 (매 반복마다 측정 가능한 개선)</li>
+</ul>
+<h3>예시 — 운동선수 식단 계획</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619609%2F05_-_001_-_Prompt_Engineering_04.1748619609611.png" alt="강의 도식">
+<p>키·체중·목표·식이제한을 입력받아 칼로리·매크로·식사 상세가 담긴 계획 생성.</p>
+<h3>평가 프레임워크</h3>
+<p>데이터셋 생성 · 자동 채점 · 성능 추적. <strong>rate limit 주의</strong> — 낮은 동시성(1~3)에서 시작.</p>
+<h3>의도적으로 나쁜 초기 프롬프트</h3>
+<pre><code>What should this person eat?
+
+- Height: {...["height"]}
+- Weight: {...["weight"]}
+- Goal: {...["goal"]}
+- Dietary restrictions: {...["restrictions"]}</code></pre>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619610%2F05_-_001_-_Prompt_Engineering_18.1748619610284.png" alt="강의 도식">
+<p>기준선 점수가 <strong>2.3/10</strong> 이라면 개선 여지가 커서 오히려 좋은 출발점.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619611%2F05_-_001_-_Prompt_Engineering_19.1748619611159.png" alt="강의 도식">
+<div class="callout">한 번에 <strong>한 가지만</strong> 바꾸고 평가해 어떤 기법이 효과적인지 파악하세요.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 명확하고 직접적으로</div></div>
+    </section>
+
+    <!-- L23 -->
+    <section class="lesson" id="clear-direct">
+      <div class="lesson-head">
+        <div class="lesson-num">23</div>
+        <div class="eyebrow">평가 · 프롬프트 엔지니어링 · 레슨 23</div>
+        <h1 class="lesson-title">명확하고 직접적으로</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>프롬프트의 <strong>첫 줄</strong>이 가장 중요합니다. 명확함과 직접성에 집중하세요.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619590%2F05_-_002_-_Being_Clear_and_Direct_02.1748619589874.png" alt="강의 도식">
+<h3>Clear — 명확함</h3>
+<ul>
+<li>누구나 이해할 <strong>쉬운 언어</strong> · 에두르지 말고 원하는 것 명시 · Claude의 과제를 직설적으로 앞에</li>
+</ul>
+<p>모호한 "지붕에 붙이는 태양광 뭐시기…" 대신 → <strong>"Write three paragraphs about how solar panels work."</strong></p>
+<h3>Direct — 직접적</h3>
+<ul>
+<li>질문이 아니라 <strong>지시</strong> · "Write"·"Create"·"Generate" 같은 동작 동사로 시작</li>
+</ul>
+<p>"지열 에너지 어느 나라가 써?" 대신 → <strong>"Identify three countries that use geothermal energy. Include generation stats for each."</strong></p>
+<h3>실전 적용</h3>
+<p>약한 "What should this person eat?"를 → <code>Generate a one-day meal plan for an athlete that meets their dietary restrictions.</code>로. 무엇을(생성) 무엇을(식단) 어떤 제약(하루·선수·식이제한)까지 즉시 전달.</p>
+<div class="callout">결과: 평가 점수가 <strong>2.32 → 3.92</strong>. 첫 줄만 다시 써도 큰 차이.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 구체적으로</div></div>
+    </section>
+
+    <!-- L24 -->
+    <section class="lesson" id="being-specific">
+      <div class="lesson-head">
+        <div class="lesson-num">24</div>
+        <div class="eyebrow">평가 · 프롬프트 엔지니어링 · 레슨 24</div>
+        <h1 class="lesson-title">구체적으로</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>원하는 것을 <strong>구체적으로</strong> 알려주면 결과가 크게 좋아집니다. 모델 해석에 맡기지 말고 지침·단계를 제공하세요.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619654%2F05_-_003_-_Being_Specific_00.1748619653960.png" alt="강의 도식">
+<h3>두 종류의 지침</h3>
+<table><colgroup><col style="width:26%"><col></colgroup>
+<tr><th>종류</th><th>설명</th></tr>
+<tr><td><strong>품질 지침</strong></td><td>출력이 가질 속성: 길이 제약(1,000단어 미만), 구조 요구, 내용 사양</td></tr>
+<tr><td><strong>프로세스 단계</strong></td><td>모델이 따를 단계(브레인스토밍→선택→개요→…) — 최종 생성 전 여러 옵션을 고려하게</td></tr>
+</table>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619654%2F05_-_003_-_Being_Specific_05.1748619654657.png" alt="강의 도식">
+<h3>실제 효과</h3>
+<p>식단 프롬프트에 지침 추가로 점수 <strong>3.92 → 7.86</strong>.</p>
+<pre><code>Generate a one-day meal plan for an athlete that meets their dietary restrictions.
+
+- Height: {...} / Weight: {...} / Goal: {...} / Dietary restrictions: {...}
+
+Guidelines:
+1. Include accurate daily calorie amount
+2. Show protein, fat, and carb amounts
+3. Specify when to eat each meal
+4. Use only foods that fit restrictions
+5. List all portion sizes in grams
+6. Keep budget-friendly if mentioned</code></pre>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619655%2F05_-_003_-_Being_Specific_18.1748619655213.png" alt="강의 도식">
+<p>품질 지침은 거의 모든 프롬프트에, 프로세스 단계는 <strong>문제 해결·의사결정·비판적 사고</strong>에 특히 유용합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · XML 태그로 구조화</div></div>
+    </section>
+
+    <!-- L25 -->
+    <section class="lesson" id="xml-tags">
+      <div class="lesson-head">
+        <div class="lesson-num">25</div>
+        <div class="eyebrow">평가 · 프롬프트 엔지니어링 · 레슨 25</div>
+        <h1 class="lesson-title">XML 태그로 구조화</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>많은 내용을 넣을 때 Claude가 어떤 텍스트가 무엇인지 헷갈릴 수 있습니다. <strong>XML 태그</strong>가 구조와 명확성을 더합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619655%2F05_-_004_-_Structure_with_XML_Tags_00.1748619655719.png" alt="강의 도식">
+<h3>명확한 경계</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619656%2F05_-_004_-_Structure_with_XML_Tags_06.1748619656342.png" alt="강의 도식">
+<p>판매 데이터를 <code>&lt;sales_records&gt;</code>로 감싸면 그 내용이 무엇인지 즉시 명확해집니다.</p>
+<h3>디버깅 예시</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619656%2F05_-_004_-_Structure_with_XML_Tags_10.1748619656864.png" alt="강의 도식">
+<pre><code>&lt;my_code&gt;
+from datavortex import Pipeline, DataSource
+
+def process_data(input_file, output_file):
+    pipeline = Pipeline()
+    source = DataSource.from_csv(input_file)
+&lt;/my_code&gt;
+
+&lt;docs&gt;
+# Creating a data source from data vortex
+csv_source = DataSource.from_csv("data.csv")
+&lt;/docs&gt;</code></pre>
+<h3>식단 예시에 적용</h3>
+<pre><code>&lt;athlete_information&gt;
+- Height: {...} / Weight: {...} / Goal: {...} / Dietary restrictions: {...}
+&lt;/athlete_information&gt;</code></pre>
+<div class="card"><ul>
+<li>대량 컨텍스트/데이터에 특히 유용 · 콘텐츠 유형 구분 명확 · 관계 이해 향상 · 유지보수·디버깅 쉬움</li>
+</ul></div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 예시 제공</div></div>
+    </section>
+
+    <!-- L26 -->
+    <section class="lesson" id="providing-examples">
+      <div class="lesson-head">
+        <div class="lesson-num">26</div>
+        <div class="eyebrow">평가 · 프롬프트 엔지니어링 · 레슨 26</div>
+        <h1 class="lesson-title">예시 제공</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>예시 제공(one-shot / multi-shot)은 가장 효과적인 기법 중 하나 — 샘플 입력/출력 쌍으로 응답을 유도합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619655%2F05_-_005_-_Providing_Examples_00.1748619655115.png" alt="강의 도식">
+<p>감성 분석 예시의 난점은 <strong>비꼬기(sarcasm)</strong>. "최고의 영화였어(사실 반어)" 같은 표면상 긍정이 실제로는 부정.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619655%2F05_-_005_-_Providing_Examples_04.1748619655529.png" alt="강의 도식">
+<h3>예시 추가</h3>
+<pre><code>Be especially careful with tweets that contain sarcasm.
+For example:
+&lt;sample_input&gt;
+Oh yeah, I really needed a flight delay tonight! Excellent!
+&lt;/sample_input&gt;
+&lt;ideal_output&gt;
+Negative
+&lt;/ideal_output&gt;</code></pre>
+<h3>eval에서 좋은 예시 찾기</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619656%2F05_-_005_-_Providing_Examples_12.1748619655959.png" alt="강의 도식">
+<p>HTML 리포트에서 <strong>10점(최고점) 출력</strong>을 골라 프롬프트의 예시로 재사용.</p>
+<h3>예시에 근거 덧붙이기</h3>
+<pre><code>&lt;/ideal_output&gt;
+This meal plan is well-structured, provides detailed information on food
+choices and quantities, and aligns with the athlete's goals and restrictions.</code></pre>
+<div class="card"><ul>
+<li>XML 태그로 예시 구조화 · one-shot부터 시작 · 엣지케이스에 집중 · 왜 좋은지 근거 포함 · eval 결과 기반 반복</li>
+</ul></div>
+<p>예시는 <strong>설명이 아니라 시연</strong>이라 복잡한 요구를 안정적으로 전달합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 프롬프팅 실습</div></div>
+    </section>
+
+    <!-- L27 -->
+    <section class="lesson" id="prompting-exercise">
+      <div class="lesson-head">
+        <div class="lesson-num">27</div>
+        <div class="eyebrow">평가 · 프롬프트 엔지니어링 · 레슨 27</div>
+        <h1 class="lesson-title">프롬프팅 실습</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>명확함·구체성·XML 구조화·예시 제공 기법을 직접 프롬프트에 적용하고 평가 점수로 개선을 확인하는 실습입니다. 한 번에 한 기법씩 적용해 효과를 측정합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 도구 사용 소개</div></div>
+    </section>
+
+    <!-- L28 -->
+    <section class="lesson" id="intro-tools">
+      <div class="lesson-head">
+        <div class="lesson-num">28</div>
+        <div class="eyebrow">도구 사용 (Tool Use) · 레슨 28</div>
+        <h1 class="lesson-title">도구 사용 소개</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>도구(tool)는 Claude가 <strong>외부 세계의 정보</strong>에 접근하게 해 훈련 데이터 너머로 능력을 확장합니다. 실시간 데이터·외부 시스템에 대한 구조화된 접근 방법입니다.</p>
+<h3>도구 없을 때의 문제</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619646%2F06_-_001_-_Introducing_Tool_Use_05.1748619646201.png" alt="강의 도식">
+<p>"샌프란시스코 날씨는?"에 Claude는 "실시간 날씨 정보에 접근할 수 없습니다"라고 답할 수밖에 없습니다.</p>
+<h3>도구 사용 흐름</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619646%2F06_-_001_-_Introducing_Tool_Use_07.1748619646784.png" alt="강의 도식">
+<ul>
+<li><strong>초기 요청</strong> — 질문 + 외부 데이터 획득 방법(도구)을 함께 전송</li>
+<li><strong>도구 요청</strong> — Claude가 필요를 판단해 어떤 데이터가 필요한지 요청</li>
+<li><strong>데이터 획득</strong> — 내 서버가 외부 API/DB에서 정보 조회</li>
+<li><strong>최종 응답</strong> — 데이터를 Claude에 돌려주면 완전한 응답 생성</li>
+</ul>
+<h3>날씨 예시</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619647%2F06_-_001_-_Introducing_Tool_Use_14.1748619647322.png" alt="강의 도식">
+<p>Claude가 특정 위치의 날씨를 요청 → 서버가 날씨 API 호출 → 결과를 Claude에 전달 → 정확한 최신 응답.</p>
+<div class="callout">도구 사용은 Claude를 정적 지식 베이스에서 <strong>라이브 데이터로 일하는 동적 어시스턴트</strong>로 바꿉니다. 도구를 실행하는 건 Claude가 아니라 <strong>내 코드</strong>입니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 프로젝트 개요</div></div>
+    </section>
+
+    <!-- L29 -->
+    <section class="lesson" id="project-overview">
+      <div class="lesson-head">
+        <div class="lesson-num">29</div>
+        <div class="eyebrow">도구 사용 (Tool Use) · 레슨 29</div>
+        <h1 class="lesson-title">프로젝트 개요</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>Claude에게 <strong>미래 날짜 리마인더 설정</strong>을 가르치는 프로젝트. 단순해 보이지만 흥미로운 도전이 숨어 있습니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619691%2F06_-_002_-_Project_Overview_00.1748619691746.png" alt="강의 도식">
+<p>목표 대화: "목요일 일주일 뒤 병원 예약 리마인더 설정해줘" → "네, 알려드릴게요."</p>
+<h3>왜 어려운가</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619692%2F06_-_002_-_Project_Overview_08.1748619692245.png" alt="강의 도식">
+<ul>
+<li>Claude는 현재 날짜는 알아도 <strong>정확한 시각</strong>은 모를 수 있음</li>
+<li>여러 날 앞의 <strong>시간 덧셈</strong>을 잘 못함</li>
+<li><strong>리마인더 설정 방법 자체를 모름</strong></li>
+</ul>
+<h3>필요한 세 도구</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619693%2F06_-_002_-_Project_Overview_17.1748619693561.png" alt="강의 도식">
+<div class="card"><ul>
+<li><strong>Get Current Date Time</strong> — "지금"이 언제인지 제공</li>
+<li><strong>Add Duration to Date Time</strong> — 날짜 덧셈을 신뢰성 있게 계산</li>
+<li><strong>Set a Reminder</strong> — 실제 리마인더 생성 메커니즘</li>
+</ul></div>
+<p>datetime 도구부터 하나씩 구현하며 도구 호출을 익힙니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 도구 함수</div></div>
+    </section>
+
+    <!-- L30 -->
+    <section class="lesson" id="tool-functions">
+      <div class="lesson-head">
+        <div class="lesson-num">30</div>
+        <div class="eyebrow">도구 사용 (Tool Use) · 레슨 30</div>
+        <h1 class="lesson-title">도구 함수</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>도구 함수는 Claude가 필요할 때 호출하는 평범한 <strong>Python 함수</strong>입니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619700%2F06_-_003_-_Tool_Functions_00.1748619699839.png" alt="강의 도식">
+<h3>모범 사례</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619700%2F06_-_003_-_Tool_Functions_06.1748619700490.png" alt="강의 도식">
+<ul>
+<li><strong>서술적 이름</strong> — 함수·파라미터 이름이 목적을 분명히</li>
+<li><strong>입력 검증</strong> — 필수 파라미터 유효성 확인</li>
+<li><strong>의미 있는 에러 메시지</strong> — Claude가 실패에서 배워 재시도 가능</li>
+</ul>
+<h3>첫 도구 함수</h3>
+<pre><code>def get_current_datetime(date_format="%Y-%m-%d %H:%M:%S"):
+    if not date_format:
+        raise ValueError("date_format cannot be empty")
+    return datetime.now().strftime(date_format)</code></pre>
+<pre><code>get_current_datetime("%H:%M")       # "14:30"
+get_current_datetime("%B %d, %Y")   # "March 15, 2024"</code></pre>
+<div class="tip">에러 메시지는 Claude에 그대로 전달됩니다. "Location cannot be empty" 같은 명확한 메시지를 주면 올바른 값으로 재시도합니다.</div>
+<p>다음 단계는 이 함수를 설명하는 <strong>JSON 스키마</strong> 작성입니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 도구 스키마</div></div>
+    </section>
+
+    <!-- L31 -->
+    <section class="lesson" id="tool-schemas">
+      <div class="lesson-head">
+        <div class="lesson-num">31</div>
+        <div class="eyebrow">도구 사용 (Tool Use) · 레슨 31</div>
+        <h1 class="lesson-title">도구 스키마</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>도구 함수 다음은, Claude가 인자·사용법을 이해하도록 <strong>JSON 스키마</strong>를 작성하는 것입니다.</p>
+<h3>JSON Schema 이해</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619697%2F06_-_004_-_Tool_Schemas_01.1748619697769.png" alt="강의 도식">
+<p>AI 전용이 아닌, 오래된 데이터 검증 표준. 도구 사양의 세 부분: <strong>name · description · input_schema</strong>.</p>
+<h3>효과적인 description</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619698%2F06_-_004_-_Tool_Schemas_02.1748619698251.png" alt="강의 도식">
+<ul>
+<li>무엇을 하는지·언제 쓰는지·무엇을 반환하는지 설명 · <strong>3~4문장</strong> · 각 인자도 상세히</li>
+</ul>
+<h3>쉬운 방법 — Claude에게 시키기</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619699%2F06_-_004_-_Tool_Schemas_13.1748619699594.png" alt="강의 도식">
+<p>도구 함수를 복사해 Claude에 "이 함수의 tool calling용 JSON 스키마를 모범 사례대로 작성해줘"라고 요청(문서 첨부).</p>
+<h3>코드에 스키마 넣기</h3>
+<pre><code>get_current_datetime_schema = {
+    "name": "get_current_datetime",
+    "description": "Returns the current date and time formatted according to the specified format",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "date_format": {
+                "type": "string",
+                "description": "... Uses Python's strftime format codes.",
+                "default": "%Y-%m-%d %H:%M:%S"
+            }
+        },
+        "required": []
+    }
+}</code></pre>
+<h3>타입 안전성</h3>
+<pre><code>from anthropic.types import ToolParam
+get_current_datetime_schema = ToolParam({ ... })</code></pre>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 메시지 블록 다루기</div></div>
+    </section>
+
+    <!-- L32 -->
+    <section class="lesson" id="message-blocks">
+      <div class="lesson-head">
+        <div class="lesson-num">32</div>
+        <div class="eyebrow">도구 사용 (Tool Use) · 레슨 32</div>
+        <h1 class="lesson-title">메시지 블록 다루기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>도구를 쓰면 응답이 단일 텍스트가 아니라 <strong>여러 블록</strong>(텍스트 + 도구 사용)을 담습니다.</p>
+<h3>도구 활성화 호출</h3>
+<pre><code>messages = []
+messages.append({"role": "user",
+    "content": "What is the exact time, formatted as HH:MM:SS?"})
+
+response = client.messages.create(
+    model=model, max_tokens=1000, messages=messages,
+    tools=[get_current_datetime_schema],
+)</code></pre>
+<h3>멀티블록 메시지 이해</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619699%2F06_-_005_-_Handling_Message_Blocks_08.1748619699629.png" alt="강의 도식">
+<ul>
+<li><strong>Text Block</strong> — "시간을 알아볼게요" 같은 사람용 설명</li>
+<li><strong>ToolUse Block</strong> — 호출할 도구·파라미터 (ID·name·input·type="tool_use")</li>
+</ul>
+<h3>기록 관리 — 전체 content 보존</h3>
+<pre><code>messages.append({
+    "role": "assistant",
+    "content": response.content
+})</code></pre>
+<p>텍스트만 뽑지 말고 <strong>블록 전체</strong>를 보존해야 이후 호출에서 문맥이 유지됩니다.</p>
+<h3>전체 흐름</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619700%2F06_-_005_-_Handling_Message_Blocks_15.1748619700334.png" alt="강의 도식">
+<p>사용자 메시지+스키마 전송 → 멀티블록 응답 → 도구 실행 → 결과+전체 기록 전송 → 최종 응답. 헬퍼 함수(<code>add_user_message</code> 등)도 멀티블록을 지원하도록 갱신 필요.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 도구 결과 보내기</div></div>
+    </section>
+
+    <!-- L33 -->
+    <section class="lesson" id="tool-results">
+      <div class="lesson-head">
+        <div class="lesson-num">33</div>
+        <div class="eyebrow">도구 사용 (Tool Use) · 레슨 33</div>
+        <h1 class="lesson-title">도구 결과 보내기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>Claude가 도구 호출을 요청하면 함수를 실행하고 <strong>결과를 돌려보내</strong> 워크플로우를 완성합니다.</p>
+<h3>도구 함수 실행</h3>
+<pre><code>tool_use_block = response.content[1]
+input_params = tool_use_block.input
+result = get_current_datetime(**input_params)</code></pre>
+<p><code>**</code>는 딕셔너리를 키워드 인자로 언팩합니다.</p>
+<h3>Tool Result Block</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619950%2F06_-_006_-_Sending_Tool_Results_05.1748619949924.png" alt="강의 도식">
+<ul>
+<li><strong>tool_use_id</strong> — 원본 tool use 블록 ID와 일치</li>
+<li><strong>content</strong> — 도구 출력(문자열로 변환)</li>
+<li><strong>is_error</strong> — 실행 중 에러면 true</li>
+</ul>
+<h3>여러 도구 호출 처리</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619951%2F06_-_006_-_Sending_Tool_Results_07.1748619950833.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619951%2F06_-_006_-_Sending_Tool_Results_08.1748619951478.png" alt="강의 도식">
+<p>각 도구 호출은 고유 ID를 가지며, 결과 전송 시 ID를 일치시켜야 순서가 달라도 올바르게 매칭됩니다.</p>
+<h3>후속 요청</h3>
+<pre><code>messages.append({
+    "role": "user",
+    "content": [{
+        "type": "tool_result",
+        "tool_use_id": response.content[1].id,
+        "content": result,
+        "is_error": False
+    }]
+})</code></pre>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619952%2F06_-_006_-_Sending_Tool_Results_04.1748619952295.png" alt="강의 도식">
+<div class="tip">후속 요청에도 <strong>도구 스키마를 포함</strong>하세요. Claude가 기록 속 도구 참조를 이해하는 데 필요합니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 도구와 멀티턴 대화</div></div>
+    </section>
+
+    <!-- L34 -->
+    <section class="lesson" id="multiturn-tools">
+      <div class="lesson-head">
+        <div class="lesson-num">34</div>
+        <div class="eyebrow">도구 사용 (Tool Use) · 레슨 34</div>
+        <h1 class="lesson-title">도구와 멀티턴 대화</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>여러 도구를 쓰면 Claude가 하나의 질문에 <strong>여러 도구를 순차 호출</strong>할 수 있습니다. 예: "오늘로부터 103일 뒤는?" → 현재 날짜 조회 → 103일 더하기.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619954%2F06_-_007_-_Multi-Turn_Conversations_with_Tools_02.1748619954762.png" alt="강의 도식">
+<h3>멀티턴 도구 패턴</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619955%2F06_-_007_-_Multi-Turn_Conversations_with_Tools_03.1748619955529.png" alt="강의 도식">
+<p>사용자 질문 → 도구 요청 → 결과 반환 → (필요시) 추가 도구 요청 → 결과 반환 → 최종 답.</p>
+<h3>대화 루프</h3>
+<pre><code>def run_conversation(messages):
+    while True:
+        response = chat(messages)
+        add_assistant_message(messages, response)
+        # 도구를 요청하지 않으면 종료
+        if response isn't asking for a tool:
+            break
+        tool_result_blocks = run_tools(response)
+        add_user_message(messages, tool_result_blocks)
+    return messages</code></pre>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619956%2F06_-_007_-_Multi-Turn_Conversations_with_Tools_05.1748619956267.png" alt="강의 도식">
+<h3>헬퍼 함수 리팩터</h3>
+<pre><code>from anthropic.types import Message
+
+def add_user_message(messages, message):
+    messages.append({
+        "role": "user",
+        "content": message.content if isinstance(message, Message) else message
+    })</code></pre>
+<h3>chat — 도구 리스트 + 전체 메시지 반환</h3>
+<pre><code>def chat(messages, system=None, temperature=1.0, stop_sequences=[], tools=None):
+    params = {"model": model, "max_tokens": 1000, "messages": messages,
+              "temperature": temperature, "stop_sequences": stop_sequences}
+    if tools: params["tools"] = tools
+    if system: params["system"] = system
+    return client.messages.create(**params)</code></pre>
+<h3>텍스트 추출 헬퍼</h3>
+<pre><code>def text_from_message(message):
+    return "\n".join(
+        [block.text for block in message.content if block.type == "text"]
+    )</code></pre>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 여러 턴 구현하기</div></div>
+    </section>
+
+    <!-- L35 -->
+    <section class="lesson" id="impl-turns">
+      <div class="lesson-head">
+        <div class="lesson-num">35</div>
+        <div class="eyebrow">도구 사용 (Tool Use) · 레슨 35</div>
+        <h1 class="lesson-title">여러 턴 구현하기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>Claude가 도구를 더 요청하지 않을 때까지 반복하는 루프를 구현합니다.</p>
+<h3>도구 요청 감지 — stop_reason</h3>
+<pre><code>if response.stop_reason != "tool_use":
+    break  # Claude 완료, 더 이상 도구 불필요</code></pre>
+<h3>대화 루프</h3>
+<pre><code>def run_conversation(messages):
+    while True:
+        response = chat(messages, tools=[get_current_datetime_schema])
+        add_assistant_message(messages, response)
+        print(text_from_message(response))
+        if response.stop_reason != "tool_use":
+            break
+        tool_results = run_tools(response)
+        add_user_message(messages, tool_results)
+    return messages</code></pre>
+<h3>여러 도구 호출 처리</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619959%2F06_-_008_-_Implementing_Multiple_Turns_05.1748619959308.png" alt="강의 도식">
+<pre><code>def run_tools(message):
+    tool_requests = [b for b in message.content if b.type == "tool_use"]
+    tool_result_blocks = []
+    for tool_request in tool_requests:
+        ...</code></pre>
+<h3>Tool Result Block + 에러 처리</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619960%2F06_-_008_-_Implementing_Multiple_Turns_10.1748619960197.png" alt="강의 도식">
+<pre><code>try:
+    tool_output = run_tool(tool_request.name, tool_request.input)
+    tool_result_block = {"type": "tool_result",
+        "tool_use_id": tool_request.id,
+        "content": json.dumps(tool_output), "is_error": False}
+except Exception as e:
+    tool_result_block = {"type": "tool_result",
+        "tool_use_id": tool_request.id,
+        "content": f"Error: {e}", "is_error": True}</code></pre>
+<h3>확장 가능한 라우팅</h3>
+<pre><code>def run_tool(tool_name, tool_input):
+    if tool_name == "get_current_datetime":
+        return get_current_datetime(**tool_input)
+    elif tool_name == "other_tool":
+        return other_tool_function(**tool_input)</code></pre>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 여러 도구 사용</div></div>
+    </section>
+
+    <!-- L36 -->
+    <section class="lesson" id="multiple-tools">
+      <div class="lesson-head">
+        <div class="lesson-num">36</div>
+        <div class="eyebrow">도구 사용 (Tool Use) · 레슨 36</div>
+        <h1 class="lesson-title">여러 도구 사용</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>핵심 인프라가 갖춰지면 <strong>여러 도구 추가</strong>는 간단한 패턴을 따릅니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619943%2F06_-_009_-_Using_Multiple_Tools_00.1748619943580.png" alt="강의 도식">
+<h3>추가할 세 도구</h3>
+<ul><li>현재 날짜/시간 · 날짜에 기간 더하기 · 리마인더 설정</li></ul>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619944%2F06_-_009_-_Using_Multiple_Tools_03.1748619944451.png" alt="강의 도식">
+<p><code>add_duration_to_datetime</code>은 초·분·시·일·주·월 단위를 처리하고, <code>set_reminder</code>는 확인 내용을 출력하는 자리표시자.</p>
+<h3>대화에 도구 추가</h3>
+<pre><code>response = chat(messages, tools=[
+    get_current_datetime_schema,
+    add_duration_to_datetime_schema,
+    set_reminder_schema
+])</code></pre>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619945%2F06_-_009_-_Using_Multiple_Tools_07.1748619945276.png" alt="강의 도식">
+<h3>실행 라우팅</h3>
+<pre><code>def run_tool(tool_name, tool_input):
+    if tool_name == "get_current_datetime":
+        return get_current_datetime(**tool_input)
+    elif tool_name == "add_duration_to_datetime":
+        return add_duration_to_datetime(**tool_input)
+    elif tool_name == "set_reminder":
+        return set_reminder(**tool_input)</code></pre>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619946%2F06_-_009_-_Using_Multiple_Tools_10.1748619945988.png" alt="강의 도식">
+<h3>복합 요청 테스트</h3>
+<p>"2050년 1월 1일로부터 177일 뒤 병원 예약 리마인더" → <code>add_duration_to_datetime</code>로 2050-06-27 계산 → <code>set_reminder</code> 호출.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619946%2F06_-_009_-_Using_Multiple_Tools_15.1748619946641.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748619947%2F06_-_009_-_Using_Multiple_Tools_17.1748619947288.png" alt="강의 도식">
+<div class="callout">도구 추가 3단계: ① tools 리스트에 스키마 추가 ② <code>run_tool</code>에 case 추가 ③ 실제 함수 구현. 나머지 메시지 전달·결과 포맷·흐름은 프레임워크가 자동 처리.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 배치 도구</div></div>
+    </section>
+
+    <!-- L37 -->
+    <section class="lesson" id="batch-tool">
+      <div class="lesson-head">
+        <div class="lesson-num">37</div>
+        <div class="eyebrow">도구 사용 (Tool Use) · 레슨 37</div>
+        <h1 class="lesson-title">배치 도구</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>Claude는 한 메시지에 여러 tool use 블록을 담아 <strong>병렬 실행</strong>할 수 있지만, 실제로는 일관되게 그러지 않습니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620029%2F06_-_010_-_The_Batch_Tool_04.1748620029736.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620031%2F06_-_010_-_The_Batch_Tool_05.1748620030815.png" alt="강의 도식">
+<p>같은 날짜에 리마인더 둘을 설정하라 해도, 보통 하나 호출→결과 대기→다음 호출로 왕복이 늘어납니다.</p>
+<h3>배치 도구 해법</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620031%2F06_-_010_-_The_Batch_Tool_06.1748620031536.png" alt="강의 도식">
+<ul>
+<li>여러 도구 호출을 리스트로 받는 <strong>batch tool</strong> 정의 → Claude가 이를 호출 → 코드가 각 호출 실행 → 결과 결합 반환</li>
+</ul>
+<h3>배치 스키마</h3>
+<pre><code>batch_tool_schema = {
+    "name": "batch_tool",
+    "description": "Invoke multiple other tool calls simultaneously",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "invocations": {
+                "type": "array",
+                "items": {"type": "object", "properties": {
+                    "name": {"type": "string"},
+                    "arguments": {"type": "object"}
+                }}
+            }
+        }
+    }
+}</code></pre>
+<h3>배치 처리</h3>
+<pre><code>def run_batch(invocations=[]):
+    batch_output = []
+    for invocation in invocations:
+        name = invocation["name"]
+        args = json.loads(invocation["arguments"])
+        tool_output = run_tool(name, args)
+        batch_output.append({"tool_name": name, "output": tool_output})
+    return batch_output</code></pre>
+<p><code>run_tool</code>에 <code>batch_tool</code> case도 추가. 워크어라운드지만 병렬화 가능한 작업을 효율적으로 묶는 효과적 패턴입니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 구조화 데이터용 도구</div></div>
+    </section>
+
+    <!-- L38 -->
+    <section class="lesson" id="tools-structured">
+      <div class="lesson-head">
+        <div class="lesson-num">38</div>
+        <div class="eyebrow">도구 사용 (Tool Use) · 레슨 38</div>
+        <h1 class="lesson-title">구조화 데이터용 도구</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>구조화 데이터를 얻는 두 방법: <strong>프롬프트 기반</strong>(프리필+stop)과 더 견고한 <strong>도구 기반</strong>.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620028%2F06_-_011_-_Tools_for_Structured_Data_03.1748620028103.png" alt="강의 도식">
+<ul>
+<li>원하는 구조의 JSON 스키마 작성 → <code>tool_choice</code>로 도구 사용 강제 → tool use 응답에서 데이터 추출 → 후속 응답 불필요</li>
+</ul>
+<h3>tool_choice 제어</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620029%2F06_-_011_-_Tools_for_Structured_Data_09.1748620028978.png" alt="강의 도식">
+<ul>
+<li><code>{"type": "auto"}</code> — 모델이 도구 사용 여부 결정(기본)</li>
+<li><code>{"type": "any"}</code> — 반드시 도구 사용, 어떤 것이든</li>
+<li><code>{"type": "tool", "name": "TOOL_NAME"}</code> — 지정 도구 강제</li>
+</ul>
+<h3>구현 예시</h3>
+<pre><code>article_summary_schema = {
+    "name": "article_summary",
+    "description": "Extracts structured data from articles",
+    "input_schema": {"type": "object", "properties": {
+        "title": {"type": "string"},
+        "author": {"type": "string"},
+        "key_insights": {"type": "array", "items": {"type": "string"}}
+    }}
+}</code></pre>
+<pre><code>response = chat(messages, tools=[article_summary_schema],
+    tool_choice={"type": "tool", "name": "article_summary"})
+structured_data = response.content[0].input</code></pre>
+<div class="callout">빠르고 단순하면 프롬프트 기반, <strong>보장된 신뢰성</strong>이 필요하면 도구 기반을 쓰세요.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 텍스트 편집 도구</div></div>
+    </section>
+
+    <!-- L39 -->
+    <section class="lesson" id="text-edit-tool">
+      <div class="lesson-head">
+        <div class="lesson-num">39</div>
+        <div class="eyebrow">도구 사용 (Tool Use) · 레슨 39</div>
+        <h1 class="lesson-title">텍스트 편집 도구</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>Claude 내장 <strong>텍스트 에디터 도구</strong>는 파일·디렉터리를 표준 에디터처럼 다루게 합니다. (도구 버전 문자열: <code>docs.anthropic.com/en/docs/agents-and-tools/tool-use/text-editor-tool</code>)</p>
+<h3>기능</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620032%2F06_-_012_-_The_Text_Edit_Tool_00.1748620032281.png" alt="강의 도식">
+<ul>
+<li>파일/디렉터리 보기 · 특정 줄 범위 보기 · 텍스트 교체 · 새 파일 생성 · 특정 줄에 삽입 · 편집 취소</li>
+</ul>
+<h3>스키마는 내장, 구현은 내가</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620033%2F06_-_012_-_The_Text_Edit_Tool_04.1748620032972.png" alt="강의 도식">
+<p>Claude는 파일 작업 <strong>요청 방법</strong>을 알지만, 실제 작업 코드는 내가 작성해야 합니다.</p>
+<h3>스키마 버전</h3>
+<pre><code>def get_text_edit_schema(model):
+    if model.startswith("claude-3-7-sonnet"):
+        return {"type": "text_editor_20250124", "name": "str_replace_editor"}
+    elif model.startswith("claude-3-5-sonnet"):
+        return {"type": "text_editor_20241022", "name": "str_replace_editor"}</code></pre>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620033%2F06_-_012_-_The_Text_Edit_Tool_11.1748620033628.png" alt="강의 도식">
+<p>Claude가 이 작은 스키마를 자동으로 상세 사양으로 확장합니다.</p>
+<h3>활용 예</h3>
+<p>"./main.py를 열어 요약해줘" → 파일 보기 → 요약. "pi 계산 함수를 작성하고 test.py를 만들어 테스트해줘" → main.py 편집 → test.py 생성. 프로그래밍적 파일 편집이 필요한 앱, 풀기능 에디터가 없는 환경에서 유용합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 웹 검색 도구</div></div>
+    </section>
+
+    <!-- L40 -->
+    <section class="lesson" id="web-search-tool">
+      <div class="lesson-head">
+        <div class="lesson-num">40</div>
+        <div class="eyebrow">도구 사용 (Tool Use) · 레슨 40</div>
+        <h1 class="lesson-title">웹 검색 도구</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>내장 <strong>웹 검색 도구</strong>는 Claude가 최신·전문 정보를 인터넷에서 검색하게 합니다. 구현은 Claude가 전부 처리 — 간단한 스키마만 제공하면 됩니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620026%2F06_-_013_-_The_Web_Search_Tool_00.1748620026281.png" alt="강의 도식">
+<h3>설정</h3>
+<pre><code>web_search_schema = {
+    "type": "web_search_20250305",
+    "name": "web_search",
+    "max_uses": 5
+}</code></pre>
+<p><code>max_uses</code>는 검색 횟수 제한(후속 검색으로 과도한 호출 방지).</p>
+<h3>응답 블록</h3>
+<ul>
+<li><strong>TextBlock</strong> · <strong>ServerToolUseBlock</strong>(검색 쿼리) · <strong>WebSearchToolResultBlock</strong> · <strong>WebSearchResultBlock</strong>(개별 결과) · <strong>CitationsWebSearchResultLocation</strong>(인용)</li>
+</ul>
+<h3>도메인 제한</h3>
+<pre><code>web_search_schema = {
+    "type": "web_search_20250305", "name": "web_search",
+    "max_uses": 5, "allowed_domains": ["nih.gov"]
+}</code></pre>
+<p>신뢰할 도메인(예: 정부 보건 사이트)으로 제한 가능.</p>
+<div class="tip">응답 구조는 리치 UI 렌더링용 — 참고 목록·인라인 인용·근거 하이라이트로 투명성을 제공해 사용자가 출처를 검증하게 합니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · RAG 소개</div></div>
+    </section>
+
+    <!-- L41 -->
+    <section class="lesson" id="intro-rag">
+      <div class="lesson-head">
+        <div class="lesson-num">41</div>
+        <div class="eyebrow">RAG · 고급 기능 · 레슨 41</div>
+        <h1 class="lesson-title">RAG 소개</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p><strong>RAG(Retrieval Augmented Generation)</strong>는 대형 문서를 다룰 때, 전체를 프롬프트에 욱여넣는 대신 <strong>관련 부분만</strong> 지능적으로 찾아 포함하는 기법입니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620800%2F07_-_001_-_Introducing_Retrieval_Augmented_Generation_01.1748620800500.png" alt="강의 도식">
+<h3>옵션 1 — 전부 프롬프트에</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620801%2F07_-_001_-_Introducing_Retrieval_Augmented_Generation_04.1748620801389.png" alt="강의 도식">
+<ul>
+<li>Claude 처리 한계 초과 가능 · 긴 프롬프트에서 효율 저하 · 비용·지연 증가</li>
+</ul>
+<h3>옵션 2 — 청크로 분할</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620802%2F07_-_001_-_Introducing_Retrieval_Augmented_Generation_08.1748620802112.png" alt="강의 도식">
+<p>전처리로 문서를 작은 청크로 나누고, 질문마다 관련 청크만 찾아 포함. "위험 요인" 질문엔 "Risk Factors" 섹션만.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620802%2F07_-_001_-_Introducing_Retrieval_Augmented_Generation_09.1748620802784.png" alt="강의 도식">
+<div class="card"><ul>
+<li><strong>장점</strong> — 관련 내용에 집중 · 대형/다중 문서 확장 · 작은 프롬프트로 저비용·고속</li>
+<li><strong>도전</strong> — 전처리·검색 메커니즘 필요 · 청크가 문맥을 놓칠 수 있음 · 청킹 방식 선택</li>
+</ul></div>
+<p>옵션 2가 곧 RAG. 핵심 구성: 전처리·청킹, 관련 청크 검색, 포함할 청크의 지능적 선택.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 텍스트 청킹 전략</div></div>
+    </section>
+
+    <!-- L42 -->
+    <section class="lesson" id="chunking">
+      <div class="lesson-head">
+        <div class="lesson-num">42</div>
+        <div class="eyebrow">RAG · 고급 기능 · 레슨 42</div>
+        <h1 class="lesson-title">텍스트 청킹 전략</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>텍스트 청킹은 RAG의 가장 중요한 단계 중 하나 — 잘못하면 엉뚱한 문맥이 들어가 완전히 틀린 답이 나옵니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620820%2F07_-_002_-_Text_Chunking_Strategies_01.1748620819902.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620820%2F07_-_002_-_Text_Chunking_Strategies_03.1748620820757.png" alt="강의 도식">
+<p>예: 의학·소프트웨어 섹션이 섞인 문서에서 "엔지니어가 고친 버그 수"를 물으면, 의학 섹션의 "bug"(다른 맥락) 때문에 잘못 검색될 수 있음.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620821%2F07_-_002_-_Text_Chunking_Strategies_04.1748620821630.png" alt="강의 도식">
+<h3>세 가지 전략</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620822%2F07_-_002_-_Text_Chunking_Strategies_05.1748620822407.png" alt="강의 도식">
+<ul>
+<li><strong>Size-based</strong> — 동일 길이 문자열로 분할</li>
+<li><strong>Structure-based</strong> — 헤더·문단·섹션 등 구조로 분할</li>
+<li><strong>Semantic-based</strong> — NLP로 의미 관련 문장 묶음</li>
+</ul>
+<h3>Size-based + 오버랩</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620823%2F07_-_002_-_Text_Chunking_Strategies_06.1748620823143.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620824%2F07_-_002_-_Text_Chunking_Strategies_07.1748620823862.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620824%2F07_-_002_-_Text_Chunking_Strategies_08.1748620824409.png" alt="강의 도식">
+<pre><code>def chunk_by_char(text, chunk_size=150, chunk_overlap=20):
+    chunks = []
+    start_idx = 0
+    while start_idx < len(text):
+        end_idx = min(start_idx + chunk_size, len(text))
+        chunks.append(text[start_idx:end_idx])
+        start_idx = (end_idx - chunk_overlap if end_idx < len(text) else len(text))
+    return chunks</code></pre>
+<h3>Structure-based</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620825%2F07_-_002_-_Text_Chunking_Strategies_09.1748620825351.png" alt="강의 도식">
+<pre><code>def chunk_by_section(document_text):
+    pattern = r'\n## '
+    return re.split(pattern, document_text)</code></pre>
+<h3>Sentence-based (중간 지점)</h3>
+<pre><code>def chunk_by_sentence(text, max_sentences_per_chunk=5, overlap_sentences=1):
+    sentences = re.split(r'(?<=[.!?])\s+', text)
+    chunks = []
+    start_idx = 0
+    while start_idx < len(sentences):
+        end_idx = min(start_idx + max_sentences_per_chunk, len(sentences))
+        chunks.append(' '.join(sentences[start_idx:end_idx]))
+        start_idx += max_sentences_per_chunk - overlap_sentences
+    return chunks</code></pre>
+<div class="callout">일관된 구조 → structure-based, 혼합 유형 → sentence-based, 코드/미지 포맷 → character-based. 청킹은 반복 과정 — 단순하게 시작해 데이터에 맞춰 다듬으세요.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 텍스트 임베딩</div></div>
+    </section>
+
+    <!-- L43 -->
+    <section class="lesson" id="embeddings">
+      <div class="lesson-head">
+        <div class="lesson-num">43</div>
+        <div class="eyebrow">RAG · 고급 기능 · 레슨 43</div>
+        <h1 class="lesson-title">텍스트 임베딩</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>청크 추출 다음은 사용자 질문에 관련된 청크 찾기 — 곧 <strong>검색 문제</strong>입니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620795%2F07_-_003_-_Text_Embeddings_00.1748620795671.png" alt="강의 도식">
+<h3>시맨틱 검색</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620796%2F07_-_003_-_Text_Embeddings_04.1748620796821.png" alt="강의 도식">
+<p>키워드가 아니라 <strong>임베딩</strong>으로 의미를 이해해, 정확한 단어가 안 맞아도 개념적으로 관련된 내용을 찾습니다.</p>
+<h3>텍스트 임베딩이란</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620797%2F07_-_003_-_Text_Embeddings_06.1748620797380.png" alt="강의 도식">
+<ul>
+<li>텍스트를 임베딩 모델에 넣으면 <strong>숫자 리스트</strong>(각 -1~+1) 출력</li>
+<li>각 숫자는 입력 텍스트의 어떤 특질에 대한 "점수"</li>
+</ul>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620798%2F07_-_003_-_Text_Embeddings_08.1748620798019.png" alt="강의 도식">
+<p>다만 각 숫자가 정확히 무엇을 뜻하는지는 <strong>우리가 알 수 없습니다.</strong> 그래도 수학적 비교로 의미를 포착하는 강력한 표현입니다.</p>
+<h3>Vertex AI의 임베딩</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620799%2F07_-_003_-_Text_Embeddings_13.1748620799354.png" alt="강의 도식">
+<p>Claude는 임베딩을 직접 생성하지 못하므로 전용 모델 <code>text-embedding-005</code>를 씁니다.</p>
+<pre><code>pip install google-genai</code></pre>
+<pre><code>from google import genai
+client = genai.Client(project="YOUR_PROJECT_ID", location="global", vertexai=True)
+
+def generate_embedding(text):
+    response = client.models.embed_content(model="text-embedding-005", contents=text)
+    if not response.embeddings:
+        return []
+    return [e.values for e in response.embeddings]</code></pre>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 전체 RAG 흐름</div></div>
+    </section>
+
+    <!-- L44 -->
+    <section class="lesson" id="full-rag">
+      <div class="lesson-head">
+        <div class="lesson-num">44</div>
+        <div class="eyebrow">RAG · 고급 기능 · 레슨 44</div>
+        <h1 class="lesson-title">전체 RAG 흐름</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>RAG 파이프라인을 단계별로 완주합니다.</p>
+<h3>1. 소스 텍스트 청킹</h3>
+<p>예: 의학 연구 섹션, 소프트웨어 엔지니어링 섹션.</p>
+<h3>2. 임베딩 생성</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620811%2F07_-_004_-_The_Full_RAG_Flow_02.1748620811676.png" alt="강의 도식">
+<p>가상의 2숫자 모델: 첫째=의학성, 둘째=소프트웨어성. 의학 섹션 <code>[0.97, 0.34]</code>, 소프트웨어 섹션 <code>[0.30, 0.97]</code>.</p>
+<h3>정규화</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620812%2F07_-_004_-_The_Full_RAG_Flow_07.1748620812576.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620813%2F07_-_004_-_The_Full_RAG_Flow_08.1748620813144.png" alt="강의 도식">
+<p>크기 1.0으로 스케일 → <code>[0.944, 0.331]</code>, <code>[0.295, 0.955]</code>. 단위원 위에 놓입니다.</p>
+<h3>3. 벡터 DB 저장</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620814%2F07_-_004_-_The_Full_RAG_Flow_09.1748620813871.png" alt="강의 도식">
+<p>여기까지는 전처리. 이제 사용자 쿼리를 기다립니다.</p>
+<h3>4. 쿼리 처리</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620814%2F07_-_004_-_The_Full_RAG_Flow_10.1748620814524.png" alt="강의 도식">
+<p>"소프트웨어 부서가 올해 뭘 했나?" → <code>[0.1, 0.89]</code> → 정규화 <code>[0.112, 0.993]</code>.</p>
+<h3>5. 유사 임베딩 찾기</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620816%2F07_-_004_-_The_Full_RAG_Flow_12.1748620815972.png" alt="강의 도식">
+<p>벡터 DB가 <strong>코사인 유사도</strong>로 가장 가까운 것을 반환.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620816%2F07_-_004_-_The_Full_RAG_Flow_15.1748620816527.png" alt="강의 도식">
+<ul>
+<li>1.0=같은 방향(매우 유사) · 0.0=수직(무관) · -1.0=반대</li>
+<li>쿼리 vs 소프트웨어=0.983, vs 의학=0.398</li>
+</ul>
+<p><strong>코사인 거리</strong> = 1 − 유사도 (작을수록 유사).</p>
+<h3>6. 최종 프롬프트</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620817%2F07_-_004_-_The_Full_RAG_Flow_19.1748620817301.png" alt="강의 도식">
+<pre><code>Answer the user's question about the financial document.
+
+&lt;user_question&gt;
+How many bugs did engineers fix this year?
+&lt;/user_question&gt;
+
+&lt;report&gt;
+## Section 2: Software Engineering
+This division dedicated significant effort to studying various infection vectors ...
+&lt;/report&gt;</code></pre>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · RAG 흐름 구현</div></div>
+    </section>
+
+    <!-- L45 -->
+    <section class="lesson" id="impl-rag">
+      <div class="lesson-head">
+        <div class="lesson-num">45</div>
+        <div class="eyebrow">RAG · 고급 기능 · 레슨 45</div>
+        <h1 class="lesson-title">RAG 흐름 구현</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>RAG 흐름을 커스텀 <code>VectorIndex</code> 클래스로 구현합니다(벡터 저장·코사인 거리·검색).</p>
+<h3>1. 섹션별 청킹</h3>
+<pre><code>chunks = chunk_by_section(text)</code></pre>
+<h3>2. 임베딩 생성</h3>
+<pre><code>embeddings = generate_embedding(chunks)</code></pre>
+<h3>3. 벡터 DB 저장</h3>
+<pre><code>store = VectorIndex()
+for embedding, chunk in zip(embeddings, chunks):
+    store.add_vector(embedding, {"content": chunk})</code></pre>
+<p>임베딩과 <strong>원본 텍스트</strong>를 함께 저장 — 검색 후 사람이 읽을 내용이 필요하기 때문.</p>
+<h3>4. 쿼리 임베딩</h3>
+<pre><code>user_embedding = generate_embedding("What did the software engineering dept do last year?")</code></pre>
+<h3>5. 검색</h3>
+<pre><code>results = store.search(user_embedding, 2)
+for doc, distance in results:
+    print(distance, "\n", doc["content"][0:200], "\n")</code></pre>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620875%2F07_-_005_-_Implementing_the_Rag_Flow_10.1748620875517.png" alt="강의 도식">
+<p>결과: 소프트웨어 엔지니어링(거리 0.71), 방법론(0.72). <strong>거리가 낮을수록 유사</strong>. 일부 구현은 ID만 저장해 원본을 참조하지만, 여기선 단순화를 위해 content를 직접 저장합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · BM25 렉시컬 검색</div></div>
+    </section>
+
+    <!-- L46 -->
+    <section class="lesson" id="bm25">
+      <div class="lesson-head">
+        <div class="lesson-num">46</div>
+        <div class="eyebrow">RAG · 고급 기능 · 레슨 46</div>
+        <h1 class="lesson-title">BM25 렉시컬 검색</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>시맨틱 검색만으로는 <strong>정확한 용어 매칭</strong>을 놓칠 수 있습니다. 해법은 렉시컬 검색 <strong>BM25</strong>와 결합.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620882%2F07_-_006_-_BM25_Lexical_Search_04.1748620882308.png" alt="강의 도식">
+<p>예: "INC-2023-Q4-011" 같은 사건 ID는 의미상 유사한 무관 섹션이 반환될 수 있음.</p>
+<h3>하이브리드 전략</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620883%2F07_-_006_-_BM25_Lexical_Search_05.1748620883219.png" alt="강의 도식">
+<ul>
+<li><strong>시맨틱</strong>(임베딩·의미) + <strong>렉시컬</strong>(정확 용어) → 결과 병합</li>
+</ul>
+<h3>BM25 동작</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620884%2F07_-_006_-_BM25_Lexical_Search_07.1748620884013.png" alt="강의 도식">
+<ul>
+<li>쿼리 토큰화 · 용어 빈도 카운트 · <strong>희귀 용어에 높은 가중치</strong> · 가중 용어를 많이 담은 청크 반환</li>
+</ul>
+<p>"INC-2023-Q4-011" 같은 희귀 용어가 "a"·"the"보다 훨씬 중요.</p>
+<h3>구현</h3>
+<pre><code>store = BM25Index()
+for chunk in chunks:
+    store.add_document({"content": chunk})
+results = store.search("What happened with INC-2023-Q4-011?", 3)</code></pre>
+<p>시맨틱 검색과 <strong>동일한 API</strong>(<code>add_document</code>·<code>search</code>)라 함께 쓰기 쉽습니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620884%2F07_-_006_-_BM25_Lexical_Search_19.1748620884731.png" alt="강의 도식">
+<p>다음 단계는 두 검색 결과를 병합하는 하이브리드 접근입니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 멀티 인덱스 파이프라인</div></div>
+    </section>
+
+    <!-- L47 -->
+    <section class="lesson" id="multi-index">
+      <div class="lesson-head">
+        <div class="lesson-num">47</div>
+        <div class="eyebrow">RAG · 고급 기능 · 레슨 47</div>
+        <h1 class="lesson-title">멀티 인덱스 파이프라인</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>시맨틱 + BM25를 하나의 검색 파이프라인으로 통합합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620887%2F07_-_007_-_A_Multi-Index_Rag_Pipeline_00.1748620887431.png" alt="강의 도식">
+<h3>통합 인터페이스</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620888%2F07_-_007_-_A_Multi-Index_Rag_Pipeline_01.1748620888208.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620889%2F07_-_007_-_A_Multi-Index_Rag_Pipeline_02.1748620888938.png" alt="강의 도식">
+<p>두 구현이 동일 API라 <code>Retriever</code> 클래스로 감싸 쿼리를 양쪽에 전달·병합.</p>
+<h3>Reciprocal Rank Fusion (RRF)</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620889%2F07_-_007_-_A_Multi-Index_Rag_Pipeline_04.1748620889568.png" alt="강의 도식">
+<p>서로 다른 점수 체계(코사인 vs BM25)를 직접 합칠 수 없으므로 <strong>순위(rank)</strong>에 집중합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620890%2F07_-_007_-_A_Multi-Index_Rag_Pipeline_05.1748620890357.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620891%2F07_-_007_-_A_Multi-Index_Rag_Pipeline_06.1748620890893.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620891%2F07_-_007_-_A_Multi-Index_Rag_Pipeline_07.1748620891653.png" alt="강의 도식">
+<pre><code>RRF_score(d) = Σ(1 / (k + rank_i(d)))</code></pre>
+<p><code>k</code>는 상수(보통 60, 예시선 1).</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620893%2F07_-_007_-_A_Multi-Index_Rag_Pipeline_08.1748620893017.png" alt="강의 도식">
+<ul>
+<li>Section 2: 1/(1+1)+1/(1+2)=0.833 · Section 6: 0.75 · Section 7: 0.583</li>
+</ul>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620894%2F07_-_007_-_A_Multi-Index_Rag_Pipeline_09.1748620894616.png" alt="강의 도식">
+<h3>구현</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620895%2F07_-_007_-_A_Multi-Index_Rag_Pipeline_11.1748620895209.png" alt="강의 도식">
+<pre><code>class Retriever:
+    def __init__(self, *indexes):
+        self._indexes = list(indexes)
+    def add_document(self, document):
+        for index in self._indexes:
+            index.add_document(document)
+    def search(self, query_text, k=1, k_rrf=60):
+        all_results = [index.search(query_text, k) for index in self._indexes]
+        # RRF 병합 ...</code></pre>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620896%2F07_-_007_-_A_Multi-Index_Rag_Pipeline_12.1748620895862.png" alt="강의 도식">
+<h3>하이브리드 테스트</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620897%2F07_-_007_-_A_Multi-Index_Rag_Pipeline_14.1748620896778.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620897%2F07_-_007_-_A_Multi-Index_Rag_Pipeline_16.1748620897641.png" alt="강의 도식">
+<p>"INC-2023-Q4-011" 쿼리에 사이버보안 분석(실제 사건)·소프트웨어 엔지니어링·법무를 올바르게 우선.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620898%2F07_-_007_-_A_Multi-Index_Rag_Pipeline_18.1748620898355.png" alt="강의 도식">
+<div class="card"><ul>
+<li>모듈러 설계 · 동일 API로 확장 용이 · 시맨틱+정확 매칭 결합 · 인덱스 몇 개든 RRF로 유연 병합</li>
+</ul></div>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620899%2F07_-_007_-_A_Multi-Index_Rag_Pipeline_17.1748620899059.png" alt="강의 도식">
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 결과 재랭킹</div></div>
+    </section>
+
+    <!-- L48 -->
+    <section class="lesson" id="reranking">
+      <div class="lesson-head">
+        <div class="lesson-num">48</div>
+        <div class="eyebrow">RAG · 고급 기능 · 레슨 48</div>
+        <h1 class="lesson-title">결과 재랭킹</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>하이브리드 검색도 완벽하진 않습니다. "엔지니어 팀이 INC-2023-Q4-011로 뭘 했나?"에 소프트웨어 섹션이 더 위여야 하는데 사이버보안이 먼저 나올 수 있음 — <strong>재랭킹</strong>이 해결합니다.</p>
+<h3>동작</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620879%2F07_-_008_-_Reranking_Results_05.1748620879658.png" alt="강의 도식">
+<ul>
+<li>하이브리드 검색 실행 → 병합 → 결과를 Claude에 재랭킹 프롬프트로 전달 → 재정렬 목록 반환</li>
+</ul>
+<h3>재랭킹 프롬프트</h3>
+<pre><code>You are about to be given a set of documents, along with an id of each.
+Your task is to select the {k} most relevant documents to answer the user's question.
+
+&lt;question&gt;{query_text}&lt;/question&gt;
+&lt;documents&gt;{joined_docs}&lt;/documents&gt;
+
+Respond in the following format:
+```json
+{"document_ids": ["...", sorted by decreasing relevance]}
+```</code></pre>
+<h3>효율 — ID만 반환</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620880%2F07_-_008_-_Reranking_Results_14.1748620880511.png" alt="강의 도식">
+<p>전체 텍스트를 복사시키면 느립니다. 각 청크에 <strong>고유 ID</strong>를 미리 부여하고 ID만 순서대로 받게 하세요.</p>
+<h3>구현·통합</h3>
+<pre><code>def reranker_fn(docs, query_text, k):
+    joined_docs = "\n".join([
+        f"&lt;document&gt;&lt;document_id&gt;{doc['id']}&lt;/document_id&gt;"
+        f"&lt;document_content&gt;{doc['content']}&lt;/document_content&gt;&lt;/document&gt;"
+        for doc in docs])
+    # 프롬프트 구성 → Claude(JSON) → 재정렬 ID 반환
+
+retriever = Retriever(bm25_index, vector_index, reranker_fn=reranker_fn)</code></pre>
+<div class="card"><ul>
+<li><strong>지연 증가</strong>(추가 LLM 호출) · <strong>정확도 향상</strong>(문맥·의도 이해) · <strong>비용</strong>(매 검색에 API 호출)</li>
+</ul></div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 컨텍스추얼 검색</div></div>
+    </section>
+
+    <!-- L49 -->
+    <section class="lesson" id="contextual">
+      <div class="lesson-head">
+        <div class="lesson-num">49</div>
+        <div class="eyebrow">RAG · 고급 기능 · 레슨 49</div>
+        <h1 class="lesson-title">컨텍스추얼 검색</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p><strong>컨텍스추얼 검색</strong>은 청킹 시 각 청크가 문서 전체 문맥을 잃는 문제를 해결합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620944%2F07_-_009_-_Contextual_Retrieval_00.1748620943971.png" alt="강의 도식">
+<h3>동작</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620945%2F07_-_009_-_Contextual_Retrieval_04.1748620945450.png" alt="강의 도식">
+<ul>
+<li>각 청크 + 원본 문서를 Claude에 전달 → 청크를 문서 안에 "위치시키는" 짧은 스니펫 생성 → 원본 청크와 결합 → 인덱스에 사용</li>
+</ul>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620947%2F07_-_009_-_Contextual_Retrieval_05.1748620946965.png" alt="강의 도식">
+<p>예: "이 섹션은 크로스 분야 리포트의 일부이며, Cybersecurity Analysis 섹션에도 언급된 INC-2023-04-011을 다룬다."</p>
+<h3>대형 문서 처리</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748620947%2F07_-_009_-_Contextual_Retrieval_07.1748620947609.png" alt="강의 도식">
+<ul>
+<li>문서 시작부 몇 청크(요약·초록) + 현재 청크 <strong>직전</strong> 청크들만 제공</li>
+</ul>
+<h3>구현</h3>
+<pre><code>def add_context(text_chunk, source_text):
+    prompt = """
+Write a short snippet to situate this chunk within the source document
+for improving search retrieval.
+&lt;document&gt;{source_text}&lt;/document&gt;
+&lt;chunk&gt;{text_chunk}&lt;/chunk&gt;
+Answer only with the succinct context and nothing else.
+"""
+    messages = []
+    add_user_message(messages, prompt)
+    result = chat(messages)
+    return result["text"] + "\n" + text_chunk</code></pre>
+<pre><code>num_start_chunks = 2
+num_prev_chunks = 2
+for i, chunk in enumerate(chunks):
+    context_parts = []
+    context_parts.extend(chunks[:min(num_start_chunks, len(chunks))])
+    start_idx = max(0, i - num_prev_chunks)
+    context_parts.extend(chunks[start_idx:i])
+    context = "\n".join(context_parts)
+    contextualized_chunk = add_context(chunk, context)
+    retriever.add_document({"content": contextualized_chunk})</code></pre>
+<p>복잡한 내부 관계·상호 참조가 있는 기술 문서·리포트·논문에 특히 유용(추가 비용·시간 발생).</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 확장 사고</div></div>
+    </section>
+
+    <!-- L50 -->
+    <section class="lesson" id="extended-thinking">
+      <div class="lesson-head">
+        <div class="lesson-num">50</div>
+        <div class="eyebrow">RAG · 고급 기능 · 레슨 50</div>
+        <h1 class="lesson-title">확장 사고</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p><strong>확장 사고(extended thinking)</strong>는 최종 응답 전에 Claude가 복잡한 문제를 <strong>단계별로 추론</strong>하게 합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621012%2F08_-_001_-_Extended_Thinking_01.1748621012415.png" alt="강의 도식">
+<p>정확도가 크게 오르지만 <strong>사고 토큰도 과금</strong>되고 지연이 늘어납니다. 언제 그 값어치를 하는지가 관건.</p>
+<h3>언제 켜나 — eval 기반</h3>
+<ul>
+<li>먼저 확장 사고 없이 작성·테스트 → 평가 → 프롬프트 최적화 후에도 부족하면 → 그때 확장 사고 고려</li>
+</ul>
+<h3>응답 구조 변화</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621013%2F08_-_001_-_Extended_Thinking_03.1748621013540.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621014%2F08_-_001_-_Extended_Thinking_04.1748621014052.png" alt="강의 도식">
+<ul>
+<li><strong>thinking 블록</strong>(추론) + <strong>text 블록</strong>(최종 응답)</li>
+</ul>
+<h3>서명(Signature)</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621015%2F08_-_001_-_Extended_Thinking_05.1748621014974.png" alt="강의 도식">
+<p>각 thinking 블록엔 <strong>암호 서명</strong>이 있어, 이후 턴에 포함할 때 변조되지 않았음을 보장. 텍스트를 수정하면 검증 실패.</p>
+<h3>Redacted thinking</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621016%2F08_-_001_-_Extended_Thinking_07.1748621015793.png" alt="강의 도식">
+<p>안전 시스템에 걸리면 <strong>암호화된 redacted 블록</strong>을 받습니다. 읽을 순 없지만 이후 턴에 포함해 문맥을 유지할 수 있습니다.</p>
+<h3>구현</h3>
+<pre><code>def chat(messages, system=None, temperature=1.0, stop_sequences=[],
+         tools=None, thinking=False, thinking_budget=1024):
+    ...
+    if thinking:
+        params["thinking"] = {"type": "enabled", "budget": thinking_budget}</code></pre>
+<div class="tip">thinking budget 최소 1024, <code>max_tokens</code>는 budget보다 커야 함. 예: budget 1024 + max_tokens 4000 → 사고 1024, 응답 2976까지.</div>
+<pre><code>TRIGGER_REDACTED_THINKING_46C9A13E193C177646C7398A98432ECCCE4C1253D5E2D82641AC0E52CC2876CB</code></pre>
+<p>위 트리거 문자열로 redacted 응답 처리를 테스트할 수 있습니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 이미지 지원</div></div>
+    </section>
+
+    <!-- L51 -->
+    <section class="lesson" id="image-support">
+      <div class="lesson-head">
+        <div class="lesson-num">51</div>
+        <div class="eyebrow">RAG · 고급 기능 · 레슨 51</div>
+        <h1 class="lesson-title">이미지 지원</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>Claude의 비전 능력으로 이미지를 메시지에 넣어 분석·비교·카운팅·복합 시각 분석을 시킬 수 있습니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621025%2F08_-_002_-_Image_Support_01.1748621025480.png" alt="강의 도식">
+<h3>제한</h3>
+<ul>
+<li>요청당 최대 100장 · 이미지당 5MB · 단일 이미지 8000px, 다중 2000px · base64 또는 URL · 토큰 = (width × height) / 750</li>
+</ul>
+<pre><code>with open("image.png", "rb") as f:
+    image_bytes = base64.standard_b64encode(f.read()).decode("utf-8")
+
+add_user_message(messages, [
+    {"type": "image", "source": {
+        "type": "base64", "media_type": "image/png", "data": image_bytes}},
+    {"type": "text", "text": "What do you see in this image?"}
+])</code></pre>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621026%2F08_-_002_-_Image_Support_02.1748621026421.png" alt="강의 도식">
+<h3>프롬프팅이 핵심</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621027%2F08_-_002_-_Image_Support_04.1748621027248.png" alt="강의 도식">
+<p>단순 프롬프트는 결과가 나쁩니다. "구슬 몇 개?"에 12개를 13으로 셀 수 있음. 텍스트와 같은 기법(지침·단계·예시)을 적용하세요.</p>
+<h3>단계별 분석</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621028%2F08_-_002_-_Image_Support_05.1748621027972.png" alt="강의 도식">
+<pre><code>Analyze this image of marbles ... using this methodology:
+1. Identify each unique marble one at a time, assigning a number.
+2. Verify by counting differently: bottom-left, row by row, left to right.
+What is the exact, verified number of marbles?</code></pre>
+<h3>One-shot</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621029%2F08_-_002_-_Image_Support_07.1748621028745.png" alt="강의 도식">
+<pre><code>[Image of 11 marbles]  The image above has 11 marbles in it.
+[Image of 12 marbles]  How many marbles are in this image?</code></pre>
+<h3>실전 — 화재 위험 평가</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621030%2F08_-_002_-_Image_Support_08.1748621030403.png" alt="강의 도식">
+<p>위성 이미지로 주택 주변 나무 겹침·접근성을 분석해 화재 위험을 자동 평가. 단순 "위험 점수 매겨" 대신 상세한 분석 프레임워크(주택 식별 → 캐노피 겹침 → 화재 위험 → 방어 공간 → 1~4등급)를 제공하면 정확·실행 가능한 평가가 나옵니다.</p>
+<div class="callout">비전도 <strong>같은 프롬프트 엔지니어링</strong>이 필요합니다. 단순 질문 대신 상세·구조화된 프롬프트에 시간을 투자하세요.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · PDF 지원</div></div>
+    </section>
+
+    <!-- L52 -->
+    <section class="lesson" id="pdf-support">
+      <div class="lesson-head">
+        <div class="lesson-num">52</div>
+        <div class="eyebrow">RAG · 고급 기능 · 레슨 52</div>
+        <h1 class="lesson-title">PDF 지원</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>Claude에 <strong>PDF 문서</strong>를 직접 넣어 내용을 분석·요약·질의응답하는 기능을 다루는 레슨입니다. 이미지 지원과 유사하게 document 블록으로 PDF를 전달하며, 텍스트와 페이지 레이아웃을 함께 이해합니다. 이어지는 Citations 레슨과 연결됩니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 인용(Citations)</div></div>
+    </section>
+
+    <!-- L53 -->
+    <section class="lesson" id="citations">
+      <div class="lesson-head">
+        <div class="lesson-num">53</div>
+        <div class="eyebrow">RAG · 고급 기능 · 레슨 53</div>
+        <h1 class="lesson-title">인용(Citations)</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p><strong>인용(Citations)</strong> 기능은 Claude가 제공된 문서의 <strong>정확한 출처</strong>를 보여줘 신뢰·투명성을 높입니다.</p>
+<h3>활성화</h3>
+<pre><code>{
+    "type": "document",
+    "source": {"type": "base64", "media_type": "application/pdf", "data": file_bytes},
+    "title": "earth.pdf",
+    "citations": {"enabled": True}
+}</code></pre>
+<h3>인용 구조</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621005%2F08_-_004_-_Citations_09.1748621004785.png" alt="강의 도식">
+<ul>
+<li><strong>cited_text</strong> · <strong>document_index</strong> · <strong>document_title</strong> · <strong>start_page_number</strong> · <strong>end_page_number</strong></li>
+</ul>
+<h3>인용 인터페이스</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621005%2F08_-_004_-_Citations_12.1748621005614.png" alt="강의 도식">
+<p>텍스트 내 번호 참조를 상세 인용 정보에 연결 — 호버/클릭 시 어떤 문서·페이지를 참조했는지 표시.</p>
+<h3>플레인 텍스트 인용</h3>
+<pre><code>{
+    "type": "document",
+    "source": {"type": "text", "media_type": "text/plain", "data": article_text},
+    "title": "earth article",
+    "citations": {"enabled": True}
+}</code></pre>
+<p>이 경우 페이지 대신 <code>CitationCharLocation</code>(문자 위치)을 받아 정확한 문장을 하이라이트할 수 있습니다.</p>
+<div class="callout">인용은 정보 검증·민감 문서·신뢰 구축·원문 열람이 필요할 때 필수. Claude를 "블랙박스"에서 <strong>작업을 보여주는 시스템</strong>으로 바꿉니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 프롬프트 캐싱</div></div>
+    </section>
+
+    <!-- L54 -->
+    <section class="lesson" id="prompt-caching">
+      <div class="lesson-head">
+        <div class="lesson-num">54</div>
+        <div class="eyebrow">RAG · 고급 기능 · 레슨 54</div>
+        <h1 class="lesson-title">프롬프트 캐싱</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p><strong>프롬프트 캐싱</strong>은 이전 요청의 계산 작업을 재사용해 응답을 <strong>빠르고 저렴</strong>하게 합니다.</p>
+<h3>보통의 처리</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621075%2F08_-_005_-_Prompt_Caching_01.1748621075646.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621077%2F08_-_005_-_Prompt_Caching_04.1748621077221.png" alt="강의 도식">
+<ul>
+<li>토큰화 → 임베딩 → 문맥 추가 → 출력 생성</li>
+</ul>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621078%2F08_-_005_-_Prompt_Caching_06.1748621078185.png" alt="강의 도식">
+<p>응답 후 이 계산 작업을 <strong>전부 폐기</strong>하고 다음 요청을 준비합니다.</p>
+<h3>반복 콘텐츠의 낭비</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621079%2F08_-_005_-_Prompt_Caching_08.1748621078850.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621079%2F08_-_005_-_Prompt_Caching_10.1748621079419.png" alt="강의 도식">
+<p>후속 요청엔 원래 메시지 + 이전 응답 + 새 메시지가 들어가, 방금 처리한 원래 메시지를 <strong>또 처리</strong>합니다.</p>
+<h3>캐싱의 해결</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621080%2F08_-_005_-_Prompt_Caching_14.1748621079978.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621080%2F08_-_005_-_Prompt_Caching_16.1748621080605.png" alt="강의 도식">
+<ul>
+<li>초기 요청: 계산 작업을 <strong>캐시에 기록</strong></li>
+<li>후속 요청: 같은 콘텐츠를 만나면 캐시에서 <strong>읽음</strong>(재처리 X)</li>
+</ul>
+<h3>장점과 한계</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621081%2F08_-_005_-_Prompt_Caching_18.1748621081213.png" alt="강의 도식">
+<div class="card"><ul>
+<li><strong>장점</strong> — 빠른 응답 · 낮은 비용 · 자동 최적화(쓰기→읽기)</li>
+<li><strong>한계</strong> — 캐시 수명 <strong>5분</strong> · 정확히 동일한 콘텐츠에만 적용</li>
+</ul></div>
+<p>대화·문서 분석처럼 같은 문서·기록을 짧은 시간 안에 반복 참조할 때 특히 유용합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 캐싱 규칙</div></div>
+    </section>
+
+    <!-- L55 -->
+    <section class="lesson" id="caching-rules">
+      <div class="lesson-head">
+        <div class="lesson-num">55</div>
+        <div class="eyebrow">RAG · 고급 기능 · 레슨 55</div>
+        <h1 class="lesson-title">캐싱 규칙</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>캐싱 규칙을 정리합니다. 초기 요청이 캐시에 쓰고, 후속 요청이 읽습니다(수명 5분).</p>
+<h3>캐시 브레이크포인트</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621081%2F08_-_006_-_Rules_of_Prompt_Caching_00.1748621080824.png" alt="강의 도식">
+<p>자동 캐싱이 아니라 <strong>수동으로 breakpoint</strong>를 블록에 추가. 그 지점까지의 작업이 캐시되고, 그 지점까지 콘텐츠가 <strong>동일할 때만</strong> 재사용.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621081%2F08_-_006_-_Rules_of_Prompt_Caching_03.1748621081646.png" alt="강의 도식">
+<pre><code>// Shorthand - breakpoint 불가
+user_message = {"role": "user", "content": "Hi there!"}
+
+// Longhand - breakpoint 필요
+user_message = {
+    "role": "user",
+    "content": [{
+        "type": "text", "text": "",
+        "cache_control": {"type": "ephemeral"}
+    }]
+}</code></pre>
+<h3>브레이크포인트 동작</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621082%2F08_-_006_-_Rules_of_Prompt_Caching_09.1748621082421.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621083%2F08_-_006_-_Rules_of_Prompt_Caching_11.1748621083185.png" alt="강의 도식">
+<p>메시지를 넘나들며 assistant 메시지도 캐시 가능. 콘텐츠가 반드시 동일해야 함.</p>
+<h3>위치 — 시스템 프롬프트·도구 정의</h3>
+<pre><code>tools = [
+    add_duration_to_datetime_schema,
+    get_current_datetime_schema,
+    {"name": "set_reminder", "description": "...",
+     "input_schema": {...}, "cache_control": {"type": "ephemeral"}}
+]
+system = [{"type": "text", "text": "You are a senior software...",
+           "cache_control": {"type": "ephemeral"}}]</code></pre>
+<h3>캐시 순서</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621084%2F08_-_006_-_Rules_of_Prompt_Caching_14.1748621083854.png" alt="강의 도식">
+<p>내부 결합 순서: <strong>tools → system → messages</strong>. 최대 <strong>4개</strong> breakpoint. 마지막 도구에 breakpoint를 두면 그 도구까지만 캐시.</p>
+<h3>최소 길이</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621084%2F08_-_006_-_Rules_of_Prompt_Caching_19.1748621084576.png" alt="강의 도식">
+<p>캐시하려는 콘텐츠 합계가 <strong>1024토큰 이상</strong>이어야 함. "Hi there!"는 미달.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 캐싱 실전</div></div>
+    </section>
+
+    <!-- L56 -->
+    <section class="lesson" id="caching-action">
+      <div class="lesson-head">
+        <div class="lesson-num">56</div>
+        <div class="eyebrow">RAG · 고급 기능 · 레슨 56</div>
+        <h1 class="lesson-title">캐싱 실전</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>프롬프트 캐싱을 코드로 실전 적용합니다. 순서: <strong>도구 스키마 → 시스템 프롬프트 → 메시지 기록.</strong></p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621082%2F08_-_007_-_Prompt_Caching_in_Action_19.1748621082240.png" alt="강의 도식">
+<h3>도구 스키마 캐싱</h3>
+<pre><code>if tools:
+    tools_clone = tools.copy()
+    last_tool = tools_clone[-1].copy()
+    last_tool["cache_control"] = {"type": "ephemeral"}
+    tools_clone[-1] = last_tool
+    params["tools"] = tools_clone</code></pre>
+<p>원본을 건드리지 않도록 리스트와 마지막 도구를 <strong>복사</strong>한 뒤 cache_control 추가.</p>
+<h3>시스템 프롬프트 캐싱</h3>
+<pre><code>if system:
+    params["system"] = [{
+        "type": "text", "text": system,
+        "cache_control": {"type": "ephemeral"}
+    }]</code></pre>
+<h3>캐시 동작 이해</h3>
+<p>첫 요청엔 <code>cache_creation_input_tokens</code>(쓴 토큰), 이후 동일 요청엔 <code>cache_read_input_tokens</code>. 도구는 유지하고 시스템만 바꾸면 도구는 읽고 시스템은 새로 씀.</p>
+<h3>캐시 무효화</h3>
+<p>단 한 글자만 바뀌어도 캐시가 무효화됩니다. 그래서 <strong>안정적인 도구 스키마·시스템 프롬프트</strong>가 이상적 후보. 동적 콘텐츠는 캐싱 이득이 없습니다.</p>
+<div class="callout">대부분의 앱이 동일한 도구·시스템 프롬프트를 반복 사용하므로, 개발 초기부터 캐싱을 기본으로 넣으면 확장 시 성능·비용에서 큰 이득입니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · MCP 소개</div></div>
+    </section>
+
+    <!-- L57 -->
+    <section class="lesson" id="intro-mcp">
+      <div class="lesson-head">
+        <div class="lesson-num">57</div>
+        <div class="eyebrow">MCP · 레슨 57</div>
+        <h1 class="lesson-title">MCP 소개</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p><strong>MCP(Model Context Protocol)</strong>는 지루한 통합 코드 없이 Claude에 컨텍스트·도구를 제공하는 통신 계층입니다. 모든 도구 함수를 직접 만드는 대신 전문 <strong>서버</strong>에 그 부담을 넘깁니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621139%2F09_-_001_-_Introducing_MCP_01.1748621139100.png" alt="강의 도식">
+<p>기본 구조: <strong>MCP Client</strong>(내 서버)가 도구·프롬프트·리소스를 담은 <strong>MCP Server</strong>에 연결. 각 서버는 GitHub·AWS·DB 등 외부 서비스의 인터페이스.</p>
+<h3>MCP가 푸는 문제</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621140%2F09_-_001_-_Introducing_MCP_03.1748621139961.png" alt="강의 도식">
+<p>GitHub 데이터를 다루려면 방대한 도구가 필요합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621140%2F09_-_001_-_Introducing_MCP_05.1748621140571.png" alt="강의 도식">
+<ul>
+<li><code>get_repos()</code> · <code>list_repos()</code> · <code>search_issues()</code> · <code>create_issue()</code> · <code>create_file()</code> …</li>
+</ul>
+<h3>MCP가 바꾸는 것</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621141%2F09_-_001_-_Introducing_MCP_08.1748621141166.png" alt="강의 도식">
+<p>누군가(종종 서비스 제공자)가 GitHub용 MCP Server를 만들어 필요한 도구를 담고, 내 서버는 <strong>MCP Client</strong>로 그에 연결합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621141%2F09_-_001_-_Introducing_MCP_09.1748621141761.png" alt="강의 도식">
+<h3>누가 만드나</h3>
+<p>누구나 만들 수 있고, 공식 구현(예: AWS)도 있습니다. 직접 만들 수도 있습니다.</p>
+<h3>자주 묻는 질문</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621143%2F09_-_001_-_Introducing_MCP_12.1748621142800.png" alt="강의 도식">
+<ul>
+<li><strong>API 직접 호출과 뭐가 다른가?</strong> — MCP는 도구 스키마·함수를 <strong>이미 정의</strong>해 줌</li>
+<li><strong>도구 사용과 같은 건가?</strong> — 아님. MCP는 도구 구현을 <strong>누가 만들고 유지보수하느냐</strong>에 관한 것</li>
+</ul>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · MCP 클라이언트</div></div>
+    </section>
+
+    <!-- L58 -->
+    <section class="lesson" id="mcp-clients">
+      <div class="lesson-head">
+        <div class="lesson-num">58</div>
+        <div class="eyebrow">MCP · 레슨 58</div>
+        <h1 class="lesson-title">MCP 클라이언트</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p><strong>MCP 클라이언트</strong>는 내 서버와 MCP 서버 사이의 통신 다리로, 메시지 전달·프로토콜 세부를 처리합니다.</p>
+<h3>Transport Agnostic</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621140%2F09_-_002_-_MCP_Clients_01.1748621139846.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621140%2F09_-_002_-_MCP_Clients_03.1748621140776.png" alt="강의 도식">
+<p>같은 머신에서 <strong>표준 입출력</strong>으로 통신하는 게 흔하지만, HTTP·WebSocket 등 다양한 프로토콜도 가능합니다.</p>
+<h3>메시지 타입</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621141%2F09_-_002_-_MCP_Clients_04.1748621141280.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621142%2F09_-_002_-_MCP_Clients_05.1748621141878.png" alt="강의 도식">
+<p><strong>ListTools</strong>Request/Result — "어떤 도구를 제공하나?"</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621142%2F09_-_002_-_MCP_Clients_06.1748621142450.png" alt="강의 도식">
+<p><strong>CallTool</strong>Request/Result — "이 도구를 이 인자로 실행"</p>
+<h3>전체 흐름 — "내 레포는?"</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621143%2F09_-_002_-_MCP_Clients_08.1748621143061.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621143%2F09_-_002_-_MCP_Clients_09.1748621143612.png" alt="강의 도식">
+<p>사용자 질문 → 서버가 클라이언트에 도구 목록 요청 → <code>ListToolsRequest</code> → <code>ListToolsResult</code></p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621144%2F09_-_002_-_MCP_Clients_11.1748621144300.png" alt="강의 도식">
+<p>질문 + 도구로 Claude 요청 → Claude가 도구 사용 판단</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621145%2F09_-_002_-_MCP_Clients_12.1748621144842.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621145%2F09_-_002_-_MCP_Clients_13.1748621145569.png" alt="강의 도식">
+<p>Claude tool use 요청 → 클라이언트가 <code>CallToolRequest</code> → 서버가 GitHub API 호출</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621147%2F09_-_002_-_MCP_Clients_15.1748621147033.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621148%2F09_-_002_-_MCP_Clients_16.1748621147911.png" alt="강의 도식">
+<p>GitHub 응답 → <code>CallToolResult</code> → 서버가 결과를 Claude에 user 메시지로 전달 → 최종 응답</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621148%2F09_-_002_-_MCP_Clients_18.1748621148672.png" alt="강의 도식">
+<div class="callout">단계는 많지만 표준화된 메시지 타입 덕에 <strong>전송 방식과 무관</strong>하게 동작합니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 프로젝트 셋업</div></div>
+    </section>
+
+    <!-- L59 -->
+    <section class="lesson" id="mcp-project">
+      <div class="lesson-head">
+        <div class="lesson-num">59</div>
+        <div class="eyebrow">MCP · 레슨 59</div>
+        <h1 class="lesson-title">프로젝트 셋업</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>MCP 클라이언트·서버가 함께 동작하는 <strong>CLI 챗봇</strong>을 만듭니다.</p>
+<h3>무엇을 만드나</h3>
+<ul>
+<li><strong>MCP 클라이언트</strong> — 사용자 상호작용·Claude 통신</li>
+<li><strong>MCP 서버</strong> — 문서 읽기/수정 도구 제공</li>
+</ul>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621130%2F09_-_003_-_Project_Setup_04.1748621130536.png" alt="강의 도식">
+<p>서버는 <strong>문서 읽기·문서 수정</strong> 두 도구를 노출. 문서(document.pdf·spreadsheet.xlsx·report.txt·spec.md)는 메모리에 저장.</p>
+<h3>아키텍처 노트</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621131%2F09_-_003_-_Project_Setup_07.1748621131329.png" alt="강의 도식">
+<p>실무에선 보통 클라이언트 <strong>또는</strong> 서버 중 하나만 구현. 여기선 교육 목적으로 둘 다 만듭니다.</p>
+<h3>셋업</h3>
+<p>CLI_project.zip을 받아 에디터에서 열고, README에 따라:</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621132%2F09_-_003_-_Project_Setup_14.1748621131900.png" alt="강의 도식">
+<pre><code>ANTHROPIC_API_KEY="your-api-key-here"</code></pre>
+<pre><code># UV (권장)
+uv run main.py
+# 또는
+python main.py</code></pre>
+<p>"what's 1+1?"로 동작 확인. 이후 영상에서 MCP 서버·문서 관리 기능을 추가합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · MCP로 도구 정의</div></div>
+    </section>
+
+    <!-- L60 -->
+    <section class="lesson" id="mcp-tools">
+      <div class="lesson-head">
+        <div class="lesson-num">60</div>
+        <div class="eyebrow">MCP · 레슨 60</div>
+        <h1 class="lesson-title">MCP로 도구 정의</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>공식 Python SDK를 쓰면 MCP 서버 구축이 훨씬 쉬워집니다 — 데코레이터로 도구를 정의하면 SDK가 스키마를 처리합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621145%2F09_-_004_-_Defining_Tools_with_MCP_00.1748621145257.png" alt="강의 도식">
+<h3>서버 셋업</h3>
+<pre><code>from mcp.server.fastmcp import FastMCP
+mcp = FastMCP("DocumentMCP", log_level="ERROR")</code></pre>
+<h3>데코레이터로 도구 정의</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621146%2F09_-_004_-_Defining_Tools_with_MCP_05.1748621146306.png" alt="강의 도식">
+<pre><code>@mcp.tool(name="add_ints", description="Add two integers together")
+def tool_fn(
+    a=Field(description="First number to add"),
+    b=Field(description="Second number to add"),
+) -> int:
+    return a + b</code></pre>
+<h3>문서 읽기 도구</h3>
+<pre><code>@mcp.tool(name="read_doc_contents",
+    description="Read the contents of a document and return it as a string.")
+def read_document(doc_id: str = Field(description="Id of the document to read")):
+    if doc_id not in docs:
+        raise ValueError(f"Doc with id {doc_id} not found")
+    return docs[doc_id]</code></pre>
+<h3>문서 편집 도구</h3>
+<pre><code>@mcp.tool(name="edit_document",
+    description="Edit a document by replacing a string ...")
+def edit_document(
+    doc_id: str = Field(description="Id of the document that will be edited"),
+    old_str: str = Field(description="The text to replace. Must match exactly ..."),
+    new_str: str = Field(description="The new text to insert ...")
+):
+    if doc_id not in docs:
+        raise ValueError(f"Doc with id {doc_id} not found")
+    docs[doc_id] = docs[doc_id].replace(old_str, new_str)</code></pre>
+<div class="card"><ul>
+<li>수동 JSON 스키마 불필요 · 타입 힌트로 자동 검증 · Field 설명이 사용법 안내 · 예외로 에러 처리 · 데코레이터로 자동 등록</li>
+</ul></div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 서버 인스펙터</div></div>
+    </section>
+
+    <!-- L61 -->
+    <section class="lesson" id="server-inspector">
+      <div class="lesson-head">
+        <div class="lesson-num">61</div>
+        <div class="eyebrow">MCP · 레슨 61</div>
+        <h1 class="lesson-title">서버 인스펙터</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>MCP Python SDK엔 브라우저 기반 <strong>인스펙터</strong>가 있어 앱 없이 서버를 실시간 테스트할 수 있습니다.</p>
+<h3>실행</h3>
+<pre><code>mcp dev mcp_server.py</code></pre>
+<p>보통 6277 포트의 로컬 URL 제공.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621191%2F09_-_005_-_The_Server_Inspector_04.1748621191338.png" alt="강의 도식">
+<h3>인터페이스</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621192%2F09_-_005_-_The_Server_Inspector_05.1748621192207.png" alt="강의 도식">
+<p>Connect 후 <strong>Resources · Prompts · Tools</strong> 등 섹션이 있는 내비 표시.</p>
+<h3>도구 테스트</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621193%2F09_-_005_-_The_Server_Inspector_09.1748621192855.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621193%2F09_-_005_-_The_Server_Inspector_10.1748621193404.png" alt="강의 도식">
+<ul>
+<li>List Tools → 도구 선택 → 문서 ID(예: "deposition.md") 입력 → Run Tool → 결과 확인</li>
+</ul>
+<h3>상호작용 테스트</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621194%2F09_-_005_-_The_Server_Inspector_16.1748621194137.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621195%2F09_-_005_-_The_Server_Inspector_17.1748621195581.png" alt="강의 도식">
+<p><code>edit_document</code>로 수정 후 <code>read_doc_contents</code>를 다시 실행해 변경이 반영됐는지 확인.</p>
+<div class="tip">개발 루프: 코드 수정 → 도구 테스트 → 상호작용 검증 → 앱 없이 디버깅. 초기에 문제를 잡는 데 필수적입니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 클라이언트 구현</div></div>
+    </section>
+
+    <!-- L62 -->
+    <section class="lesson" id="mcp-client-impl">
+      <div class="lesson-head">
+        <div class="lesson-num">62</div>
+        <div class="eyebrow">MCP · 레슨 62</div>
+        <h1 class="lesson-title">클라이언트 구현</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>서버가 되었으니 <strong>클라이언트</strong>를 만듭니다.</p>
+<h3>클라이언트 구조</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621199%2F09_-_006_-_Implementing_a_Client_01.1748621199062.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621199%2F09_-_006_-_Implementing_a_Client_02.1748621199655.png" alt="강의 도식">
+<ul>
+<li><strong>MCP Client</strong> — 세션 사용을 쉽게 하는 커스텀 클래스</li>
+<li><strong>Client Session</strong> — 실제 서버 연결(MCP SDK)</li>
+</ul>
+<p>세션은 리소스 정리가 필요해 커스텀 클래스로 감싸 연결·정리를 자동 처리합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621201%2F09_-_006_-_Implementing_a_Client_06.1748621201283.png" alt="강의 도식">
+<h3>list_tools</h3>
+<pre><code>async def list_tools(self) -> list[types.Tool]:
+    result = await self.session().list_tools()
+    return result.tools</code></pre>
+<h3>call_tool</h3>
+<pre><code>async def call_tool(self, tool_name: str, tool_input: dict) -> types.CallToolResult | None:
+    return await self.session().call_tool(tool_name, tool_input)</code></pre>
+<h3>테스트</h3>
+<p><code>uv run mcp_client.py</code> → <code>read_doc_contents</code>·<code>edit_document</code> 목록 반환. 메인 앱에서 "report.pdf 내용이 뭐야?" → 도구 목록 전달 → Claude가 <code>read_doc_contents</code> 선택 → 클라이언트가 호출 → 서버가 반환 → Claude 응답.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 리소스 정의</div></div>
+    </section>
+
+    <!-- L63 -->
+    <section class="lesson" id="mcp-resources">
+      <div class="lesson-head">
+        <div class="lesson-num">63</div>
+        <div class="eyebrow">MCP · 레슨 63</div>
+        <h1 class="lesson-title">리소스 정의</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p><strong>리소스</strong>는 클라이언트에 데이터를 노출하는 읽기 전용 엔드포인트(HTTP GET 핸들러와 유사)입니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621200%2F09_-_007_-_Defining_Resources_04.1748621200061.png" alt="강의 도식">
+<p>URI를 정의하면 클라이언트가 <code>ReadResourceRequest</code>를 보내고 서버가 <code>ReadResourceResult</code>로 응답. <code>mime_type</code>으로 데이터 유형 힌트.</p>
+<h3>두 유형</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621201%2F09_-_007_-_Defining_Resources_07.1748621201191.png" alt="강의 도식">
+<ul>
+<li><strong>Direct</strong> — 파라미터 없는 정적 URI("docs://documents")</li>
+<li><strong>Templated</strong> — URI에 파라미터("docs://documents/{doc_id}"). SDK가 파싱해 인자로 전달</li>
+</ul>
+<h3>구현</h3>
+<pre><code>@mcp.resource("docs://documents", mime_type="application/json")
+def list_docs() -> list[str]:
+    return list(docs.keys())
+
+@mcp.resource("docs://documents/{doc_id}", mime_type="text/plain")
+def fetch_doc(doc_id: str) -> str:
+    if doc_id not in docs:
+        raise ValueError(f"Doc with id {doc_id} not found")
+    return docs[doc_id]</code></pre>
+<p>SDK가 반환값을 자동 직렬화 — JSON 수동 변환 불필요.</p>
+<h3>테스트</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621202%2F09_-_007_-_Defining_Resources_18.1748621201948.png" alt="강의 도식">
+<p><code>uv run mcp dev mcp_server.py</code>로 인스펙터에서 Resources / Resource Templates 확인.</p>
+<p>활용: "@" 멘션 자동완성(direct 리소스로 문서 목록), 멘션된 문서 내용(templated 리소스)을 프롬프트에 <strong>선제 주입</strong>.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 리소스 접근</div></div>
+    </section>
+
+    <!-- L64 -->
+    <section class="lesson" id="access-resources">
+      <div class="lesson-head">
+        <div class="lesson-num">64</div>
+        <div class="eyebrow">MCP · 레슨 64</div>
+        <h1 class="lesson-title">리소스 접근</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>리소스는 도구 호출 없이 데이터를 <strong>직접 프롬프트에 포함</strong>하게 해 더 효율적인 문맥 제공을 가능케 합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621196%2F09_-_008_-_Accessing_Resources_00.1748621196428.png" alt="강의 도식">
+<p>흐름: 사용자가 "@report.pdf" 요청 → 자동완성용 문서 목록 → 클라이언트가 <code>ReadResourceRequest</code> → 서버가 <code>ReadResourceResult</code> → 데이터를 프롬프트에 삽입.</p>
+<h3>read_resource 구현</h3>
+<pre><code>import json
+from pydantic import AnyUrl
+
+async def read_resource(self, uri: str) -> Any:
+    result = await self.session().read_resource(AnyUrl(uri))
+    resource = result.contents[0]</code></pre>
+<h3>MIME 타입별 처리</h3>
+<pre><code>if isinstance(resource, types.TextResourceContents):
+    if resource.mimeType == "application/json":
+        return json.loads(resource.text)
+    return resource.text</code></pre>
+<h3>테스트</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621197%2F09_-_008_-_Accessing_Resources_09.1748621197182.png" alt="강의 도식">
+<p>"@" + 리소스명 입력 → 자동완성 목록 → 선택 시 내용이 프롬프트에 포함. 추가 도구 호출 없이 Claude가 문서 내용을 즉시 받습니다.</p>
+<div class="card"><ul>
+<li>정적/반정적 콘텐츠가 자주 참조될 때 · API 호출 줄이고 싶을 때 · 프롬프트에 즉시 필요할 때</li>
+</ul></div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 프롬프트 정의</div></div>
+    </section>
+
+    <!-- L65 -->
+    <section class="lesson" id="mcp-prompts">
+      <div class="lesson-head">
+        <div class="lesson-num">65</div>
+        <div class="eyebrow">MCP · 레슨 65</div>
+        <h1 class="lesson-title">프롬프트 정의</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p><strong>프롬프트</strong>는 사용자가 직접 쓰는 대신 사용할 수 있는, 미리 만든 고품질 지침(템플릿)입니다.</p>
+<h3>왜 쓰나</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621250%2F09_-_009_-_Defining_Prompts_07.1748621249977.png" alt="강의 도식">
+<p>"report.pdf를 마크다운으로 변환"을 직접 쓸 수도 있지만, 서버 저자가 <strong>테스트한 전용 프롬프트</strong>를 쓰면 훨씬 나은 결과가 나옵니다.</p>
+<h3>동작</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621251%2F09_-_009_-_Defining_Prompts_09.1748621251776.png" alt="강의 도식">
+<pre><code>@mcp.prompt(name="format",
+    description="Rewrites the contents of a document in Markdown format")
+def format_document(
+    doc_id: str = Field(description="Id of the document to format"),
+) -> list[base.Message]:
+    # user/assistant 메시지 리스트 반환</code></pre>
+<h3>Format 커맨드</h3>
+<pre><code>def format_document(doc_id: str = Field(...)) -> list[base.Message]:
+    prompt = f"""
+Your goal is to reformat a document to be written with markdown syntax.
+The id of the document you need to reformat is: {doc_id}
+Add in headers, bullet points, tables, etc as necessary.
+Use the 'edit_document' tool to edit the document. ...
+"""
+    return [base.UserMessage(prompt)]</code></pre>
+<h3>테스트</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621253%2F09_-_009_-_Defining_Prompts_18.1748621252474.png" alt="강의 도식">
+<p>인스펙터 Prompts 탭에서 파라미터 입력 → Claude에 보낼 메시지 확인.</p>
+<pre><code>from mcp.server.fastmcp import FastMCP
+from mcp.server.fastmcp.prompts import base</code></pre>
+<div class="card"><ul>
+<li>품질 관리 · 일관성 · 서버 도메인 특화 · 여러 클라이언트가 재사용</li>
+</ul></div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 클라이언트의 프롬프트</div></div>
+    </section>
+
+    <!-- L66 -->
+    <section class="lesson" id="prompts-client">
+      <div class="lesson-head">
+        <div class="lesson-num">66</div>
+        <div class="eyebrow">MCP · 레슨 66</div>
+        <h1 class="lesson-title">클라이언트의 프롬프트</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>클라이언트에 <strong>프롬프트 기능</strong>을 구현해 서버 프롬프트 목록·인자 보간 프롬프트를 가져옵니다.</p>
+<h3>list_prompts</h3>
+<pre><code>async def list_prompts(self) -> list[types.Prompt]:
+    result = await self.session().list_prompts()
+    return result.prompts</code></pre>
+<h3>get_prompt — 인자 보간</h3>
+<pre><code>async def get_prompt(self, prompt_name, args: dict[str, str]):
+    result = await self.session().get_prompt(prompt_name, args)
+    return result.messages</code></pre>
+<p>예: "format" 프롬프트에 <code>doc_id</code>를 args로 전달하면, 서버가 값을 채운 완성 프롬프트를 생성.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621239%2F09_-_010_-_Prompts_in_the_Client_04.1748621239421.png" alt="강의 도식">
+<h3>테스트</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621240%2F09_-_010_-_Prompts_in_the_Client_17.1748621240459.png" alt="강의 도식">
+<p>슬래시(/)를 입력하면 프롬프트가 커맨드로 표시. "format" 선택 → 인자 선택 → 보간된 프롬프트를 Claude에 전송 → 필요한 도구 호출 → 결과.</p>
+<div class="callout">프롬프트는 재사용 가능한 user/assistant 메시지 묶음. 서버가 로직을, 클라이언트·Claude가 실행을 담당해 <strong>깔끔한 분리</strong>로 멀티스텝 워크플로우를 간단한 커맨드로 실행합니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · MCP 정리</div></div>
+    </section>
+
+    <!-- L67 -->
+    <section class="lesson" id="mcp-review">
+      <div class="lesson-head">
+        <div class="lesson-num">67</div>
+        <div class="eyebrow">MCP · 레슨 67</div>
+        <h1 class="lesson-title">MCP 정리</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>MCP의 세 핵심 프리미티브를 정리합니다 — <strong>누가 제어하느냐</strong>가 핵심.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621244%2F09_-_011_-_MCP_Review_00.1748621244563.png" alt="강의 도식">
+<h3>Tools — 모델 제어</h3>
+<p>Claude가 언제 호출할지 결정. 능력을 확장할 때 사용(예: JS로 √3 계산).</p>
+<h3>Resources — 앱 제어</h3>
+<p>내 앱 코드가 언제 가져올지 결정. 자동완성 옵션, 메시지 문맥 추가, 문서 목록 표시 등 UI·문맥용.</p>
+<h3>Prompts — 사용자 제어</h3>
+<p>사용자 액션(버튼·메뉴·슬래시 커맨드)으로 트리거. 대화 시작·작업 템플릿·특화 워크플로우.</p>
+<h3>실제 예</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621245%2F09_-_011_-_MCP_Review_13.1748621245385.png" alt="강의 도식">
+<p>Claude 공식 UI의 대화 시작 버튼=프롬프트, "Add from Google Drive"=리소스, 계산·코드 실행=도구.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621246%2F09_-_011_-_MCP_Review_17.1748621245824.png" alt="강의 도식">
+<div class="callout">결정 가이드: <strong>능력 확장</strong>→Tools, <strong>앱 UI·문맥 데이터</strong>→Resources, <strong>미리 정의된 워크플로우</strong>→Prompts. 도구는 모델을, 리소스는 앱을, 프롬프트는 사용자를 섬깁니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Anthropic 앱</div></div>
+    </section>
+
+    <!-- L68 -->
+    <section class="lesson" id="anthropic-apps">
+      <div class="lesson-head">
+        <div class="lesson-num">68</div>
+        <div class="eyebrow">Claude 앱 · Computer Use · 레슨 68</div>
+        <h1 class="lesson-title">Anthropic 앱</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>Anthropic이 제공하는 <strong>완성형 앱</strong>들(Claude Code, 데스크톱/모바일 앱 등)을 소개하는 레슨입니다. API를 직접 다루지 않고도 Claude의 능력을 활용하는 제품 계층을 개관합니다. 이어지는 레슨에서 Claude Code를 중심으로 실습합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Claude Code 셋업</div></div>
+    </section>
+
+    <!-- L69 -->
+    <section class="lesson" id="cc-setup">
+      <div class="lesson-head">
+        <div class="lesson-num">69</div>
+        <div class="eyebrow">Claude 앱 · Computer Use · 레슨 69</div>
+        <h1 class="lesson-title">Claude Code 셋업</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p><strong>Claude Code</strong> 설치·인증 등 초기 셋업을 다루는 레슨입니다. 터미널 기반 에이전트형 코딩 도구로, 프로젝트를 읽고 코드를 작성·수정·실행합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Claude Code 실전</div></div>
+    </section>
+
+    <!-- L70 -->
+    <section class="lesson" id="cc-action">
+      <div class="lesson-head">
+        <div class="lesson-num">70</div>
+        <div class="eyebrow">Claude 앱 · Computer Use · 레슨 70</div>
+        <h1 class="lesson-title">Claude Code 실전</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>Claude Code를 실제로 사용해 코드를 작성·수정하고 작업을 위임하는 실전 레슨입니다. 이 코스에서 배운 API 프리미티브(도구 러너·MCP 등)를 스텁에서 채우는 워크플로우를 보여줍니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · MCP로 Claude Code 확장</div></div>
+    </section>
+
+    <!-- L71 -->
+    <section class="lesson" id="cc-mcp">
+      <div class="lesson-head">
+        <div class="lesson-num">71</div>
+        <div class="eyebrow">Claude 앱 · Computer Use · 레슨 71</div>
+        <h1 class="lesson-title">MCP로 Claude Code 확장</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>Claude Code에 <strong>MCP 서버</strong>를 연결해 외부 서비스·도구로 능력을 확장하는 레슨입니다. 서드파티 MCP 서버를 붙여 통합 코드 없이 새로운 기능을 얻습니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Claude Code 병렬화</div></div>
+    </section>
+
+    <!-- L72 -->
+    <section class="lesson" id="cc-parallel">
+      <div class="lesson-head">
+        <div class="lesson-num">72</div>
+        <div class="eyebrow">Claude 앱 · Computer Use · 레슨 72</div>
+        <h1 class="lesson-title">Claude Code 병렬화</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>여러 Claude Code 인스턴스를 <strong>병렬</strong>로 돌려 독립적인 작업을 동시에 처리하는 레슨입니다. 작업을 나눠 병렬 실행하면 전체 처리 시간을 줄일 수 있습니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 자동 디버깅</div></div>
+    </section>
+
+    <!-- L73 -->
+    <section class="lesson" id="cc-debug">
+      <div class="lesson-head">
+        <div class="lesson-num">73</div>
+        <div class="eyebrow">Claude 앱 · Computer Use · 레슨 73</div>
+        <h1 class="lesson-title">자동 디버깅</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>Claude Code로 <strong>자동 디버깅</strong>을 수행하는 레슨입니다. 에러 메시지를 읽고 원인을 찾아 그 자리에서 수정하는 반복 루프를 활용합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Computer use</div></div>
+    </section>
+
+    <!-- L74 -->
+    <section class="lesson" id="computer-use">
+      <div class="lesson-head">
+        <div class="lesson-num">74</div>
+        <div class="eyebrow">Claude 앱 · Computer Use · 레슨 74</div>
+        <h1 class="lesson-title">Computer use</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p><strong>Computer use</strong>는 Claude가 화면을 보고 마우스·키보드를 조작해 컴퓨터를 직접 사용하게 하는 기능입니다. GUI 자동화·웹 작업 등에 활용됩니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Computer use 원리</div></div>
+    </section>
+
+    <!-- L75 -->
+    <section class="lesson" id="computer-use-how">
+      <div class="lesson-head">
+        <div class="lesson-num">75</div>
+        <div class="eyebrow">Claude 앱 · Computer Use · 레슨 75</div>
+        <h1 class="lesson-title">Computer use 원리</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>Computer use의 <strong>동작 원리</strong>를 다루는 레슨입니다. Claude가 각 액션(클릭·타이핑) 후 스크린샷으로 환경 상태를 관찰하고 다음 행동을 결정하는 루프가 핵심입니다(다음 모듈의 환경 관찰과 연결).</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 에이전트와 워크플로우</div></div>
+    </section>
+
+    <!-- L76 -->
+    <section class="lesson" id="agents-workflows">
+      <div class="lesson-head">
+        <div class="lesson-num">76</div>
+        <div class="eyebrow">워크플로우와 에이전트 · 레슨 76</div>
+        <h1 class="lesson-title">에이전트와 워크플로우</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>단일 요청으로 끝나지 않는 복잡한 다단계 작업을 다루는 두 전략: <strong>워크플로우</strong>와 <strong>에이전트</strong>. 사실 이 코스 내내 도구를 쓰며 이미 에이전트를 다뤄왔습니다.</p>
+<h3>선택 기준</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621312%2F11_-_001_-_Agents_and_Workflows_01.1748621311977.png" alt="강의 도식">
+<ul>
+<li><strong>워크플로우</strong> — Claude가 거칠 정확한 흐름/단계를 그릴 수 있거나 UX가 작업을 제한할 때</li>
+<li><strong>에이전트</strong> — 어떤 작업/파라미터가 올지 확실치 않을 때 (목표 + 도구를 주고 Claude가 방법을 찾게)</li>
+</ul>
+<h3>워크플로우 예 — Image to CAD</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621313%2F11_-_001_-_Agents_and_Workflows_05.1748621313095.png" alt="강의 도식">
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621314%2F11_-_001_-_Agents_and_Workflows_06.1748621314624.png" alt="강의 도식">
+<ul>
+<li>이미지를 Claude에 넣어 상세 묘사 → CadQuery로 모델링 → 렌더링 → 원본과 비교 채점, 문제 있으면 수정·반복</li>
+</ul>
+<h3>Evaluator-Optimizer 패턴</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621316%2F11_-_001_-_Agents_and_Workflows_14.1748621316130.png" alt="강의 도식">
+<ul>
+<li><strong>Producer</strong>(생성) · <strong>Grader</strong>(기준 평가) · <strong>피드백 루프</strong>(거부 시 개선) · <strong>수용</strong>(합격까지 반복)</li>
+</ul>
+<div class="callout">워크플로우 패턴은 <strong>재사용 가능한 레시피</strong>. 다만 스스로 구현되지 않으니 실제 코드는 직접 써야 합니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 병렬화 워크플로우</div></div>
+    </section>
+
+    <!-- L77 -->
+    <section class="lesson" id="parallelization">
+      <div class="lesson-head">
+        <div class="lesson-num">77</div>
+        <div class="eyebrow">워크플로우와 에이전트 · 레슨 77</div>
+        <h1 class="lesson-title">병렬화 워크플로우</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>복잡한 작업을 단일 요청에 몰아넣으면 오히려 어려워집니다. <strong>병렬화</strong> 패턴이 도움이 됩니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621310%2F11_-_002_-_Parallelization_Workflows_00.1748621309724.png" alt="강의 도식">
+<p>예: 부품 이미지로 최적 소재(금속·폴리머·세라믹·복합재·엘라스토머·목재)를 추천.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621310%2F11_-_002_-_Parallelization_Workflows_05.1748621310442.png" alt="강의 도식">
+<p>모든 소재 기준을 한 프롬프트에 넣으면 거대해져 Claude가 혼란스러워합니다.</p>
+<h3>병렬화 접근</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621311%2F11_-_002_-_Parallelization_Workflows_08.1748621311079.png" alt="강의 도식">
+<ul>
+<li>같은 이미지를 <strong>소재별 특화 프롬프트</strong>로 병렬 전송 (금속용·폴리머용·세라믹용…)</li>
+</ul>
+<h3>결과 집계</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621311%2F11_-_002_-_Parallelization_Workflows_11.1748621311687.png" alt="강의 도식">
+<p>모든 분석 결과를 모아 <strong>aggregator 요청</strong>으로 비교·최종 추천. Claude는 이미 정리된 분석을 평가만 하면 됩니다.</p>
+<h3>패턴</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621312%2F11_-_002_-_Parallelization_Workflows_14.1748621312246.png" alt="강의 도식">
+<ul>
+<li>복잡 작업을 특화 서브태스크로 분할 → 병렬 실행 → 최종 집계</li>
+</ul>
+<div class="card"><ul>
+<li>집중된 주의 · 독립적 최적화 · 확장성 · 병렬로 빠른 실행</li>
+</ul></div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 체이닝 워크플로우</div></div>
+    </section>
+
+    <!-- L78 -->
+    <section class="lesson" id="chaining">
+      <div class="lesson-head">
+        <div class="lesson-num">78</div>
+        <div class="eyebrow">워크플로우와 에이전트 · 레슨 78</div>
+        <h1 class="lesson-title">체이닝 워크플로우</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p><strong>체이닝</strong>은 큰 작업을 순차 서브태스크로 나누는, 가장 유용한 패턴 중 하나입니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621308%2F11_-_003_-_Chaining_Workflows_03.1748621308227.png" alt="강의 도식">
+<p>예(소셜 미디어 마케팅): 트렌딩 주제 찾기 → 주제 선택 → 리서치 → 스크립트 작성 → 아바타·TTS로 영상 → 게시.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621309%2F11_-_003_-_Chaining_Workflows_08.1748621309224.png" alt="강의 도식">
+<div class="card"><ul>
+<li>큰 작업을 비병렬 서브태스크로 분할 · 사이에 비-LLM 처리 삽입 · Claude를 한 측면에 집중</li>
+</ul></div>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621310%2F11_-_003_-_Chaining_Workflows_09.1748621309887.png" alt="강의 도식">
+<h3>체이닝이 푸는 실제 문제 — 제약 위반</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621310%2F11_-_003_-_Chaining_Workflows_11.1748621310668.png" alt="강의 도식">
+<p>기술 글쓰기에서 "AI라 언급 금지·이모지 금지·오글거림 금지" 같은 제약을 아무리 추가해도 가끔 위반합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621311%2F11_-_003_-_Chaining_Workflows_12.1748621311247.png" alt="강의 도식">
+<h3>2단계 체이닝 해법</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621312%2F11_-_003_-_Chaining_Workflows_17.1748621312004.png" alt="강의 도식">
+<ul>
+<li><strong>1차</strong> — 원본 프롬프트로 불완전한 글 생성(수용)</li>
+<li><strong>2차</strong> — 구체적·집중된 지시로 수정 요청</li>
+</ul>
+<pre><code>Revise the article below. Follow these steps:
+1. Remove any place the text identifies the author as an AI
+2. Find and remove all emojis
+3. Replace cringey writing with technical-writer style</code></pre>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621312%2F11_-_003_-_Chaining_Workflows_19.1748621312694.png" alt="강의 도식">
+<div class="card"><ul>
+<li>제약 많은 복잡 작업 · Claude가 요구를 일관되게 못 지킬 때 · 단계 사이 검증 · 특정 측면에 집중 유지</li>
+</ul></div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 라우팅 워크플로우</div></div>
+    </section>
+
+    <!-- L79 -->
+    <section class="lesson" id="routing">
+      <div class="lesson-head">
+        <div class="lesson-num">79</div>
+        <div class="eyebrow">워크플로우와 에이전트 · 레슨 79</div>
+        <h1 class="lesson-title">라우팅 워크플로우</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p><strong>라우팅</strong>은 입력을 먼저 <strong>분류</strong>한 뒤 특화 파이프라인으로 보내는 패턴입니다.</p>
+<p>예: 영상 스크립트에서 "프로그래밍"(교육형)과 "서핑"(엔터테인먼트형)은 매우 다른 출력이 필요합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621308%2F11_-_004_-_Routing_Workflows_02.1748621308227.png" alt="강의 도식">
+<h3>콘텐츠 카테고리 정의</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621309%2F11_-_004_-_Routing_Workflows_07.1748621309328.png" alt="강의 도식">
+<ul><li>Entertainment · Educational · Comedy · Personal vlog · Reviews · Storytelling</li></ul>
+<h3>특화 프롬프트</h3>
+<p>교육형: <code>Develop a clear, engaging script about [TOPIC] that transforms complex information into digestible insights ...</code><br>
+엔터형: <code>Write a high-energy, culturally-relevant script about [TOPIC] using trendy language and engaging hooks ...</code></p>
+<h3>2단계 프로세스</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621310%2F11_-_004_-_Routing_Workflows_13.1748621310166.png" alt="강의 도식">
+<p><strong>1. 분류</strong> — 주제를 카테고리로 분류(예: "Python functions" → Educational)</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621311%2F11_-_004_-_Routing_Workflows_15.1748621310784.png" alt="강의 도식">
+<p><strong>2. 특화 처리</strong> — 해당 카테고리 프롬프트로 실제 콘텐츠 생성</p>
+<h3>아키텍처</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621311%2F11_-_004_-_Routing_Workflows_17.1748621311460.png" alt="강의 도식">
+<ul>
+<li>입력 → 라우터(보통 Claude) 분류 → <strong>정확히 하나</strong>의 특화 파이프라인으로 → 각자 워크플로우·도구</li>
+</ul>
+<div class="card"><ul>
+<li>더 나은 출력 품질 · 특화 도구 · 확장 용이 · 비용 효율(필요한 처리만)</li>
+</ul></div>
+<p>서로 뚜렷이 다른 요청 유형이고 3~10개 의미 있는 카테고리를 정의할 수 있을 때 적합합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 에이전트와 도구</div></div>
+    </section>
+
+    <!-- L80 -->
+    <section class="lesson" id="agents-tools">
+      <div class="lesson-head">
+        <div class="lesson-num">80</div>
+        <div class="eyebrow">워크플로우와 에이전트 · 레슨 80</div>
+        <h1 class="lesson-title">에이전트와 도구</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p><strong>에이전트</strong>는 구조화된 워크플로우와 달리, 경로가 불분명할 때 빛납니다. 목표 + 도구를 주고 Claude가 조합 방법을 찾게 합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621361%2F11_-_005_-_Agents_and_Tools_00.1748621361086.png" alt="강의 도식">
+<p>한 번 만들어 다양한 작업에 배포할 수 있으나, <strong>신뢰성·비용</strong> 문제가 따릅니다.</p>
+<h3>도구가 에이전트를 만든다</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621362%2F11_-_005_-_Agents_and_Tools_04.1748621362779.png" alt="강의 도식">
+<ul>
+<li><code>get_current_datetime</code> · <code>add_duration_to_datetime</code> · <code>set_reminder</code></li>
+</ul>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621363%2F11_-_005_-_Agents_and_Tools_05.1748621363424.png" alt="강의 도식">
+<p>"지금 몇 시?"엔 하나, "11일 뒤 무슨 요일?"엔 둘을 체이닝, "다음 수요일 헬스장 리마인더"엔 셋 모두. "90일 보증 언제 끝나?"엔 <strong>필요 정보를 사용자에게 되묻고</strong> 계산.</p>
+<h3>도구는 추상적으로</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621364%2F11_-_005_-_Agents_and_Tools_11.1748621364257.png" alt="강의 도식">
+<p>Claude Code는 <strong>generic 도구</strong>만 가집니다: bash·glob·grep·read·write·edit·webfetch. "Refactor"·"Run Tests" 같은 특화 도구가 <strong>없습니다</strong> — 기본 도구를 조합해 해냅니다.</p>
+<h3>모범 사례</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621365%2F11_-_005_-_Agents_and_Tools_16.1748621364899.png" alt="강의 도식">
+<p>소셜 영상 에이전트라면 bash(FFMPEG)·generate_image·text_to_speech·post_media처럼 <strong>여러 맥락에서 쓸 수 있게 추상적</strong>이되 의미 있는 작업을 하는 도구를 제공.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621366%2F11_-_005_-_Agents_and_Tools_19.1748621365896.png" alt="강의 도식">
+<p>"Python 영상 만들어 게시" 같은 자동 처리부터, "먼저 이미지를 골라볼게" 같은 <strong>협업형</strong> 상호작용까지 자연스럽게 지원됩니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 환경 관찰</div></div>
+    </section>
+
+    <!-- L81 -->
+    <section class="lesson" id="env-inspection">
+      <div class="lesson-head">
+        <div class="lesson-num">81</div>
+        <div class="eyebrow">워크플로우와 에이전트 · 레슨 81</div>
+        <h1 class="lesson-title">환경 관찰</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>Claude는 <strong>맹목적</strong>으로 동작합니다 — 행동 결과를 이해하려면 <strong>환경을 관찰</strong>해야 합니다.</p>
+<h3>왜 중요한가</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621358%2F11_-_006_-_Environment_Inspection_00.1748621357911.png" alt="강의 도식">
+<p>버튼 클릭이 새 페이지로 갔는지 메뉴를 열었는지 Claude는 알 수 없습니다. 그래서 computer use 도구는 각 액션 후 <strong>스크린샷</strong>을 자동 반환합니다.</p>
+<h3>쓰기 전에 읽기</h3>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621359%2F11_-_006_-_Environment_Inspection_08.1748621359036.png" alt="강의 도식">
+<p>코드 수정 전 현재 파일을 이해해야 합니다. 예: <code>main.py</code>를 먼저 읽고 구조를 파악한 뒤 안전하게 라우트 추가.</p>
+<h3>시스템 프롬프트로 관찰 유도</h3>
+<ul>
+<li>whisper.cpp로 캡션·타임스탬프 생성해 대사 배치 검증 · FFmpeg로 스크린샷 추출해 화질 확인 · 업로드 전 파일 크기·포맷 확인</li>
+</ul>
+<div class="callout">모든 액션 뒤엔 <strong>검증·관찰</strong>이 따라야 합니다. 그래야 에러를 조기에 잡고 자기 교정하는 신뢰성 있는 에이전트가 됩니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 워크플로우 vs 에이전트</div></div>
+    </section>
+
+    <!-- L82 -->
+    <section class="lesson" id="workflows-vs-agents">
+      <div class="lesson-head">
+        <div class="lesson-num">82</div>
+        <div class="eyebrow">워크플로우와 에이전트 · 레슨 82</div>
+        <h1 class="lesson-title">워크플로우 vs 에이전트</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>두 아키텍처 패턴의 장단을 비교합니다.</p>
+<img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1748621354%2F11_-_007_-_Workflows_vs_Agents_00.1748621354021.png" alt="강의 도식">
+<h3>워크플로우</h3>
+<p>알려진 문제를 푸는 <strong>사전 정의된 호출 시퀀스</strong>(레시피). 흐름을 미리 그릴 수 있을 때 사용, 큰 작업을 작은 서브태스크로 분할.</p>
+<div class="card"><ul>
+<li><strong>장점</strong> — 한 서브태스크 집중으로 높은 정확도 · 평가·테스트 쉬움 · 예측·신뢰 가능</li>
+<li><strong>단점</strong> — 유연성 낮음 · 제한된 UX(정확한 입력을 알아야 함)</li>
+</ul></div>
+<h3>에이전트</h3>
+<p>기본 도구를 주고 Claude가 <strong>스스로 계획</strong>해 완수하길 기대.</p>
+<div class="card"><ul>
+<li><strong>장점</strong> — 유연한 UX · 도구를 예상 못한 방식으로 조합 · 스스로 입력 생성·추가 요청</li>
+<li><strong>단점</strong> — 워크플로우보다 낮은 완수율 · 계측·테스트·평가 어려움</li>
+</ul></div>
+<div class="callout">엔지니어의 목표는 <strong>신뢰성 있는 문제 해결</strong>. 사용자는 멋진 에이전트가 아니라 <strong>100% 동작하는 제품</strong>을 원합니다. <strong>가능하면 워크플로우</strong>를, 정말 필요할 때만 에이전트를 쓰세요.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 코스 마무리</div></div>
+    </section>
+
+    <!-- L83 -->
+    <section class="lesson" id="wrap-up">
+      <div class="lesson-head">
+        <div class="lesson-num">83</div>
+        <div class="eyebrow">워크플로우와 에이전트 · 레슨 83</div>
+        <h1 class="lesson-title">코스 마무리</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+      </div>
+
+<p>코스 마무리 레슨입니다. Vertex AI에서 Claude 호출하기부터 프롬프트 엔지니어링·평가·도구 사용·RAG·이미지/인용·캐싱·MCP·워크플로우와 에이전트까지 <strong>전 과정을 정리</strong>했습니다.</p>
+<div class="callout">핵심 원칙: <strong>서버를 중개자로</strong> · <strong>가능한 한 가장 싼 모델</strong> · <strong>평가로 반복 개선</strong> · <strong>가능하면 워크플로우, 필요할 때만 에이전트</strong>. 이제 직접 프로젝트를 만들어 볼 차례입니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>완주</b> · Claude with Google Cloud's Vertex AI의 83개 레슨을 모두 정리했습니다. Vertex AI에서 Claude를 호출하는 기초부터 프롬프트·도구·RAG·MCP·에이전트까지 — 이제 직접 프로젝트를 만들어 볼 차례입니다.</div></div>
     </section>
 
    </div>
@@ -271,21 +2842,102 @@ description: "Anthropic 공식 영어 강의 Claude with Google Cloud's Vertex A
 
 <script>
   const curriculum = [
-    { n:"01", section:"소개·기초·프롬프트", lessons:[
-      { id:"intro-setup", title:"소개 & Vertex 셋업", done:true },
-      { id:"api-access", title:"API 접근 기초", done:true },
-      { id:"prompt-evals", title:"프롬프트 평가(Evals)", done:true },
-      { id:"prompt-engineering", title:"프롬프트 엔지니어링", done:true },
+    { n:"01", section:"Vertex AI로 Claude 시작하기", lessons:[
+      { id:"welcome", title:"코스 소개", done:true },
+      { id:"models-overview", title:"Claude 모델 개요", done:true },
+      { id:"accessing-api", title:"API 접근과 요청 흐름", done:true },
+      { id:"vertex-setup", title:"Vertex AI 셋업", done:true },
+      { id:"making-request", title:"첫 요청 보내기", done:true },
+      { id:"multi-turn", title:"멀티턴 대화", done:true },
+      { id:"chat-exercise", title:"채팅 실습", done:true },
+      { id:"system-prompts", title:"시스템 프롬프트", done:true },
+      { id:"system-prompts-exercise", title:"시스템 프롬프트 실습", done:true },
+      { id:"temperature", title:"Temperature", done:true },
+      { id:"streaming", title:"응답 스트리밍", done:true },
+      { id:"controlling-output", title:"출력 제어", done:true },
+      { id:"structured-data", title:"구조화된 데이터", done:true },
+      { id:"structured-data-exercise", title:"구조화 데이터 실습", done:true },
     ]},
-    { n:"02", section:"도구·RAG·기능", lessons:[
-      { id:"tool-use", title:"도구 사용(Tool use)", done:true },
-      { id:"rag", title:"RAG & 에이전틱 검색", done:true },
-      { id:"claude-features", title:"Claude의 기능들", done:true },
+    { n:"02", section:"평가 · 프롬프트 엔지니어링", lessons:[
+      { id:"prompt-eval", title:"프롬프트 평가란?", done:true },
+      { id:"eval-workflow", title:"전형적 eval 워크플로우", done:true },
+      { id:"gen-datasets", title:"테스트 데이터셋 생성", done:true },
+      { id:"running-eval", title:"eval 파이프라인 실행", done:true },
+      { id:"model-grading", title:"모델 기반 채점", done:true },
+      { id:"code-grading", title:"코드 기반 채점", done:true },
+      { id:"eval-exercise", title:"프롬프트 eval 실습", done:true },
+      { id:"prompt-eng", title:"프롬프트 엔지니어링", done:true },
+      { id:"clear-direct", title:"명확하고 직접적으로", done:true },
+      { id:"being-specific", title:"구체적으로", done:true },
+      { id:"xml-tags", title:"XML 태그로 구조화", done:true },
+      { id:"providing-examples", title:"예시 제공", done:true },
+      { id:"prompting-exercise", title:"프롬프팅 실습", done:true },
     ]},
-    { n:"03", section:"MCP·앱·에이전트", lessons:[
-      { id:"mcp", title:"Model Context Protocol", done:true },
-      { id:"apps-claude-code", title:"앱·Claude Code·컴퓨터 사용", done:true },
-      { id:"agents-workflows", title:"에이전트·워크플로우", done:true },
+    { n:"03", section:"도구 사용 (Tool Use)", lessons:[
+      { id:"intro-tools", title:"도구 사용 소개", done:true },
+      { id:"project-overview", title:"프로젝트 개요", done:true },
+      { id:"tool-functions", title:"도구 함수", done:true },
+      { id:"tool-schemas", title:"도구 스키마", done:true },
+      { id:"message-blocks", title:"메시지 블록 다루기", done:true },
+      { id:"tool-results", title:"도구 결과 보내기", done:true },
+      { id:"multiturn-tools", title:"도구와 멀티턴 대화", done:true },
+      { id:"impl-turns", title:"여러 턴 구현하기", done:true },
+      { id:"multiple-tools", title:"여러 도구 사용", done:true },
+      { id:"batch-tool", title:"배치 도구", done:true },
+      { id:"tools-structured", title:"구조화 데이터용 도구", done:true },
+      { id:"text-edit-tool", title:"텍스트 편집 도구", done:true },
+      { id:"web-search-tool", title:"웹 검색 도구", done:true },
+    ]},
+    { n:"04", section:"RAG · 고급 기능", lessons:[
+      { id:"intro-rag", title:"RAG 소개", done:true },
+      { id:"chunking", title:"텍스트 청킹 전략", done:true },
+      { id:"embeddings", title:"텍스트 임베딩", done:true },
+      { id:"full-rag", title:"전체 RAG 흐름", done:true },
+      { id:"impl-rag", title:"RAG 흐름 구현", done:true },
+      { id:"bm25", title:"BM25 렉시컬 검색", done:true },
+      { id:"multi-index", title:"멀티 인덱스 파이프라인", done:true },
+      { id:"reranking", title:"결과 재랭킹", done:true },
+      { id:"contextual", title:"컨텍스추얼 검색", done:true },
+      { id:"extended-thinking", title:"확장 사고", done:true },
+      { id:"image-support", title:"이미지 지원", done:true },
+      { id:"pdf-support", title:"PDF 지원", done:true },
+      { id:"citations", title:"인용(Citations)", done:true },
+      { id:"prompt-caching", title:"프롬프트 캐싱", done:true },
+      { id:"caching-rules", title:"캐싱 규칙", done:true },
+      { id:"caching-action", title:"캐싱 실전", done:true },
+    ]},
+    { n:"05", section:"MCP", lessons:[
+      { id:"intro-mcp", title:"MCP 소개", done:true },
+      { id:"mcp-clients", title:"MCP 클라이언트", done:true },
+      { id:"mcp-project", title:"프로젝트 셋업", done:true },
+      { id:"mcp-tools", title:"MCP로 도구 정의", done:true },
+      { id:"server-inspector", title:"서버 인스펙터", done:true },
+      { id:"mcp-client-impl", title:"클라이언트 구현", done:true },
+      { id:"mcp-resources", title:"리소스 정의", done:true },
+      { id:"access-resources", title:"리소스 접근", done:true },
+      { id:"mcp-prompts", title:"프롬프트 정의", done:true },
+      { id:"prompts-client", title:"클라이언트의 프롬프트", done:true },
+      { id:"mcp-review", title:"MCP 정리", done:true },
+    ]},
+    { n:"06", section:"Claude 앱 · Computer Use", lessons:[
+      { id:"anthropic-apps", title:"Anthropic 앱", done:true },
+      { id:"cc-setup", title:"Claude Code 셋업", done:true },
+      { id:"cc-action", title:"Claude Code 실전", done:true },
+      { id:"cc-mcp", title:"MCP로 Claude Code 확장", done:true },
+      { id:"cc-parallel", title:"Claude Code 병렬화", done:true },
+      { id:"cc-debug", title:"자동 디버깅", done:true },
+      { id:"computer-use", title:"Computer use", done:true },
+      { id:"computer-use-how", title:"Computer use 원리", done:true },
+    ]},
+    { n:"07", section:"워크플로우와 에이전트", lessons:[
+      { id:"agents-workflows", title:"에이전트와 워크플로우", done:true },
+      { id:"parallelization", title:"병렬화 워크플로우", done:true },
+      { id:"chaining", title:"체이닝 워크플로우", done:true },
+      { id:"routing", title:"라우팅 워크플로우", done:true },
+      { id:"agents-tools", title:"에이전트와 도구", done:true },
+      { id:"env-inspection", title:"환경 관찰", done:true },
+      { id:"workflows-vs-agents", title:"워크플로우 vs 에이전트", done:true },
+      { id:"wrap-up", title:"코스 마무리", done:true },
     ]},
   ];
 </script>

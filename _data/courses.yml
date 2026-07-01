@@ -31,7 +31,7 @@
       slug: claude-code-in-action
       file: /courses/anthropic/claude-code-in-action.html
       done: true
-      desc: "Claude Code를 실제 개발 워크플로우에 통합하기 (영상 강의 — 개요 + 레슨별 영상 링크)."
+      desc: "Claude Code를 실제 개발 워크플로우에 통합 — 본문 요약 + 강의 도식 이미지."
     - title: "AI Fluency: Framework & Foundations"
       slug: ai-fluency-framework-foundations
       file: /courses/anthropic/ai-fluency-framework-foundations.html
@@ -41,12 +41,12 @@
       slug: claude-with-the-anthropic-api
       file: /courses/anthropic/claude-with-the-anthropic-api.html
       done: true
-      desc: "Claude API 전 범위 (영상 강의 — 모듈별 개요 + 레슨별 영상 링크): 프롬프트·도구·RAG·MCP·에이전트."
+      desc: "Claude API 전 범위(프롬프트·평가·도구·RAG·MCP·에이전트) — 본문 요약 + 강의 도식 이미지."
     - title: "Introduction to Model Context Protocol"
       slug: introduction-to-model-context-protocol
       file: /courses/anthropic/introduction-to-model-context-protocol.html
       done: true
-      desc: "Python으로 MCP 서버·클라이언트를 처음부터 만들기 (영상 강의 — 개요 + 레슨별 영상 링크)."
+      desc: "Python으로 MCP 서버·클라이언트를 처음부터 만들기 — 본문 요약 + 강의 도식 이미지."
     - title: "AI Fluency for educators"
       slug: ai-fluency-for-educators
       file: /courses/anthropic/ai-fluency-for-educators.html
@@ -61,17 +61,17 @@
       slug: model-context-protocol-advanced-topics
       file: /courses/anthropic/model-context-protocol-advanced-topics.html
       done: true
-      desc: "샘플링·알림·파일시스템 접근 등 고급 MCP 구현 패턴 (영상 강의 — 개요 + 레슨별 영상 링크)."
+      desc: "샘플링·알림·파일시스템 접근 등 고급 MCP 패턴 — 본문 요약 + 강의 도식 이미지."
     - title: "Claude with Amazon Bedrock"
       slug: claude-in-amazon-bedrock
       file: /courses/anthropic/claude-in-amazon-bedrock.html
       done: true
-      desc: "Amazon Bedrock에서 Claude 사용 (영상 강의 — 모듈별 개요 + 레슨별 영상 링크)."
+      desc: "Amazon Bedrock에서 Claude 사용 — 본문 요약 + 강의 도식 이미지."
     - title: "Claude with Google Cloud's Vertex AI"
       slug: claude-with-google-vertex
       file: /courses/anthropic/claude-with-google-vertex.html
       done: true
-      desc: "Google Cloud Vertex AI에서 Claude 사용 (영상 강의 — 모듈별 개요 + 레슨별 영상 링크)."
+      desc: "Google Cloud Vertex AI에서 Claude 사용 — 본문 요약 + 강의 도식 이미지."
     - title: "Teaching AI Fluency"
       slug: teaching-ai-fluency
       file: /courses/anthropic/teaching-ai-fluency.html

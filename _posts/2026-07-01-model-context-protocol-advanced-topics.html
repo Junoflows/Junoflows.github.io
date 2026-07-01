@@ -5,7 +5,7 @@ date: 2026-07-01
 categories: [강의 정리]
 tags: [MCP, Anthropic, AI, 개발]
 permalink: /courses/anthropic/model-context-protocol-advanced-topics.html
-description: "Anthropic 공식 영어 강의 MCP: Advanced Topics의 한글 개요 — 샘플링·알림·파일시스템 접근 등 고급 MCP 구현 패턴을 다루는 영상 강의의 레슨별 개요와 원문 영상 링크."
+description: "Anthropic 공식 영어 강의 MCP: Advanced Topics를 한글로 정리한 학습 노트 — 샘플링·알림·파일시스템 접근 등 고급 MCP 패턴(본문 요약 + 강의 도식 이미지)."
 ---
 {% include course-styles.html %}
 
@@ -16,11 +16,11 @@ description: "Anthropic 공식 영어 강의 MCP: Advanced Topics의 한글 개�
       <a class="backlink" href="/courses/anthropic/">← Anthropic Courses</a>
       <p class="kicker">Anthropic Academy</p>
       <h1>MCP <em>Advanced</em></h1>
-      <p class="sub">Anthropic Academy 공식 영상 강의의 한글 개요 노트</p>
+      <p class="sub">Anthropic Academy 공식 영어 강의를 한글로 정리한 학습 노트</p>
       <a class="srcnote" href="https://anthropic.skilljar.com/model-context-protocol-advanced-topics" target="_blank" rel="noopener">원문 강의 (영어) ↗</a>
       <div class="progress-wrap">
         <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-        <div class="progress-text"><span id="progressPos">레슨 01 / 13</span><span id="progressPct">영상 강의 개요</span></div>
+        <div class="progress-text"><span id="progressPos">레슨 01 / 13</span><span id="progressPct">전체 정리 완료</span></div>
       </div>
     </div>
     <nav class="spine" id="nav"></nav>
@@ -29,188 +29,565 @@ description: "Anthropic 공식 영어 강의 MCP: Advanced Topics의 한글 개�
   <main class="content">
    <div class="reading" id="reading">
 
-    <!-- LESSON: lets-get-started -->
-    <section class="lesson active" id="lets-get-started">
+    <!-- L1 -->
+    <section class="lesson active" id="intro">
       <div class="lesson-head">
         <div class="lesson-num">01</div>
-        <div class="eyebrow">소개 · 레슨 01</div>
-        <h1 class="lesson-title">코스 시작하기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="eyebrow">Getting started · 레슨 01</div>
+        <h1 class="lesson-title">시작하기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <div class="callout">이 강의는 <strong>영상 중심 강의</strong>입니다. 레슨 대부분이 별도 아티클 본문 없이 영상으로 진행되므로, 이 페이지는 각 레슨의 <strong>핵심 주제 개요 + 원문 영상 링크</strong>로 정리했습니다. 자세한 실습·화면 시연은 <strong>원문 영상</strong>을 직접 참고하세요.</div>
+      <p>이 코스는 MCP(Model Context Protocol)의 <strong>고급 주제</strong>를 다룹니다. 기본 도구·리소스·프롬프트를 넘어, 서버가 클라이언트의 능력을 빌려 쓰는 <strong>샘플링(sampling)</strong>, 오래 걸리는 작업의 <strong>로그·진행 알림(notifications)</strong>, 로컬 파일 접근을 통제하는 <strong>루트(roots)</strong>, 그리고 이 모든 것을 실어 나르는 <strong>전송 계층(transport)</strong>(STDIO·StreamableHTTP)까지 파고듭니다.</p>
+      <div class="card"><ul>
+        <li><strong>Sampling</strong> — 서버가 클라이언트를 통해 Claude를 호출</li>
+        <li><strong>Notifications</strong> — 진행 상황·로그를 실시간으로 전달</li>
+        <li><strong>Roots</strong> — 허용된 폴더로 파일 접근 범위를 제한</li>
+        <li><strong>Transports</strong> — JSON 메시지가 오가는 통로(STDIO / StreamableHTTP)</li>
+      </ul></div>
+      <div class="callout">각 개념 레슨 뒤에는 실제 예제 프로젝트를 단계별로 훑는 <strong>walkthrough</strong>가 이어집니다. 코드를 실행하기보다 <strong>구조를 이해</strong>하는 데 목적이 있습니다.</div>
 
-      <p>MCP의 심화 주제를 다루는 이 코스가 무엇을 담고 있는지 소개하는 오리엔테이션 레슨입니다. 기본 서버·클라이언트를 넘어 샘플링, 로그·진행 알림, 루트(roots), 그리고 다양한 전송(transport) 방식까지 어떤 고급 기능을 배우게 될지 전체 여정을 개관합니다.</p>
-
-      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 핵심 고급 기능 — 샘플링</div></div>
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Sampling — 서버가 클라이언트에게 "Claude 좀 불러줄래?"</div></div>
     </section>
 
-    <!-- LESSON: sampling -->
+    <!-- L2 -->
     <section class="lesson" id="sampling">
       <div class="lesson-head">
         <div class="lesson-num">02</div>
-        <div class="eyebrow">핵심 고급 기능 · 레슨 02</div>
-        <h1 class="lesson-title">샘플링(Sampling)</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="eyebrow">Sampling · 레슨 02</div>
+        <h1 class="lesson-title">Sampling</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>MCP의 <strong>샘플링(sampling)</strong> 기능을 개념적으로 소개하는 레슨입니다. 샘플링은 서버가 도구 실행 도중 필요할 때 클라이언트를 거쳐 언어 모델에 추론을 요청할 수 있게 해 주는 메커니즘으로, 서버 자신이 직접 API 키나 모델을 갖지 않고도 모델의 생성 능력을 활용할 수 있습니다.</p>
+      <p><strong>Sampling</strong>은 서버가 연결된 MCP 클라이언트를 통해 Claude 같은 언어 모델에 접근하게 합니다. 서버가 Claude를 직접 호출하는 대신, <strong>클라이언트에게 대신 호출해 달라고 요청</strong>합니다. 이렇게 하면 텍스트 생성의 <strong>책임과 비용이 서버에서 클라이언트로 이동</strong>합니다.</p>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 샘플링 코드 워크스루</div></div>
+      <h3>Sampling이 해결하는 문제</h3>
+      <p>위키피디아에서 정보를 가져오는 리서치 도구가 있는 MCP 서버를 상상해 보세요. 데이터를 모은 뒤 그것을 하나의 리포트로 요약해야 합니다. 두 가지 선택지가 있습니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747890%2F002_-_Sampling_07.1749747889898.png" alt="강의 도식">
+      <p><strong>옵션 1</strong> — MCP 서버에 Claude를 직접 붙입니다. 서버가 자체 API 키를 갖고, 인증을 처리하고, 비용을 관리하고, Claude 통합 코드를 모두 구현해야 합니다. 동작은 하지만 복잡도가 크게 늘어납니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747890%2F002_-_Sampling_09.1749747890532.png" alt="강의 도식">
+      <p><strong>옵션 2</strong> — Sampling을 씁니다. 서버는 프롬프트를 만들고 클라이언트에게 "Claude를 대신 불러줄 수 있어?"라고 묻습니다. 이미 Claude와 연결된 클라이언트가 호출하고 결과를 돌려줍니다.</p>
+
+      <h3>동작 방식</h3>
+      <p>흐름은 단순합니다.</p>
+      <ul>
+        <li>서버가 자기 일을 마침(예: 위키피디아 아티클 가져오기)</li>
+        <li>서버가 텍스트 생성을 요청하는 프롬프트를 만듦</li>
+        <li>서버가 클라이언트에 sampling 요청을 보냄</li>
+        <li>클라이언트가 제공된 프롬프트로 Claude를 호출</li>
+        <li>클라이언트가 생성된 텍스트를 서버로 반환</li>
+        <li>서버가 그 텍스트를 자신의 응답에 사용</li>
+      </ul>
+
+      <h3>Sampling의 이점</h3>
+      <ul>
+        <li><strong>서버 복잡도 감소</strong> — 서버가 언어 모델과 직접 통합할 필요가 없음</li>
+        <li><strong>비용 부담 이동</strong> — 토큰 비용은 서버가 아니라 클라이언트가 냄</li>
+        <li><strong>API 키 불필요</strong> — 서버가 Claude 자격 증명을 가질 필요 없음</li>
+        <li><strong>공개 서버에 최적</strong> — 공개 서버가 모든 사용자의 AI 비용을 떠안게 두고 싶지 않음</li>
+      </ul>
+
+      <h3>구현 — 서버 측</h3>
+      <p>도구 함수 안에서 <code>create_message</code>로 텍스트 생성을 요청합니다.</p>
+      <pre><code>@mcp.tool()
+async def summarize(text_to_summarize: str, ctx: Context):
+prompt = f"""
+Please summarize the following text:
+{text_to_summarize}
+"""
+
+result = await ctx.session.create_message(
+messages=[
+SamplingMessage(
+role="user",
+content=TextContent(
+type="text",
+text=prompt
+)
+)
+],
+max_tokens=4000,
+system_prompt="You are a helpful research assistant",
+)
+
+if result.content.type == "text":
+return result.content.text
+else:
+raise ValueError("Sampling failed")</code></pre>
+
+      <h3>구현 — 클라이언트 측</h3>
+      <p>서버의 요청을 처리할 sampling 콜백을 만듭니다.</p>
+      <pre><code>async def sampling_callback(
+context: RequestContext, params: CreateMessageRequestParams
+):
+# Call Claude using the Anthropic SDK
+text = await chat(params.messages)
+
+return CreateMessageResult(
+role="assistant",
+model=model,
+content=TextContent(type="text", text=text),
+)</code></pre>
+      <p>그리고 클라이언트 세션을 초기화할 때 이 콜백을 넘깁니다.</p>
+      <pre><code>async with ClientSession(
+read,
+write,
+sampling_callback=sampling_callback
+) as session:
+await session.initialize()</code></pre>
+
+      <h3>언제 쓰나</h3>
+      <p>Sampling은 <strong>공개 접근 가능한 MCP 서버</strong>를 만들 때 가장 유용합니다. 임의의 사용자가 내 비용으로 무제한 텍스트를 생성하는 걸 원치 않기 때문입니다. Sampling을 쓰면 각 클라이언트가 자신의 AI 사용료를 내면서도 서버의 기능은 그대로 누립니다.</p>
+      <div class="callout">이 기법은 본질적으로 <strong>AI 통합의 복잡성을 서버에서 클라이언트로 옮깁니다</strong> — 클라이언트는 이미 필요한 연결과 자격 증명을 갖고 있는 경우가 많습니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Sampling 예제 프로젝트 단계별 훑어보기</div></div>
     </section>
 
-    <!-- LESSON: sampling-walkthrough -->
+    <!-- L3 -->
     <section class="lesson" id="sampling-walkthrough">
       <div class="lesson-head">
         <div class="lesson-num">03</div>
-        <div class="eyebrow">핵심 고급 기능 · 레슨 03</div>
-        <h1 class="lesson-title">샘플링 워크스루</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="eyebrow">Sampling · 레슨 03</div>
+        <h1 class="lesson-title">Sampling 예제 훑어보기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>샘플링을 실제 코드로 구현하는 과정을 단계별로 따라가는 실습 레슨입니다. 서버에서 <code>create_message()</code>로 모델에 보낼 메시지를 구성해 샘플링을 시작하고, 클라이언트 쪽에 샘플링 콜백을 정의해 연결한 뒤, 생성된 텍스트를 반환받아 결과로 사용하는 흐름을 살펴봅니다.</p>
+      <p>실제 예제 프로젝트(<code>server.py</code> · <code>client.py</code>)를 열어 sampling이 어떻게 조립되는지 단계별로 살펴보는 인터랙티브 walkthrough입니다. 코드를 실행하지 않고 <strong>구조만 이해</strong>하는 게 목적입니다.</p>
+      <ol>
+        <li><strong>Sampling 시작</strong> — 서버의 도구 호출 중 <code>create_message()</code>를 실행해, 언어 모델에 보내고 싶은 메시지들을 전달합니다.</li>
+        <li><strong>Sampling 콜백</strong> — 클라이언트에는 sampling 콜백을 구현해야 하며, 서버가 준 메시지 목록을 받습니다.</li>
+        <li><strong>메시지 포맷</strong> — 서버가 준 메시지는 MCP 통신용으로 포맷되어 있어, 사용 중인 LLM SDK와 반드시 호환되진 않습니다. 예를 들어 Anthropic SDK를 쓴다면 MCP 메시지를 Anthropic SDK 포맷으로 바꾸는 변환 로직을 조금 작성해야 합니다.</li>
+        <li><strong>생성된 텍스트 반환</strong> — LLM으로 텍스트를 생성한 뒤 <code>CreateMessageResult</code>(생성된 텍스트 포함)를 반환합니다.</li>
+        <li><strong>콜백 연결</strong> — 클라이언트의 콜백은 <code>ClientSession</code> 호출에 반드시 넘겨줘야 합니다.</li>
+        <li><strong>결과 받기</strong> — 클라이언트가 생성·반환한 텍스트가 서버로 전달되면, 이를 도구 워크플로우에 쓰거나 / 또 다른 sampling 호출을 하거나 / 그대로 반환할 수 있습니다.</li>
+      </ol>
+      <div class="tip"><strong>핵심</strong> · 클라이언트의 <code>chat()</code>은 MCP <code>SamplingMessage</code> 목록을 순회하며 role·text를 Anthropic SDK가 이해하는 <code>{"role", "content"}</code> 형태로 변환한 뒤 <code>anthropic_client.messages.create(...)</code>를 호출합니다.</div>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 로그·진행 알림</div></div>
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 로그와 진행 알림 — 사용자에게 무슨 일이 일어나는지 보여주기</div></div>
     </section>
 
-    <!-- LESSON: log-and-progress-notifications -->
-    <section class="lesson" id="log-and-progress-notifications">
+    <!-- L4 -->
+    <section class="lesson" id="log-progress">
       <div class="lesson-head">
         <div class="lesson-num">04</div>
-        <div class="eyebrow">핵심 고급 기능 · 레슨 04</div>
-        <h1 class="lesson-title">로그·진행 알림</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="eyebrow">Notifications · 레슨 04</div>
+        <h1 class="lesson-title">로그와 진행 알림</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>서버가 클라이언트에 <strong>로그 메시지와 진행 상황(progress) 알림</strong>을 보내는 기능을 소개하는 레슨입니다. 오래 걸리는 도구 작업을 수행할 때 중간 상태를 사용자에게 전달해, 무엇이 진행되고 있는지 실시간으로 알려 줄 수 있습니다.</p>
+      <p>로그와 진행 알림(logging & progress notifications)은 구현은 간단하지만 MCP 서버의 <strong>사용자 경험을 크게 개선</strong>합니다. 오래 걸리는 작업 동안 "혹시 멈춘 건 아닌가" 하는 불안 없이, 지금 무슨 일이 일어나는지 알 수 있게 해줍니다.</p>
+      <p>Claude가 리서치나 데이터 처리처럼 시간이 걸리는 도구를 호출하면, 보통 사용자는 작업이 끝날 때까지 <strong>아무것도 보지 못합니다.</strong> 알림을 켜면 진행 바·상태 메시지·상세 로그를 실시간으로 볼 수 있습니다.</p>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 알림 코드 워크스루</div></div>
+      <h3>동작 방식</h3>
+      <p>Python MCP SDK에서 로그·진행 알림은 도구 함수에 자동 제공되는 <code>Context</code> 인자를 통해 동작합니다. 이 컨텍스트 객체가 실행 중 클라이언트로 다시 소통할 메서드를 제공합니다.</p>
+      <pre><code>@mcp.tool(
+name="research",
+description="Research a given topic"
+)
+async def research(
+topic: str = Field(description="Topic to research"),
+*,
+context: Context
+):
+await context.info("About to do research...")
+await context.report_progress(20, 100)
+sources = await do_research(topic)
+
+await context.info("Writing report...")
+await context.report_progress(70, 100)
+results = await generate_report(sources)
+
+return results</code></pre>
+      <div class="card"><ul>
+        <li><code>context.info()</code> — 클라이언트에 로그 메시지 전송</li>
+        <li><code>context.report_progress()</code> — 현재값/전체값으로 진행 상황 갱신</li>
+      </ul></div>
+
+      <h3>클라이언트 측 구현</h3>
+      <p>클라이언트에서는 이 알림들을 처리할 콜백을 설정합니다. 서버는 메시지를 방출하고, <strong>어떻게 사용자에게 보여줄지는 클라이언트가 결정</strong>합니다.</p>
+      <pre><code>async def logging_callback(params: LoggingMessageNotificationParams):
+print(params.data)
+
+async def print_progress_callback(
+progress: float, total: float | None, message: str | None
+):
+if total is not None:
+percentage = (progress / total) * 100
+print(f"Progress: {progress}/{total} ({percentage:.1f}%)")
+else:
+print(f"Progress: {progress}")
+
+async def run():
+async with stdio_client(server_params) as (read, write):
+async with ClientSession(
+read,
+write,
+logging_callback=logging_callback
+) as session:
+await session.initialize()
+
+await session.call_tool(
+name="add",
+arguments={"a": 1, "b": 3},
+progress_callback=print_progress_callback,
+)</code></pre>
+      <p>로그 콜백은 <strong>세션 생성 시</strong>, 진행 콜백은 <strong>개별 도구 호출 시</strong> 넘깁니다. 덕분에 알림 종류별로 다르게 처리할 유연성이 생깁니다.</p>
+
+      <h3>표현 방식</h3>
+      <ul>
+        <li><strong>CLI 앱</strong> — 메시지와 진행을 터미널에 그냥 출력</li>
+        <li><strong>웹 앱</strong> — WebSocket·SSE·폴링으로 브라우저에 푸시</li>
+        <li><strong>데스크톱 앱</strong> — UI의 진행 바·상태 표시 갱신</li>
+      </ul>
+      <div class="callout">이 알림 구현은 <strong>전적으로 선택 사항</strong>입니다. 완전히 무시하거나, 일부만 보여주거나, 앱에 맞게 마음대로 표현해도 됩니다 — 순수하게 UX 향상용입니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 알림 예제 프로젝트 훑어보기</div></div>
     </section>
 
-    <!-- LESSON: notifications-walkthrough -->
+    <!-- L5 -->
     <section class="lesson" id="notifications-walkthrough">
       <div class="lesson-head">
         <div class="lesson-num">05</div>
-        <div class="eyebrow">핵심 고급 기능 · 레슨 05</div>
-        <h1 class="lesson-title">알림 워크스루</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="eyebrow">Notifications · 레슨 05</div>
+        <h1 class="lesson-title">알림 예제 훑어보기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>로그·진행 알림을 코드로 구현하는 실습 레슨입니다. 도구 함수가 마지막 인자로 자동으로 받는 <code>Context</code> 객체를 활용해 로그와 진행 상황을 보고하고, 클라이언트 쪽에서 이를 받아 처리할 콜백을 정의해 연결하는 방법을 따라갑니다.</p>
+      <p>로그와 진행 알림을 실제로 배선한 예제 프로젝트를 단계별로 살펴보는 인터랙티브 walkthrough입니다. 서버 도구가 <code>context.info()</code>·<code>context.report_progress()</code>로 알림을 방출하고, 클라이언트가 <code>logging_callback</code>과 <code>progress_callback</code>으로 이를 받아 출력하는 흐름을 코드 위에서 확인합니다.</p>
+      <div class="card"><ul>
+        <li><strong>서버</strong> — 오래 걸리는 도구 안에서 진행률과 로그 메시지를 단계별로 방출</li>
+        <li><strong>클라이언트</strong> — 세션에 로그 콜백을, 도구 호출에 진행 콜백을 연결해 터미널에 실시간 출력</li>
+      </ul></div>
+      <div class="tip"><strong>실행이 아닌 이해가 목적</strong> · 코드를 돌리지 않고 각 파일의 어느 줄이 어떤 역할을 하는지 짚어봅니다.</div>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 루트(roots)</div></div>
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Roots — 서버에 어떤 파일·폴더를 허용할지</div></div>
     </section>
 
-    <!-- LESSON: roots -->
+    <!-- L6 -->
     <section class="lesson" id="roots">
       <div class="lesson-head">
         <div class="lesson-num">06</div>
-        <div class="eyebrow">핵심 고급 기능 · 레슨 06</div>
-        <h1 class="lesson-title">루트(Roots)</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span></div>
+        <div class="eyebrow">Roots · 레슨 06</div>
+        <h1 class="lesson-title">Roots</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>MCP의 <strong>루트(roots)</strong> 개념을 소개하는 레슨입니다. 루트는 서버가 접근할 수 있는 파일·폴더의 경계를 사용자가 지정하는 방식으로, 어떤 파일시스템 위치에 접근을 허용할지 클라이언트가 서버에 알려 주어 안전한 파일 접근 범위를 설정합니다.</p>
+      <p><strong>Roots</strong>는 MCP 서버에게 로컬 머신의 <strong>특정 파일·폴더 접근을 허용</strong>하는 방법입니다. "이 파일들엔 접근해도 돼"라고 말해주는 권한 시스템이라고 생각하면 되지만, 단순한 권한 부여 이상의 역할을 합니다.</p>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 루트 코드 워크스루</div></div>
+      <h3>Roots가 해결하는 문제</h3>
+      <p>Roots가 없으면 흔한 문제에 부딪힙니다. MP4를 MOV로 변환하는, 파일 경로를 받는 영상 변환 도구가 달린 MCP 서버를 상상해 보세요.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747894%2F004_-_Roots_01.1749747894124.png" alt="강의 도식">
+      <p>사용자가 Claude에게 "biking.mp4를 mov로 변환해줘"라고 하면, Claude는 파일명만으로 도구를 호출합니다. 그런데 문제는 — Claude가 <strong>파일 시스템 전체를 뒤져 그 파일이 실제로 어디 있는지 찾을 방법이 없다</strong>는 것입니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747894%2F004_-_Roots_04.1749747894579.png" alt="강의 도식">
+      <p>파일 시스템은 여러 디렉터리에 파일이 흩어진 복잡한 구조일 수 있습니다. 사용자는 biking.mp4가 Movies 폴더에 있다는 걸 알지만 Claude는 그 맥락이 없습니다. 매번 전체 경로를 입력하게 하면 되지만, 아무도 그러고 싶어 하지 않습니다.</p>
+
+      <h3>Roots가 있을 때의 흐름</h3>
+      <ul>
+        <li>사용자가 영상 파일 변환을 요청</li>
+        <li>Claude가 <code>list_roots</code>로 접근 가능한 디렉터리를 확인</li>
+        <li>Claude가 <code>read_dir</code>로 접근 가능한 디렉터리에서 파일을 탐색</li>
+        <li>찾으면 전체 경로로 변환 도구를 호출</li>
+      </ul>
+      <p>이 과정이 자동으로 일어나므로, 사용자는 여전히 "biking.mp4 변환해줘"라고만 하면 됩니다.</p>
+
+      <h3>보안과 경계</h3>
+      <p>Roots는 접근을 제한해 보안도 제공합니다. Desktop 폴더만 허용하면 MCP 서버는 Documents·Downloads 같은 다른 위치의 파일에 접근할 수 없습니다. 승인된 roots 밖의 파일에 접근을 시도하면 오류가 나고, 서버는 현재 구성에서 그 파일에 접근할 수 없음을 사용자에게 알릴 수 있습니다.</p>
+
+      <h3>구현 세부</h3>
+      <p>MCP SDK는 root 제한을 <strong>자동으로 강제하지 않습니다</strong> — 직접 구현해야 합니다. 전형적인 패턴은 <code>is_path_allowed()</code> 같은 헬퍼 함수를 만드는 것입니다.</p>
+      <ul>
+        <li>요청된 파일 경로를 받음</li>
+        <li>승인된 roots 목록을 가져옴</li>
+        <li>요청 경로가 그중 하나에 속하는지 확인</li>
+        <li>접근 허용 여부를 true/false로 반환</li>
+      </ul>
+      <p>파일·디렉터리에 접근하는 모든 도구에서, 실제 파일 작업 전에 이 함수를 호출합니다.</p>
+
+      <h3>핵심 이점</h3>
+      <ul>
+        <li><strong>사용자 친화적</strong> — 전체 경로를 입력할 필요 없음</li>
+        <li><strong>탐색 집중</strong> — 승인된 디렉터리만 보므로 파일 검색이 빠름</li>
+        <li><strong>보안</strong> — 승인 영역 밖 민감 파일 접근을 방지</li>
+        <li><strong>유연성</strong> — roots를 도구로 제공하거나 프롬프트에 직접 주입 가능</li>
+      </ul>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Roots 예제 프로젝트 훑어보기</div></div>
     </section>
 
-    <!-- LESSON: roots-walkthrough -->
+    <!-- L7 -->
     <section class="lesson" id="roots-walkthrough">
       <div class="lesson-head">
         <div class="lesson-num">07</div>
-        <div class="eyebrow">핵심 고급 기능 · 레슨 07</div>
-        <h1 class="lesson-title">루트 워크스루</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="eyebrow">Roots · 레슨 07</div>
+        <h1 class="lesson-title">Roots 예제 훑어보기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>루트를 실제로 구현하는 과정을 단계별로 살펴보는 실습 레슨입니다. 사용자가 CLI 인자로 허용할 경로 목록을 전달하면, 클라이언트가 이를 루트 객체로 만들어 서버에 노출하고, 서버는 루트 콜백을 통해 허용된 경로를 확인해 접근 권한을 검증하는 흐름을 다룹니다.</p>
+      <p>Roots를 활용한 예제 프로젝트를 단계별로 살펴보는 인터랙티브 walkthrough입니다. 클라이언트가 승인된 디렉터리 목록을 <code>list_roots</code>로 노출하고, 서버 도구가 파일 작업 전에 <code>is_path_allowed()</code>로 경로가 허용 범위 안인지 검증하는 흐름을 코드 위에서 확인합니다.</p>
+      <div class="card"><ul>
+        <li><strong>클라이언트</strong> — 접근을 허용할 root 디렉터리를 선언·제공</li>
+        <li><strong>서버</strong> — 실제 파일/디렉터리 접근 전에 경로가 root 안에 있는지 직접 검사</li>
+      </ul></div>
+      <div class="tip"><strong>기억할 점</strong> · SDK는 root 경계를 강제하지 않으므로, 경로 검증 로직은 개발자가 각 도구에 넣어야 합니다.</div>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 전송과 통신 — JSON 메시지 타입</div></div>
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · JSON 메시지 타입 — MCP 통신의 언어</div></div>
     </section>
 
-    <!-- LESSON: json-message-types -->
+    <!-- L8 -->
     <section class="lesson" id="json-message-types">
       <div class="lesson-head">
         <div class="lesson-num">08</div>
-        <div class="eyebrow">전송과 통신 · 레슨 08</div>
+        <div class="eyebrow">Transports · 레슨 08</div>
         <h1 class="lesson-title">JSON 메시지 타입</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>MCP가 통신에 사용하는 <strong>JSON 메시지 타입</strong>을 다루는 레슨입니다. MCP는 JSON-RPC 기반으로 요청·응답·알림 등 여러 형식의 메시지를 주고받는데, 이러한 메시지 구조를 이해하면 전송 계층에서 실제로 어떤 데이터가 오가는지 파악할 수 있습니다.</p>
+      <p>MCP는 클라이언트와 서버 사이의 통신을 <strong>JSON 메시지</strong>로 처리합니다. 이 메시지 타입들을 이해하는 건 MCP 작업에 필수이며, 특히 StreamableHTTP 같은 서로 다른 전송 방식을 다룰 때 중요합니다.</p>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · STDIO 전송</div></div>
+      <h3>메시지 포맷</h3>
+      <p>모든 MCP 통신은 JSON 메시지로 일어납니다. 각 타입은 도구 호출, 리소스 목록 조회, 시스템 이벤트 알림 등 특정 목적을 갖습니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747889%2F005_-_JSON_Message_Types_04.1749747889371.png" alt="강의 도식">
+      <p>전형적인 예: Claude가 MCP 서버가 제공하는 도구를 호출해야 하면, 클라이언트가 "Call Tool Request" 메시지를 보냅니다. 서버가 처리·실행 후 결과를 담은 "Call Tool Result" 메시지로 응답합니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747889%2F005_-_JSON_Message_Types_05.1749747889768.png" alt="강의 도식">
+
+      <h3>MCP 명세</h3>
+      <p>전체 메시지 타입 목록은 GitHub의 공식 <strong>MCP 명세 저장소</strong>에 정의돼 있습니다. 이 명세는 각종 SDK 저장소(Python·TypeScript 등)와 별개이며, MCP가 어떻게 동작해야 하는지에 대한 <strong>권위 있는 출처</strong>입니다. 메시지 타입은 편의상 TypeScript로 쓰여 있는데 — 실행되는 코드라서가 아니라, TypeScript가 데이터 구조와 타입을 명확히 기술하기 때문입니다.</p>
+
+      <h3>메시지 두 범주</h3>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747891%2F005_-_JSON_Message_Types_13.1749747891508.png" alt="강의 도식">
+      <table>
+        <colgroup><col style="width:32%"><col></colgroup>
+        <tr><th>범주</th><th>설명</th></tr>
+        <tr><td><strong>Request-Result</strong></td><td>항상 쌍으로 옴 — 요청을 보내고 결과를 기대. Call Tool, List Prompts, Read Resource, Initialize 등.</td></tr>
+        <tr><td><strong>Notification</strong></td><td>응답이 필요 없는 단방향 메시지 — Progress, Logging Message, Tool List Changed, Resource Updated 등.</td></tr>
+      </table>
+
+      <h3>클라이언트 vs 서버 메시지</h3>
+      <p>명세는 <strong>누가 보내느냐</strong>로 메시지를 나눕니다. 클라이언트 메시지는 클라이언트가 서버에 보내는 요청(도구 호출 등)과 알림이고, 서버 메시지는 서버가 클라이언트에 보내는 요청과 서버가 방송하는 알림입니다.</p>
+      <div class="callout">핵심 통찰: MCP는 <strong>양방향 프로토콜</strong>이라 클라이언트와 서버 <strong>모두 통신을 개시</strong>할 수 있습니다. 서버가 클라이언트에 메시지를 보낼 수 있다는 점은, 일부 전송 방식(예: StreamableHTTP)이 <strong>어떤 방향의 메시지를 제한</strong>하는지 고를 때 특히 중요해집니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · STDIO 전송 — 가장 단순한 통로</div></div>
     </section>
 
-    <!-- LESSON: stdio-transport -->
+    <!-- L9 -->
     <section class="lesson" id="stdio-transport">
       <div class="lesson-head">
         <div class="lesson-num">09</div>
-        <div class="eyebrow">전송과 통신 · 레슨 09</div>
+        <div class="eyebrow">Transports · 레슨 09</div>
         <h1 class="lesson-title">STDIO 전송</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p><strong>STDIO 전송(transport)</strong> 방식을 다루는 레슨입니다. STDIO는 표준 입출력 스트림을 통해 클라이언트와 서버가 통신하는 방식으로, 주로 같은 머신에서 로컬 프로세스로 실행되는 MCP 서버에 적합합니다. 언제 이 전송 방식을 선택하는지 살펴봅니다.</p>
+      <p>MCP 클라이언트와 서버는 JSON 메시지를 주고받지만, 이 메시지가 실제로 어떻게 전달될까요? 통신 채널을 <strong>전송(transport)</strong>이라 하며, HTTP 요청부터 WebSocket까지(심지어 엽서에 JSON을 적는 것까지 — 프로덕션엔 비추천) 여러 방식이 있습니다.</p>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · StreamableHTTP 전송</div></div>
+      <h3>STDIO 전송</h3>
+      <p>MCP 서버·클라이언트를 처음 개발할 때 가장 흔히 쓰는 건 <strong>STDIO 전송</strong>입니다. 클라이언트가 MCP 서버를 <strong>서브프로세스</strong>로 띄우고, 표준 입력·출력 스트림으로 통신합니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747951%2F006_-_The_Stdio_Transport_02.1749747951605.png" alt="강의 도식">
+      <ul>
+        <li>클라이언트는 서버의 <strong>stdin</strong>으로 메시지를 보냄</li>
+        <li>서버는 <strong>stdout</strong>에 써서 응답</li>
+        <li>서버든 클라이언트든 언제든 메시지를 보낼 수 있음</li>
+        <li><strong>같은 머신</strong>에서 실행될 때만 동작</li>
+      </ul>
+
+      <h3>터미널에서 직접 보기</h3>
+      <p>별도 클라이언트를 짜지 않고 터미널에서 MCP 서버를 직접 테스트할 수 있습니다. <code>uv run server.py</code>로 실행하면 서버가 stdin을 듣고 stdout에 씁니다. 즉, JSON 메시지를 터미널에 붙여넣고 서버 응답을 즉시 볼 수 있습니다.</p>
+
+      <h3>MCP 연결 시퀀스</h3>
+      <p>모든 MCP 연결은 세 메시지 핸드셰이크로 시작해야 합니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747952%2F006_-_The_Stdio_Transport_07.1749747952662.png" alt="강의 도식">
+      <ul>
+        <li><strong>Initialize Request</strong> — 클라이언트가 먼저 보냄</li>
+        <li><strong>Initialize Result</strong> — 서버가 자기 능력(capabilities)으로 응답</li>
+        <li><strong>Initialized Notification</strong> — 클라이언트가 확인(응답 불필요)</li>
+      </ul>
+      <p>이 핸드셰이크 이후에야 도구 호출·프롬프트 목록 같은 다른 요청을 보낼 수 있습니다.</p>
+
+      <h3>메시지 흐름</h3>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747953%2F006_-_The_Stdio_Transport_13.1749747953112.png" alt="강의 도식">
+      <p>어떤 메시지는 응답을 요구하고(요청 → 결과), 어떤 건 아닙니다(알림). 클라이언트와 서버 모두 언제든 통신을 개시할 수 있습니다.</p>
+
+      <h3>네 가지 통신 시나리오</h3>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747953%2F006_-_The_Stdio_Transport_15.1749747953530.png" alt="강의 도식">
+      <ul>
+        <li>클라이언트 → 서버 요청: 클라이언트가 stdin에 씀</li>
+        <li>서버 → 클라이언트 응답: 서버가 stdout에 씀</li>
+        <li>서버 → 클라이언트 요청: 서버가 stdout에 씀</li>
+        <li>클라이언트 → 서버 응답: 클라이언트가 stdin에 씀</li>
+      </ul>
+
+      <div class="callout">STDIO의 아름다움은 <strong>단순함</strong>입니다 — 두 채널만으로 어느 쪽이든 언제든 통신을 개시할 수 있어, <strong>완전한 양방향 통신의 "이상적" 기준</strong>이 됩니다. HTTP로 옮겨가면 서버가 항상 클라이언트에 요청을 개시할 수 없는 제약을 만납니다. 개발·테스트엔 STDIO가 완벽하지만, 서로 다른 머신에서 돌려야 하는 프로덕션엔 다른 전송을 고려해야 합니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · StreamableHTTP 전송 — 원격 서버로 가기</div></div>
     </section>
 
-    <!-- LESSON: streamablehttp-transport -->
+    <!-- L10 -->
     <section class="lesson" id="streamablehttp-transport">
       <div class="lesson-head">
         <div class="lesson-num">10</div>
-        <div class="eyebrow">전송과 통신 · 레슨 10</div>
+        <div class="eyebrow">Transports · 레슨 10</div>
         <h1 class="lesson-title">StreamableHTTP 전송</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p><strong>StreamableHTTP 전송</strong> 방식을 소개하는 레슨입니다. HTTP를 기반으로 하여 원격에서 MCP 서버와 통신할 수 있게 해 주는 전송으로, 네트워크 너머의 서버에 연결하거나 스트리밍 응답을 다루어야 하는 상황에서 사용됩니다. STDIO와의 차이를 이해하는 데 초점을 둡니다.</p>
+      <p><strong>StreamableHTTP 전송</strong>은 MCP 클라이언트가 원격 호스팅된 서버에 HTTP로 연결하게 합니다. 클라이언트·서버가 같은 머신에 있어야 하는 STDIO와 달리, 누구나 접근할 수 있는 <strong>공개 MCP 서버</strong>의 가능성을 엽니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747948%2F007_-_The_StreamableHTTP_Transport_00.1749747948797.png" alt="강의 도식">
+      <p>다만 중요한 함정이 있습니다. 일부 설정이 서버 기능을 크게 제한할 수 있습니다. 로컬 STDIO에선 완벽하던 앱이 HTTP 전송으로 배포하자 깨진다면, 이 설정이 원인일 가능성이 높습니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747949%2F007_-_The_StreamableHTTP_Transport_02.1749747949391.png" alt="강의 도식">
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · StreamableHTTP 심화</div></div>
+      <h3>중요한 설정 두 가지</h3>
+      <ul>
+        <li><code>stateless_http</code> — 연결 상태 관리를 제어</li>
+        <li><code>json_response</code> — 응답 포맷 처리를 제어</li>
+      </ul>
+      <p>기본값은 둘 다 <code>false</code>지만, 특정 배포 시나리오는 <code>true</code>로 강제할 수 있습니다. 켜지면 진행 알림·로깅·서버 개시 요청 같은 핵심 기능이 깨질 수 있습니다.</p>
+
+      <h3>HTTP 통신의 난제</h3>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747951%2F007_-_The_StreamableHTTP_Transport_13.1749747951318.png" alt="강의 도식">
+      <ul>
+        <li>클라이언트는 서버에 쉽게 요청을 개시할 수 있음(서버 URL이 알려져 있음)</li>
+        <li>서버는 그 요청에 쉽게 응답할 수 있음</li>
+        <li>서버가 클라이언트에 요청을 개시하긴 어려움(클라이언트 URL이 없음)</li>
+        <li>클라이언트에서 서버로 돌아가는 응답 패턴이 까다로워짐</li>
+      </ul>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747952%2F007_-_The_StreamableHTTP_Transport_15.1749747951861.png" alt="강의 도식">
+
+      <h3>영향받는 MCP 메시지 타입</h3>
+      <ul>
+        <li><strong>서버 개시 요청</strong>: Create Message 요청, List Roots 요청</li>
+        <li><strong>알림</strong>: Progress, Logging, Initialized, Cancelled 알림</li>
+      </ul>
+      <p>제한적 HTTP 설정을 켜면 바로 이 기능들이 깨집니다 — 진행 바가 사라지고, 로깅이 멈추고, 서버 개시 sampling 요청이 실패합니다.</p>
+
+      <h3>StreamableHTTP의 해법</h3>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747953%2F007_-_The_StreamableHTTP_Transport_19.1749747952895.png" alt="강의 도식">
+      <p>StreamableHTTP는 HTTP의 한계를 우회하는 영리한 해법을 제공하지만 트레이드오프가 따릅니다. <code>stateless_http=True</code>나 <code>json_response=True</code>로 강제되면, 우회하는 대신 <strong>HTTP의 제약 안에서 동작</strong>하라고 전송에 지시하는 셈입니다.</p>
+      <div class="callout">서버 개시 요청이나 실시간 알림에 크게 의존한다면, 전송 선택을 다시 고민하거나 대체 통신 패턴을 구현해야 할 수 있습니다. 핵심은 <strong>이 제약이 존재함을 알고 아키텍처를 그에 맞게 설계</strong>하는 것입니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · StreamableHTTP 심화 — SSE 우회 메커니즘</div></div>
     </section>
 
-    <!-- LESSON: streamablehttp-in-depth -->
+    <!-- L11 -->
     <section class="lesson" id="streamablehttp-in-depth">
       <div class="lesson-head">
         <div class="lesson-num">11</div>
-        <div class="eyebrow">전송과 통신 · 레슨 11</div>
+        <div class="eyebrow">Transports · 레슨 11</div>
         <h1 class="lesson-title">StreamableHTTP 심화</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>StreamableHTTP 전송을 더 깊이 파고드는 레슨입니다. 이 전송이 내부적으로 어떻게 동작하는지, 요청과 스트리밍 응답이 어떤 방식으로 처리되는지 자세히 살펴보며, 원격 MCP 서버를 구성할 때 알아 두어야 할 세부 사항을 다룹니다.</p>
+      <p>StreamableHTTP는 MCP의 근본 문제 — 일부 기능은 서버가 클라이언트에 요청을 보내야 하는데 HTTP는 이를 어렵게 만든다 — 에 대한 해법입니다. 이 우회가 어떻게 동작하고, 언제 그 우회를 깨야 하는지 살펴봅니다.</p>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · StreamableHTTP와 상태(state)</div></div>
+      <h3>핵심 문제</h3>
+      <p>sampling·알림·로깅 같은 기능은 <strong>서버가 클라이언트에 요청을 개시</strong>하는 데 의존합니다. 그러나 HTTP는 클라이언트가 서버에 요청하도록 설계돼 그 반대가 아닙니다. StreamableHTTP는 <strong>Server-Sent Events(SSE)</strong>를 이용한 영리한 우회로 이를 해결합니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747952%2F008_-_StreamableHTTP_in_Depth_04.1749747952200.png" alt="강의 도식">
+
+      <h3>초기 연결 설정</h3>
+      <ul>
+        <li>클라이언트가 <strong>Initialize Request</strong>를 보냄</li>
+        <li>서버가 특별한 <code>mcp-session-id</code> 헤더를 포함한 <strong>Initialize Result</strong>로 응답</li>
+        <li>클라이언트가 세션 ID를 담아 <strong>Initialized Notification</strong>을 보냄</li>
+      </ul>
+      <p>이 세션 ID는 클라이언트를 유일하게 식별하며, 이후 모든 요청에 포함돼야 합니다.</p>
+
+      <h3>SSE 우회</h3>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747953%2F008_-_StreamableHTTP_in_Depth_06.1749747952963.png" alt="강의 도식">
+      <p>초기화 후 클라이언트는 GET 요청으로 SSE 연결을 맺습니다. 이는 장수하는 HTTP 응답을 만들어, 서버가 언제든 메시지를 스트리밍해 돌려보낼 수 있게 합니다. 이 SSE 연결이 <strong>서버→클라이언트 통신의 핵심</strong>입니다.</p>
+
+      <h3>도구 호출과 이중 SSE 연결</h3>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747953%2F008_-_StreamableHTTP_in_Depth_08.1749747953358.png" alt="강의 도식">
+      <ul>
+        <li><strong>주 SSE 연결</strong> — 서버 개시 요청용, 무기한 열려 있음</li>
+        <li><strong>도구별 SSE 연결</strong> — 각 도구 호출마다 생성, 도구 결과 전송 시 자동 종료</li>
+      </ul>
+
+      <h3>메시지 라우팅</h3>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747953%2F008_-_StreamableHTTP_in_Depth_11.1749747953846.png" alt="강의 도식">
+      <ul>
+        <li><strong>진행 알림</strong> — 주 SSE 연결로 전송</li>
+        <li><strong>로그 메시지·도구 결과</strong> — 도구별 SSE 연결로 전송</li>
+      </ul>
+
+      <h3>우회를 깨는 설정 플래그</h3>
+      <p><code>stateless_http</code>와 <code>json_response</code>를 <code>True</code>로 두면 SSE 우회 메커니즘이 깨질 수 있습니다. 특정 시나리오에선 켜고 싶을 수 있지만, 서버→클라이언트 통신에 의존하는 완전한 MCP 기능이 제한됩니다.</p>
+      <div class="callout">StreamableHTTP는 HTTP의 한계를 우회해야 하므로 다른 전송보다 복잡합니다. <strong>초기화 이후 모든 요청에 세션 ID가 필요</strong>하고, 시스템이 여러 SSE 연결을 자동 관리한다는 점 — 이 <strong>이중 연결 모델</strong>을 이해하는 것이 디버깅·최적화의 핵심입니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · State와 StreamableHTTP — 스케일링과 두 플래그</div></div>
     </section>
 
-    <!-- LESSON: state-and-streamablehttp -->
-    <section class="lesson" id="state-and-streamablehttp">
+    <!-- L12 -->
+    <section class="lesson" id="state-streamablehttp">
       <div class="lesson-head">
         <div class="lesson-num">12</div>
-        <div class="eyebrow">전송과 통신 · 레슨 12</div>
-        <h1 class="lesson-title">StreamableHTTP와 상태</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="eyebrow">Transports · 레슨 12</div>
+        <h1 class="lesson-title">State와 StreamableHTTP</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>StreamableHTTP 전송에서 <strong>상태(state)</strong>를 어떻게 다루는지 살펴보는 레슨입니다. HTTP 기반 연결에서 세션 상태를 유지할지 상태 없이(stateless) 운영할지에 따라 서버 설계가 달라지며, 각 방식의 특징과 고려 사항을 이해합니다.</p>
+      <p>MCP 서버의 <code>stateless_http</code>·<code>json_response</code> 플래그는 서버 동작의 근본을 제어합니다. 언제·왜 쓰는지 이해하는 건, 특히 서버를 <strong>스케일링</strong>하거나 프로덕션에 배포할 계획이라면 매우 중요합니다.</p>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 마무리</div></div>
+      <h3>Stateless HTTP가 필요해지는 때</h3>
+      <p>MCP 서버가 인기를 얻는다고 상상해 보세요. 처음엔 단일 서버 인스턴스에 몇몇 클라이언트만 붙습니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747958%2F009_-_Stateless_HTTP_01.1749747958582.png" alt="강의 도식">
+      <p>수천 클라이언트가 연결을 시도하면 단일 인스턴스로는 감당이 안 됩니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747959%2F009_-_Stateless_HTTP_02.1749747959000.png" alt="강의 도식">
+      <p>전형적 해법은 <strong>수평 확장</strong> — 로드 밸런서 뒤에 여러 서버 인스턴스를 두는 것입니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747959%2F009_-_Stateless_HTTP_03.1749747959503.png" alt="강의 도식">
+      <p>여기서 복잡해집니다. MCP 클라이언트는 두 개의 연결이 필요합니다.</p>
+      <ul>
+        <li>서버→클라이언트 요청을 받는 <strong>GET SSE 연결</strong></li>
+        <li>도구 호출·응답을 위한 <strong>POST 요청</strong></li>
+      </ul>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747960%2F009_-_Stateless_HTTP_05.1749747960146.png" alt="강의 도식">
+      <p>로드 밸런서에선 이 요청들이 <strong>서로 다른 인스턴스</strong>로 라우팅될 수 있습니다. 도구가 sampling으로 Claude를 써야 하면, POST를 처리하는 서버가 GET SSE를 처리하는 서버와 조율해야 하는 복잡한 문제가 생깁니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747960%2F009_-_Stateless_HTTP_06.1749747960668.png" alt="강의 도식">
+
+      <h3>Stateless HTTP가 해결하는 방식</h3>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747961%2F009_-_Stateless_HTTP_09.1749747961056.png" alt="강의 도식">
+      <p><code>stateless_http=True</code>는 이 조율 문제를 없애지만 큰 대가가 따릅니다.</p>
+      <ul>
+        <li>클라이언트가 세션 ID를 못 받음 — 서버가 개별 클라이언트를 추적 못 함</li>
+        <li>서버→클라이언트 요청 불가 — GET SSE 경로가 사라짐</li>
+        <li>sampling 불가 — Claude 등 AI 모델을 못 씀</li>
+        <li>진행 보고 불가 — 긴 작업 중 진행 업데이트 못 보냄</li>
+        <li>구독 불가 — 리소스 갱신 알림 못 보냄</li>
+      </ul>
+      <p>다만 한 가지 이점: <strong>클라이언트 초기화가 더 이상 필요 없습니다.</strong> 초기 핸드셰이크 없이 바로 요청할 수 있습니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1749747961%2F009_-_Stateless_HTTP_10.1749747961577.png" alt="강의 도식">
+
+      <h3>JSON Response 이해하기</h3>
+      <p><code>json_response=True</code>는 더 단순합니다 — POST 응답의 <strong>스트리밍을 끕니다.</strong> 도구 실행 중 여러 SSE 메시지를 받는 대신, 최종 결과만 평범한 JSON으로 받습니다(중간 진행 메시지·실행 중 로그 없음).</p>
+
+      <h3>언제 쓰나</h3>
+      <table>
+        <colgroup><col style="width:34%"><col></colgroup>
+        <tr><th>stateless HTTP</th><th>json response</th></tr>
+        <tr><td>로드 밸런서로 수평 확장 필요 / 서버→클라이언트 통신 불필요 / 도구가 AI 샘플링 불필요 / 연결 오버헤드 최소화</td><td>스트리밍 응답 불필요 / 더 단순한 비스트리밍 HTTP 선호 / 평범한 JSON을 기대하는 시스템과 통합</td></tr>
+      </table>
+      <div class="tip"><strong>개발 vs 프로덕션</strong> · 로컬에선 STDIO로 개발하더라도 <strong>배포에 쓸 전송으로 테스트</strong>하세요. stateful/stateless 모드의 동작 차이는 클 수 있어, 배포 후가 아니라 개발 중에 문제를 잡는 편이 낫습니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 마무리 — 배운 것 정리</div></div>
     </section>
 
-    <!-- LESSON: wrapping-up -->
+    <!-- L13 -->
     <section class="lesson" id="wrapping-up">
       <div class="lesson-head">
         <div class="lesson-num">13</div>
-        <div class="eyebrow">마무리 · 레슨 13</div>
-        <h1 class="lesson-title">정리하기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="eyebrow">Wrapping up · 레슨 13</div>
+        <h1 class="lesson-title">마무리</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>코스에서 다룬 고급 주제들을 정리하는 마무리 레슨입니다. 샘플링, 로그·진행 알림, 루트, 그리고 STDIO·StreamableHTTP 전송이라는 핵심 개념을 되짚으며, 이 심화 기능들을 실제 MCP 서버·클라이언트에 적용해 볼 채비를 합니다.</p>
+      <p>이 코스에서는 MCP의 고급 패턴을 두루 살펴봤습니다. 서버가 클라이언트를 통해 Claude를 호출하는 <strong>sampling</strong>, 오래 걸리는 작업의 <strong>로그·진행 알림</strong>, 파일 접근을 통제하는 <strong>roots</strong>, MCP 통신의 언어인 <strong>JSON 메시지 타입</strong>, 그리고 그것을 실어 나르는 두 전송(<strong>STDIO</strong>·<strong>StreamableHTTP</strong>)까지 다뤘습니다.</p>
+      <div class="card"><ul>
+        <li><strong>Sampling</strong> · 비용·복잡성을 클라이언트로 이동</li>
+        <li><strong>Notifications</strong> · 진행·로그로 UX 개선(선택 사항)</li>
+        <li><strong>Roots</strong> · 사용자 친화성과 보안을 동시에</li>
+        <li><strong>Transports</strong> · STDIO는 이상적 양방향, StreamableHTTP는 SSE로 우회 — 단 <code>stateless_http</code>·<code>json_response</code>가 기능을 제한</li>
+      </ul></div>
+      <div class="callout">가장 중요한 교훈: <strong>서버 개시 통신이 필요한 기능(sampling·알림)</strong>은 전송과 설정에 민감합니다. 배포 환경과 스케일링 요구를 먼저 정하고, 그에 맞춰 전송·플래그를 선택하세요.</div>
 
-      <div class="next"><span class="arrow">→</span><div><b>완주</b> · Model Context Protocol: Advanced Topics의 레슨들을 모두 개관했습니다. 세부 실습은 원문 영상을 참고하세요.</div></div>
+      <div class="next"><span class="arrow">→</span><div><b>완주</b> · MCP: Advanced Topics의 고급 주제를 모두 정리했습니다 — sampling·notifications·roots에서 전송 계층의 상태 관리까지, 이제 프로덕션급 MCP 서버를 설계할 토대가 갖춰졌습니다.</div></div>
     </section>
 
    </div>
@@ -220,26 +597,30 @@ description: "Anthropic 공식 영어 강의 MCP: Advanced Topics의 한글 개�
 
 <script>
   const curriculum = [
-    { n:"01", section:"소개", lessons:[
-      { id:"lets-get-started", title:"코스 시작하기", done:true },
+    { n:"01", section:"Getting started", lessons:[
+      { id:"intro", title:"시작하기", done:true },
     ]},
-    { n:"02", section:"핵심 고급 기능", lessons:[
-      { id:"sampling", title:"샘플링(Sampling)", done:true },
-      { id:"sampling-walkthrough", title:"샘플링 워크스루", done:true },
-      { id:"log-and-progress-notifications", title:"로그·진행 알림", done:true },
-      { id:"notifications-walkthrough", title:"알림 워크스루", done:true },
-      { id:"roots", title:"루트(Roots)", done:true },
-      { id:"roots-walkthrough", title:"루트 워크스루", done:true },
+    { n:"02", section:"Sampling", lessons:[
+      { id:"sampling", title:"Sampling", done:true },
+      { id:"sampling-walkthrough", title:"Sampling 예제 훑어보기", done:true },
     ]},
-    { n:"03", section:"전송과 통신", lessons:[
+    { n:"03", section:"Notifications", lessons:[
+      { id:"log-progress", title:"로그와 진행 알림", done:true },
+      { id:"notifications-walkthrough", title:"알림 예제 훑어보기", done:true },
+    ]},
+    { n:"04", section:"Roots", lessons:[
+      { id:"roots", title:"Roots", done:true },
+      { id:"roots-walkthrough", title:"Roots 예제 훑어보기", done:true },
+    ]},
+    { n:"05", section:"Transports", lessons:[
       { id:"json-message-types", title:"JSON 메시지 타입", done:true },
       { id:"stdio-transport", title:"STDIO 전송", done:true },
       { id:"streamablehttp-transport", title:"StreamableHTTP 전송", done:true },
       { id:"streamablehttp-in-depth", title:"StreamableHTTP 심화", done:true },
-      { id:"state-and-streamablehttp", title:"StreamableHTTP와 상태", done:true },
+      { id:"state-streamablehttp", title:"State와 StreamableHTTP", done:true },
     ]},
-    { n:"04", section:"마무리", lessons:[
-      { id:"wrapping-up", title:"정리하기", done:true },
+    { n:"06", section:"Wrapping up", lessons:[
+      { id:"wrapping-up", title:"마무리", done:true },
     ]},
   ];
 </script>

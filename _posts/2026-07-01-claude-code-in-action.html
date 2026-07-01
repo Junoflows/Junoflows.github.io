@@ -5,7 +5,7 @@ date: 2026-07-01
 categories: [강의 정리]
 tags: [Claude Code, Anthropic, AI, 개발]
 permalink: /courses/anthropic/claude-code-in-action.html
-description: "Anthropic 공식 영어 강의 Claude Code in Action의 한글 개요 — 영상 중심 강의의 레슨별 핵심 주제와 원문 영상 링크."
+description: "Anthropic 공식 영어 강의 Claude Code in Action을 한글로 정리한 학습 노트 — Claude Code를 실제 개발 워크플로우에 통합(본문 요약 + 강의 도식 이미지)."
 ---
 {% include course-styles.html %}
 
@@ -16,11 +16,11 @@ description: "Anthropic 공식 영어 강의 Claude Code in Action의 한글 개
       <a class="backlink" href="/courses/anthropic/">← Anthropic Courses</a>
       <p class="kicker">Anthropic Academy</p>
       <h1>Claude <em>Code in Action</em></h1>
-      <p class="sub">Anthropic Academy 공식 영상 강의의 한글 개요 노트</p>
+      <p class="sub">Anthropic Academy 공식 영어 강의를 한글로 정리한 학습 노트</p>
       <a class="srcnote" href="https://anthropic.skilljar.com/claude-code-in-action" target="_blank" rel="noopener">원문 강의 (영어) ↗</a>
       <div class="progress-wrap">
         <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-        <div class="progress-text"><span id="progressPos">레슨 01 / 21</span><span id="progressPct">영상 강의 개요</span></div>
+        <div class="progress-text"><span id="progressPos">레슨 01 / 18</span><span id="progressPct">전체 정리 완료</span></div>
       </div>
     </div>
     <nav class="spine" id="nav"></nav>
@@ -29,309 +29,810 @@ description: "Anthropic 공식 영어 강의 Claude Code in Action의 한글 개
   <main class="content">
    <div class="reading" id="reading">
 
-    <!-- LESSON: introduction -->
+    <!-- L1 -->
     <section class="lesson active" id="introduction">
       <div class="lesson-head">
         <div class="lesson-num">01</div>
-        <div class="eyebrow">Intro · 레슨 01</div>
-        <h1 class="lesson-title">Introduction</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span></div>
+        <div class="eyebrow">Getting started · 레슨 01</div>
+        <h1 class="lesson-title">코스 소개</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <div class="callout">이 강의는 <strong>영상 중심 강의</strong>입니다. 레슨 대부분이 별도 아티클 본문 없이 영상으로 진행되므로, 이 페이지는 각 레슨의 <strong>핵심 주제 개요 + 원문 영상 링크</strong>로 정리했습니다. 자세한 실습·화면 시연은 <strong>원문 영상</strong>을 직접 참고하세요.</div>
+      <p>이 코스는 <strong>Claude Code</strong>를 실제 개발 워크플로우에 통합하는 법을 다룹니다. 코딩 어시스턴트의 원리부터 설치·컨텍스트 관리·커스텀 명령·MCP·GitHub 통합·훅(hook)·Agent SDK까지, Claude Code를 단순한 코드 생성기가 아니라 <strong>개발 파트너</strong>로 쓰는 방법을 단계별로 살펴봅니다.</p>
 
-      <p>이 코스가 무엇을 다루는지, 어떻게 진행되는지 소개하는 오리엔테이션 레슨입니다. Claude Code를 실제 프로젝트에 적용해 코드를 이해·수정하고, MCP·GitHub·Hooks·SDK로 확장하는 전체 여정을 개관합니다.</p>
-
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 코딩 어시스턴트란 무엇인가 — 개념 소개</div></div>
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 코딩 어시스턴트란 무엇인가 — 도구 사용(tool use)의 원리</div></div>
     </section>
 
-    <!-- LESSON: what-is-a-coding-assistant -->
-    <section class="lesson" id="what-is-a-coding-assistant">
+    <!-- L2 -->
+    <section class="lesson" id="what-is-coding-assistant">
       <div class="lesson-head">
         <div class="lesson-num">02</div>
-        <div class="eyebrow">Intro · 레슨 02</div>
+        <div class="eyebrow">Getting started · 레슨 02</div>
         <h1 class="lesson-title">코딩 어시스턴트란?</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>코딩 어시스턴트가 무엇이고, 기존 챗봇형 AI와 어떻게 다른지 개념을 잡는 레슨입니다. Claude Code 같은 에이전트형 도구가 코드 작업에서 어떤 역할을 하는지 살펴봅니다.</p>
+      <p>코딩 어시스턴트는 단순히 코드를 써주는 도구가 아니라, <strong>언어 모델을 이용해 복잡한 프로그래밍 과제를 해결하는 시스템</strong>입니다. 내부 동작을 이해하면 무엇이 진짜 강력한 코딩 동반자를 만드는지 알 수 있습니다.</p>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Claude Code를 실제로 동작시키는 모습</div></div>
+      <h3>코딩 어시스턴트의 작동 방식</h3>
+      <p>에러 메시지를 보고 버그를 고치는 것 같은 작업을 주면, 어시스턴트는 사람 개발자와 비슷한 절차를 밟습니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1750967940%2F002_-_What_is_a_Coding_Assistant%3F_02.1750967940100.png" alt="강의 도식">
+      <ul>
+        <li><strong>컨텍스트 수집</strong> — 에러가 무엇을 가리키는지, 코드베이스의 어느 부분이 영향을 받는지, 어떤 파일이 관련 있는지 파악</li>
+        <li><strong>계획 수립</strong> — 코드를 바꾸고 테스트를 돌려 수정을 검증하는 등 해결 방법 결정</li>
+        <li><strong>행동 실행</strong> — 파일을 실제로 수정하고 명령을 실행해 해결책 구현</li>
+      </ul>
+      <div class="callout">핵심 통찰: <strong>첫 단계와 마지막 단계는 외부 세계와 상호작용</strong>해야 합니다 — 파일 읽기, 문서 가져오기, 명령 실행, 코드 편집.</div>
+
+      <h3>도구 사용(tool use)의 난제</h3>
+      <p>언어 모델은 그 자체로는 <strong>텍스트를 입력받아 텍스트를 반환</strong>할 뿐, 파일을 읽거나 명령을 실행할 수 없습니다. 단독 언어 모델에게 파일을 읽어달라 하면 그런 능력이 없다고 답합니다. 그럼 어떻게 해결할까요? <strong>"tool use"</strong>라는 영리한 시스템을 씁니다.</p>
+
+      <h3>도구 사용은 어떻게 동작하나</h3>
+      <p>요청을 보낼 때, 어시스턴트가 메시지에 <strong>행동을 요청하는 법을 가르치는 지침</strong>을 자동으로 덧붙입니다. 예: "파일을 읽고 싶으면 'ReadFile: 파일명'으로 응답하라". 전체 흐름은 이렇습니다.</p>
+      <ul>
+        <li>사용자: "main.go 파일에 어떤 코드가 있나?"</li>
+        <li>어시스턴트가 요청에 도구 지침을 추가</li>
+        <li>언어 모델: "ReadFile: main.go"</li>
+        <li>어시스턴트가 실제 파일을 읽어 그 내용을 모델에 다시 전달</li>
+        <li>모델이 파일 내용을 근거로 최종 답변 제공</li>
+      </ul>
+      <p>이 시스템 덕에 모델은 실제로는 <strong>형식에 맞춘 텍스트를 생성할 뿐</strong>인데도 "파일 읽기", "코드 쓰기", "명령 실행"을 사실상 해낼 수 있습니다.</p>
+
+      <h3>왜 Claude의 도구 사용이 중요한가</h3>
+      <p>모든 언어 모델이 도구를 똑같이 잘 쓰는 건 아닙니다. <strong>Claude 계열 모델은 도구가 무엇을 하는지 이해하고 효과적으로 사용하는 데 특히 강합니다.</strong></p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1750967942%2F002_-_What_is_a_Coding_Assistant%3F_14.1750967942536.png" alt="강의 도식">
+
+      <h3>강한 도구 사용의 이점</h3>
+      <ul>
+        <li><strong>더 어려운 과제 처리</strong> — 여러 도구를 조합해 복잡한 일을 다루고, 처음 보는 도구도 사용</li>
+        <li><strong>확장 가능한 플랫폼</strong> — 새 도구를 쉽게 추가하고, 워크플로우가 진화하면 Claude가 적응</li>
+        <li><strong>더 나은 보안</strong> — 인덱싱 없이 코드베이스를 탐색 → 전체 코드베이스를 외부 서버로 보내지 않는 경우가 많음</li>
+      </ul>
+      <div class="card"><ul>
+        <li>코딩 어시스턴트는 언어 모델로 다양한 작업을 수행</li>
+        <li>대부분의 실전 프로그래밍 작업엔 도구가 필요</li>
+        <li>모델마다 도구 사용 능력이 다름</li>
+        <li>Claude의 강한 도구 사용이 <strong>보안·커스터마이징·수명</strong>을 뒷받침</li>
+      </ul></div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Claude Code의 실제 동작</div></div>
     </section>
 
-    <!-- LESSON: claude-code-in-action -->
+    <!-- L3 -->
     <section class="lesson" id="claude-code-in-action">
       <div class="lesson-head">
         <div class="lesson-num">03</div>
-        <div class="eyebrow">Intro · 레슨 03</div>
-        <h1 class="lesson-title">Claude Code in action</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="eyebrow">Getting started · 레슨 03</div>
+        <h1 class="lesson-title">Claude Code의 실제 동작</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>Claude Code가 실제로 코드베이스와 상호작용하며 작업을 수행하는 모습을 시연으로 보여주는 레슨입니다. 앞으로 다룰 기능들이 실전에서 어떻게 쓰이는지 감을 잡을 수 있습니다.</p>
+      <p>Claude Code에는 파일 읽기, 코드 쓰기, 명령 실행, 디렉터리 관리 같은 일상 개발 작업을 처리하는 <strong>내장 도구 세트</strong>가 갖춰져 있습니다. 하지만 진짜 강력한 점은 <strong>이 도구들을 얼마나 지능적으로 조합해</strong> 복잡한 다단계 문제를 풀어내는가입니다.</p>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · Claude Code를 내 컴퓨터에 설치하기</div></div>
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Claude Code 설치하기</div></div>
     </section>
 
-    <!-- LESSON: claude-code-setup -->
+    <!-- L4 -->
     <section class="lesson" id="claude-code-setup">
       <div class="lesson-head">
         <div class="lesson-num">04</div>
-        <div class="eyebrow">Setup · 레슨 04</div>
+        <div class="eyebrow">Getting started · 레슨 04</div>
         <h1 class="lesson-title">Claude Code 설치</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>Claude Code를 로컬에 설치하는 방법을 다룹니다. 전체 설치 가이드는 <a href="https://code.claude.com/docs/en/quickstart" target="_blank" rel="noopener">공식 quickstart 문서</a>를 참고하세요.</p>
+      <p>Claude Code를 로컬에 설치할 차례입니다. 전체 설치 안내는 <a href="https://code.claude.com/docs/en/quickstart" target="_blank" rel="noopener">공식 quickstart 문서</a>에서 확인할 수 있습니다.</p>
+      <h3>설치</h3>
+      <pre><code>MacOS, Linux, WSL:      curl -fsSL https://claude.ai/install.sh | bash
+Windows PowerShell:     irm https://claude.ai/install.ps1 | iex
+Windows Command Prompt:  curl -fsSL https://claude.ai/install.cmd -o install.cmd && install.cmd && del install.cmd
+MacOS (Homebrew):       brew install --cask claude-code</code></pre>
+      <ul>
+        <li>설치 후 터미널에서 <code>claude</code> 실행. 첫 실행 시 <strong>색상 테마 선택</strong>과 <strong>claude.ai 계정 인증</strong> 안내가 뜹니다.</li>
+      </ul>
+      <div class="tip"><strong>문제 해결</strong> · 설치 후 <code>claude</code>를 못 찾거나 네트워크·권한 에러가 나면 문서의 "Troubleshoot installation issues"를 참고하세요. Amazon Bedrock·Google Cloud Vertex AI·Microsoft Foundry로 쓴다면 서드파티 제공자 설정 안내가 별도로 있습니다.</div>
 
-      <h3>설치 명령</h3>
-      <div class="card"><ul>
-        <li><strong>macOS · Linux · WSL</strong> — <code>curl -fsSL https://claude.ai/install.sh | bash</code></li>
-        <li><strong>Windows PowerShell</strong> — <code>irm https://claude.ai/install.ps1 | iex</code></li>
-        <li><strong>Windows CMD</strong> — <code>curl -fsSL https://claude.ai/install.cmd -o install.cmd &amp;&amp; install.cmd &amp;&amp; del install.cmd</code></li>
-        <li><strong>macOS (Homebrew)</strong> — <code>brew install --cask claude-code</code></li>
-      </ul></div>
-      <p>설치 후 터미널에서 <code>claude</code>를 실행합니다. 처음 실행하면 컬러 테마 선택과 claude.ai 계정 인증을 거칩니다.</p>
-      <div class="tip"><strong>문제 해결</strong> · <code>claude</code>가 인식되지 않거나 네트워크·권한 오류가 나면 문서의 "Troubleshoot installation issues"를 확인하세요. Amazon Bedrock·Google Cloud Vertex AI·Microsoft Foundry를 통해 쓰는 경우 third-party provider setup 안내를 따르세요.</div>
-
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 실습용 예제 프로젝트 세팅</div></div>
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 실습 프로젝트 세팅</div></div>
     </section>
 
-    <!-- LESSON: project-setup -->
+    <!-- L5 -->
     <section class="lesson" id="project-setup">
       <div class="lesson-head">
         <div class="lesson-num">05</div>
-        <div class="eyebrow">Setup · 레슨 05</div>
+        <div class="eyebrow">Getting started · 레슨 05</div>
         <h1 class="lesson-title">프로젝트 세팅</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>Claude Code를 체험하기 좋은 예제 프로젝트를 준비합니다. 이전 영상에 등장한 <strong>UI 생성 앱(uigen)</strong>과 동일한 프로젝트로, 강의를 따라가는 데 사용합니다. 꼭 이 프로젝트를 쓰지 않아도 되며, 자신의 코드베이스로 진행해도 됩니다.</p>
-
-      <h3>세팅 절차</h3>
-      <div class="card"><ul>
-        <li>로컬에 <strong>Node.js</strong>가 설치되어 있는지 확인</li>
+      <p>실습에 쓸 작은 프로젝트가 있으면 Claude Code를 다루기가 더 흥미롭습니다. 강의에서는 이전 영상에 나온 것과 같은 <strong>UI 생성 앱</strong>을 제공합니다. (꼭 이 프로젝트를 돌릴 필요는 없고, 원하는 자신의 코드베이스로 따라가도 됩니다.)</p>
+      <h3>세팅</h3>
+      <ul>
+        <li>로컬에 <strong>Node JS</strong> 설치 확인</li>
         <li>강의에 첨부된 <code>uigen.zip</code>을 내려받아 압축 해제</li>
-        <li>프로젝트 디렉터리에서 <code>npm run setup</code> — 의존성 설치 + 로컬 SQLite DB 생성</li>
+        <li>프로젝트 디렉터리에서 <code>npm run setup</code> — 의존성 설치 + 로컬 SQLite DB 구성</li>
+        <li>(선택) 이 앱은 Anthropic API로 UI 컴포넌트를 생성합니다. 완전히 테스트하려면 API 키가 필요합니다. 건너뛰어도 정적 가짜 코드는 생성됩니다.
+          <ul>
+            <li><a href="https://console.anthropic.com/" target="_blank" rel="noopener">console.anthropic.com</a>에서 API 키 발급</li>
+            <li><code>.env</code> 파일의 <code>your-api-key-here</code> 자리에 실제 키를 넣기</li>
+          </ul>
+        </li>
         <li><code>npm run dev</code>로 프로젝트 시작</li>
-      </ul></div>
-      <div class="tip"><strong>선택</strong> · 이 앱은 Anthropic API로 UI 컴포넌트를 생성합니다. 전체 기능을 테스트하려면 <a href="https://console.anthropic.com/" target="_blank" rel="noopener">Anthropic 콘솔</a>에서 API 키를 받아 <code>.env</code> 파일의 <code>your-api-key-here</code>를 교체하세요. 생략해도 앱은 정적 예시 코드를 생성합니다.</div>
+      </ul>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 코드 작업 — Claude에게 컨텍스트 제공하기</div></div>
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 컨텍스트 추가 — CLAUDE.md로 Claude를 안내하기</div></div>
     </section>
 
-    <!-- LESSON: adding-context -->
+    <!-- L6 -->
     <section class="lesson" id="adding-context">
       <div class="lesson-head">
         <div class="lesson-num">06</div>
-        <div class="eyebrow">Working with code · 레슨 06</div>
-        <h1 class="lesson-title">컨텍스트 추가하기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="eyebrow">Core workflow · 레슨 06</div>
+        <h1 class="lesson-title">컨텍스트 추가</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>Claude가 코드베이스를 잘 이해하도록 <strong>필요한 컨텍스트를 제공</strong>하는 방법을 다룹니다. 어떤 파일·정보를 언제 Claude에게 전달할지가 좋은 결과의 출발점입니다.</p>
+      <div class="tip">영상은 제거된 옛 <code>#</code> "메모리 모드" 단축키를 보여줍니다. 아래 텍스트대로 <code>/memory</code>와 <code>CLAUDE.md</code> 직접 편집을 사용하세요.</div>
+      <p>코딩 작업에서 <strong>컨텍스트 관리</strong>는 매우 중요합니다. 프로젝트에 수십·수백 개 파일이 있어도 Claude에는 <strong>맞는 정보만</strong> 필요합니다. 관련 없는 컨텍스트가 너무 많으면 오히려 성능이 떨어지므로, 관련 파일·문서로 안내하는 법을 익혀야 합니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1750967940%2F004_-_Adding_Context_02.1750967940092.png" alt="강의 도식">
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Claude로 코드에 실제 변경 적용하기</div></div>
+      <h3>/init 명령</h3>
+      <p>새 프로젝트에서 Claude를 처음 시작할 때 <code>/init</code>을 실행하면, Claude가 코드베이스 전체를 분석해 다음을 파악합니다.</p>
+      <ul>
+        <li>프로젝트의 목적과 아키텍처</li>
+        <li>중요한 명령과 핵심 파일</li>
+        <li>코딩 패턴과 구조</li>
+      </ul>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1750967941%2F004_-_Adding_Context_05.1750967940882.png" alt="강의 도식">
+      <p>분석 후 Claude는 요약을 만들어 <code>CLAUDE.md</code> 파일에 씁니다. 파일 생성 권한을 물을 때 Enter로 매 쓰기를 승인하거나, <strong>Shift+Tab</strong>으로 세션 내내 자유롭게 쓰도록 허용할 수 있습니다.</p>
+
+      <h3>CLAUDE.md 파일</h3>
+      <p><code>CLAUDE.md</code>의 두 가지 목적:</p>
+      <ul>
+        <li>중요한 명령·아키텍처·코딩 스타일을 짚어주며 Claude를 코드베이스 안내</li>
+        <li>Claude에 구체적·커스텀 지시를 부여</li>
+      </ul>
+      <div class="callout">이 파일은 <strong>모든 요청에 포함</strong>됩니다 — 프로젝트별 <strong>영속 시스템 프롬프트</strong>를 갖는 셈.</div>
+
+      <h3>CLAUDE.md의 세 위치</h3>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1750967941%2F004_-_Adding_Context_09.1750967941793.png" alt="강의 도식">
+      <table>
+        <colgroup><col style="width:32%"><col></colgroup>
+        <tr><th>파일</th><th>용도</th></tr>
+        <tr><td><code>CLAUDE.md</code></td><td><code>/init</code>으로 생성, 소스 관리에 커밋, 다른 엔지니어와 공유</td></tr>
+        <tr><td><code>CLAUDE.local.md</code></td><td>공유하지 않음 — 개인 지시·커스터마이징</td></tr>
+        <tr><td><code>~/.claude/CLAUDE.md</code></td><td>내 머신의 모든 프로젝트에 적용되는 지시</td></tr>
+      </table>
+
+      <h3>커스텀 지시 추가</h3>
+      <p><code>CLAUDE.md</code>에 지시를 넣어 동작을 조정합니다. 예를 들어 주석을 너무 많이 단다면, 에디터에서 직접 편집하거나 <code>/memory</code>로 파일을 열어 <code>Use comments sparingly. Only comment complex code</code> 같은 지시를 추가합니다. Claude는 대화 시작마다 이 파일을 읽으므로 <strong>다음 메시지부터 적용</strong>됩니다.</p>
+
+      <h3>'@'로 파일 언급</h3>
+      <p>특정 파일을 보게 하려면 <code>@</code> 뒤에 파일 경로를 붙입니다. 그 파일 내용이 요청에 자동 포함됩니다.</p>
+      <pre><code>How does the auth system work? @auth</code></pre>
+      <p>Claude가 auth 관련 파일 목록을 보여주고, 선택한 파일을 대화에 포함합니다.</p>
+
+      <h3>CLAUDE.md 안에서 파일 참조</h3>
+      <p><code>CLAUDE.md</code> 안에서도 같은 <code>@</code> 문법을 쓸 수 있습니다. 여러 곳에 관련되는 파일(예: DB 스키마)에 특히 유용합니다.</p>
+      <pre><code>The database schema is defined in the @prisma/schema.prisma file. Reference it anytime you need to understand the structure of data stored in the database.</code></pre>
+      <p>이렇게 언급하면 그 내용이 <strong>매 요청에 자동 포함</strong>돼, 매번 스키마를 찾아 읽지 않고도 데이터 구조를 바로 답할 수 있습니다.</p>
+      <div class="tip">이미 다른 도구용 <code>AGENTS.md</code>가 있다면 중복할 필요 없이, <code>CLAUDE.md</code> 첫 줄에 <code>@AGENTS.md</code>를 추가하면 그 내용을 먼저 로드합니다. 아래에 Claude 전용 지시를 덧붙이면 됩니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 변경 만들기 — 스크린샷·플래닝 모드·effort</div></div>
     </section>
 
-    <!-- LESSON: making-changes -->
+    <!-- L7 -->
     <section class="lesson" id="making-changes">
       <div class="lesson-head">
         <div class="lesson-num">07</div>
-        <div class="eyebrow">Working with code · 레슨 07</div>
-        <h1 class="lesson-title">코드 변경하기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="eyebrow">Core workflow · 레슨 07</div>
+        <h1 class="lesson-title">변경 만들기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>Claude Code에게 코드 수정을 요청하고 <strong>변경을 적용·검토</strong>하는 과정을 다룹니다. 파일 편집을 승인하고 결과를 확인하는 실전 흐름을 볼 수 있습니다.</p>
+      <div class="tip">영상은 이제 효과가 없는 옛 "think harder" 키워드를 보여줍니다. 아래 텍스트대로 <code>/effort</code>를 사용하세요.</div>
+      <p>기존 프로젝트에 변경을 만들 때 유용한 실전 기법 — <strong>스크린샷을 통한 시각적 소통</strong>과 <strong>Claude의 추론 능력 활용</strong>을 다룹니다.</p>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 컨텍스트 윈도우를 효율적으로 관리하기</div></div>
+      <h3>스크린샷으로 정확히 소통하기</h3>
+      <p>인터페이스의 특정 부분을 수정할 때 스크린샷을 붙이면 Claude가 무엇을 가리키는지 정확히 이해합니다. 붙여넣기는 <strong><code>Ctrl+V</code></strong>를 씁니다(macOS에서도 <code>Cmd+V</code>가 아님). 이미지를 붙인 뒤 해당 영역에 대한 구체적 변경을 요청하면 됩니다.</p>
+
+      <h3>플래닝 모드</h3>
+      <p>코드베이스 전반을 폭넓게 조사해야 하는 복잡한 작업엔 <strong>플래닝 모드</strong>를 켭니다. <code>/plan</code>을 입력하거나 <strong>Shift+Tab을 두 번</strong>(이미 자동 수락 중이면 한 번) 눌러 활성화합니다. 이 모드에서 Claude는:</p>
+      <ul>
+        <li>프로젝트의 더 많은 파일을 읽음</li>
+        <li>상세한 구현 계획을 작성</li>
+        <li>무엇을 할지 정확히 보여줌</li>
+        <li>승인 전까지 대기</li>
+      </ul>
+      <div class="tip">계획을 검토할 때 <code>Ctrl+G</code>로 텍스트 에디터에서 열 수 있습니다. 승인 전에 정밀하게 편집하면 Claude가 최종본을 반영합니다.</div>
+
+      <h3>Effort 레벨 — Claude가 얼마나 깊이 생각하나</h3>
+      <p>기본적으로 Claude는 답하기 전에 추론합니다("still thinking" 힌트). 실제 추론 단계를 펼쳐 보려면 <code>Ctrl+O</code>를 누릅니다. <code>/effort</code>로 현재 레벨을 확인·조정하세요 — <code>low</code>는 빠르고 저렴, <code>max</code>는 어려운 문제에 가장 오래 추론합니다. 기본값은 모델·플랜에 따라 다릅니다.</p>
+      <div class="callout">단일 프롬프트에서만 더 생각하게 하려면 프롬프트에 <code>ultrathink</code> 키워드를 넣으세요 — 그 턴만 추론을 늘리고 세션 effort 레벨은 바꾸지 않습니다.</div>
+
+      <h3>플래닝 vs Effort — 언제 무엇을</h3>
+      <table>
+        <colgroup><col style="width:34%"><col></colgroup>
+        <tr><th>플래닝 모드가 좋은 경우</th><th>높은 effort가 좋은 경우</th></tr>
+        <tr><td>코드베이스의 넓은 이해가 필요, 다단계 구현, 여러 파일·컴포넌트에 영향</td><td>복잡한 로직 문제, 어려운 디버깅, 알고리즘 난제</td></tr>
+      </table>
+      <p>넓이와 깊이를 모두 요하는 작업엔 둘을 조합할 수 있습니다. 다만 둘 다 <strong>추가 토큰을 소비</strong>하므로 비용을 고려하세요.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 컨텍스트 흐름 제어 — escape·rewind·compact·clear</div></div>
     </section>
 
-    <!-- LESSON: controlling-context -->
+    <!-- L8 -->
     <section class="lesson" id="controlling-context">
       <div class="lesson-head">
         <div class="lesson-num">08</div>
-        <div class="eyebrow">Working with code · 레슨 08</div>
-        <h1 class="lesson-title">컨텍스트 제어하기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="eyebrow">Core workflow · 레슨 08</div>
+        <h1 class="lesson-title">컨텍스트 흐름 제어</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>컨텍스트 윈도우가 유한하다는 점을 전제로, <strong>무엇을 담고 무엇을 비울지</strong> 관리하는 방법을 다룹니다. 컨텍스트를 깨끗하게 유지해 Claude의 작업 품질을 높이는 기법을 살펴봅니다.</p>
+      <div class="tip">영상은 메모리 추가용 옛 <code>#</code> 단축키를 보여줍니다. 아래 텍스트대로 <code>/memory</code>를 사용하세요.</div>
+      <p>복잡한 작업에선 대화를 집중·생산적으로 이끌기 위해 흐름을 제어해야 합니다. 몇 가지 기법이 있습니다.</p>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 커스텀 명령(custom commands) 만들기</div></div>
+      <h3>Escape로 Claude 중단</h3>
+      <p>Claude가 엉뚱한 방향으로 가거나 너무 많은 일을 한꺼번에 하려 하면 <strong>Escape</strong>로 응답 중간에 멈추고 방향을 다시 잡을 수 있습니다. 예: 여러 함수의 테스트를 한꺼번에 계획하려 할 때 멈추고 <strong>한 함수씩</strong> 집중하게 합니다.</p>
+
+      <h3>Escape + 메모리</h3>
+      <p>반복 실수를 고치는 데 특히 강력합니다.</p>
+      <ul>
+        <li>Escape로 현재 응답 중단</li>
+        <li><code>/memory</code>(또는 <code>CLAUDE.md</code> 직접 편집)로 올바른 방식 메모 추가</li>
+        <li>수정된 정보로 대화 계속</li>
+      </ul>
+      <p>이렇게 하면 앞으로의 대화에서 같은 실수를 막습니다.</p>
+
+      <h3>대화 되감기(rewind)</h3>
+      <p>긴 대화에선 무관한 컨텍스트가 쌓입니다(예: 에러 디버깅의 왕복). <strong>Escape 두 번</strong> 또는 <code>/rewind</code>로 이전 지점으로 되돌아갑니다. 장점:</p>
+      <ul>
+        <li>코드베이스 이해 같은 <strong>가치 있는 컨텍스트 유지</strong></li>
+        <li>산만한 이력 제거</li>
+        <li>현재 작업에 집중</li>
+      </ul>
+
+      <h3>컨텍스트 관리 명령</h3>
+      <table>
+        <colgroup><col style="width:20%"><col></colgroup>
+        <tr><th>명령</th><th>설명</th></tr>
+        <tr><td><code>/compact</code></td><td>대화 이력을 <strong>요약</strong>하되 Claude가 배운 핵심 정보는 보존. 값진 지식을 쌓았고 관련 작업을 이어갈 때 이상적.</td></tr>
+        <tr><td><code>/clear</code></td><td><strong>새 컨텍스트</strong>로 시작. 완전히 다른 작업으로 전환하거나 이전 맥락이 방해될 때. 이력에서 삭제되진 않으며 <code>/resume</code>으로 이전 대화로 돌아갈 수 있음.</td></tr>
+      </table>
+      <div class="callout">이 기법들이 특히 유용한 상황: 긴 대화로 컨텍스트가 어질러질 때, 작업 전환, 반복 실수, 특정 컴포넌트에 집중이 필요한 복잡 프로젝트. 단순 편의 기능이 아니라 <strong>효과적인 AI 협업의 필수 도구</strong>입니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 커스텀 명령 만들기</div></div>
     </section>
 
-    <!-- LESSON: custom-commands -->
+    <!-- L9 -->
     <section class="lesson" id="custom-commands">
       <div class="lesson-head">
         <div class="lesson-num">09</div>
-        <div class="eyebrow">Working with code · 레슨 09</div>
-        <h1 class="lesson-title">커스텀 명령 (Custom commands)</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="eyebrow">Extending Claude Code · 레슨 09</div>
+        <h1 class="lesson-title">커스텀 명령</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>반복하는 작업을 <strong>커스텀 명령(슬래시 커맨드)</strong>으로 만들어 재사용하는 방법을 다룹니다. 자주 쓰는 프롬프트·워크플로우를 명령으로 정의해 일관되게 실행할 수 있습니다.</p>
+      <p>슬래시로 접근하는 내장 명령 외에, 자주 하는 반복 작업을 자동화하는 <strong>커스텀 명령</strong>을 직접 만들 수 있습니다.</p>
+      <h3>커스텀 명령 만들기</h3>
+      <ul>
+        <li>프로젝트의 <code>.claude</code> 폴더를 찾음</li>
+        <li>그 안에 <code>commands</code> 디렉터리 생성</li>
+        <li>원하는 명령 이름의 마크다운 파일 생성(예: <code>audit.md</code>)</li>
+      </ul>
+      <p>파일명이 명령 이름이 됩니다 — <code>audit.md</code> → <code>/audit</code>.</p>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · MCP 서버로 외부 도구 연결하기</div></div>
+      <h3>예시: audit 명령</h3>
+      <p>프로젝트 의존성의 취약점을 점검하는 커스텀 명령 예시는 세 가지를 합니다.</p>
+      <ul>
+        <li><code>npm audit</code>으로 취약 패키지 탐색</li>
+        <li><code>npm audit fix</code>로 업데이트 적용</li>
+        <li>테스트를 돌려 업데이트가 무언가를 깨지 않았는지 검증</li>
+      </ul>
+      <p>파일을 만들면 Claude Code가 <strong>자동으로 인식</strong>합니다 — 재시작 불필요.</p>
+
+      <h3>인자를 받는 명령</h3>
+      <p><code>$ARGUMENTS</code> 플레이스홀더로 인자를 받아 훨씬 유연·재사용 가능하게 만듭니다. 예: <code>write_tests.md</code></p>
+      <pre><code>Write comprehensive tests for: $ARGUMENTS
+
+Testing conventions:
+* Use Vitest with React Testing Library
+* Place test files in a __tests__ directory in the same folder as the source file
+* Name test files as [filename].test.ts(x)
+* Use @/ prefix for imports
+
+Coverage:
+* Test happy paths
+* Test edge cases
+* Test error states</code></pre>
+      <p>파일 경로와 함께 실행:</p>
+      <pre><code>/write_tests the use-auth.ts file in the hooks directory</code></pre>
+      <p>인자는 파일 경로일 필요 없이 <strong>어떤 문자열</strong>이든 될 수 있어 작업에 컨텍스트·방향을 줍니다.</p>
+      <div class="card"><ul>
+        <li><strong>자동화</strong> — 반복 워크플로우를 단일 명령으로</li>
+        <li><strong>일관성</strong> — 매번 같은 단계 보장</li>
+        <li><strong>컨텍스트</strong> — 프로젝트별 지시·관례 제공</li>
+        <li><strong>유연성</strong> — 인자로 다양한 입력 처리</li>
+      </ul></div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · MCP 서버로 Claude Code 확장</div></div>
     </section>
 
-    <!-- LESSON: mcp-servers -->
+    <!-- L10 -->
     <section class="lesson" id="mcp-servers">
       <div class="lesson-head">
         <div class="lesson-num">10</div>
-        <div class="eyebrow">Integrations · 레슨 10</div>
-        <h1 class="lesson-title">MCP 서버 연동</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="eyebrow">Extending Claude Code · 레슨 10</div>
+        <h1 class="lesson-title">MCP 서버와 Claude Code</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>MCP(Model Context Protocol) 서버를 Claude Code에 붙여 <strong>외부 도구·데이터 소스</strong>에 연결하는 방법을 다룹니다. 코드베이스 밖에 있는 컨텍스트를 에이전트가 활용할 수 있게 됩니다.</p>
+      <p><strong>MCP(Model Context Protocol) 서버</strong>를 추가해 Claude Code를 확장할 수 있습니다. 이 서버들은 원격 또는 로컬에서 돌며, 기본으로는 없는 새 도구·능력을 제공합니다. 가장 인기 있는 것 중 하나가 <strong>Playwright</strong> — Claude에게 웹 브라우저 제어 능력을 줍니다.</p>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · GitHub 통합</div></div>
+      <h3>Playwright MCP 서버 설치</h3>
+      <p>터미널에서(Claude Code 내부가 아님) 실행:</p>
+      <pre><code>claude mcp add playwright npx @playwright/mcp@latest</code></pre>
+      <p>이 명령은 서버를 "playwright"로 이름 짓고, 로컬에서 서버를 시작하는 명령을 지정합니다.</p>
+
+      <h3>권한 관리</h3>
+      <p>MCP 도구를 처음 쓸 때 Claude가 매번 권한을 묻습니다. 귀찮다면 <code>.claude/settings.local.json</code>에서 사전 승인합니다.</p>
+      <pre><code>{
+"permissions": {
+"allow": ["mcp__playwright"],
+"deny": []
+}
+}</code></pre>
+      <p><code>mcp__playwright</code>의 <strong>이중 언더스코어</strong>에 주의하세요. 이렇게 하면 매번 묻지 않고 Playwright 도구를 씁니다.</p>
+
+      <h3>실전 예시: 컴포넌트 생성 개선</h3>
+      <p>프롬프트를 손으로 테스트·조정하는 대신 Claude에게 이렇게 시킬 수 있습니다.</p>
+      <ul>
+        <li>브라우저를 열어 앱으로 이동</li>
+        <li>테스트 컴포넌트 생성</li>
+        <li>시각적 스타일·코드 품질 분석</li>
+        <li>관찰 결과로 생성 프롬프트 갱신</li>
+        <li>개선된 프롬프트로 새 컴포넌트 재테스트</li>
+      </ul>
+      <p>예: "localhost:3000으로 이동해 기본 컴포넌트를 생성하고, 스타일을 검토한 뒤, <code>@src/lib/prompts/generation.tsx</code>의 생성 프롬프트를 더 나은 컴포넌트가 나오도록 갱신하라." Claude는 브라우저 도구로 앱과 상호작용하고, 산출물을 살펴본 뒤 프롬프트 파일을 수정합니다.</p>
+
+      <h3>결과와 이점</h3>
+      <p>실제로 훨씬 나은 결과로 이어질 수 있습니다. 밋밋한 보라→파랑 그라디언트와 표준 Tailwind 패턴 대신 Claude가 이런 방향을 유도하도록 프롬프트를 갱신할 수 있습니다.</p>
+      <ul>
+        <li>따뜻한 노을 그라디언트(오렌지→핑크→퍼플)</li>
+        <li>바다 깊이 테마(틸→에메랄드→시안)</li>
+        <li>비대칭 디자인·겹치는 요소</li>
+        <li>창의적 여백·관습을 벗어난 레이아웃</li>
+      </ul>
+      <div class="callout">핵심 이점: Claude가 <strong>코드뿐 아니라 실제 시각 산출물을 볼 수 있어</strong> 스타일 개선을 훨씬 잘 판단합니다.</div>
+      <p>Playwright는 시작일 뿐입니다. 생태계엔 DB 상호작용, API 테스트·모니터링, 파일시스템 조작, 클라우드 연동, 개발 도구 자동화 등을 위한 서버가 있습니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · GitHub 통합 — GitHub Actions 안의 Claude</div></div>
     </section>
 
-    <!-- LESSON: github-integration -->
+    <!-- L11 -->
     <section class="lesson" id="github-integration">
       <div class="lesson-head">
         <div class="lesson-num">11</div>
-        <div class="eyebrow">Integrations · 레슨 11</div>
+        <div class="eyebrow">Extending Claude Code · 레슨 11</div>
         <h1 class="lesson-title">GitHub 통합</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>Claude Code를 <strong>GitHub와 연동</strong>해 PR·이슈 등 협업 워크플로우에 활용하는 방법을 다룹니다. git 기반 작업을 에이전트와 함께 매끄럽게 이어가는 방식을 살펴봅니다.</p>
+      <p>Claude Code는 <strong>GitHub Actions 안에서 Claude를 실행</strong>하는 공식 GitHub 통합을 제공합니다. 두 가지 워크플로우 — 이슈·PR에서의 <strong>멘션 지원</strong>과 <strong>자동 PR 리뷰</strong>가 핵심입니다.</p>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · Hooks 소개 — 결정론적 자동화</div></div>
+      <h3>통합 설정</h3>
+      <p>Claude에서 <code>/install-github-app</code>을 실행하면 다음 과정을 안내합니다.</p>
+      <ul>
+        <li>GitHub에 Claude Code 앱 설치</li>
+        <li>API 키 추가</li>
+        <li>워크플로우 파일을 담은 PR 자동 생성</li>
+      </ul>
+      <p>이 PR이 두 개의 GitHub Action을 추가합니다. 머지하면 <code>.github/workflows</code>에 파일이 생깁니다.</p>
+
+      <h3>기본 GitHub Actions</h3>
+      <table>
+        <colgroup><col style="width:26%"><col></colgroup>
+        <tr><th>액션</th><th>동작</th></tr>
+        <tr><td><strong>Mention</strong></td><td>이슈·PR에서 <code>@claude</code> 멘션 → 요청 분석·계획 → 코드베이스 전권으로 실행 → 이슈·PR에 결과 응답</td></tr>
+        <tr><td><strong>Pull Request</strong></td><td>PR 생성 시 자동으로 변경 리뷰 → 영향 분석 → PR에 상세 리포트 게시</td></tr>
+      </table>
+
+      <h3>워크플로우 커스터마이징</h3>
+      <p>초기 PR 머지 후 워크플로우 파일을 프로젝트에 맞게 수정합니다.</p>
+      <p><strong>프로젝트 셋업 추가</strong> — Claude 실행 전 환경 준비 단계:</p>
+      <pre><code>- name: Project Setup
+run: |
+npm run setup
+npm run dev:daemon</code></pre>
+      <p><strong>커스텀 지시</strong> — 프로젝트 셋업 맥락 제공:</p>
+      <pre><code>custom_instructions: |
+The project is already set up with all dependencies installed.
+The server is already running at localhost:3000. Logs from it
+are being written to logs.txt. If needed, you can query the
+db with the 'sqlite3' cli. If needed, use the mcp__playwright
+set of tools to launch a browser and interact with the app.</code></pre>
+      <p><strong>MCP 서버 구성</strong>:</p>
+      <pre><code>mcp_config: |
+{
+"mcpServers": {
+"playwright": {
+"command": "npx",
+"args": [
+"@playwright/mcp@latest",
+"--allowed-origins",
+"localhost:3000;cdn.tailwindcss.com;esm.sh"
+]
+}
+}
+}</code></pre>
+      <p><strong>도구 권한</strong> — GitHub Actions에선 허용 도구를 <strong>모두 명시</strong>해야 합니다(로컬과 달리 지름길 없음). MCP 서버의 각 도구를 개별 나열:</p>
+      <pre><code>allowed_tools: "Bash(npm:*),Bash(sqlite3:*),mcp__playwright__browser_snapshot,mcp__playwright__browser_click,..."</code></pre>
+      <div class="card"><ul>
+        <li>기본 워크플로우로 시작해 점진적으로 커스터마이징</li>
+        <li>커스텀 지시로 프로젝트별 맥락 제공</li>
+        <li>MCP 사용 시 도구 권한을 명시적으로</li>
+        <li>간단한 작업으로 먼저 테스트</li>
+      </ul></div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 훅(hook) 소개 — 도구 실행 전후에 코드 끼우기</div></div>
     </section>
 
-    <!-- LESSON: introducing-hooks -->
+    <!-- L12 -->
     <section class="lesson" id="introducing-hooks">
       <div class="lesson-head">
         <div class="lesson-num">12</div>
         <div class="eyebrow">Hooks · 레슨 12</div>
-        <h1 class="lesson-title">Hooks 소개</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <h1 class="lesson-title">훅(hook) 소개</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>Hooks가 무엇이고 왜 필요한지 소개하는 레슨입니다. Claude Code 생명주기의 특정 지점에서 <strong>항상 실행되는 명령</strong>으로, 프롬프트에 의존하지 않는 결정론적 제어를 제공합니다.</p>
+      <p><strong>훅(hook)</strong>은 Claude가 도구를 실행하기 <strong>직전·직후</strong>에 명령을 돌리게 해줍니다. 편집 후 포매터 실행, 파일 변경 시 테스트 실행, 특정 파일 접근 차단 같은 자동화에 아주 유용합니다.</p>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Hooks 정의하기 — 이벤트와 설정</div></div>
+      <h3>훅의 작동 방식</h3>
+      <p>보통의 흐름: 질의가 도구 정의와 함께 Claude 모델에 전송 → Claude가 도구 사용을 형식에 맞춰 응답 → Claude Code가 도구를 실행하고 결과 반환. 훅은 이 과정에 끼어들어 <strong>도구 실행 직전·직후에 코드를 실행</strong>합니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1752618158%2F010_-_Introducing_Hooks_06.1752618158162.png" alt="강의 도식">
+      <ul>
+        <li><strong>PreToolUse</strong> 훅 — 도구 호출 전 실행</li>
+        <li><strong>PostToolUse</strong> 훅 — 도구 호출 후 실행</li>
+      </ul>
+
+      <h3>훅 구성</h3>
+      <p>훅은 Claude 설정 파일에 정의합니다.</p>
+      <ul>
+        <li><strong>Global</strong> — <code>~/.claude/settings.json</code>(모든 프로젝트)</li>
+        <li><strong>Project</strong> — <code>.claude/settings.json</code>(팀 공유)</li>
+        <li><strong>Project(비커밋)</strong> — <code>.claude/settings.local.json</code>(개인)</li>
+      </ul>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1752618158%2F010_-_Introducing_Hooks_07.1752618158600.png" alt="강의 도식">
+      <p>파일에 손으로 쓰거나 Claude Code 내부에서 <code>/hooks</code> 명령을 씁니다. 구성 구조는 두 개의 주요 섹션을 포함합니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1752618159%2F010_-_Introducing_Hooks_10.1752618159645.png" alt="강의 도식">
+
+      <h3>PreToolUse 훅</h3>
+      <p>도구 실행 전에 돌며, 대상 도구를 지정하는 <code>matcher</code>를 포함합니다.</p>
+      <pre><code>"PreToolUse": [
+{
+"matcher": "Read",
+"hooks": [
+{
+"type": "command",
+"command": "node /home/hooks/read_hook.js"
+}
+]
+}
+]</code></pre>
+      <p>명령은 Claude가 하려는 도구 호출 정보를 받고, <strong>정상 진행을 허용</strong>하거나 <strong>차단 + 에러 메시지 반환</strong>을 할 수 있습니다.</p>
+
+      <h3>PostToolUse 훅</h3>
+      <p>도구 실행 후에 돕니다. write/edit/multi-edit 뒤 트리거 예시:</p>
+      <pre><code>"PostToolUse": [
+{
+"matcher": "Write|Edit",
+"hooks": [
+{
+"type": "command",
+"command": "node /home/hooks/edit_hook.js"
+}
+]
+}
+]</code></pre>
+      <p>이미 실행됐으므로 차단은 못 하지만, <strong>후속 작업 실행</strong>(방금 편집한 파일 포매팅 등)이나 <strong>추가 피드백 제공</strong>이 가능합니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1752618160%2F010_-_Introducing_Hooks_15.1752618160073.png" alt="강의 도식">
+
+      <h3>실전 활용</h3>
+      <ul>
+        <li><strong>코드 포매팅</strong> — 편집 후 자동 포맷</li>
+        <li><strong>테스트</strong> — 파일 변경 시 자동 실행</li>
+        <li><strong>접근 제어</strong> — 특정 파일 읽기·편집 차단</li>
+        <li><strong>코드 품질</strong> — 린터·타입 체커 실행 후 피드백</li>
+        <li><strong>로깅</strong> — 접근·수정 파일 추적</li>
+        <li><strong>검증</strong> — 명명 규칙·코딩 표준 확인</li>
+      </ul>
+      <div class="callout">PreToolUse 훅은 Claude가 <strong>할 수 있는 것</strong>을 제어하고, PostToolUse 훅은 Claude가 <strong>한 것</strong>을 강화합니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 훅 정의하기 — 4단계·JSON·exit code</div></div>
     </section>
 
-    <!-- LESSON: defining-hooks -->
+    <!-- L13 -->
     <section class="lesson" id="defining-hooks">
       <div class="lesson-head">
         <div class="lesson-num">13</div>
         <div class="eyebrow">Hooks · 레슨 13</div>
-        <h1 class="lesson-title">Hooks 정의하기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <h1 class="lesson-title">훅 정의하기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>어떤 <strong>이벤트</strong>(예: PreToolUse·PostToolUse)에서, 어떤 도구를 대상으로(matcher), 어떤 명령을 실행할지 <strong>hook을 정의</strong>하는 방법을 다룹니다. 설정 구조를 이해하는 레슨입니다.</p>
+      <p>훅은 도구 호출을 실행 전후로 <strong>가로채고 제어</strong>하게 해줍니다. 개발 환경에서 Claude가 무엇을 할 수 있고 없는지 세밀하게 통제할 수 있습니다.</p>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 실제 hook 구현해 보기</div></div>
+      <h3>훅 만들기 — 4단계</h3>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1752618153%2F011_-_Defining_Hooks_05.1752618152864.png" alt="강의 도식">
+      <ul>
+        <li><strong>Pre 또는 Post 결정</strong> — PreToolUse는 실행을 막을 수 있고, PostToolUse는 실행 후 동작</li>
+        <li><strong>감시할 도구 종류 결정</strong> — 어떤 도구가 훅을 트리거할지 정확히 지정</li>
+        <li><strong>도구 호출을 받을 명령 작성</strong> — 표준 입력(stdin)으로 도구 호출 JSON을 받음</li>
+        <li><strong>필요 시 Claude에 피드백</strong> — 명령의 exit code가 허용·차단을 결정</li>
+      </ul>
+
+      <h3>사용 가능한 도구</h3>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1752618153%2F011_-_Defining_Hooks_07.1752618153492.png" alt="강의 도식">
+      <p>현재 셋업에서 어떤 도구가 있는지는 Claude에게 직접 목록을 물으면 됩니다. 커스텀 MCP 서버를 추가하면 도구가 바뀌므로 특히 유용합니다.</p>
+
+      <h3>도구 호출 데이터 구조</h3>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1752618154%2F011_-_Defining_Hooks_11.1752618154320.png" alt="강의 도식">
+      <pre><code>{
+"session_id": "2d6a1e4d-6...",
+"transcript_path": "/Users/sg/...",
+"hook_event_name": "PreToolUse",
+"tool_name": "Read",
+"tool_input": {
+"file_path": "/code/queries/.env"
+}
+}</code></pre>
+      <p>명령은 이 JSON을 stdin에서 읽어 파싱한 뒤, tool name과 input을 근거로 허용·차단을 결정합니다.</p>
+
+      <h3>Exit code와 제어 흐름</h3>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1752618154%2F011_-_Defining_Hooks_16.1752618154725.png" alt="강의 도식">
+      <table>
+        <colgroup><col style="width:22%"><col></colgroup>
+        <tr><th>Exit code</th><th>의미</th></tr>
+        <tr><td><strong>0</strong></td><td>이상 없음 — 도구 호출 진행 허용</td></tr>
+        <tr><td><strong>2</strong></td><td>도구 호출 차단(PreToolUse 전용)</td></tr>
+      </table>
+      <div class="callout">PreToolUse에서 code 2로 종료하면, <strong>stderr에 쓴 에러 메시지가 Claude에 피드백</strong>으로 전달돼 왜 막혔는지 설명합니다.</div>
+      <p>대표 사례: <code>.env</code> 같은 민감 파일 읽기 방지. <code>Read</code>와 <code>Grep</code> 둘 다 파일 내용에 접근하므로 두 도구를 감시하고 제한 경로 접근인지 확인합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 훅 실제 구현 — .env 읽기 차단</div></div>
     </section>
 
-    <!-- LESSON: implementing-a-hook -->
+    <!-- L14 -->
     <section class="lesson" id="implementing-a-hook">
       <div class="lesson-head">
         <div class="lesson-num">14</div>
         <div class="eyebrow">Hooks · 레슨 14</div>
-        <h1 class="lesson-title">Hook 구현하기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <h1 class="lesson-title">훅 구현하기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>앞서 배운 개념을 바탕으로 실제 hook을 <strong>구현·동작 확인</strong>하는 실습 레슨입니다. 설정 파일에 hook을 작성하고 트리거되는 모습을 살펴봅니다.</p>
+      <div class="tip">영상은 Grep을 포함한 이전 버전 연습을 보여줍니다. 아래 텍스트가 현재 버전입니다.</div>
+      <p>Claude가 민감 파일을 읽지 못하게 막는 훅을 만들어봅니다. PreToolUse 훅이 실행 전에 도구 호출을 가로채는 실전 예시입니다. 이 연습에선 <code>Read</code> 도구가 <code>.env</code>를 여는 것을 차단해 세션 중 환경 변수를 보호합니다.</p>
+      <div class="tip">이 훅은 <strong>Read만</strong> 다룹니다. Grep·Bash가 같은 파일에 닿는 것까지 막으려면 도구별 입력 형태를 따로 검사해야 합니다. 포괄적 보호에는 훅과 <code>permissions.deny</code> 규칙(예: <code>"Read(**/.env)"</code>)을 병행하세요.</div>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Hooks 관련 주의점 — 절대경로와 설정 공유</div></div>
+      <h3>훅 구성</h3>
+      <p><code>.claude/settings.local.json</code>을 열어 Read를 매칭하는 PreToolUse 훅을 추가합니다.</p>
+      <pre><code>{
+"hooks": {
+"PreToolUse": [
+{
+"matcher": "Read",
+"hooks": [
+{ "type": "command", "command": "node $PWD/hooks/read_hook.js" }
+]
+}
+]
+}
+}</code></pre>
+
+      <h3>훅 스크립트 작성</h3>
+      <p><code>hooks/read_hook.js</code> 생성:</p>
+      <pre><code>process.stdin.setEncoding("utf8");
+let input = "";
+process.stdin.on("data", (d) => (input += d));
+process.stdin.on("end", () => {
+const toolArgs = JSON.parse(input);
+const readPath = toolArgs.tool_input?.file_path || "";
+if (readPath.includes(".env")) {
+console.error("You cannot read the .env file");
+process.exit(2);
+}
+process.exit(0);
+});</code></pre>
+      <p>훅은 stdin에서 도구 호출 JSON을 읽어 <code>tool_input.file_path</code>를 확인하고, code 2로 종료해 차단합니다(stderr에 쓴 내용이 Claude가 보는 메시지).</p>
+
+      <h3>테스트</h3>
+      <p>세션에서 Claude에게 <code>.env</code>를 읽어달라 하면 다음이 보입니다.</p>
+      <pre><code>You cannot read the .env file</code></pre>
+      <p>훅이 Read 호출을 막은 것입니다. 다른 파일을 읽어달라 하면 정상 동작합니다.</p>
+
+      <h3>왜 Read만?</h3>
+      <p>도구마다 입력 형태가 다릅니다. Read는 <code>{"file_path": "..."}</code>, Grep은 <code>{"pattern": "...", "path": "..."}</code>(여기서 <code>path</code>는 파일이 아닌 <strong>검색 디렉터리</strong>), Bash는 <code>{"command": "..."}</code>. <code>file_path</code> 검사는 Read는 잡지만 <code>API_KEY</code> 전역 grep이나 <code>cat .env</code>는 못 잡습니다. 이를 커버하려면 도구별 matcher를 따로 쓰거나, 도구 전반에 균일하게 적용되는 <code>permissions.deny</code> 규칙을 쓰세요.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 훅의 함정 — 절대 경로와 공유 문제</div></div>
     </section>
 
-    <!-- LESSON: gotchas-around-hooks -->
+    <!-- L15 -->
     <section class="lesson" id="gotchas-around-hooks">
       <div class="lesson-head">
         <div class="lesson-num">15</div>
         <div class="eyebrow">Hooks · 레슨 15</div>
-        <h1 class="lesson-title">Hooks 관련 주의점</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+        <h1 class="lesson-title">훅의 함정(gotchas)</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p><code>npm run setup</code> 후 <code>.claude</code> 디렉터리에 <code>settings.json</code> 파일이 두 개 생기는 이유와, hook 설정을 팀과 공유할 때의 함정을 다룹니다.</p>
+      <p><code>npm run setup</code> 후 <code>.claude</code> 디렉터리에 <code>settings.json</code> 파일이 두 개 생기는 이유를 설명합니다.</p>
+      <p>Claude Code 문서는 훅 보안 권장 사항을 안내합니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1752683124%2FScreenshot+2025-07-16+at+10.25.07%E2%80%AFAM.1752683124012.png" alt="강의 도식">
+      <p>그중 하나가 스크립트에 <strong>상대 경로가 아닌 절대 경로</strong>를 쓰라는 것입니다 — 경로 가로채기·바이너리 심기 공격을 완화합니다.</p>
+      <div class="callout">하지만 절대 경로는 <code>settings.json</code> <strong>공유를 어렵게</strong> 합니다 — 프로젝트 위치가 사람마다 달라 절대 경로가 다르기 때문입니다.</div>
+      <p>이를 해결하려고 프로젝트엔 <code>settings.example.json</code>이 있고, 스크립트 참조에 <code>$PWD</code> 플레이스홀더를 씁니다. <code>npm run setup</code>이 실행하는 <code>init-claude.js</code> 스크립트가 <code>$PWD</code>를 내 머신의 절대 경로로 치환하고, 파일을 복사해 <code>settings.local.json</code>으로 이름을 바꿉니다. 덕분에 <strong>권장 절대 경로를 쓰면서도 설정 파일을 공유</strong>할 수 있습니다.</p>
 
-      <div class="card"><ul>
-        <li><strong>절대경로 권장</strong> — Claude Code 문서는 보안상 스크립트를 <strong>상대경로 대신 절대경로</strong>로 지정하길 권장합니다(경로 가로채기·바이너리 심기 공격 완화).</li>
-        <li><strong>공유의 어려움</strong> — 하지만 절대경로는 사람마다 프로젝트 위치가 달라 <code>settings.json</code>을 그대로 공유하기 어렵게 만듭니다.</li>
-        <li><strong>해결책 — <code>$PWD</code> 플레이스홀더</strong> — 프로젝트에는 <code>settings.example.json</code>이 있고, 스크립트 참조에 <code>$PWD</code> 플레이스홀더를 씁니다.</li>
-        <li><strong><code>init-claude.js</code></strong> — <code>npm run setup</code>이 실행하는 이 스크립트가 <code>$PWD</code>를 내 머신의 절대경로로 치환하고, <code>settings.example.json</code>을 복사해 <code>settings.local.json</code>으로 만듭니다.</li>
-      </ul></div>
-      <div class="callout">덕분에 <strong>권장 방식(절대경로)</strong>을 지키면서도 <strong>설정 파일을 팀과 공유</strong>할 수 있습니다.</div>
-
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 실전에서 유용한 hook 모음</div></div>
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 유용한 훅들 — 타입 체크·중복 방지</div></div>
     </section>
 
-    <!-- LESSON: useful-hooks -->
+    <!-- L16 -->
     <section class="lesson" id="useful-hooks">
       <div class="lesson-head">
         <div class="lesson-num">16</div>
         <div class="eyebrow">Hooks · 레슨 16</div>
-        <h1 class="lesson-title">유용한 Hooks</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <h1 class="lesson-title">유용한 훅들!</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>실무에서 바로 쓸 만한 <strong>유용한 hook 예시</strong>들을 살펴보는 레슨입니다. 자동 포매팅·로깅·차단 등 대표 패턴을 실전 시연으로 보여줍니다.</p>
+      <p>훅은 특히 큰 프로젝트에서 AI 보조 개발의 흔한 약점을 보완합니다. Claude가 코드를 바꿀 때 자동으로 돌아 즉각 피드백을 주고 문제를 예방합니다.</p>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 또 하나의 유용한 hook — 다양한 이벤트와 디버깅</div></div>
+      <h3>TypeScript 타입 체크 훅</h3>
+      <p>근본 문제 하나: Claude가 함수 시그니처를 바꾸면, 프로젝트 곳곳의 <strong>호출부를 다 갱신하지 못하는 경우</strong>가 많습니다. 예를 들어 <code>schema.ts</code> 함수에 <code>verbose</code> 파라미터를 추가하라 하면 정의는 바꾸지만 <code>main.ts</code>의 호출부는 놓칩니다. 해법은 편집 후 TypeScript 컴파일러를 돌리는 post-tool-use 훅입니다.</p>
+      <ul>
+        <li><code>tsc --noEmit</code>으로 타입 에러 검사</li>
+        <li>발견된 에러 캡처</li>
+        <li>Claude에 즉시 피드백</li>
+        <li>다른 파일의 문제를 고치도록 유도</li>
+      </ul>
+      <p>타입 체커를 돌릴 수 있는 언어면 무엇이든 동작합니다. 무타입 언어라면 자동화 테스트로 비슷하게 구현할 수 있습니다.</p>
+
+      <h3>쿼리 중복 방지 훅</h3>
+      <p>DB 쿼리가 많은 큰 프로젝트에선 Claude가 기존 코드를 재사용하지 않고 <strong>중복 기능</strong>을 만들 때가 있습니다. "3일 넘게 대기 중인 주문을 알리는 Slack 통합을 만들라" 같은 복합 작업에서 기존 <code>getPendingOrders()</code> 대신 새 쿼리를 쓰는 식입니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1752618172%2F013_-_Useful_Hooks%21_09.1752618172075.png" alt="강의 도식">
+      <p>쿼리 중복 방지 훅은 리뷰 프로세스를 구현합니다.</p>
+      <img src="https://everpath-course-content.s3-accelerate.amazonaws.com/instructor%2Fa46l9irobhg0f5webscixp0bs%2Fpublic%2F1752618172%2F013_-_Useful_Hooks%21_14.1752618172611.png" alt="강의 도식">
+      <ul>
+        <li><code>./queries</code> 디렉터리 수정 시 트리거</li>
+        <li>별도의 Claude Code 인스턴스를 프로그래밍적으로 실행</li>
+        <li>두 번째 인스턴스에 변경 검토·유사 기존 쿼리 확인 요청</li>
+        <li>중복 발견 시 원래 인스턴스에 피드백</li>
+        <li>중복 제거·기존 기능 사용을 유도</li>
+      </ul>
+
+      <h3>구현 고려사항</h3>
+      <p>TypeScript 훅은 가볍고 빠르지만, 쿼리 중복 훅은 리뷰마다 별도 Claude 인스턴스를 띄워 자원을 더 씁니다.</p>
+      <ul>
+        <li><strong>이점</strong> — 중복 없는 깔끔한 코드베이스</li>
+        <li><strong>비용</strong> — 쿼리 디렉터리 편집마다 추가 시간·API 사용</li>
+        <li><strong>권장</strong> — 핵심 디렉터리만 감시해 오버헤드 최소화</li>
+      </ul>
+      <p>이 훅들은 Claude의 <strong>Agent SDK</strong>로 AI와 프로그래밍적으로 상호작용해, 한 인스턴스가 다른 인스턴스의 작업을 리뷰·피드백하는 정교한 워크플로우를 만듭니다.</p>
+      <div class="card"><ul>
+        <li>컴파일러·린터 출력으로 즉각 피드백</li>
+        <li>별도 AI 인스턴스로 코드 리뷰 프로세스 구현</li>
+        <li>일관성이 중요한 고가치 디렉터리에 감시 집중</li>
+        <li>자동화 이점과 성능 비용의 균형</li>
+      </ul></div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 또 다른 유용한 훅 — 그 외 훅 타입과 디버깅</div></div>
     </section>
 
-    <!-- LESSON: another-useful-hook -->
+    <!-- L17 -->
     <section class="lesson" id="another-useful-hook">
       <div class="lesson-head">
         <div class="lesson-num">17</div>
         <div class="eyebrow">Hooks · 레슨 17</div>
-        <h1 class="lesson-title">또 하나의 유용한 Hook</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+        <h1 class="lesson-title">또 다른 유용한 훅</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>이 코스에서 다룬 <code>PreToolUse</code>·<code>PostToolUse</code> 외에도 다양한 hook 이벤트가 있으며, 각 이벤트마다 명령에 전달되는 <strong>stdin 입력 구조가 다르다</strong>는 점을 다룹니다.</p>
+      <p><code>PreToolUse</code>·<code>PostToolUse</code> 외에도 여러 훅이 있습니다.</p>
+      <table>
+        <colgroup><col style="width:26%"><col></colgroup>
+        <tr><th>훅</th><th>시점</th></tr>
+        <tr><td><strong>Notification</strong></td><td>알림 발생 시(도구 권한 필요, 또는 60초 유휴 후)</td></tr>
+        <tr><td><strong>Stop</strong></td><td>Claude Code가 응답을 마쳤을 때</td></tr>
+        <tr><td><strong>SubagentStop</strong></td><td>서브에이전트("Task"로 표시)가 끝났을 때</td></tr>
+        <tr><td><strong>PreCompact</strong></td><td>compact(수동·자동) 직전</td></tr>
+        <tr><td><strong>UserPromptSubmit</strong></td><td>사용자가 프롬프트를 제출할 때(Claude 처리 전)</td></tr>
+        <tr><td><strong>SessionStart</strong></td><td>세션 시작·재개 시</td></tr>
+        <tr><td><strong>SessionEnd</strong></td><td>세션 종료 시</td></tr>
+      </table>
+      <div class="callout">헷갈리는 점: stdin 입력 형태가 <strong>훅 타입에 따라</strong>(Pre/Post/Notification…) 달라지고, PreToolUse·PostToolUse의 <code>tool_input</code>은 <strong>호출된 도구에 따라</strong> 또 달라집니다.</div>
+      <p><code>TodoWrite</code>를 감시하는 <code>PostToolUse</code> 훅의 stdin 예시:</p>
+      <pre><code>{
+"session_id": "9ecf22fa-edf8-4332-ae85-b6d5456eda64",
+"transcript_path": "<path_to_transcript>",
+"hook_event_name": "PostToolUse",
+"tool_name": "TodoWrite",
+"tool_input": {
+"todos": [{ "content": "write a readme", "status": "pending", "id": "1" }]
+},
+"tool_response": {
+"oldTodos": [],
+"newTodos": [{ "content": "write a readme", "status": "pending", "id": "1" }]
+}
+}</code></pre>
+      <p>비교용 <code>Stop</code> 훅 입력:</p>
+      <pre><code>{
+"session_id": "af9f50b6-f042-4773-b3e2-c3a4814765ce",
+"transcript_path": "<path_to_transcript>",
+"hook_event_name": "Stop",
+"stop_hook_active": false
+}</code></pre>
+      <p>이처럼 stdin 입력이 훅과 matcher에 따라 크게 달라져 훅 작성이 까다롭습니다 — 입력 구조를 미리 모를 수 있습니다.</p>
+      <div class="tip"><strong>디버깅 팁</strong> · 입력을 파일에 기록하는 헬퍼 훅을 만들어 실제로 어떤 데이터가 들어오는지 들여다보세요.</div>
+      <pre><code>"PostToolUse": [ // Or "PreToolUse" or "Stop", etc
+{
+"matcher": "*",
+"hooks": [
+{
+"type": "command",
+"command": "jq . > post-log.json"
+}
+]
+},
+]</code></pre>
+      <p>이 명령은 훅 입력을 <code>post-log.json</code>에 써서, 내 명령이 무엇을 검사해야 하는지 정확히 파악하게 해줍니다.</p>
 
-      <h3>추가 hook 이벤트</h3>
-      <div class="card"><ul>
-        <li><strong>Notification</strong> — Claude가 권한을 요청하거나 60초간 유휴 상태일 때</li>
-        <li><strong>Stop</strong> — Claude가 응답을 마쳤을 때 / <strong>SubagentStop</strong> — 서브에이전트(Task) 완료 시</li>
-        <li><strong>PreCompact</strong> — 수동·자동 compact 직전 / <strong>UserPromptSubmit</strong> — 프롬프트 제출 시</li>
-        <li><strong>SessionStart</strong> · <strong>SessionEnd</strong> — 세션 시작·재개 / 종료 시</li>
-      </ul></div>
-      <p>헷갈리는 부분은 <strong>hook 종류에 따라 stdin 입력 구조가 바뀌고</strong>, PreToolUse·PostToolUse에서는 호출된 도구에 따라 <code>tool_input</code>도 달라진다는 점입니다.</p>
-      <div class="tip"><strong>디버깅 팁</strong> · 어떤 데이터가 들어오는지 모를 때, matcher <code>*</code>에 <code>jq . &gt; post-log.json</code> 명령을 거는 <strong>헬퍼 hook</strong>을 만들면 실제 입력 전체를 파일로 확인할 수 있어, 내 명령이 무엇을 검사해야 할지 파악하기 쉬워집니다.</div>
-
-      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · Claude Code SDK</div></div>
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · Claude Code SDK로 프로그래밍적 실행</div></div>
     </section>
 
-    <!-- LESSON: claude-code-sdk -->
+    <!-- L18 -->
     <section class="lesson" id="claude-code-sdk">
       <div class="lesson-head">
         <div class="lesson-num">18</div>
-        <div class="eyebrow">SDK &amp; wrap-up · 레슨 18</div>
-        <h1 class="lesson-title">The Claude Code SDK</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
+        <div class="eyebrow">Programmatic use · 레슨 18</div>
+        <h1 class="lesson-title">Claude Code SDK</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
       </div>
 
-      <p>Claude Code의 기능을 <strong>프로그래밍 방식으로 활용</strong>할 수 있게 해주는 SDK를 소개합니다. 에이전트 기능을 자신의 애플리케이션·워크플로우에 통합하는 방법의 출발점입니다.</p>
+      <div class="tip">영상은 더 이상 동작하지 않는 옛 패키지명을 씁니다. 아래 텍스트가 현재 버전입니다.</div>
+      <p><strong>Agent SDK</strong>는 Claude Code를 내 애플리케이션·스크립트에서 <strong>프로그래밍적으로</strong> 돌리게 해줍니다. TypeScript·Python용이 있으며, CLI가 쓰는 것과 같은 <strong>에이전트 루프</strong>(파일 읽기·편집·도구 사용)를 내 통제 아래 제공합니다.</p>
 
-      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 정리 및 다음 단계</div></div>
-    </section>
+      <h3>설치</h3>
+      <pre><code>mkdir sdk-demo
+cd sdk-demo
+npm init -y
+npm install @anthropic-ai/claude-agent-sdk</code></pre>
+      <p>패키지는 <code>@anthropic-ai/claude-agent-sdk</code>입니다. (비슷한 이름의 <code>@anthropic-ai/claude-code</code>는 CLI 자체라 import할 수 없습니다.)</p>
 
-    <!-- LESSON: summary-and-next-steps -->
-    <section class="lesson" id="summary-and-next-steps">
-      <div class="lesson-head">
-        <div class="lesson-num">19</div>
-        <div class="eyebrow">SDK &amp; wrap-up · 레슨 19</div>
-        <h1 class="lesson-title">정리 및 다음 단계</h1>
-        <div class="meta-row"><span class="chip">🎬 영상</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상 보기</a></div>
-      </div>
+      <h3>최소 예시</h3>
+      <p><code>index.mjs</code>를 만들어 붙여넣습니다.</p>
+      <pre><code>import { query } from "@anthropic-ai/claude-agent-sdk";
 
-      <p>코스에서 다룬 내용을 정리하고 앞으로의 학습 방향을 제시하는 마무리 레슨입니다. 설치부터 코드 작업, MCP·GitHub 통합, Hooks, SDK까지 배운 것을 실전에 적용해 볼 차례입니다.</p>
+const prompt = "List the files in the current directory";
 
-      <div class="next"><span class="arrow">→</span><div><b>완주</b> · Claude Code in Action의 레슨들을 모두 개관했습니다. 세부 실습은 원문 영상을 참고하세요.</div></div>
+for await (const message of query({ prompt })) {
+console.log(JSON.stringify(message, null, 2));
+}</code></pre>
+      <p>실행:</p>
+      <pre><code>node index.mjs</code></pre>
+      <p>CLI에서 보던 것과 같은 대화 이벤트 — 도구 호출, 도구 결과, Claude의 텍스트 — 가 JSON 스트림으로 나옵니다.</p>
+
+      <h3>도구 제한</h3>
+      <p>기본적으로 SDK는 전체 도구 세트에 접근합니다. 좁히려면 <code>allowedTools</code>를 넘깁니다(CLI의 <code>--allowedTools</code>와 동등).</p>
+      <pre><code>for await (const message of query({
+prompt,
+options: { allowedTools: ["Read", "Glob"] },
+})) {
+// ...
+}</code></pre>
+      <div class="callout">SDK는 CLI가 하는 모든 것 — 커스텀 시스템 프롬프트, MCP 서버, 훅, 서브에이전트, 세션 재개 — 을 지원합니다. 전체 레퍼런스는 Agent SDK 문서를 참고하세요.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>완주</b> · Claude Code in Action의 전 레슨을 정리했습니다. 코딩 어시스턴트의 원리부터 설치·컨텍스트·커스텀 명령·MCP·GitHub·훅·Agent SDK까지 — 이제 Claude Code를 실제 워크플로우에 붙일 차례입니다.</div></div>
     </section>
 
    </div>
@@ -341,36 +842,33 @@ description: "Anthropic 공식 영어 강의 Claude Code in Action의 한글 개
 
 <script>
   const curriculum = [
-    { n:"01", section:"Intro", lessons:[
-      { id:"introduction", title:"Introduction", done:true },
-      { id:"what-is-a-coding-assistant", title:"코딩 어시스턴트란?", done:true },
-      { id:"claude-code-in-action", title:"Claude Code in action", done:true },
-    ]},
-    { n:"02", section:"Setup", lessons:[
+    { n:"01", section:"Getting started", lessons:[
+      { id:"introduction", title:"코스 소개", done:true },
+      { id:"what-is-coding-assistant", title:"코딩 어시스턴트란?", done:true },
+      { id:"claude-code-in-action", title:"Claude Code의 실제 동작", done:true },
       { id:"claude-code-setup", title:"Claude Code 설치", done:true },
       { id:"project-setup", title:"프로젝트 세팅", done:true },
     ]},
-    { n:"03", section:"Working with code", lessons:[
-      { id:"adding-context", title:"컨텍스트 추가하기", done:true },
-      { id:"making-changes", title:"코드 변경하기", done:true },
-      { id:"controlling-context", title:"컨텍스트 제어하기", done:true },
-      { id:"custom-commands", title:"커스텀 명령", done:true },
+    { n:"02", section:"Core workflow", lessons:[
+      { id:"adding-context", title:"컨텍스트 추가", done:true },
+      { id:"making-changes", title:"변경 만들기", done:true },
+      { id:"controlling-context", title:"컨텍스트 흐름 제어", done:true },
     ]},
-    { n:"04", section:"Integrations", lessons:[
-      { id:"mcp-servers", title:"MCP 서버 연동", done:true },
+    { n:"03", section:"Extending Claude Code", lessons:[
+      { id:"custom-commands", title:"커스텀 명령", done:true },
+      { id:"mcp-servers", title:"MCP 서버", done:true },
       { id:"github-integration", title:"GitHub 통합", done:true },
     ]},
-    { n:"05", section:"Hooks", lessons:[
-      { id:"introducing-hooks", title:"Hooks 소개", done:true },
-      { id:"defining-hooks", title:"Hooks 정의하기", done:true },
-      { id:"implementing-a-hook", title:"Hook 구현하기", done:true },
-      { id:"gotchas-around-hooks", title:"Hooks 주의점", done:true },
-      { id:"useful-hooks", title:"유용한 Hooks", done:true },
-      { id:"another-useful-hook", title:"또 하나의 Hook", done:true },
+    { n:"04", section:"Hooks", lessons:[
+      { id:"introducing-hooks", title:"훅 소개", done:true },
+      { id:"defining-hooks", title:"훅 정의하기", done:true },
+      { id:"implementing-a-hook", title:"훅 구현하기", done:true },
+      { id:"gotchas-around-hooks", title:"훅의 함정", done:true },
+      { id:"useful-hooks", title:"유용한 훅들!", done:true },
+      { id:"another-useful-hook", title:"또 다른 유용한 훅", done:true },
     ]},
-    { n:"06", section:"SDK & wrap-up", lessons:[
+    { n:"05", section:"Programmatic use", lessons:[
       { id:"claude-code-sdk", title:"Claude Code SDK", done:true },
-      { id:"summary-and-next-steps", title:"정리 및 다음 단계", done:true },
     ]},
   ];
 </script>
