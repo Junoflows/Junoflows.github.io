@@ -59,16 +59,19 @@
       desc: "학생이 4D 프레임워크로 AI를 학습 파트너·진로 설계에 활용하고 human-in-the-loop 실천."
     - title: "Model Context Protocol: Advanced Topics"
       slug: model-context-protocol-advanced-topics
-      done: false
-      desc: "샘플링·알림·파일시스템 접근 등 고급 MCP 구현 패턴."
+      file: /courses/anthropic/model-context-protocol-advanced-topics.html
+      done: true
+      desc: "샘플링·알림·파일시스템 접근 등 고급 MCP 구현 패턴 (영상 강의 — 개요 + 레슨별 영상 링크)."
     - title: "Claude with Amazon Bedrock"
       slug: claude-in-amazon-bedrock
-      done: false
-      desc: "Amazon Bedrock을 통해 Claude를 사용하는 법 (AWS 대상)."
+      file: /courses/anthropic/claude-in-amazon-bedrock.html
+      done: true
+      desc: "Amazon Bedrock에서 Claude 사용 (영상 강의 — 모듈별 개요 + 레슨별 영상 링크)."
     - title: "Claude with Google Cloud's Vertex AI"
       slug: claude-with-google-vertex
-      done: false
-      desc: "Google Cloud Vertex AI를 통해 Anthropic 모델을 다루는 전 범위."
+      file: /courses/anthropic/claude-with-google-vertex.html
+      done: true
+      desc: "Google Cloud Vertex AI에서 Claude 사용 (영상 강의 — 모듈별 개요 + 레슨별 영상 링크)."
     - title: "Teaching AI Fluency"
       slug: teaching-ai-fluency
       done: false

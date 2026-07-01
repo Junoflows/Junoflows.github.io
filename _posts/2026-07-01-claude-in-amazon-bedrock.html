@@ -1,0 +1,284 @@
+---
+layout: default
+title: "Claude with Amazon Bedrock"
+date: 2026-07-01
+categories: [강의 정리]
+tags: [Claude API, Amazon Bedrock, AWS, Anthropic, AI]
+permalink: /courses/anthropic/claude-in-amazon-bedrock.html
+description: "Anthropic 공식 영어 강의 Claude with Amazon Bedrock의 한글 개요 — AWS Bedrock에서 Claude를 사용하는 법을 모듈별로 정리하고 레슨별 원문 영상 링크 제공."
+---
+{% include course-styles.html %}
+
+<div class="course-page">
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <a class="backlink" href="/courses/anthropic/">← Anthropic Courses</a>
+      <p class="kicker">Anthropic Academy</p>
+      <h1>Claude on <em>Bedrock</em></h1>
+      <p class="sub">Anthropic Academy 공식 영상 강의의 한글 개요 노트</p>
+      <a class="srcnote" href="https://anthropic.skilljar.com/claude-in-amazon-bedrock" target="_blank" rel="noopener">원문 강의 (영어) ↗</a>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-text"><span id="progressPos">모듈 01 / 10</span><span id="progressPct">영상 강의 개요</span></div>
+      </div>
+    </div>
+    <nav class="spine" id="nav"></nav>
+  </aside>
+
+  <main class="content">
+   <div class="reading" id="reading">
+
+    <!-- M1 -->
+    <section class="lesson active" id="course-intro">
+      <div class="lesson-head">
+        <div class="lesson-num">01</div>
+        <div class="eyebrow">Claude with Amazon Bedrock · 모듈 01</div>
+        <h1 class="lesson-title">코스 소개 & Claude 모델</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+      </div>
+      <div class="callout">이 강의는 75개 레슨이 대부분 <strong>영상으로 진행되는 영상 중심 강의</strong>입니다. 그래서 여기서는 레슨을 하나씩 옮기는 대신 <strong>모듈별 핵심 개요</strong>를 한국어로 정리하고, 각 레슨에는 <strong>원문 영상 링크</strong>를 달아 두는 방식으로 구성했습니다.</div>
+
+      <p>강의의 시작 모듈로, 코스가 무엇을 다루는지 소개하고 Anthropic이 제공하는 <strong>Claude 모델 라인업</strong>을 개괄합니다. 이 강의는 Amazon Bedrock 위에서 Claude를 사용하는 관점에서 진행되므로, 각 모델의 성격과 용도를 훑어 이후 실습에서 어떤 모델을 고를지 감을 잡게 해 줍니다.</p>
+      <h3>레슨</h3>
+      <ul>
+        <li><strong>코스 소개</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a> — 강의 목표와 전체 흐름 소개.</li>
+        <li><strong>Claude 모델 개요</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a> — Claude 모델 종류와 각 모델의 특성.</li>
+      </ul>
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · API 접근부터 스트리밍·구조화 출력까지 API 다루기 기초</div></div>
+    </section>
+
+    <!-- M2 -->
+    <section class="lesson" id="working-with-api">
+      <div class="lesson-head">
+        <div class="lesson-num">02</div>
+        <div class="eyebrow">Claude with Amazon Bedrock · 모듈 02</div>
+        <h1 class="lesson-title">API 다루기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+      </div>
+      <p>Bedrock을 통해 Claude에 처음으로 요청을 보내는 방법을 배웁니다. API 접근, 첫 요청 만들기, 여러 턴에 걸친 대화, 시스템 프롬프트, temperature, 응답 스트리밍, 모델 출력 제어, 구조화된 데이터 출력까지 — Messages API를 다루는 데 필요한 기본기를 폭넓게 익힙니다.</p>
+      <h3>레슨</h3>
+      <ul>
+        <li><strong>API 접근하기</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>요청 보내기</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>멀티턴 대화</strong></li>
+        <li><strong>챗봇 실습</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>시스템 프롬프트</strong></li>
+        <li><strong>시스템 프롬프트 실습</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>Temperature</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>스트리밍</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>모델 출력 제어</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>구조화된 데이터</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>구조화된 데이터 실습</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+      </ul>
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 프롬프트 품질을 수치로 재는 eval 워크플로우</div></div>
+    </section>
+
+    <!-- M3 -->
+    <section class="lesson" id="prompt-evals">
+      <div class="lesson-head">
+        <div class="lesson-num">03</div>
+        <div class="eyebrow">Claude with Amazon Bedrock · 모듈 03</div>
+        <h1 class="lesson-title">프롬프트 평가 (Evals)</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+      </div>
+      <p>프롬프트가 실제로 잘 작동하는지 <strong>정량적으로 평가</strong>하는 방법을 다룹니다. 전형적인 eval 워크플로우, 테스트 데이터셋 생성, eval 실행, 그리고 모델 기반 채점과 코드 기반 채점 두 가지 그레이딩 방식을 배웁니다.</p>
+      <h3>레슨</h3>
+      <ul>
+        <li><strong>프롬프트 평가 소개</strong></li>
+        <li><strong>전형적인 eval 워크플로우</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>테스트 데이터셋 생성</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>eval 실행하기</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>모델 기반 채점</strong></li>
+        <li><strong>코드 기반 채점</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>프롬프트 eval 실습</strong></li>
+      </ul>
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 더 나은 출력을 끌어내는 프롬프트 엔지니어링 기법</div></div>
+    </section>
+
+    <!-- M4 -->
+    <section class="lesson" id="prompt-engineering">
+      <div class="lesson-head">
+        <div class="lesson-num">04</div>
+        <div class="eyebrow">Claude with Amazon Bedrock · 모듈 04</div>
+        <h1 class="lesson-title">프롬프트 엔지니어링</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+      </div>
+      <p>Claude에게서 더 좋은 결과를 얻기 위한 핵심 프롬프트 기법을 소개합니다. 명확하고 직접적으로 쓰기, 구체적으로 지시하기, XML 태그로 구조 잡기, 예시(few-shot) 제공하기 등 실전에서 바로 쓰는 원칙들을 다룹니다.</p>
+      <h3>레슨</h3>
+      <ul>
+        <li><strong>프롬프트 엔지니어링 소개</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>명확하고 직접적으로</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>구체적으로 지시하기</strong></li>
+        <li><strong>XML 태그로 구조 잡기</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>예시 제공하기</strong></li>
+        <li><strong>프롬프트 실습</strong></li>
+      </ul>
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · Claude가 외부 세계와 상호작용하는 도구 사용(tool use)</div></div>
+    </section>
+
+    <!-- M5 -->
+    <section class="lesson" id="tool-use">
+      <div class="lesson-head">
+        <div class="lesson-num">05</div>
+        <div class="eyebrow">Claude with Amazon Bedrock · 모듈 05</div>
+        <h1 class="lesson-title">도구 사용 (Tool use)</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+      </div>
+      <p>Claude가 외부 데이터와 행동에 접근하도록 <strong>도구(tool)</strong>를 붙이는 방법을 다룹니다. 도구 함수와 JSON 스키마 정의, 도구 사용 응답 처리, 도구 실행과 결과 전달, 도구를 포함한 멀티턴 대화, 여러 도구 다루기, 배치 도구 사용, 도구를 이용한 구조화 데이터 추출부터 text editor 도구까지 폭넓게 실습합니다.</p>
+      <h3>레슨</h3>
+      <ul>
+        <li><strong>도구 사용 소개</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>도구 함수</strong></li>
+        <li><strong>도구를 위한 JSON 스키마</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>도구 사용 응답 처리</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>도구 함수 실행</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>도구 결과 전달</strong></li>
+        <li><strong>도구를 포함한 멀티턴 대화</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>여러 도구 추가하기</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>배치 도구 사용</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>도구로 구조화된 데이터 추출</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>유연한 도구 추출</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>Text editor 도구</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+      </ul>
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 문서를 검색해 답에 근거를 더하는 RAG</div></div>
+    </section>
+
+    <!-- M6 -->
+    <section class="lesson" id="rag">
+      <div class="lesson-head">
+        <div class="lesson-num">06</div>
+        <div class="eyebrow">Claude with Amazon Bedrock · 모듈 06</div>
+        <h1 class="lesson-title">검색 증강 생성 (RAG)</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+      </div>
+      <p>검색 증강 생성(Retrieval Augmented Generation)의 원리와 구현을 다룹니다. 텍스트 청킹 전략, 임베딩, 전체 RAG 플로우 구현, BM25 렉시컬 검색, 멀티 검색 RAG 파이프라인, 결과 리랭킹, 그리고 컨텍스추얼 리트리벌까지 단계적으로 익힙니다.</p>
+      <h3>레슨</h3>
+      <ul>
+        <li><strong>RAG 소개</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>텍스트 청킹 전략</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>텍스트 임베딩</strong></li>
+        <li><strong>전체 RAG 플로우</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>RAG 플로우 구현</strong></li>
+        <li><strong>BM25 렉시컬 검색</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>멀티 검색 RAG 파이프라인</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>결과 리랭킹</strong></li>
+        <li><strong>컨텍스추얼 리트리벌</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+      </ul>
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 확장 사고·이미지·PDF·인용·캐싱 등 Claude의 고급 기능</div></div>
+    </section>
+
+    <!-- M7 -->
+    <section class="lesson" id="claude-features">
+      <div class="lesson-head">
+        <div class="lesson-num">07</div>
+        <div class="eyebrow">Claude with Amazon Bedrock · 모듈 07</div>
+        <h1 class="lesson-title">Claude의 기능들</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+      </div>
+      <p>Bedrock에서 Claude가 제공하는 다양한 기능을 살펴봅니다. 확장 사고(extended thinking), 이미지·PDF 입력, 인용(citations), 그리고 프롬프트 캐싱의 규칙과 실제 활용까지 — 실전에서 자주 쓰는 기능들을 다룹니다.</p>
+      <h3>레슨</h3>
+      <ul>
+        <li><strong>확장 사고(Extended thinking)</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>이미지 지원</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>PDF 지원</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>인용(Citations)</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>프롬프트 캐싱</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>프롬프트 캐싱 규칙</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>프롬프트 캐싱 실전</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+      </ul>
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 통합의 표준, Model Context Protocol(MCP)</div></div>
+    </section>
+
+    <!-- M8 -->
+    <section class="lesson" id="mcp">
+      <div class="lesson-head">
+        <div class="lesson-num">08</div>
+        <div class="eyebrow">Claude with Amazon Bedrock · 모듈 08</div>
+        <h1 class="lesson-title">Model Context Protocol (MCP)</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+      </div>
+      <p>MCP가 무엇이고 왜 필요한지 소개하고, 클라이언트와 서버를 직접 구현하며 배웁니다. MCP 클라이언트, 프로젝트 셋업, MCP로 도구 정의하기, 서버 인스펙터, 클라이언트 구현, 리소스 정의·접근, 프롬프트 정의와 클라이언트에서의 활용까지 MCP의 핵심 요소를 실습합니다.</p>
+      <h3>레슨</h3>
+      <ul>
+        <li><strong>MCP 소개</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>MCP 클라이언트</strong></li>
+        <li><strong>프로젝트 셋업</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>MCP로 도구 정의하기</strong></li>
+        <li><strong>서버 인스펙터</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>클라이언트 구현</strong></li>
+        <li><strong>리소스 정의</strong></li>
+        <li><strong>리소스 접근</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>프롬프트 정의</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>클라이언트에서 프롬프트 쓰기</strong></li>
+        <li><strong>MCP 정리</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+      </ul>
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 에이전트와 Claude Code로 워크플로우 자동화</div></div>
+    </section>
+
+    <!-- M9 -->
+    <section class="lesson" id="agents-claude-code">
+      <div class="lesson-head">
+        <div class="lesson-num">09</div>
+        <div class="eyebrow">Claude with Amazon Bedrock · 모듈 09</div>
+        <h1 class="lesson-title">에이전트 & Claude Code</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+      </div>
+      <p>에이전트의 개념을 소개하고 Claude Code를 실제로 활용하는 법을 다룹니다. Claude Code 셋업과 실전 활용, MCP 서버로의 확장, 병렬화, 자동화 디버깅, 그리고 Computer Use의 원리와 활용, 좋은 에이전트가 갖춰야 할 특성까지 폭넓게 살펴봅니다.</p>
+      <h3>레슨</h3>
+      <ul>
+        <li><strong>에이전트 개요</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>Claude Code 셋업</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>Claude Code 실전</strong></li>
+        <li><strong>MCP 서버로 강화하기</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>Claude Code 병렬화</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>자동화 디버깅</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>Computer Use</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></li>
+        <li><strong>Computer Use의 원리</strong></li>
+        <li><strong>에이전트의 특성</strong></li>
+      </ul>
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 강의를 마무리하며 전체 내용 정리</div></div>
+    </section>
+
+    <!-- M10 -->
+    <section class="lesson" id="wrap-up">
+      <div class="lesson-head">
+        <div class="lesson-num">10</div>
+        <div class="eyebrow">Claude with Amazon Bedrock · 모듈 10</div>
+        <h1 class="lesson-title">코스 마무리</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 강의</span></div>
+      </div>
+      <p>지금까지 배운 내용을 되짚어 보며 강의를 마무리하는 모듈입니다. Amazon Bedrock에서 Claude를 사용하는 여정을 정리하고 다음 학습 방향을 제안합니다.</p>
+      <h3>레슨</h3>
+      <ul>
+        <li><strong>코스 마무리</strong> <a href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a> — 전체 내용 요약과 다음 단계 안내.</li>
+      </ul>
+      <div class="next"><span class="arrow">→</span><div><b>완주</b> · Claude with Amazon Bedrock의 10개 모듈을 모두 정리했습니다. API 기초부터 프롬프트·도구·RAG·MCP·에이전트까지 — 이제 원문 영상과 함께 직접 Bedrock에서 코드를 돌려볼 차례입니다.</div></div>
+    </section>
+
+   </div>
+  </main>
+</div>
+</div>
+
+<script>
+  const curriculum = [
+    { n:"01", section:"기초·프롬프트", lessons:[
+      { id:"course-intro", title:"코스 소개 & 모델", done:true },
+      { id:"working-with-api", title:"API 다루기", done:true },
+      { id:"prompt-evals", title:"프롬프트 평가(Evals)", done:true },
+      { id:"prompt-engineering", title:"프롬프트 엔지니어링", done:true },
+    ]},
+    { n:"02", section:"도구·RAG·기능", lessons:[
+      { id:"tool-use", title:"도구 사용(Tool use)", done:true },
+      { id:"rag", title:"검색 증강 생성(RAG)", done:true },
+      { id:"claude-features", title:"Claude의 기능들", done:true },
+    ]},
+    { n:"03", section:"MCP·에이전트", lessons:[
+      { id:"mcp", title:"Model Context Protocol", done:true },
+      { id:"agents-claude-code", title:"에이전트 & Claude Code", done:true },
+      { id:"wrap-up", title:"코스 마무리", done:true },
+    ]},
+  ];
+</script>
+{% include course-nav.html %}
