@@ -35,7 +35,7 @@ description: "Anthropic 공식 영어 강의 MCP: Advanced Topics를 한글로 �
         <div class="lesson-num">01</div>
         <div class="eyebrow">Getting started · 레슨 01</div>
         <h1 class="lesson-title">시작하기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>이 코스는 MCP(Model Context Protocol)의 <strong>고급 주제</strong>를 다룹니다. 기본 도구·리소스·프롬프트를 넘어, 서버가 클라이언트의 능력을 빌려 쓰는 <strong>샘플링(sampling)</strong>, 오래 걸리는 작업의 <strong>로그·진행 알림(notifications)</strong>, 로컬 파일 접근을 통제하는 <strong>루트(roots)</strong>, 그리고 이 모든 것을 실어 나르는 <strong>전송 계층(transport)</strong>(STDIO·StreamableHTTP)까지 파고듭니다.</p>
@@ -56,7 +56,7 @@ description: "Anthropic 공식 영어 강의 MCP: Advanced Topics를 한글로 �
         <div class="lesson-num">02</div>
         <div class="eyebrow">Sampling · 레슨 02</div>
         <h1 class="lesson-title">Sampling</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p><strong>Sampling</strong>은 서버가 연결된 MCP 클라이언트를 통해 Claude 같은 언어 모델에 접근하게 합니다. 서버가 Claude를 직접 호출하는 대신, <strong>클라이언트에게 대신 호출해 달라고 요청</strong>합니다. 이렇게 하면 텍스트 생성의 <strong>책임과 비용이 서버에서 클라이언트로 이동</strong>합니다.</p>
@@ -149,7 +149,7 @@ await session.initialize()</code></pre>
         <div class="lesson-num">03</div>
         <div class="eyebrow">Sampling · 레슨 03</div>
         <h1 class="lesson-title">Sampling 예제 훑어보기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"></div>
       </div>
 
       <p>실제 예제 프로젝트(<code>server.py</code> · <code>client.py</code>)를 열어 sampling이 어떻게 조립되는지 단계별로 살펴보는 인터랙티브 walkthrough입니다. 코드를 실행하지 않고 <strong>구조만 이해</strong>하는 게 목적입니다.</p>
@@ -172,7 +172,7 @@ await session.initialize()</code></pre>
         <div class="lesson-num">04</div>
         <div class="eyebrow">Notifications · 레슨 04</div>
         <h1 class="lesson-title">로그와 진행 알림</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>로그와 진행 알림(logging & progress notifications)은 구현은 간단하지만 MCP 서버의 <strong>사용자 경험을 크게 개선</strong>합니다. 오래 걸리는 작업 동안 "혹시 멈춘 건 아닌가" 하는 불안 없이, 지금 무슨 일이 일어나는지 알 수 있게 해줍니다.</p>
@@ -250,7 +250,7 @@ progress_callback=print_progress_callback,
         <div class="lesson-num">05</div>
         <div class="eyebrow">Notifications · 레슨 05</div>
         <h1 class="lesson-title">알림 예제 훑어보기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"></div>
       </div>
 
       <p>로그와 진행 알림을 실제로 배선한 예제 프로젝트를 단계별로 살펴보는 인터랙티브 walkthrough입니다. 서버 도구가 <code>context.info()</code>·<code>context.report_progress()</code>로 알림을 방출하고, 클라이언트가 <code>logging_callback</code>과 <code>progress_callback</code>으로 이를 받아 출력하는 흐름을 코드 위에서 확인합니다.</p>
@@ -269,7 +269,7 @@ progress_callback=print_progress_callback,
         <div class="lesson-num">06</div>
         <div class="eyebrow">Roots · 레슨 06</div>
         <h1 class="lesson-title">Roots</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p><strong>Roots</strong>는 MCP 서버에게 로컬 머신의 <strong>특정 파일·폴더 접근을 허용</strong>하는 방법입니다. "이 파일들엔 접근해도 돼"라고 말해주는 권한 시스템이라고 생각하면 되지만, 단순한 권한 부여 이상의 역할을 합니다.</p>
@@ -320,7 +320,7 @@ progress_callback=print_progress_callback,
         <div class="lesson-num">07</div>
         <div class="eyebrow">Roots · 레슨 07</div>
         <h1 class="lesson-title">Roots 예제 훑어보기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"></div>
       </div>
 
       <p>Roots를 활용한 예제 프로젝트를 단계별로 살펴보는 인터랙티브 walkthrough입니다. 클라이언트가 승인된 디렉터리 목록을 <code>list_roots</code>로 노출하고, 서버 도구가 파일 작업 전에 <code>is_path_allowed()</code>로 경로가 허용 범위 안인지 검증하는 흐름을 코드 위에서 확인합니다.</p>
@@ -339,7 +339,7 @@ progress_callback=print_progress_callback,
         <div class="lesson-num">08</div>
         <div class="eyebrow">Transports · 레슨 08</div>
         <h1 class="lesson-title">JSON 메시지 타입</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>MCP는 클라이언트와 서버 사이의 통신을 <strong>JSON 메시지</strong>로 처리합니다. 이 메시지 타입들을 이해하는 건 MCP 작업에 필수이며, 특히 StreamableHTTP 같은 서로 다른 전송 방식을 다룰 때 중요합니다.</p>
@@ -375,7 +375,7 @@ progress_callback=print_progress_callback,
         <div class="lesson-num">09</div>
         <div class="eyebrow">Transports · 레슨 09</div>
         <h1 class="lesson-title">STDIO 전송</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>MCP 클라이언트와 서버는 JSON 메시지를 주고받지만, 이 메시지가 실제로 어떻게 전달될까요? 통신 채널을 <strong>전송(transport)</strong>이라 하며, HTTP 요청부터 WebSocket까지(심지어 엽서에 JSON을 적는 것까지 — 프로덕션엔 비추천) 여러 방식이 있습니다.</p>
@@ -427,7 +427,7 @@ progress_callback=print_progress_callback,
         <div class="lesson-num">10</div>
         <div class="eyebrow">Transports · 레슨 10</div>
         <h1 class="lesson-title">StreamableHTTP 전송</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p><strong>StreamableHTTP 전송</strong>은 MCP 클라이언트가 원격 호스팅된 서버에 HTTP로 연결하게 합니다. 클라이언트·서버가 같은 머신에 있어야 하는 STDIO와 달리, 누구나 접근할 수 있는 <strong>공개 MCP 서버</strong>의 가능성을 엽니다.</p>
@@ -473,7 +473,7 @@ progress_callback=print_progress_callback,
         <div class="lesson-num">11</div>
         <div class="eyebrow">Transports · 레슨 11</div>
         <h1 class="lesson-title">StreamableHTTP 심화</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>StreamableHTTP는 MCP의 근본 문제 — 일부 기능은 서버가 클라이언트에 요청을 보내야 하는데 HTTP는 이를 어렵게 만든다 — 에 대한 해법입니다. 이 우회가 어떻게 동작하고, 언제 그 우회를 깨야 하는지 살펴봅니다.</p>
@@ -521,7 +521,7 @@ progress_callback=print_progress_callback,
         <div class="lesson-num">12</div>
         <div class="eyebrow">Transports · 레슨 12</div>
         <h1 class="lesson-title">State와 StreamableHTTP</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>MCP 서버의 <code>stateless_http</code>·<code>json_response</code> 플래그는 서버 동작의 근본을 제어합니다. 언제·왜 쓰는지 이해하는 건, 특히 서버를 <strong>스케일링</strong>하거나 프로덕션에 배포할 계획이라면 매우 중요합니다.</p>
@@ -575,7 +575,7 @@ progress_callback=print_progress_callback,
         <div class="lesson-num">13</div>
         <div class="eyebrow">Wrapping up · 레슨 13</div>
         <h1 class="lesson-title">마무리</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>이 코스에서는 MCP의 고급 패턴을 두루 살펴봤습니다. 서버가 클라이언트를 통해 Claude를 호출하는 <strong>sampling</strong>, 오래 걸리는 작업의 <strong>로그·진행 알림</strong>, 파일 접근을 통제하는 <strong>roots</strong>, MCP 통신의 언어인 <strong>JSON 메시지 타입</strong>, 그리고 그것을 실어 나르는 두 전송(<strong>STDIO</strong>·<strong>StreamableHTTP</strong>)까지 다뤘습니다.</p>

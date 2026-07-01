@@ -35,7 +35,7 @@ description: "Anthropic 공식 영어 강의 Introduction to Model Context Proto
         <div class="lesson-num">01</div>
         <div class="eyebrow">Introduction · 레슨 01</div>
         <h1 class="lesson-title">코스 시작하기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>이 코스는 <strong>Model Context Protocol(MCP)</strong>을 처음부터 직접 만들어 보며 익힙니다. MCP 서버와 클라이언트를 Python으로 구현하고, 도구·리소스·프롬프트라는 세 가지 서버 프리미티브를 하나씩 붙여 봅니다. 실습에는 <strong>UV</strong> 패키지 매니저와 Python 환경이 필요합니다.</p>
@@ -53,7 +53,7 @@ description: "Anthropic 공식 영어 강의 Introduction to Model Context Proto
         <div class="lesson-num">02</div>
         <div class="eyebrow">Introduction · 레슨 02</div>
         <h1 class="lesson-title">MCP 소개</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p><strong>Model Context Protocol(MCP)</strong>은 지루한 통합 코드를 잔뜩 짜지 않고도 Claude에게 <strong>컨텍스트와 도구</strong>를 제공하는 통신 계층입니다. 핵심 아이디어는 <strong>도구 정의와 실행의 부담을 내 서버에서 전문화된 MCP 서버로 넘기는 것</strong>입니다.</p>
@@ -96,7 +96,7 @@ description: "Anthropic 공식 영어 강의 Introduction to Model Context Proto
         <div class="lesson-num">03</div>
         <div class="eyebrow">Introduction · 레슨 03</div>
         <h1 class="lesson-title">MCP 클라이언트</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>MCP 클라이언트는 내 서버와 MCP 서버 사이의 <strong>통신 다리</strong>입니다. MCP 서버가 제공하는 모든 도구로의 접근점이며, 메시지 교환과 프로토콜 세부를 대신 처리해 내 애플리케이션이 신경 쓸 필요가 없게 합니다.</p>
@@ -147,7 +147,7 @@ description: "Anthropic 공식 영어 강의 Introduction to Model Context Proto
         <div class="lesson-num">04</div>
         <div class="eyebrow">Building the server · 레슨 04</div>
         <h1 class="lesson-title">프로젝트 세팅</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>실습에 사용할 CLI 프로젝트 코드를 내려받는 단계입니다. 시작용 스켈레톤과 완성본이 함께 제공되므로, 직접 채워 보다 막히면 완성본과 비교할 수 있습니다.</p>
@@ -165,7 +165,7 @@ description: "Anthropic 공식 영어 강의 Introduction to Model Context Proto
         <div class="lesson-num">05</div>
         <div class="eyebrow">Building the server · 레슨 05</div>
         <h1 class="lesson-title">MCP로 도구 정의하기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>공식 Python SDK를 쓰면 MCP 서버 구축이 훨씬 단순해집니다. 복잡한 JSON 스키마를 손으로 작성하는 대신, <strong>데코레이터로 도구를 정의</strong>하고 무거운 작업은 SDK에 맡깁니다.</p>
@@ -239,7 +239,7 @@ docs[doc_id] = docs[doc_id].replace(old_str, new_str)</code></pre>
         <div class="lesson-num">06</div>
         <div class="eyebrow">Building the server · 레슨 06</div>
         <h1 class="lesson-title">서버 인스펙터</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>MCP 서버를 만들 때 전체 애플리케이션에 연결하지 않고도 기능을 테스트할 방법이 필요합니다. Python MCP SDK에는 <strong>브라우저 기반 인스펙터</strong>가 내장돼 있어 서버를 실시간으로 디버깅·테스트할 수 있습니다.</p>
@@ -290,7 +290,7 @@ docs[doc_id] = docs[doc_id].replace(old_str, new_str)</code></pre>
         <div class="lesson-num">07</div>
         <div class="eyebrow">Building the client · 레슨 07</div>
         <h1 class="lesson-title">클라이언트 구현하기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>서버가 동작하니 이제 클라이언트 쪽을 만들 차례입니다. 클라이언트는 애플리케이션 코드가 MCP 서버와 통신하고 그 기능에 접근하게 해 줍니다.</p>
@@ -355,7 +355,7 @@ return await self.session().call_tool(tool_name, tool_input)</code></pre>
         <div class="lesson-num">08</div>
         <div class="eyebrow">Resources · 레슨 08</div>
         <h1 class="lesson-title">리소스 정의하기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>MCP 서버의 <strong>리소스(Resource)</strong>는 HTTP 서버의 GET 핸들러처럼 클라이언트에 데이터를 노출합니다. 행동을 수행하기보다 <strong>정보를 가져와야 하는</strong> 상황에 알맞습니다.</p>
@@ -424,7 +424,7 @@ return docs[doc_id]</code></pre>
         <div class="lesson-num">09</div>
         <div class="eyebrow">Resources · 레슨 09</div>
         <h1 class="lesson-title">리소스 접근하기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>MCP의 리소스는 도구 호출 없이도 서버 정보를 <strong>프롬프트에 직접 포함</strong>할 수 있게 해, AI 모델에 컨텍스트를 더 효율적으로 제공합니다.</p>
@@ -480,7 +480,7 @@ return resource.text</code></pre>
         <div class="lesson-num">10</div>
         <div class="eyebrow">Prompts · 레슨 10</div>
         <h1 class="lesson-title">프롬프트 정의하기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>MCP 서버의 <strong>프롬프트(Prompt)</strong>는 클라이언트가 직접 프롬프트를 쓰는 대신 사용할 수 있는 <strong>미리 만들어진 고품질 지침</strong>입니다. 사용자가 스스로 떠올릴 법한 것보다 더 나은 결과를 주는, 정성껏 다듬은 템플릿이라 생각하면 됩니다.</p>
@@ -548,7 +548,7 @@ base.UserMessage(prompt)
         <div class="lesson-num">11</div>
         <div class="eyebrow">Prompts · 레슨 11</div>
         <h1 class="lesson-title">클라이언트의 프롬프트</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>MCP 클라이언트 구축의 마지막 단계는 <strong>프롬프트 기능</strong> 구현입니다. 서버의 모든 프롬프트를 나열하고, 변수가 채워진 특정 프롬프트를 가져올 수 있게 합니다.</p>
@@ -592,7 +592,7 @@ return result.messages</code></pre>
         <div class="lesson-num">12</div>
         <div class="eyebrow">Review · 레슨 12</div>
         <h1 class="lesson-title">MCP 리뷰</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 요약</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>MCP 서버를 다 만들었으니 세 가지 핵심 서버 프리미티브와 각각을 언제 쓸지 정리합시다. 핵심 통찰은 <strong>각 프리미티브가 애플리케이션 스택의 서로 다른 부분에 의해 제어된다</strong>는 것입니다.</p>

@@ -35,7 +35,7 @@ description: "Anthropic 공식 영어 강의 Claude Platform 101을 한글로 �
         <div class="lesson-num">01</div>
         <div class="eyebrow">Getting started · 레슨 01</div>
         <h1 class="lesson-title">Claude Developer Platform이란?</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>Claude Developer Platform은 <strong>Claude를 프로그래밍으로(programmatically) 활용</strong>하기 위한 Anthropic의 인프라입니다. 브라우저에서 대화하는 대신, 코드에서 <strong>구조화된 요청</strong>을 보내고 구조화된 응답을 받으며 — 모델·토큰·도구·시스템 지침까지 <strong>모든 세부를 제어</strong>합니다.</p>
@@ -75,7 +75,7 @@ draft = response.content</code></pre>
         <div class="lesson-num">02</div>
         <div class="eyebrow">Getting started · 레슨 02</div>
         <h1 class="lesson-title">첫 API 호출</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <h3>준비</h3>
@@ -112,7 +112,7 @@ for (const block of response.content) {
         <div class="lesson-num">03</div>
         <div class="eyebrow">Getting started · 레슨 03</div>
         <h1 class="lesson-title">알맞은 모델 고르기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>제일 똑똑한 모델을 기본값으로 쓰면 <strong>청구서가 놀라게</strong> 하고, 제일 싼 걸 쓰면 <strong>출력이 못 버팁니다.</strong> 각 모델은 트레이드오프가 다릅니다.</p>
@@ -144,7 +144,7 @@ for (const block of response.content) {
         <div class="lesson-num">04</div>
         <div class="eyebrow">Teaching your Agent · 레슨 04</div>
         <h1 class="lesson-title">에이전트 루프</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>단일 호출은 한 번의 응답만 줍니다. 워크플로우를 자동화하려면 Claude가 <strong>행동 → 결과 확인 → 다음 결정</strong>을 반복해야 합니다. 이게 <strong>에이전트적(agentic) 워크플로우</strong>입니다.</p>
@@ -183,7 +183,7 @@ for (const block of response.content) {
         <div class="lesson-num">05</div>
         <div class="eyebrow">Teaching your Agent · 레슨 05</div>
         <h1 class="lesson-title">도구 사용이란?</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>Claude는 프로젝트 관리 도구·DB·파일을 스스로 확인할 수 없습니다. 대신 <strong>도구(tool)</strong>로 외부 데이터·행동에 접근합니다. <strong>도구를 실행하는 건 Claude가 아니라 내 코드</strong>입니다.</p>
@@ -212,7 +212,7 @@ const finalMessage = await runner.untilDone();</code></pre>
         <div class="lesson-num">06</div>
         <div class="eyebrow">Teaching your Agent · 레슨 06</div>
         <h1 class="lesson-title">확장 사고(thinking)란?</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p><strong>확장 사고(extended thinking)</strong>는 Claude가 최종 응답 전에 <strong>단계별로 추론</strong>하게 합니다. 내부 추론 토큰(chain of thought)이 생성되고, 그 추론은 <strong>숨겨지지 않고 응답에 함께 보입니다.</strong></p>
@@ -239,7 +239,7 @@ const finalMessage = await runner.untilDone();</code></pre>
         <div class="lesson-num">07</div>
         <div class="eyebrow">Extending your Agent · 레슨 07</div>
         <h1 class="lesson-title">내장 도구(Built-in tools)</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <h3>서버 도구 — 선언은 내가, 실행은 Anthropic이</h3>
@@ -266,7 +266,7 @@ const finalMessage = await runner.untilDone();</code></pre>
         <div class="lesson-num">08</div>
         <div class="eyebrow">Extending your Agent · 레슨 08</div>
         <h1 class="lesson-title">Skills</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>Skills는 Claude가 특정 작업을 잘하도록 <strong>동적으로 로드하는 지침·스크립트·자료 폴더</strong>입니다. 중심엔 <strong>SKILL.md</strong> — 한 번 업로드하고 어떤 <code>messages.create</code>에도 붙일 수 있는 지침 묶음. 내 상태 리포트 형식·리뷰 체크리스트·릴리스 노트 방식을 가르칩니다.</p>
@@ -288,7 +288,7 @@ const finalMessage = await runner.untilDone();</code></pre>
         <div class="lesson-num">09</div>
         <div class="eyebrow">Extending your Agent · 레슨 09</div>
         <h1 class="lesson-title">MCP</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>도구·스킬·커넥터가 있는데 MCP는 왜 있을까? 답은 <strong>통합 코드를 누가 유지보수하느냐</strong>입니다. 커스텀 도구로 Asana·Slack·Google을 붙이면, 그 서비스 API가 바뀔 때마다 <strong>내가</strong> 유지보수해야 합니다.</p>
@@ -318,7 +318,7 @@ const finalMessage = await runner.untilDone();</code></pre>
         <div class="lesson-num">10</div>
         <div class="eyebrow">Extending your Agent · 레슨 10</div>
         <h1 class="lesson-title">컨텍스트 관리</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>모든 요청엔 컨텍스트 윈도우가 있고, 100만 토큰도 실전 에이전트에선 <strong>생각보다 빨리</strong> 소진됩니다. 컨텍스트는 시스템 프롬프트·메시지 기록·도구 정의/결과·첨부·스킬·thinking 블록 등 <strong>Claude가 그 턴에 보는 모든 것</strong>이며, 들어갈 때·나올 때 모두 과금되고 <strong>가득 차면 요청이 실패</strong>합니다. 목표는 “전부”가 아니라 <strong>“맞는 것”</strong>을 넣는 것.</p>
@@ -341,7 +341,7 @@ const finalMessage = await runner.untilDone();</code></pre>
         <div class="lesson-num">11</div>
         <div class="eyebrow">Managed Agents · 레슨 11</div>
         <h1 class="lesson-title">매니지드 에이전트란?</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p><strong>Claude Managed Agents</strong>는 에이전트를 대규모로 구축·배포하는 API 묶음입니다. 도구·페르소나·역량으로 에이전트를 정의하고, 패키지·네트워크가 갖춰진 샌드박스 환경을 구성한 뒤, 내 앱에서 <strong>세션</strong>을 발사하면 — Claude가 <strong>격리 컨테이너</strong>(파일시스템·bash·웹 검색)에서 일합니다.</p>
@@ -363,7 +363,7 @@ const finalMessage = await runner.untilDone();</code></pre>
         <div class="lesson-num">12</div>
         <div class="eyebrow">Managed Agents · 레슨 12</div>
         <h1 class="lesson-title">첫 매니지드 에이전트 만들기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>직접 만든 while 루프도 많은 기능엔 맞지만, 때로 루프가 <strong>수 분~수 시간</strong> 돌고 상태·파일·재개가 필요합니다. 그럴 땐 서버에서 돌리지 말고 <strong>위임</strong>하세요. 매니지드 에이전트는 <strong>모든 API 계정에 기본 활성화</strong>돼 있습니다.</p>
@@ -401,7 +401,7 @@ with client.beta.sessions.events.stream(session_id=session.id) as stream:
         <div class="lesson-num">13</div>
         <div class="eyebrow">Building with Claude Code · 레슨 13</div>
         <h1 class="lesson-title">Claude Code로 만들기</h1>
-        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span></div>
+        <div class="meta-row"><span class="chip">🎬 영상</span></div>
       </div>
 
       <p>API 호출 코드를 손으로 짜도 되지만, 더 빠른 길은 <strong>Claude가 대신 짜게</strong> 하는 것입니다. 스텁만 있는 파일을 Claude Code에 넘겨 이 코스에서 배운 프리미티브로 채웁니다.</p>
