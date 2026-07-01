@@ -89,17 +89,21 @@
       desc: "Claude에서 Skills(재사용 지침 폴더)를 만들고·구성하고·공유하기 (전문 정리)."
     - title: "Introduction to subagents"
       slug: introduction-to-subagents
-      done: false
-      desc: "Claude Code의 서브에이전트로 컨텍스트를 관리하고 작업을 위임하기."
+      file: /courses/anthropic/introduction-to-subagents.html
+      done: true
+      desc: "Claude Code의 서브에이전트로 컨텍스트를 관리하고 작업을 위임하기 (전문 정리)."
     - title: "AI Capabilities and Limitations"
       slug: ai-capabilities-and-limitations
-      done: false
-      desc: "AI가 어떻게 작동하는지 — 할 수 있는 것과 없는 것 — 다루는 입문 코스."
+      file: /courses/anthropic/ai-capabilities-and-limitations.html
+      done: true
+      desc: "생성형 AI의 작동 원리와 할 수 있는 것·없는 것 (전문 정리)."
     - title: "AI Fluency for Small Businesses"
       slug: ai-fluency-for-small-businesses
-      done: false
-      desc: "소상공인이 조직의 임팩트와 효율을 높이는 AI 역량을 기르기."
+      file: /courses/anthropic/ai-fluency-for-small-businesses.html
+      done: true
+      desc: "소상공인이 4D 프레임워크로 조직의 임팩트·효율을 높이기 (전문 정리)."
     - title: "AI Fluency for Builders"
       slug: ai-fluency-for-builders
-      done: false
-      desc: "빌더가 더 빠르게 솔루션을 출시하며 임팩트와 효율을 높이는 AI 역량."
+      file: /courses/anthropic/ai-fluency-for-builders.html
+      done: true
+      desc: "빌더가 4D 프레임워크로 더 빠르게 솔루션을 출시하기 (전문 정리)."

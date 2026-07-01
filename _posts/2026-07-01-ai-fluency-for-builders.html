@@ -1,0 +1,390 @@
+---
+layout: default
+title: "AI Fluency for Builders"
+date: 2026-07-01
+categories: [강의 정리]
+tags: [AI Fluency, Anthropic, AI, 개발]
+permalink: /courses/anthropic/ai-fluency-for-builders.html
+description: "Anthropic 공식 영어 강의 AI Fluency for Builders를 한글로 정리한 학습 노트 — 빌더가 4D 프레임워크로 더 빠르게 솔루션을 출시하며 임팩트와 효율을 높이기."
+---
+{% include course-styles.html %}
+
+<div class="course-page">
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <a class="backlink" href="/courses/anthropic/">← Anthropic Courses</a>
+      <p class="kicker">Anthropic Academy</p>
+      <h1>AI Fluency <em>for Builders</em></h1>
+      <p class="sub">Anthropic Academy 공식 영어 강의를 한글로 정리한 학습 노트</p>
+      <a class="srcnote" href="https://anthropic.skilljar.com/ai-fluency-for-builders" target="_blank" rel="noopener">원문 강의 (영어) ↗</a>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-text"><span id="progressPos">레슨 01 / 8</span><span id="progressPct">전체 정리 완료</span></div>
+      </div>
+    </div>
+    <nav class="spine" id="nav"></nav>
+  </aside>
+
+  <main class="content">
+   <div class="reading" id="reading">
+
+    <!-- L1 -->
+    <section class="lesson active" id="welcome">
+      <div class="lesson-head">
+        <div class="lesson-num">01</div>
+        <div class="eyebrow">Introduction · 레슨 01</div>
+        <h1 class="lesson-title">AI Fluency for Builders 시작하기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=YWVDXsUf8NY" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>이 강의는 <strong>빌더 — 프로덕트 담당자, 디자이너, 메이커 —</strong>를 대상으로, AI Fluency가 실제로 무엇을 뜻하는지 설명하고 이후 모든 레슨을 관통하는 <strong>4D 프레임워크</strong>를 미리 소개합니다. 빌더는 <strong>고객 문제부터 출시된 솔루션까지 전체 여정을 소유</strong>합니다.</p>
+
+      <div class="callout"><strong>AI Fluency란</strong> — AI를 <strong>효과적(effectively)·효율적(efficiently)·윤리적(ethically)·안전하게(safely)</strong> 다루며 협업하는 능력. 빌더에게는 이것이 곧 <strong>더 빠르게, 더 나은 것을 출시하는 힘</strong>이 됩니다.</div>
+
+      <h3>배우게 될 것</h3>
+      <div class="card"><ul>
+        <li>AI Fluency를 정의하고, <strong>빌더로서 내 역할</strong>에 어떻게 적용되는지 설명</li>
+        <li>AI에게 내 <strong>가치·제약·맥락</strong>을 전달하는 <strong>재사용 가능한 브리프(builder brief)</strong> 작성</li>
+        <li>빌더 프로세스에서 <strong>언제·어디서 AI에 위임할지</strong> 결정</li>
+      </ul></div>
+
+      <h3>강의 로드맵</h3>
+      <table>
+        <colgroup><col style="width:40%"><col></colgroup>
+        <tr><th>모듈</th><th>내용</th></tr>
+        <tr><td><strong>4D 프레임워크</strong></td><td>Delegation·Description·Discernment·Diligence — 생산적 AI 협업의 네 역량.</td></tr>
+        <tr><td><strong>AI 역량과 한계</strong></td><td>오늘의 AI가 <strong>무엇을 믿고 맡길 수 있고 없는지</strong>, 그것이 활용법을 어떻게 좌우하는지.</td></tr>
+        <tr><td><strong>Delegation &amp; 빌더의 툴킷</strong></td><td>문제를 분해하고, 각 단계에서 AI가 맡을 몫을 정하고, <strong>코드 한 줄 전에 "done"을 정의</strong>.</td></tr>
+        <tr><td><strong>코드·UX를 위한 Discernment</strong></td><td>정확성·품질·적합성·경험·책임이라는 기준으로 AI 산출물 평가.</td></tr>
+        <tr><td><strong>출시와 다음 단계</strong></td><td>AI로 만든 결과에 <strong>온전히 책임</strong>지고, 유창함을 계속 키우기.</td></tr>
+      </table>
+
+      <h3>핵심 정리</h3>
+      <ul>
+        <li>빌더는 <strong>고객 문제부터 출시까지 전체 아크</strong>를 소유한다.</li>
+        <li>AI Fluency는 AI와 <strong>효과·효율·윤리·안전</strong>하게 일하는 것.</li>
+        <li>4D 프레임워크(Delegation·Description·Discernment·Diligence)가 모든 레슨의 뼈대다.</li>
+        <li><strong>구현(implementation) 위임은 대개 안전</strong>하지만, <strong>판단(judgment) 위임은 대개 위험</strong>하다.</li>
+        <li>대부분의 AI 실패는 앞선 단계의 <strong>description·discernment·diligence 실패</strong>로 거슬러 올라간다.</li>
+      </ul>
+
+      <h3>연습: 나의 빌더 브리프 만들기</h3>
+      <p>모든 프로젝트 시작 시 AI에게 건넬 <strong>재사용 맥락 문서</strong>를 만듭니다. AI 협업자를 <strong>온보딩</strong>한다고 생각하세요.</p>
+      <div class="tip"><strong>Part 1 · 자기 성찰</strong> — AI 도구를 열기 전에 답을 적어봅니다: (1) 지금/앞으로 무엇을 만드는가(제품·사용자·해결할 문제), (2) 내 역할과 내가 <strong>책임지고 출시할 것</strong>, (3) 이미 AI를 쓰는 곳 vs. 피해온 곳과 그 이유, (4) <em>"AI가 ___을 맡아준다면, 나는 가장 중요한 결정이 내려지는 ___에 더 많은 시간을 쓸 수 있다."</em></div>
+      <p><strong>Part 2 · AI와 함께 브리프 작성</strong> — Claude(또는 선호하는 AI)에게 빌더임을 밝히고 Part 1 답을 공유해 초안을 요청합니다. 무엇을·누구를 위해 만드는지, 내 역할과 소유 범위, 제약(팀 규모·스택·일정·양보 불가 사항), AI를 끼우고 싶은 곳과 아닌 곳을 다루고, <strong>복사·재사용하기 쉬운 형식</strong>으로 마무리합니다.</p>
+
+      <div class="tip">이 강의는 Rick Dakan, Joseph Feller의 <em>AI Fluency Framework</em>에 기반하며 CodePath와 협력해 개발되었고 CC BY-NC-SA 4.0으로 배포됩니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 모든 AI 협업을 형성하는 4개 역량, 4D 프레임워크</div></div>
+    </section>
+
+    <!-- L2 -->
+    <section class="lesson" id="the-4d-framework">
+      <div class="lesson-head">
+        <div class="lesson-num">02</div>
+        <div class="eyebrow">Framework · 레슨 02</div>
+        <h1 class="lesson-title">4D 프레임워크</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=eNNSZhk_W74" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p><strong>4D 프레임워크 — Delegation, Description, Discernment, Diligence —</strong>는 서로 맞물린 네 역량으로, 이 강의의 모든 AI 협업을 형성합니다. 핵심은 이 넷을 <strong>내 일상 업무에 매핑</strong>하고 가장 큰 기회 지점을 찾는 것입니다.</p>
+
+      <div class="callout"><strong>Inner loop vs. Outer loop</strong><br>
+      · <strong>Inner loop (Description + Discernment)</strong> — 매일의 AI 상호작용을 안내한다.<br>
+      · <strong>Outer loop (Delegation + Diligence)</strong> — 언제·어떻게 AI를 쓸지에 대한 <strong>더 큰 결정</strong>을 안내한다.</div>
+
+      <h3>4D 자세히 보기</h3>
+      <table>
+        <colgroup><col style="width:26%"><col></colgroup>
+        <tr><th>역량</th><th>내용</th></tr>
+        <tr><td><strong>Delegation<br>(위임)</strong></td><td>무엇을 AI가 맡고 무엇을 내가 쥘지 결정한다.</td></tr>
+        <tr><td><strong>Description<br>(기술)</strong></td><td>무엇이 필요하고 AI가 어떻게 접근하길 바라는지 <strong>명확히 소통</strong>한다.</td></tr>
+        <tr><td><strong>Discernment<br>(분별)</strong></td><td>행동에 옮기기 전에 AI가 돌려준 것을 <strong>평가</strong>한다.</td></tr>
+        <tr><td><strong>Diligence<br>(성실)</strong></td><td>AI의 역할과 무관하게 <strong>최종 결과를 온전히 소유</strong>한다.</td></tr>
+      </table>
+
+      <h3>연습: 빌더 브리프를 4D에 매핑하기</h3>
+      <p><strong>Part 1 · 문서 태깅</strong> — 이전 레슨에서 만든 빌더 브리프의 각 목표·우려·작업에 가장 관련된 역량을 표시합니다. Delegation(AI에 맡길 것/말 것), Description(요구·의도를 명확히 전달하는 법), Discernment(AI 산출물을 평가·신뢰하는 문제), Diligence(책임·테스트·설명 가능성). <strong>가장 많이 나온 역량이 곧 가장 빠른 성장 지점</strong>입니다.</p>
+      <p><strong>Part 2 · 하나 실행</strong> — 브리프에서 실제로 기다리고 있는 작업 하나를 골라, AI를 열기 전에 (1) 어떤 역량들이 적용되는지, (2) 이 산출물의 "good enough"가 무엇인지 적고, AI와 한 라운드를 돌려 <strong>완성품이 아닌 유용한 출발점</strong>을 얻습니다.</p>
+      <p><strong>Part 3 · 성찰</strong> — 어떤 역량이 자연스러웠고 어떤 것이 당황스러웠는지, 다음 패스에서 한 가지 바꿀 점을 메모합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 생성형 AI가 어떻게 작동하는지 — 무엇을 할 수 있고 없는지</div></div>
+    </section>
+
+    <!-- L3 -->
+    <section class="lesson" id="ai-capabilities-limitations">
+      <div class="lesson-head">
+        <div class="lesson-num">03</div>
+        <div class="eyebrow">Foundations · 레슨 03</div>
+        <h1 class="lesson-title">AI의 역량과 한계</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=IZSB66OLc4w" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>Claude 같은 <strong>대형 언어 모델(LLM)이 어떻게 만들어지고 훈련되는지</strong>, 그것이 실제 업무에서 무엇을 믿고 맡길 수 있는지에 어떤 의미인지 다룹니다. 4D를 <strong>현실적인 기대</strong> 위에서 적용하기 위한 기초입니다.</p>
+
+      <div class="callout"><strong>생성형 AI란</strong> — 기존 데이터를 분석하는 것이 아니라 <strong>새로운 콘텐츠를 생성</strong>하는 AI. 이 점이 다른 AI 유형과 근본적으로 다릅니다.</div>
+
+      <h3>현대 LLM을 가능하게 한 세 가지</h3>
+      <div class="card"><ul>
+        <li><strong>트랜스포머 아키텍처(transformer)</strong></li>
+        <li><strong>방대한 훈련 데이터</strong></li>
+        <li><strong>막대한 연산(compute)</strong></li>
+      </ul></div>
+
+      <h3>훈련의 두 단계</h3>
+      <table>
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tr><th>단계</th><th>내용</th></tr>
+        <tr><td><strong>Pre-training<br>(사전 훈련)</strong></td><td>수십억 개 예시로부터 <strong>패턴을 학습</strong>한다.</td></tr>
+        <tr><td><strong>Fine-tuning<br>(미세 조정)</strong></td><td>지시를 <strong>도움이 되게 따르도록</strong> 가르친다.</td></tr>
+      </table>
+
+      <h3>강점과 한계</h3>
+      <table>
+        <colgroup><col style="width:50%"><col></colgroup>
+        <tr><th>현재 강점</th><th>현재 한계</th></tr>
+        <tr><td>다양한 작업에 걸친 <strong>범용성</strong></td><td><strong>지식 컷오프</strong>(knowledge cutoff)</td></tr>
+        <tr><td>대화적 <strong>유창함</strong></td><td><strong>환각</strong>(hallucination)</td></tr>
+        <tr><td><strong>도구 사용</strong>(tool use)</td><td>복잡한 추론의 <strong>불안정성</strong></td></tr>
+      </table>
+
+      <div class="callout">최고의 응용은 <strong>내 판단·창의성·감독</strong>을 AI의 <strong>속도·규모</strong>와 짝지운 것입니다.</div>
+
+      <h3>연습: 경계를 시험하기 (Testing the edges)</h3>
+      <p><strong>Part 1</strong> — 내가 잘 아는 코딩 도메인(예: rate-limiting 로직, async 상태 처리, 지난 분기에 최적화한 DB 쿼리)을 하나 고르고, 유능한 엔지니어라면 맞혀야 할 2~3가지, 흔한 오해나 까다로운 구현 디테일 하나, 최근 바뀐 것(라이브러리 업데이트·deprecation·새 베스트 프랙티스) 하나를 적습니다.</p>
+      <p><strong>Part 2 · AI와 3개의 짧은 대화</strong></p>
+      <ul>
+        <li><strong>범용성 테스트</strong> — 같은 주제를 한 응답 안에서 세 가지로(비기술 PM용·중급 엔지니어용·시니어 코드리뷰용) 설명하게 한다. 깊이가 실제로 달라졌는가, 단어만 바뀌었는가?</li>
+        <li><strong>환각 테스트</strong> — 라이브러리·패키지·문서를 추천받아 <strong>최소 하나를 검증</strong>한다. 실제 존재하는가? API가 정확한가? 버전이 최신인가?</li>
+        <li><strong>컷오프 + 추론 체크</strong> — 최근 프레임워크 업데이트·deprecated 패턴·보안 패치처럼 시의성 있는 것을 묻는다. 정보가 오래됐을 수 있음을 <strong>스스로 밝히는가</strong>, 낡은 정보를 최신인 양 제시하는가? 이어 Part 1의 까다로운 디테일을 풀게 해 실제로 혼란을 해소하는지 본다.</li>
+      </ul>
+      <div class="tip"><strong>Stretch goal</strong> — 같은 주제를 두 번째 AI 도구에도 돌려, 오류와 강점이 동일한지 비교하세요.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 첫 번째 D, Delegation을 깊이 파기 — 코드 한 줄 전의 결정들</div></div>
+    </section>
+
+    <!-- L4 -->
+    <section class="lesson" id="delegation-builders-toolkit">
+      <div class="lesson-head">
+        <div class="lesson-num">04</div>
+        <div class="eyebrow">Delegation · 레슨 04</div>
+        <h1 class="lesson-title">Delegation &amp; 빌더의 툴킷</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=AWSZoy3w_nE" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>코드 한 줄을 쓰기 전, 무엇을 만들지 좌우하는 <strong>수십 개의 결정</strong>을 내립니다. 이 레슨은 Delegation을 재정의합니다: <strong>"여기서 AI를 써야 하나?"가 아니라 "고객 문제가 있는데, 이것을 어떻게 분해하고 AI는 어떤 역할을 하는가?"</strong></p>
+
+      <h3>빌더의 툴킷 (6단계)</h3>
+      <p>각 단계에서 AI가 어디에 잘 맞는지 봅니다. <strong>AI는 툴킷의 중앙(구현 쪽)에서 가장 강합니다.</strong></p>
+      <table>
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tr><th>단계</th><th>AI의 적합도</th></tr>
+        <tr><td><strong>Empathy (공감)</strong></td><td>AI 약함 — 데이터·페르소나는 떠올려도 <strong>격차를 느끼지는</strong> 못한다.</td></tr>
+        <tr><td><strong>Design (설계)</strong></td><td>보조적으로 활용.</td></tr>
+        <tr><td><strong>Architecture (구조)</strong></td><td>보조적으로 활용.</td></tr>
+        <tr><td><strong>Implementation (구현)</strong></td><td><strong>AI가 가장 강한 지점.</strong></td></tr>
+        <tr><td><strong>Judgment (판단)</strong></td><td>사람의 몫.</td></tr>
+        <tr><td><strong>Shipping (출시)</strong></td><td>사람이 소유.</td></tr>
+      </table>
+
+      <div class="callout"><strong>구현 위임은 안전, 판단 위임은 위험.</strong> AI가 구현을 가속할수록 내 가치는 <strong>문제를 프레이밍하고 기준을 높이는 쪽</strong>으로 이동합니다.</div>
+
+      <h3>핵심 정리</h3>
+      <ul>
+        <li>Delegation은 <strong>먼저 문제를 분해</strong>한 뒤 각 단계에서 AI 몫을 정하는 것.</li>
+        <li>코드 전에 <strong>인수 테스트(acceptance test)</strong>를 써라 — 나와 AI가 공유하는 "done"의 정의가 된다.</li>
+      </ul>
+
+      <h3>연습: The Clinic Wait Time Project (Part 1)</h3>
+      <p>이 프로젝트는 강의 전체를 관통합니다. <strong>이번 레슨에서는 코드를 한 줄도 쓰지 않습니다 — 의도된 것입니다.</strong> 시나리오: 지역 보건 클리닉이 환자가 방문 전 대기 시간을 확인할 방법이 필요합니다. 세 가지 산출물을 만듭니다.</p>
+      <div class="card"><ul>
+        <li><strong>Deliverable 1 · 문제 브리프</strong> (1페이지) — 사용자는 누구인가(환자·직원·그 외?), 실제로 무엇이 필요한가(기능이 아닌 결과), 훌륭한 해법은 어떤 <strong>경험</strong>인가, 진짜 제약(예산·클리닉 기술 수준·환자 기기 접근·프라이버시)은 무엇인가.</li>
+        <li><strong>Deliverable 2 · 위임 계획</strong> — 6개 툴킷 단계 각각에 어떤 협업 모드가 맞는지 표로 정리: <strong>Automation</strong>(AI가 하고 내가 확인), <strong>Augmentation</strong>(함께), <strong>Agency</strong>(내가 정한 경계 안에서 AI가 자율).</li>
+        <li><strong>Deliverable 3 · 인수 테스트</strong> — "done"을 정의하는 <strong>5~7개 문장</strong>. 제3자가 통과/실패를 판단할 만큼 구체적으로.</li>
+      </ul></div>
+      <div class="example"><strong>좋은 예</strong> — "기본 스마트폰을 가진 환자가 계정 생성 없이 30초 안에 현재 대기 시간을 확인할 수 있다."<br>
+      <strong>나쁜 예</strong> — "시스템이 쓰기 쉽다."</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Delegation에서 Description으로 — 정한 것을 AI가 실행할 만큼 명확히 전달하기</div></div>
+    </section>
+
+    <!-- L5 -->
+    <section class="lesson" id="description-building-great-things">
+      <div class="lesson-head">
+        <div class="lesson-num">05</div>
+        <div class="eyebrow">Description · 레슨 05</div>
+        <h1 class="lesson-title">Description &amp; 훌륭한 것 만들기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=wotzFHTKQ9Q" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>대부분의 AI 교육은 <strong>더 나은 프롬프트 쓰기</strong>를 가르칩니다. 필요하지만 충분하지 않습니다. 이 레슨은 전체 <strong>Description Chain</strong> — 지저분한 인간의 필요에서 AI가 실행할 수 있는 정밀한 지시까지의 경로 — 를 매핑하며, 각 단계에서 <strong>빌더가 번역자</strong>가 됩니다.</p>
+
+      <h3>Description Chain</h3>
+      <div class="card"><p><strong>사용자 목소리 → 요구사항(requirement) → 기술 스펙(technical spec) → AI 지시(AI instruction) → 테스트</strong>. 프롬프트 엔지니어링은 이 사슬의 <strong>한 고리</strong>일 뿐입니다.</p></div>
+
+      <h3>핵심 정리</h3>
+      <ul>
+        <li>빌더는 <strong>모든 단계의 번역자</strong>다. AI는 <strong>사용자가 말하지 않은 것을 들을 수 없다.</strong></li>
+        <li>코드는 돌아가는데 제품이 안 되면 그것은 <strong>description 실패</strong>다. 어느 고리가 끊겼는지 상류에서 찾아라.</li>
+        <li>테스트는 <strong>가장 정밀한 형태의 description</strong>이다. 테스트는 통과하는데 사용자가 불만이라면, 잘못된 의도를 기술한 것이다.</li>
+        <li>모든 단계에는 이전 단계가 대신 해주지 않은 <strong>판단(judgment)</strong>이 들어간다.</li>
+      </ul>
+
+      <h3>연습: The Clinic Wait Time Project (Part 2)</h3>
+      <p>지난 레슨의 문제 브리프·위임 계획·인수 테스트를 꺼내 이어서 진행합니다.</p>
+      <div class="card"><ul>
+        <li><strong>Step 1 · 제품 요구사항</strong> — 한 문단. 사용자 필요를 <strong>측정 가능</strong>하게 좁힌다. "빠른"이면 얼마나 빠른지, "단순한"이면 주차장에서 폰으로 확인하는 환자에게 무엇이 단순인지 쓴다. 모든 형용사는 <strong>변호할 수 있는 결정</strong>이어야 한다.</li>
+        <li><strong>Step 2 · 기술 스펙</strong> — 반 페이지. 무엇을 만들고 어떻게 구성되는지, 구성요소와 그들의 소통 방식을 명명한다. <strong>Augmentation 모드</strong>로 AI에 접근법을 제안받고, 제약에 안 맞는 것은 되받아친다.</li>
+        <li><strong>Step 3 · 테스트 조이기</strong> — 인수 테스트를 코드가 통과/실패할 수 있게 다시 쓰고, <strong>엣지 케이스 2개 이상</strong>(클리닉 휴무·데이터 없음·대기 0분)을 추가한다.</li>
+        <li><strong>Step 4 · 프롬프트 작성 &amp; 빌드</strong> — 제약·스택 선택·테스트를 포함한 지시로 첫 버전을 만든다.</li>
+        <li><strong>Step 5 · 데모</strong> — 파트너를 환자 역할로 세우고(아픈 아이에 10분뿐), <strong>설명도 도움도 없이</strong> 쓰게 한다. 테스트는 통과했나? 환자는 만족했나? 둘이 안 맞으면 <strong>사슬의 어느 고리</strong>로 돌아갈지 판단한다.</li>
+      </ul></div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · Description에서 Discernment로 — 코드가 돌아가는 것을 넘어 "실제로 좋은가"</div></div>
+    </section>
+
+    <!-- L6 -->
+    <section class="lesson" id="discernment-for-code">
+      <div class="lesson-head">
+        <div class="lesson-num">06</div>
+        <div class="eyebrow">Discernment · 레슨 06</div>
+        <h1 class="lesson-title">코드를 위한 Discernment</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=7J2-HzHs4c8" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>AI가 몇 분 만에 동작하는 제품을 만들어내면, <strong>"돌아간다"는 더 이상 기준이 아닙니다.</strong> AI가 만든 제품이 주로 어디서 실패하는지, 개발이 아닌 프로덕션에서 튀어나오는 기술적 맹점은 무엇인지, 그리고 AI에게 없는 <strong>취향(taste)</strong>을 어떻게 기를지 배웁니다.</p>
+
+      <h3>Discernment의 다섯 렌즈</h3>
+      <p>Lens 1은 실행하면 바로 확인되지만, Lens 5로 갈수록 <strong>AI가 대신 내려줄 수 없는 판단</strong>이 됩니다.</p>
+      <table>
+        <colgroup><col style="width:38%"><col></colgroup>
+        <tr><th>렌즈</th><th>묻는 것</th></tr>
+        <tr><td><strong>Lens 1 · Functional Integrity</strong></td><td>동작하는가? 테스트 데이터가 아닌 <strong>실제 입력</strong>에 올바른 출력을 내는가?</td></tr>
+        <tr><td><strong>Lens 2 · Production Readiness</strong></td><td>프로덕션에서 버틸 준비가 됐는가?</td></tr>
+        <tr><td><strong>Lens 3 · Problem Fit</strong></td><td>진짜 문제에 맞는가?</td></tr>
+        <tr><td><strong>Lens 4 · Experience Quality</strong></td><td>쓰기에 좋은 경험인가?</td></tr>
+        <tr><td><strong>Lens 5 · Responsible Impact</strong></td><td>책임 있는 영향을 주는가?</td></tr>
+      </table>
+
+      <div class="callout"><strong>흔한 AI 실패</strong> — 유닛 테스트는 통과하지만, 프롬프트가 다루지 않은 <strong>실제 데이터</strong>에서 깨지는 코드. AI는 <strong>동시성(concurrency)·보안·규모에서만 드러나는 문제</strong>에 예측 가능한 맹점이 있습니다.</div>
+
+      <h3>핵심 정리</h3>
+      <ul>
+        <li>돌아가는 코드도 실패할 수 있다. 기본 AI 출력은 기술적으로 완결돼 보여도 <strong>요점을 놓치는</strong> 경우가 많다.</li>
+        <li><strong>취향은 빌더의 스킬</strong>이다. AI는 기능을 주고, <strong>쓸 만하게 만드는 것은 나의 몫</strong>이다.</li>
+      </ul>
+
+      <h3>연습: Clinic 프로젝트 사용자 테스트</h3>
+      <p>빌드를 환자나 클리닉 관리자 역할의 파트너 앞에 놓고 <strong>설명도 도움도 없이</strong> 관찰합니다. 어디서 헷갈리는지, 무엇을 무시하는지, 무엇을 원했지만 만들지 않았는지 봅니다. 바꿀 것 <strong>3가지</strong>를 적고 각각이 <strong>어느 렌즈</strong>에 해당하는지 표시합니다.</p>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 같은 도구를 다른 렌즈로 — 실제로 쓰기에 어떤 느낌인가(UX)</div></div>
+    </section>
+
+    <!-- L7 -->
+    <section class="lesson" id="discernment-for-ux">
+      <div class="lesson-head">
+        <div class="lesson-num">07</div>
+        <div class="eyebrow">Discernment · 레슨 07</div>
+        <h1 class="lesson-title">사용자 경험을 위한 Discernment</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=jgcF2d0kW7U" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>AI가 구현을 빠르게 할수록 <strong>디자인이 차별점</strong>이 됩니다. AI와 일할 때 가장 중요한 UX 원칙, "예쁘게 만들어줘"가 왜 아무 쓸모없는 결과를 내는지, 그리고 <strong>동료에게 줄 비평</strong>을 <strong>AI가 실행할 수 있는 기술(description)</strong>로 바꾸는 법을 다룹니다.</p>
+
+      <h3>네 가지 UX 원칙</h3>
+      <table>
+        <colgroup><col style="width:30%"><col></colgroup>
+        <tr><th>원칙</th><th>내용</th></tr>
+        <tr><td><strong>Clarity (명료성)</strong></td><td>모든 요소가 <strong>즉시 목적을 전달</strong>해야 한다. 버튼·필드의 의미를 추측하게 하지 마라.</td></tr>
+        <tr><td><strong>Hierarchy (위계)</strong></td><td>가장 중요한 정보가 <strong>가장 먼저 보이게</strong>.</td></tr>
+        <tr><td><strong>Accessibility (접근성)</strong></td><td>색 대비·스크린 리더·키보드 내비게이션. <strong>AI는 기본값으로 접근성을 못 챙긴다.</strong></td></tr>
+        <tr><td><strong>Feedback (피드백)</strong></td><td>사용자 행동을 인지하고, 문제 시 <strong>무엇을 할지</strong> 알린다.</td></tr>
+      </table>
+
+      <div class="callout"><strong>"예쁘게 만들어줘"는 스펙이 아니라 소망입니다.</strong> 경험은 함수만큼 정밀하게 기술하세요. <strong>좋은 비평</strong>과 <strong>실행 가능한 AI 기술</strong>은 서로 다른 산출물이며, 둘 사이를 번역하는 법을 익혀야 합니다.</div>
+
+      <h3>연습: The Clinic Wait Time Project (Part 3)</h3>
+      <p>클리닉 앱의 <strong>디자인 스펙</strong>(사용자 플로우·정보 위계·인터랙션 패턴)을 쓰고, 그 스펙에 맞춰 AI로 다시 빌드합니다. 결과를 비평합니다 — 어디를 잘했고, 어디가 기술적으로 맞지만 <strong>경험적으로 밋밋한지</strong>. 접근성 감사를 돌려 AI가 놓친 것을 문서화합니다.</p>
+      <div class="card"><ul>
+        <li><strong>Clarity &amp; 멘탈 모델</strong> — 클리닉 관리자가 알아볼 언어·패턴을 쓰는가?</li>
+        <li><strong>정보 위계</strong> — 가장 중요한 정보가 먼저 보이는가?</li>
+        <li><strong>접근성</strong> — 색 대비·스크린 리더·키보드 내비게이션을 통과하는가?</li>
+        <li><strong>피드백 &amp; 에러 처리</strong> — 행동을 인지하고, 문제 시 무엇을 할지 설명하는가?</li>
+      </ul></div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 가장 어려운 질문 — 만든 것에 진짜로 책임진다는 것(Diligence)</div></div>
+    </section>
+
+    <!-- L8 -->
+    <section class="lesson" id="stand-behind-what-you-build">
+      <div class="lesson-head">
+        <div class="lesson-num">08</div>
+        <div class="eyebrow">Diligence · 레슨 08</div>
+        <h1 class="lesson-title">만든 것에 책임지기 &amp; 마무리</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=wrgLtG-IHKk" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>빌더 모델에서 <strong>Diligence는 완전한 소유(full ownership)</strong>입니다 — 이것이 존재해야 하는지부터, 출시 후 사용자에게 실제로 도움이 되는지까지 책임집니다. 출시의 의미, AI가 경고하지 않는 기술적 현실, 라이브 순간 테스트가 <strong>안전망</strong>이 되는 이유, 그리고 자기 작업을 <strong>스스로 폐기(deprecate)</strong>하는 저평가된 스킬을 다룹니다.</p>
+
+      <h3>핵심 정리</h3>
+      <ul>
+        <li><strong>출력이 아니라 결과를 소유한다.</strong> "AI가 썼다"는 아무것도 설명하지 못하고 아무것도 면제하지 못한다.</li>
+        <li>출시에는 <strong>고유 어휘</strong>(migration·versioning·rate limit·feature flag)가 있고, AI는 묻기 전엔 이를 꺼내지 않는다.</li>
+        <li><strong>테스트가 출시 후 반복을 안전하게</strong> 만든다. test-first 습관이 자신 있게 계속 바꿀 수 있게 하는 이유다.</li>
+        <li><strong>프로토타입은 자유롭게, 출시는 선별적으로.</strong> 값싼 코드는 <strong>정직한 평가</strong>와 짝지어질 때만 가치를 낳는다.</li>
+        <li><strong>접근성은 디자인 결정</strong>이다. "완성"이라 부르기 전에 내 가정이 누구를 배제하는지 확인하라.</li>
+      </ul>
+
+      <h3>연습: Clinic 앱 출시하기</h3>
+      <p>배포 전에 다음을 <strong>정직하게</strong> 답한 뒤, 앱을 배포(또는 프로토타입 호스팅)하고, 실제 사용자 3명과 공유해 배운 것으로 한 번 반복하되 <strong>변경을 검증하는 테스트</strong>를 함께 만듭니다.</p>
+      <div class="card"><ul>
+        <li><strong>Understanding</strong> — 코드가 <strong>무엇을 해야 하는지가 아니라 실제로 무엇을 하는지</strong> 설명할 수 있는가?</li>
+        <li><strong>Testing</strong> — 인수 테스트가 여전히 통과하는가? 엣지 케이스(휴무·데이터 없음·대기 0분)를 테스트했는가?</li>
+        <li><strong>Access</strong> — 이 빌드가 잘 못 섬기는 사람은 누구인가?</li>
+        <li><strong>Responsibility</strong> — 오해·오용될 수 있는가? AI의 역할을 투명하게 밝혔는가?</li>
+        <li><strong>Feedback loop</strong> — 출시 후 <strong>작동 여부를 어떻게 알</strong> 것인가?</li>
+      </ul></div>
+
+      <h3>마무리 · Closure &amp; 앞으로</h3>
+      <div class="callout"><strong>4Ds는 순서가 아니라 동적입니다.</strong> 만들면서 넷 사이를 <strong>유연하게 오가는 것</strong>이 실전에서의 유창함입니다.</div>
+      <ul>
+        <li>AI는 툴킷의 <strong>중앙(구현)에서 가장 강하다</strong> — 구현은 자유롭게 위임하되 <strong>공감·판단·출시는 내 손</strong>에.</li>
+        <li>견고한 description은 <strong>사슬 전체</strong>(사용자 목소리→요구사항→스펙→AI 지시→테스트)를 따른다. 한 고리 실패가 하류로 번진다.</li>
+        <li>discernment는 <strong>출시 전에</strong> 적용한다. AI 출력은 "돌아가나?"는 통과해도 <strong>"옳은 것인가?"</strong>에서 걸린다 — 거기가 내 판단이 중요한 지점.</li>
+      </ul>
+      <div class="tip"><strong>당신의 다음 빌드</strong> — 이번 주 실제로 기다리는 구체적 작업 하나(미뤄둔 기능 요청, 미정리 사용자 리서치, 착수 전 필요한 기술 스펙, 테스트 없어 손대기 두려운 코드)를 골라 4D 전부로 관통하세요: Delegation(안전한 단계 vs. 판단 필요), Description(전체 사슬 작성), Discernment(다섯 렌즈로 평가), Diligence(설명 가능한가·피드백 루프 있는가·책임질 수 있는가).</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>완주</b> · AI Fluency for Builders의 8개 레슨을 모두 정리했습니다. 4D를 실제 빌드에 유연하게 적용하고, 만든 것에 온전히 책임지는 빌더가 될 차례입니다.</div></div>
+    </section>
+
+   </div>
+  </main>
+</div>
+</div>
+
+<script>
+  const curriculum = [
+    { n:"01", section:"Introduction", lessons:[
+      { id:"welcome", title:"AI Fluency for Builders 시작하기", done:true },
+    ]},
+    { n:"02", section:"Framework", lessons:[
+      { id:"the-4d-framework", title:"4D 프레임워크", done:true },
+      { id:"ai-capabilities-limitations", title:"AI의 역량과 한계", done:true },
+    ]},
+    { n:"03", section:"Delegation", lessons:[
+      { id:"delegation-builders-toolkit", title:"Delegation & 빌더의 툴킷", done:true },
+    ]},
+    { n:"04", section:"Description", lessons:[
+      { id:"description-building-great-things", title:"Description & 훌륭한 것 만들기", done:true },
+    ]},
+    { n:"05", section:"Discernment", lessons:[
+      { id:"discernment-for-code", title:"코드를 위한 Discernment", done:true },
+      { id:"discernment-for-ux", title:"사용자 경험을 위한 Discernment", done:true },
+    ]},
+    { n:"06", section:"Diligence", lessons:[
+      { id:"stand-behind-what-you-build", title:"만든 것에 책임지기 & 마무리", done:true },
+    ]},
+  ];
+</script>
+{% include course-nav.html %}

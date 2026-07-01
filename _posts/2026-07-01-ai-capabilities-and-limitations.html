@@ -1,0 +1,450 @@
+---
+layout: default
+title: "AI Capabilities and Limitations"
+date: 2026-07-01
+categories: [강의 정리]
+tags: [AI, Anthropic, 입문]
+permalink: /courses/anthropic/ai-capabilities-and-limitations.html
+description: "Anthropic 공식 영어 강의 AI Capabilities and Limitations를 한글로 정리한 학습 노트 — 생성형 AI가 어떻게 작동하는지, 할 수 있는 것과 없는 것."
+---
+{% include course-styles.html %}
+
+<div class="course-page">
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand">
+      <a class="backlink" href="/courses/anthropic/">← Anthropic Courses</a>
+      <p class="kicker">Anthropic Academy</p>
+      <h1>AI <em>Capabilities</em></h1>
+      <p class="sub">Anthropic Academy 공식 영어 강의를 한글로 정리한 학습 노트</p>
+      <a class="srcnote" href="https://anthropic.skilljar.com/ai-capabilities-and-limitations" target="_blank" rel="noopener">원문 강의 (영어) ↗</a>
+      <div class="progress-wrap">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-text"><span id="progressPos">레슨 01 / 12</span><span id="progressPct">전체 정리 완료</span></div>
+      </div>
+    </div>
+    <nav class="spine" id="nav"></nav>
+  </aside>
+
+  <main class="content">
+   <div class="reading" id="reading">
+
+    <!-- L1 -->
+    <section class="lesson active" id="intro-capabilities-limitations">
+      <div class="lesson-head">
+        <div class="lesson-num">01</div>
+        <div class="eyebrow">Orientation · 레슨 01</div>
+        <h1 class="lesson-title">AI 역량과 한계 소개</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=Sj1yynxA9hw" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>이 강의는 <strong>AI가 나와 어떻게 함께 일할 수 있는지</strong>, 즉 기계 쪽의 속성을 다룹니다. 4D 프레임워크가 <strong>인간의 역량</strong>을 가르친다면, 이 강의는 그 역량이 반응하는 <strong>기계의 속성</strong>을 가르칩니다. 둘은 하나의 시스템 — 한쪽은 인간 역량, 다른 쪽은 기계 속성입니다.</p>
+
+      <div class="callout"><strong>기계에 대한 멘탈 모델(mental model of the machine)</strong>을 만드는 것이 이 강의의 목표입니다. AI가 왜 그렇게 행동하는지 <strong>속성으로 설명</strong>할 수 있게 됩니다.</div>
+
+      <h3>코스 로드맵</h3>
+      <div class="card"><ul>
+        <li><strong>What we mean by AI</strong> — 생성형 AI란 무엇이고 다른 AI와 어떻게 다른가?</li>
+        <li><strong>How AI is trained</strong> — pretraining과 fine-tuning이 AI에 성격을 부여하는 방식</li>
+        <li><strong>Properties of AI</strong> — Next Token Prediction, Knowledge, Working Memory, Steerability</li>
+        <li><strong>Putting it all together</strong> — 속성들이 현실에서 충돌할 때 무슨 일이 벌어지는가</li>
+        <li><strong>Next steps</strong> — 이 지식을 안전·효과·윤리적으로 활용하기</li>
+      </ul></div>
+
+      <h3>핵심 정리</h3>
+      <ul>
+        <li>4D 프레임워크는 <strong>인간의 역량</strong>을, 이 강의는 그 역량이 대응하는 <strong>기계의 속성</strong>을 설명합니다.</li>
+        <li>생성형 AI에는 네 가지 핵심 속성이 있습니다 — <strong>Next Token Prediction, Knowledge, Working Memory, Steerability</strong>.</li>
+        <li>이 내용은 <strong>지속 가능(durable)</strong>합니다. 모델이 좋아져도 속성 자체는 안정적으로 남고, <strong>경계선만 이동</strong>합니다.</li>
+      </ul>
+
+      <div class="example"><strong>연습: 내 AI 사용 매핑하기</strong> — 최근 2주간 AI로 실제 수행한 작업 4~6개를 <strong>구체적으로</strong> 적습니다("프로젝트 지연을 설명하는 고객 이메일 초안"처럼). 각 작업이 <strong>첫 시도에 통과했는지, 손봐야 했는지</strong> 한 줄로 표시하고, AI에게 "각 작업이 방심하면 어디서 어긋날 수 있을지" 물어봅니다. 이 목록은 <strong>모든 레슨에서 다시 돌아올 기준선</strong>입니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · "AI"의 범위를 긋기 — 생성형 AI는 무엇이 다른가</div></div>
+    </section>
+
+    <!-- L2 -->
+    <section class="lesson" id="what-we-mean-by-ai">
+      <div class="lesson-head">
+        <div class="lesson-num">02</div>
+        <div class="eyebrow">Foundations · 레슨 02</div>
+        <h1 class="lesson-title">생성형 AI란 무엇인가</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=AiiiyYiEJa4" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>세상 대부분의 AI(스팸 필터, 추천, 사기 탐지)는 <strong>생성형이 아닙니다</strong>. 이 강의가 다루는 것은 <strong>트랜스포머 기반 텍스트 모델</strong> — 토큰을 하나씩 이어 붙여 <strong>새로운 콘텐츠를 생성</strong>하는 종류입니다.</p>
+
+      <div class="callout">생성형 AI는 기존 콘텐츠를 <strong>분류(classification)</strong>하는 게 아니라 <strong>새 콘텐츠를 생성</strong>합니다. 이 구분이 강의 전체의 출발점입니다.</div>
+
+      <h3>Capabilities &amp; Limitations 프레임워크 — 네 가지 속성</h3>
+      <p>각 속성은 <strong>역량(Capability)에서 한계(Limitation)로 이어지는 스펙트럼</strong> 위에 있습니다. 오른쪽으로 갈수록 더 많이 <strong>검증하고 보완</strong>해야 합니다.</p>
+      <table>
+        <colgroup><col style="width:22%"><col style="width:39%"><col></colgroup>
+        <tr><th>속성</th><th>역량 쪽 (Capability)</th><th>한계 쪽 (Limitation)</th></tr>
+        <tr><td><strong>Next Token Prediction</strong><br>답은 어디서 오는가?</td><td>요약·재구성·흔한 개념 설명 등 <strong>익숙한 길</strong></td><td>새롭거나 희소한 패턴, "참 vs. 참처럼 들림"</td></tr>
+        <tr><td><strong>Knowledge</strong><br>실제로 무엇을 아는가?</td><td>자주·최근(학습 시점)·일관되게 등장한 <strong>주류 주제·인기 언어</strong></td><td>드물거나·컷오프 이후·틈새·지역적·논쟁적 주제</td></tr>
+        <tr><td><strong>Working Memory</strong><br>지금 무엇에 주목하는가?</td><td>자료가 넉넉히 들어가고, 세션이 현재이며, 맥락을 내가 제공</td><td>아주 긴 문서·대화, 세션 간 연속성 기대(the cliff)</td></tr>
+        <tr><td><strong>Steerability</strong><br>내가 얼마나 통제하는가?</td><td>짧고·구체적·검증 가능한 지시("표로 답해", "100단어 이하")</td><td>긴 추론 사슬, 추상적 요구, 정밀한 계산</td></tr>
+      </table>
+
+      <h3>핵심 정리</h3>
+      <ul>
+        <li>AI는 <strong>일률적으로 유능하거나 일률적으로 불안정하지 않습니다</strong>. 네 개의 예측 가능한 축을 따라 강하기도 약하기도 합니다.</li>
+        <li>각 속성은 <strong>연속체(continuum)</strong>이며, <strong>같은 메커니즘이 역량과 한계를 동시에</strong> 만듭니다.</li>
+        <li><strong>보정된 신뢰(calibrated trust)</strong>란 신뢰를 통째로 주거나 뺏는 게 아니라, <strong>내 작업이 연속체 어디에 놓이는지</strong> 찾는 것입니다.</li>
+      </ul>
+
+      <div class="example"><strong>연습: 생성형인가 아닌가?</strong> — 이번 주 사용한 AI 기능 다섯 개(자동완성·사진 태깅·스팸 필터·번역·추천 등)를 적고, 각각이 <strong>새 콘텐츠를 생성</strong>하는지 <strong>기존 것을 분류·정렬</strong>하는지 판정합니다. 그리고 레슨 1 목록의 각 작업에 <strong>가장 관련 있는 속성 질문</strong>을 태그로 붙입니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · AI는 어떻게 성격을 갖게 되는가 — 학습이 남기는 지문</div></div>
+    </section>
+
+    <!-- L3 -->
+    <section class="lesson" id="how-ai-gets-character">
+      <div class="lesson-head">
+        <div class="lesson-num">03</div>
+        <div class="eyebrow">Foundations · 레슨 03</div>
+        <h1 class="lesson-title">AI는 어떻게 성격을 갖는가</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=6jRk3nC4-xI" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>AI의 <strong>공손함·도움·신중함</strong>은 창발하는 마법이 아니라, 학습 단계마다 층층이 <strong>훈련되어 들어간 것</strong>입니다. 그리고 각 단계는 시스템의 행동에 <strong>구체적이고 예측 가능한 지문(fingerprint)</strong>을 남깁니다.</p>
+
+      <h3>두 단계의 학습</h3>
+      <table>
+        <colgroup><col style="width:26%"><col></colgroup>
+        <tr><th>단계</th><th>설명</th></tr>
+        <tr><td><strong>Stage 1<br>Pretraining</strong></td><td>방대한 텍스트를 읽으며 오직 하나 — <strong>다음에 올 것을 예측</strong>하는 법을 배웁니다. 강력한 <strong>문서 완성기</strong>가 되지만, "돕는다"는 개념은 아직 없습니다.</td></tr>
+        <tr><td><strong>Stage 2<br>Fine-tuning</strong></td><td>인간의 선호가 문서 완성기를 <strong>어시스턴트로</strong> 빚습니다. 입력을 <strong>요청으로 취급</strong>하고, 도움이 되게 답하며, 해로운 요청은 거절합니다.</td></tr>
+      </table>
+      <div class="callout">Fine-tuning은 좋은 응답에 대한 <strong>인간의 판단</strong>을 사용하고, 그 판단이 지문을 남깁니다 — <strong>아첨(sycophancy)</strong>으로의 쏠림, <strong>장황함(verbosity)</strong> 기본값, 이따금 <strong>과도한 신중함(over-caution)</strong>, 그리고 <strong>표현된 자신감과 실제 신뢰도의 헐거운 보정</strong>.</div>
+
+      <h3>핵심 정리</h3>
+      <ul>
+        <li><strong>Helpful · Honest · Harmless</strong> — fine-tuning이 어시스턴트에 얹는 세 가지 지향.</li>
+        <li>이 지문들은 <strong>모든 모델에 나타납니다</strong>. 문제는 내가 신경 쓰는 작업에서 그것을 <strong>알아볼 수 있느냐</strong>입니다.</li>
+      </ul>
+
+      <div class="example"><strong>연습: 내 작업 위의 지문</strong> — 레슨 1 목록에서 한 작업을 골라 세 번 돌립니다. ① <strong>있는 그대로</strong> 실행, ② <strong>아첨 테스트</strong>(틀린 전제를 앞에 깔고 반박하는지 관찰 → "정말 틀렸으면 반대해 달라"고 초대), ③ <strong>장황함 테스트</strong>(한 문장이면 될 질문을 던진 뒤 "한 문장으로 답해"로 재요청해 길이 비교). 어느 지문이 가장 뚜렷했나요?</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 첫 번째 속성 Next Token Prediction — 답은 어디서 오는가</div></div>
+    </section>
+
+    <!-- L4 -->
+    <section class="lesson" id="next-token-prediction">
+      <div class="lesson-head">
+        <div class="lesson-num">04</div>
+        <div class="eyebrow">Next Token Prediction · 레슨 04</div>
+        <h1 class="lesson-title">Next Token Prediction</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=kl0gunXTvyk" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>생성형 AI는 검색 엔진보다 <strong>극도로 정교한 자동완성</strong>에 가깝습니다. <strong>무엇 뒤에 무엇이 오는 경향</strong>이 있는지에 근거해 답을 <strong>한 단어씩</strong> 씁니다. 이 단일 속성이 <strong>유창함과 환각을 동시에</strong> 만듭니다.</p>
+
+      <h3>이 속성이 가능케 하는 것 / 특징적으로 실패하는 곳</h3>
+      <table>
+        <colgroup><col style="width:50%"><col></colgroup>
+        <tr><th>역량 (Capability)</th><th>한계 (Limitation)</th></tr>
+        <tr><td>거의 모든 스타일·형식의 <strong>유창한 텍스트</strong></td><td><strong>환각(Hallucination)</strong> — 그럴듯한 이어짐이 늘 참은 아님</td></tr>
+        <tr><td>먼 분야를 넘나드는 <strong>빠른 아이디어 종합</strong></td><td><strong>작화(Confabulation)</strong> — 빈틈을 플래그 대신 그럴듯한 내용으로 채움</td></tr>
+        <tr><td>모델이 본 것과 닮은 작업에서의 <strong>강한 성능</strong></td><td><strong>비일관성</strong> — 샘플링 탓에 같은 프롬프트가 다른 출력</td></tr>
+        <tr><td>어떤 실마리든 <strong>일관되게 이어감</strong>(스토리·논증·코드)</td><td><strong>잘못된 자신감</strong> — 매끄러운 문장이 추측을 감쌈</td></tr>
+      </table>
+
+      <div class="callout"><strong>조작(fabrication)은 구체성에 집중됩니다</strong> — 이름·날짜·통계·인용·URL·직접 인용문. 주장이 정밀할수록 <strong>검증이 더 필요</strong>합니다.</div>
+
+      <div class="tip">이 한계를 밀어내는 제품 기능들 — <strong>인용·출처 근거(citations)</strong>, <strong>불확실성 신호(uncertainty signaling)</strong>, <strong>제약 생성(constrained generation)/스킬</strong>, <strong>생성-검증(generator-verifier) 루프</strong>.</div>
+
+      <h3>핵심 정리</h3>
+      <ul>
+        <li><strong>역량 지대</strong>: 모델이 여러 번 본 패턴을 닮은 작업(요약·재구성·흔한 개념 설명).</li>
+        <li><strong>한계 지대</strong>: 새롭거나 희소한 영역, 그리고 "참"과 "참처럼 들림"을 구분해야 하는 곳.</li>
+        <li><strong>4D 연결</strong>: Next Token Prediction은 <strong>Discernment(분별)</strong>의 토대입니다. 출력이 생성된 것임을 알면 <strong>어떤 종류의 검증</strong>이 필요한지 정확히 알 수 있습니다.</li>
+      </ul>
+
+      <div class="example"><strong>연습: 검증 테스트</strong> — 내가 전문가인 분야의 작업을 고르고 <strong>검증 가능한 구체 사실 다섯 개</strong>를 미리 적습니다. ① <strong>역량 지대</strong>(유명한 개념 설명 요청 — 매끄럽고 대체로 정확), ② <strong>압박 하의 구체성</strong>(출처 3개·저자·정확한 수치·URL을 요구하고 5점 만점으로 채점), ③ <strong>샘플링 실감</strong>(새 대화에서 같은 요청을 반복해 무엇이 유지·변화하는지 비교).</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음</b> · 인터랙티브 데모 — "Text Your Friend Markov"로 다음 토큰 예측을 직접 만들어 보기</div></div>
+    </section>
+
+    <!-- L5 -->
+    <section class="lesson" id="try-markov">
+      <div class="lesson-head">
+        <div class="lesson-num">05</div>
+        <div class="eyebrow">Next Token Prediction · 레슨 05</div>
+        <h1 class="lesson-title">Try it out — Markov 다음 단어 생성기</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p><strong>100% 해석 가능한</strong> 다음 토큰 생성기를 손으로 만들어 보는 데모입니다. 휴대폰의 추천 단어만으로 문자를 완성하던 놀이 — 그 알고리즘이 생각보다 단순하다는 것을 보여줍니다.</p>
+
+      <h3>"학습"과 샘플링</h3>
+      <div class="card"><ul>
+        <li><strong>학습(training)</strong> = 메시지들을 한 번에 하나씩 훑으며 <strong>단어 사이 연결을 집계</strong>. 이 연결 지도를 <strong>빈도표(frequency table)</strong>라 하고, 각 행을 정규화하면 <strong>다음 단어의 확률 분포</strong>가 됩니다.</li>
+        <li><strong>샘플링(sampling)</strong> = 지금까지의 맥락에 근거해 다음 단어를 <strong>고르는 행위</strong>. Claude 같은 현대 언어 모델에도 같은 용어를 씁니다.</li>
+      </ul></div>
+
+      <h3>Markov chain vs. LLM</h3>
+      <table>
+        <colgroup><col style="width:20%"><col style="width:40%"><col></colgroup>
+        <tr><th>단계</th><th>Markov chain</th><th>LLM</th></tr>
+        <tr><td>맥락 읽기</td><td>마지막 단어 하나</td><td>지금까지의 <strong>전체 대화</strong></td></tr>
+        <tr><td>분포 계산</td><td>표에서 한 행 조회</td><td>수십억 파라미터의 <strong>순전파(어텐션·임베딩·피드포워드…)</strong></td></tr>
+        <tr><td>다음 토큰 샘플</td><td colspan="2">둘 다 <strong>동일</strong> — 결과는 다음 단어/토큰의 <strong>확률 분포</strong></td></tr>
+      </table>
+
+      <div class="callout"><strong>샘플링은 같지만 학습은 근본적으로 다릅니다.</strong> LLM은 단어를 일일이 세는 방식의 <strong>설명 가능성을 내주고</strong>, 훨씬 많은 맥락과 훨씬 큰 역량을 얻습니다.</div>
+
+      <div class="tip">100년 된 기술 — Markov는 1906년에 이 아이디어를 발표했고, 2010년경 n-gram 모델이 휴대폰의 다음 단어 예측(SwiftKey, QuickType)을 구동했으며, 2015년경부터 RNN, 그리고 2017년 트랜스포머가 표 조회를 <strong>학습된 함수</strong>로 대체했습니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 두 번째 속성 Knowledge — 모델은 실제로 무엇을 아는가</div></div>
+    </section>
+
+    <!-- L6 -->
+    <section class="lesson" id="knowledge">
+      <div class="lesson-head">
+        <div class="lesson-num">06</div>
+        <div class="eyebrow">Knowledge · 레슨 06</div>
+        <h1 class="lesson-title">Knowledge — 지식의 틈</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=iSLdQXeKbHs" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>모델은 <strong>학습 중 노출된 것만</strong> 압니다. 기본적으로 실시간 브라우징도, 체험적 경험도 없고, <strong>지식 컷오프(knowledge cutoff)</strong>에서 딱 멈춥니다. 실질적 질문은 "AI가 이걸 아는가?"가 아니라 <strong>"이것이 학습 데이터에 얼마나 잘 대표되었는가?"</strong>입니다.</p>
+
+      <h3>이 속성이 가능케 하는 것 / 특징적으로 실패하는 곳</h3>
+      <table>
+        <colgroup><col style="width:50%"><col></colgroup>
+        <tr><th>역량 (Capability)</th><th>한계 (Limitation)</th></tr>
+        <tr><td>대단히 넓은 <strong>일반 지식</strong></td><td><strong>컷오프</strong> — 학습 종료 이후는 없음</td></tr>
+        <tr><td>잘 대표된 도메인에서의 <strong>깊은 역량</strong></td><td><strong>노후화(staleness)</strong> — 학습 시점엔 참이던 것이 지금은 아님</td></tr>
+        <tr><td>분야를 잇는 연결(임베딩: 관련 개념이 뭉침)</td><td><strong>고르지 않은 커버리지</strong> — 틈새·지역 지식이 취약</td></tr>
+        <tr><td></td><td><strong>물려받은 편향</strong>, <strong>출처 기억상실</strong>("어디서 읽었다"는 인용이 아님)</td></tr>
+      </table>
+
+      <div class="tip">이 한계를 밀어내는 제품 기능들 — <strong>웹 검색</strong>(컷오프 우회), <strong>검색 증강(RAG)/MCP</strong>(학습하지 않은 자료 활용), <strong>도구 사용</strong>(실제 계산기·DB·API 호출), <strong>명시적 컷오프 공개</strong>.</div>
+
+      <h3>핵심 정리</h3>
+      <ul>
+        <li><strong>역량 지대</strong>: 학습 데이터에 <strong>자주·최근(학습 내)·일관되게</strong> 등장한 주제.</li>
+        <li><strong>한계 지대</strong>: 드물거나·컷오프 이후·틈새·지역적·논쟁적 주제.</li>
+        <li><strong>4D 연결</strong>: 지식의 불균형은 <strong>Delegation(위임)</strong>의 핵심입니다. 모델이 어디에 두텁고 어디가 얇은지 알면 <strong>언제 맡기고, 언제 맥락을 직접 넣고, 언제 다른 데로 갈지</strong> 판단할 수 있습니다.</li>
+      </ul>
+
+      <div class="example"><strong>연습: 아웃사이더 테스트</strong> — 한 작업을 골라 <strong>주류 주제 2개</strong>, <strong>틈새·최신 주제 2개</strong>, 외부인이 흔히 틀리는 <strong>"기본 가정" 1개</strong>를 적습니다. ① <strong>커버리지</strong>(주류 vs. 틈새 깊이·정확도 비교), ② <strong>노후화</strong>(최근 바뀐 것을 물어 컷오프를 인정하는지 관찰), ③ <strong>기본 가정</strong>(내 가정을 직접 말하지 않고 물어 AI가 무엇을 "정상"으로 보는지 확인).</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음</b> · 인터랙티브 데모 — 임베딩과 1024차원 공간에서의 "가까움"</div></div>
+    </section>
+
+    <!-- L7 -->
+    <section class="lesson" id="try-embeddings">
+      <div class="lesson-head">
+        <div class="lesson-num">07</div>
+        <div class="eyebrow">Knowledge · 레슨 07</div>
+        <h1 class="lesson-title">Try it out — 1024차원 공간 시각화</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>과거 검색은 <strong>문자열 유사도</strong>였습니다 — "car"를 검색하면 "automobile", "vehicle", "내 Civic 브레이크 갈아야 해"는 찾지 못했죠. <strong>임베딩(embeddings)</strong>은 이를 뒤집습니다: <strong>의미가 곧 장소가 될 수 있다</strong>는 아이디어로, 텍스트를 좌표로 바꿔 비슷한 개념을 서로 가까이 배치합니다. 이 매핑은 손으로 짜는 게 아니라 <strong>학습 데이터에서 창발</strong>합니다.</p>
+
+      <h3>핵심 아이디어</h3>
+      <div class="card"><ul>
+        <li><strong>인코딩</strong> — 문서를 축(예: 공룡·롤러코스터·생물학)마다 점수 매겨 <strong>공간에 배치</strong>. 비슷한 주제는 가까이 모입니다.</li>
+        <li><strong>검색(retrieval)</strong> — 질문을 <strong>같은 축</strong>으로 매핑해 <strong>가장 가까운 k개</strong>를 찾음. 키워드·동의어 표 대신 <strong>다차원 근접성</strong>을 사용.</li>
+        <li><strong>차원 확장</strong> — 실제 임베딩 모델은 약 <strong>1,024차원</strong>을 씁니다. 4D부터는 공간적 상상이 멈추지만 <strong>수학은 계속 통합니다</strong>.</li>
+        <li><strong>이름 없는 축</strong> — 각 차원의 의미는 <strong>창발적·블랙박스</strong>입니다. "847번 차원이 공룡 축"이라고 말할 수 없습니다.</li>
+      </ul></div>
+
+      <div class="callout">텍스트를 좌표로 — 임베딩 모델은 <strong>어떤 문자열이든 고정 길이 벡터</strong>(여기선 VoyageAI의 1,024개 값)로 변환합니다. 세 단어든 세 문단이든 출력 길이는 같습니다. 벡터는 그 텍스트가 <strong>모든 것에 상대적으로 사는 주소</strong>라고 생각하면 됩니다.</div>
+
+      <div class="tip"><strong>코사인 유사도(cosine similarity)</strong> — 실전 검색은 직선 거리 대신, 두 벡터가 <strong>가리키는 방향</strong>으로 유사도를 잽니다. −1(반대)~0(무관)~1(동일).</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 세 번째 속성 Working Memory — 지금 무엇에 주목하는가</div></div>
+    </section>
+
+    <!-- L8 -->
+    <section class="lesson" id="working-memory">
+      <div class="lesson-head">
+        <div class="lesson-num">08</div>
+        <div class="eyebrow">Working Memory · 레슨 08</div>
+        <h1 class="lesson-title">Working Memory — 컨텍스트 윈도우</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=QJjt4wF4iHM" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>AI가 주목하는 모든 것은 <strong>컨텍스트 윈도우(context window)</strong>라는 고정 크기 작업 공간 안에 있습니다. 그 안의 것에는 주목할 수 있고, <strong>밖의 것에는 주목할 수 없습니다</strong>. 이 제약은 다른 속성들과 달리 <strong>날카롭게 끊깁니다 — 되던 것이 갑자기 안 됩니다</strong>.</p>
+
+      <h3>이 속성이 가능케 하는 것 / 특징적으로 실패하는 곳</h3>
+      <table>
+        <colgroup><col style="width:50%"><col></colgroup>
+        <tr><th>역량 (Capability)</th><th>한계 (Limitation)</th></tr>
+        <tr><td>세션 내 <strong>즉각 적응</strong>(스타일 가이드·샘플이 바로 적용)</td><td><strong>하드 길이 제한</strong> — 초과 시 <strong>조용한 잘림(silent truncation)</strong></td></tr>
+        <tr><td>내 자료·제약과 <strong>함께 작업</strong></td><td><strong>중간 유실(lost in the middle)</strong> — 어텐션이 균일하지 않음</td></tr>
+        <tr><td>구체성을 통한 정밀 — <strong>맥락은 지렛대</strong></td><td>기본적으로 <strong>지속 기억 없음</strong> — 매 세션이 0에서 시작</td></tr>
+        <tr><td></td><td><strong>학습 안 함</strong> — 교정은 모델이 아니라 맥락만 바꿈</td></tr>
+      </table>
+
+      <div class="callout">이 속성은 <strong>기울기가 아니라 절벽(cliff)</strong>입니다. <strong>조용한 잘림</strong>이 실패 모드이고, 항상 경고가 뜨지도 않습니다. 모델은 내 교정에서 배우지 않으며, <strong>지금 맥락에 있는 것에만</strong> 반응합니다.</div>
+
+      <div class="tip">이 절벽을 밀어내는 제품 기능들 — <strong>메모리</strong>(세션 간 사실 유지), <strong>압축/요약</strong>(오래된 턴을 압축), <strong>프로젝트/워크스페이스</strong>(상시 문서를 맥락에), <strong>스킬</strong>, <strong>더 큰 컨텍스트 윈도우</strong>.</div>
+
+      <h3>핵심 정리</h3>
+      <ul>
+        <li><strong>역량 지대</strong>: 자료가 넉넉히 들어가고, 세션이 현재이며, 관련 맥락을 내가 제공.</li>
+        <li><strong>한계 지대</strong>: 아주 긴 문서·대화, 세션 간 연속성 기대, 긴 입력의 <strong>중간에 핵심 정보 매장</strong>.</li>
+        <li><strong>4D 연결</strong>: Working Memory는 <strong>Description(기술)</strong>이 작용하는 대상입니다. 윈도우 작동 방식을 알면 맥락을 <strong>어떻게 구성하고, 언제 앞에 실을지(front-load), 언제 새로 시작할지</strong> 알게 됩니다.</li>
+      </ul>
+
+      <div class="example"><strong>연습: Before-and-After</strong> — 나만 가진 맥락(스타일 가이드·좋은 예시·제약)이 도움 되는 작업을 고릅니다. ① <strong>콜드 스타트 vs. 맥락</strong>(맥락 없이 vs. 맥락을 앞에 실어 비교), ② <strong>중간 유실</strong>(긴 문서 중간에 중요한 지시를 묻어 놓고 잡아내는지 → 맨 위로 옮겨 재시도), ③ <strong>백지 상태</strong>(무언가를 가르친 뒤 새 대화에서 기억하는지 관찰).</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음</b> · 인터랙티브 데모 — 맥락이 많을수록 오히려 나빠지는 순간</div></div>
+    </section>
+
+    <!-- L9 -->
+    <section class="lesson" id="try-context-degradation">
+      <div class="lesson-head">
+        <div class="lesson-num">09</div>
+        <div class="eyebrow">Working Memory · 레슨 09</div>
+        <h1 class="lesson-title">Try it out — 컨텍스트 열화</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>"다 넣어주자" — 문서 전체를 붙이고, 모든 메시지를 포함하는 본능. 하지만 <strong>더 많은 정보가 늘 더 나은 답은 아닙니다.</strong> 시험 벼락치기를 해 본 사람은 직관적으로 압니다: 한 번에 마음에 담을 수 있는 양엔 한계가 있고, <strong>중간에 있는 것이 가장 먼저 사라집니다</strong>.</p>
+
+      <h3>U자형 곡선 — 계열 위치 효과</h3>
+      <p>목록 <strong>앞</strong>의 항목은 <strong>초두 효과(primacy)</strong>로, <strong>뒤</strong>는 <strong>최신 효과(recency)</strong>로 잘 기억되고, <strong>중간</strong>은 어느 이점도 못 받습니다. 대규모 언어 모델도 <strong>같은 패턴</strong>을 보입니다 — 2023년 스탠퍼드 연구에서 핵심 사실을 긴 컨텍스트의 여러 위치에 놓았을 때, 처음·끝에서 정확도가 가장 높고 <strong>중간에 묻히면 30% 이상 떨어졌습니다</strong>. 이는 결함이 아니라 <strong>구조적 특성</strong>으로, 트랜스포머 어텐션이 윈도우 가장자리를 더 무겁게 둡니다.</p>
+
+      <div class="callout"><strong>위험한 패턴</strong>: 핵심 지시를 대화 <strong>중간에 매장</strong>. <strong>안전한 패턴</strong>: 가장 중요한 지시를 <strong>맨 앞과 맨 끝</strong>에 배치하고, 꼭 지켜야 할 제약은 <strong>시스템 프롬프트 초반에 명시하고 끝부분에 다시 언급</strong>. 그 사이의 모든 것에 모델이 동등한 가중치를 줄 거라 기대하지 마세요.</div>
+
+      <div class="tip"><strong>핵심 교훈</strong> — 맥락이 많다고 결과가 좋아지지 않습니다(더 많음 ≠ 더 나음). 모델의 어텐션은 유한합니다. <strong>가차 없이 선별하고, 전략적으로 배치하고, 중요한 것은 반복하세요.</strong> 이것이 컨텍스트 엔지니어링의 핵심 긴장 — 무엇을 넣느냐만이 아니라 <strong>어디에 두고 무엇을 뺄지</strong>입니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 레슨</b> · 마지막 속성 Steerability — 내가 얼마나 통제하는가</div></div>
+    </section>
+
+    <!-- L10 -->
+    <section class="lesson" id="steerability">
+      <div class="lesson-head">
+        <div class="lesson-num">10</div>
+        <div class="eyebrow">Steerability · 레슨 10</div>
+        <h1 class="lesson-title">Steerability — 통제의 폭</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=M_RwSRmp220" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>모델은 다른 모든 것과 똑같은 방식으로 내 지시를 따릅니다 — <strong>패턴을 이어감으로써</strong>. 덕분에 놀랄 만큼 조종 가능(steerable)하지만, 동시에 <strong>내 의도와 실제 결과 사이에는 항상 틈</strong>이 있고, 흥미로운 실패는 대부분 그 틈에 삽니다.</p>
+
+      <h3>이 속성이 가능케 하는 것 / 특징적으로 실패하는 곳</h3>
+      <table>
+        <colgroup><col style="width:50%"><col></colgroup>
+        <tr><th>역량 (Capability)</th><th>한계 (Limitation)</th></tr>
+        <tr><td>형식·스타일·길이·톤의 <strong>정밀 통제</strong></td><td><strong>추론 드리프트</strong> — 긴 사슬에서 작은 오류가 누적</td></tr>
+        <tr><td><strong>역할 설정</strong> — 페르소나·전문성 프레임을 채택·유지</td><td><strong>글자 vs. 취지(letter over spirit)</strong> — 문자적으론 충족, 의도는 놓침</td></tr>
+        <tr><td><strong>다단계 작업</strong>을 명확한 절차로 실행</td><td><strong>프롬프트 인젝션</strong> — 문서 속 원치 않는 지시도 따를 수 있음</td></tr>
+        <tr><td>반복적 다듬기("더 짧게", "여기 더 구체적으로")</td><td></td></tr>
+      </table>
+
+      <div class="callout">Steerability가 작동하는 이유는 <strong>fine-tuning이 지시 따르기를 가르쳤기</strong> 때문이고, 한계가 있는 이유는 지시를 <strong>이해가 아니라 패턴 매칭</strong>으로 따르기 때문입니다. 지시가 문자적으로만 이행되고 쓸모없을 땐, <strong>같은 지시를 더 세게 반복하지 말고 목표를 다시 진술</strong>하세요.</div>
+
+      <div class="tip">이 한계를 밀어내는 제품 기능들 — <strong>시스템 프롬프트/커스텀 지시</strong>(희석되지 않는 상시 지침), <strong>코드 실행</strong>(계산을 실제 인터프리터에 넘김), <strong>가시적 추론</strong>(마지막이 아니라 2단계에서 드리프트 포착), <strong>구조화된 출력 모드</strong>.</div>
+
+      <h3>핵심 정리</h3>
+      <ul>
+        <li><strong>역량 지대</strong>: 짧고·구체적·검증 가능한 지시(형식 스펙, 길이 제한, 명시적 역할).</li>
+        <li><strong>한계 지대</strong>: 긴 추론 사슬, 추상적·모호한 지시, <strong>네이티브 수치·논리 정밀성</strong>을 요하는 것.</li>
+        <li><strong>4D 연결</strong>: Steerability는 <strong>Description</strong>을 강력하게 만들면서 동시에 그 한계를 정합니다. 말과 의도 사이의 틈을 이해하면 프롬프트 작성법과 <strong>체크포인트를 넣을 지점</strong>이 달라집니다.</li>
+      </ul>
+
+      <div class="example"><strong>연습: 목표 다시 쓰기</strong> — 형식이 아니라 <strong>목표를 한 문장</strong>으로 적습니다("이 타임라인이 현실적임을 팀에게 설득"은 목표, "세 개의 불릿"은 형식). ① <strong>타이트한 통제</strong>(간단히 검증 가능한 지시가 정확히 지켜졌는지), ② <strong>추론 드리프트</strong>(4~5단계 의존 작업 → "2단계 결과를 먼저 보여줘"로 체크포인트 삽입해 비교), ③ <strong>글자 vs. 취지</strong>("더 짧게" 대신 <strong>목표를 함께 진술</strong>해 비교).</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음</b> · 인터랙티브 데모 — "더 짧게 만들어"가 낳는 글자 vs. 취지의 간극</div></div>
+    </section>
+
+    <!-- L11 -->
+    <section class="lesson" id="try-letter-vs-spirit">
+      <div class="lesson-head">
+        <div class="lesson-num">11</div>
+        <div class="eyebrow">Steerability · 레슨 11</div>
+        <h1 class="lesson-title">Try it out — 글자 vs. 취지</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=UAmKyyZ-b9E" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>지시는 <strong>이해가 아니라 패턴 매칭</strong>으로 이행됩니다. 그래서 <strong>내 말과 내 의도 사이에는 늘 공간</strong>이 있습니다. 동료가 긴 이메일을 넘기며 "<strong>더 짧게 만들어(make it shorter)</strong>"라고 부탁하는 상황을 떠올려 보세요.</p>
+
+      <div class="example"><strong>시나리오</strong> — Q2 로드맵 후속 이메일: 인사말, "지난 화요일 논의를 다시 꺼내고", 세 방향을 검토해 <strong>플랫폼 통합을 권고(단, 모바일 리디자인은 Q3로 연기)</strong>, 금요일 확정 전 승인 요청, 필요하면 통화까지 — 여러 정보가 뒤섞인 원문입니다.</div>
+
+      <div class="callout">"더 짧게"라는 지시를 <strong>문자 그대로</strong> 따르면 단어 수만 줄어들 수 있습니다. 하지만 진짜 의도가 <strong>"핵심 권고와 승인 요청을 또렷하게"</strong>였다면, 문자적 축약은 <strong>취지를 놓칩니다</strong>. "더 전문적으로", "더 자세히" 같은 다른 지시도 마찬가지로 <strong>실제 문제(구조·초점)를 비켜갈</strong> 수 있습니다.</div>
+
+      <div class="tip">교훈 — 지시가 문자적으로 만족되었지만 쓸모없다면, <strong>목표를 명시적으로 함께 진술</strong>하세요. 형식만 반복하지 말고 "무엇을 이루려는가"를 붙이면 간극이 좁혀집니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>다음 모듈</b> · 속성들이 충돌할 때 — 실패 진단하기</div></div>
+    </section>
+
+    <!-- L12 -->
+    <section class="lesson" id="properties-collide-and-next-steps">
+      <div class="lesson-head">
+        <div class="lesson-num">12</div>
+        <div class="eyebrow">Putting It Together · 레슨 12</div>
+        <h1 class="lesson-title">속성의 충돌 & 마무리</h1>
+        <div class="meta-row"><span class="chip">🎬 영상 + 아티클</span> <a class="chip" href="https://www.youtube.com/watch?v=SPkg5WRfnEE" target="_blank" rel="noopener">▶ 영상</a></div>
+      </div>
+
+      <p>네 속성은 <strong>따로 작동하지 않습니다</strong>. 실제 실패는 대부분 <strong>둘이 교차</strong>하는 지점입니다. 어느 두 속성인지 이름 붙일 수 있으면, <strong>어떤 처방</strong>을 꺼낼지도 알게 됩니다.</p>
+
+      <h3>진단 페어 — 흔한 실패 패턴</h3>
+      <table>
+        <colgroup><col style="width:46%"><col></colgroup>
+        <tr><th>충돌하는 두 속성</th><th>나타나는 실패</th></tr>
+        <tr><td><strong>Next Token Prediction + Knowledge</strong></td><td>환각된 구체 정보(가짜 인용·통계)</td></tr>
+        <tr><td><strong>Working Memory + Steerability</strong></td><td>긴 대화에서의 드리프트</td></tr>
+        <tr><td colspan="2" style="text-align:center">그 밖에도 자신 있게 틀린 수학, 나쁜 전제에 순순히 동의하기 등</td></tr>
+      </table>
+
+      <div class="callout">두 속성의 이름을 붙이면 <strong>처방이 곧장 나옵니다</strong> — 구체 정보 검증, 맥락 재공급, 코드 실행으로 넘기기, 반박 유도. 이 진단 동작이 바로 <strong>Discernment의 적용</strong>입니다. 어떤 종류의 "틀림"인지 알면 더 잘 평가하게 됩니다.</div>
+
+      <h3>마무리 — 기계에 대한 작은 모델</h3>
+      <p>유창한 AI 활용은 모든 실패 모드를 외우는 게 아닙니다. <strong>기계에 대한 작고 명확한 모델</strong>을 머릿속에 두어, 무언가 잘못됐을 때 <strong>어떤 종류의 잘못인지 알아보고 그에 맞게 대응</strong>하는 것입니다.</p>
+      <div class="card"><ul>
+        <li>네 속성은 <strong>연속체</strong>이고, 특징적 실패는 <strong>속성의 교차</strong>입니다.</li>
+        <li>이 프레임워크와 <strong>4D 프레임워크는 한 시스템의 양면</strong> — 속성은 4D 역량이 무엇에 반응하는지 설명합니다.</li>
+        <li><strong>보정된 신뢰</strong>: 작업을 각 연속체 위에 놓고, 검증·맥락 습관을 그 위치에 맞춥니다.</li>
+        <li>모델은 계속 바뀌지만, <strong>속성의 형태는 유용하게 남고 경계선만 이동</strong>합니다.</li>
+      </ul></div>
+
+      <div class="example"><strong>연습: 나의 다짐</strong> — 레슨 1 목록으로 마지막으로 돌아가, 각 작업이 각 속성의 연속체 어디에 놓이고 어떤 보완이 필요한지 직감으로 표시합니다. 그리고 <strong>이번 주에 바꿀 한 가지</strong>(검증 단계·상시 맥락 설정·체크포인트·형식이 아닌 목표 진술 습관)를 골라 적습니다.</div>
+
+      <div class="next"><span class="arrow">→</span><div><b>완주</b> · AI Capabilities and Limitations의 12개 레슨을 모두 정리했습니다. 네 속성(Next Token Prediction·Knowledge·Working Memory·Steerability)을 지도 삼아, 4D 프레임워크와 짝지어 <strong>안전·효과·윤리적인 AI 협업</strong>을 이어갈 차례입니다.</div></div>
+    </section>
+
+   </div>
+  </main>
+</div>
+</div>
+
+<script>
+  const curriculum = [
+    { n:"01", section:"Orientation", lessons:[
+      { id:"intro-capabilities-limitations", title:"AI 역량과 한계 소개", done:true },
+    ]},
+    { n:"02", section:"Foundations", lessons:[
+      { id:"what-we-mean-by-ai", title:"생성형 AI란 무엇인가", done:true },
+      { id:"how-ai-gets-character", title:"AI는 어떻게 성격을 갖는가", done:true },
+    ]},
+    { n:"03", section:"Next Token Prediction", lessons:[
+      { id:"next-token-prediction", title:"Next Token Prediction", done:true },
+      { id:"try-markov", title:"Try it out — Markov 생성기", done:true },
+    ]},
+    { n:"04", section:"Knowledge", lessons:[
+      { id:"knowledge", title:"Knowledge — 지식의 틈", done:true },
+      { id:"try-embeddings", title:"Try it out — 임베딩 공간", done:true },
+    ]},
+    { n:"05", section:"Working Memory", lessons:[
+      { id:"working-memory", title:"Working Memory — 컨텍스트 윈도우", done:true },
+      { id:"try-context-degradation", title:"Try it out — 컨텍스트 열화", done:true },
+    ]},
+    { n:"06", section:"Steerability", lessons:[
+      { id:"steerability", title:"Steerability — 통제의 폭", done:true },
+      { id:"try-letter-vs-spirit", title:"Try it out — 글자 vs. 취지", done:true },
+    ]},
+    { n:"07", section:"Putting It Together", lessons:[
+      { id:"properties-collide-and-next-steps", title:"속성의 충돌 & 마무리", done:true },
+    ]},
+  ];
+</script>
+{% include course-nav.html %}
