@@ -107,3 +107,28 @@
       file: /courses/anthropic/ai-fluency-for-builders.html
       done: true
       desc: "빌더가 4D 프레임워크로 더 빠르게 솔루션을 출시하기 (전문 정리)."
+- id: openai
+  name: "OpenAI Course"
+  provider: "mySUNI · OpenAI"
+  desc: "mySUNI에서 수강한 OpenAI 교육 과정 — 기초 지식부터 컨설팅·ChatGPT·배포·기술 실무자 과정까지 정리합니다."
+  courses:
+    - title: "OpenAI 기초 지식"
+      file: /courses/openai/foundational-knowledge.html
+      done: true
+      desc: "OpenAI 미션·안전·AI/ML 기초부터 ChatGPT·Codex·API 제품 포트폴리오까지 — 13개 강의."
+    - title: "OpenAI 컨설팅 솔루션 실무자"
+      file: /courses/openai/consultative-solutions-practitioner.html
+      done: true
+      desc: "강력한 AI 기회 발굴, 발견·자격 심사, 사용 사례 설계, 비즈니스 가치와 솔루션 매핑 — 7개 강의."
+    - title: "ChatGPT 솔루션 실무자"
+      file: /courses/openai/chatgpt-solutions-practitioner.html
+      done: true
+      desc: "ChatGPT 적합성 분석, 워크플로 설계, 비즈니스 포지셔닝, 기회 준비도와 배포 팀 인계 — 5개 강의."
+    - title: "ChatGPT 배포 실무 전문가"
+      file: /courses/openai/chatgpt-deployment-practitioner.html
+      done: true
+      desc: "출시 계획, 워크스페이스 설정, 활성화 사용 사례, 도입 촉진, 측정·확장까지 — 8개 강의."
+    - title: "OpenAI 기술 실무자"
+      file: /courses/openai/technical-practitioner.html
+      done: true
+      desc: "기술 구현 기초, 모델 선정, 플랫폼 기능, 아키텍처 청사진, 보안·거버넌스·데이터 — 6개 강의."
