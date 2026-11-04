@@ -109,8 +109,8 @@
       desc: "빌더가 4D 프레임워크로 더 빠르게 솔루션을 출시하기 (전문 정리)."
 - id: openai
   name: "OpenAI Course"
-  provider: "mySUNI · OpenAI"
-  desc: "mySUNI에서 수강한 OpenAI 교육 과정 — 기초 지식부터 컨설팅·ChatGPT·배포·기술 실무자 과정까지 정리합니다."
+  provider: "OpenAI"
+  desc: "OpenAI 교육 과정 — 기초 지식부터 컨설팅·ChatGPT·배포·기술 실무자 과정까지 정리합니다."
   courses:
     - title: "OpenAI 기초 지식"
       file: /courses/openai/foundational-knowledge.html

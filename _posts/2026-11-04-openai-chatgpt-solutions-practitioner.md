@@ -5,7 +5,7 @@ date: 2026-11-04
 categories: [강의 정리]
 tags: [OpenAI, ChatGPT, AI]
 permalink: /courses/openai/chatgpt-solutions-practitioner.html
-description: "mySUNI에서 수강한 ChatGPT Solutions Practitioner(ChatGPT 솔루션 실무자) 과정을 레슨별로 정리한 학습 노트."
+description: "ChatGPT Solutions Practitioner(ChatGPT 솔루션 실무자) 과정을 레슨별로 정리한 학습 노트."
 ---
 {% include course-styles.html %}
 
@@ -14,7 +14,7 @@ description: "mySUNI에서 수강한 ChatGPT Solutions Practitioner(ChatGPT 솔�
   <aside class="sidebar">
     <div class="brand">
       <a class="backlink" href="/courses/openai/">← OpenAI Course</a>
-      <p class="kicker">mySUNI · OpenAI</p>
+      <p class="kicker">OpenAI</p>
       <h1>OpenAI <em>ChatGPT 솔루션</em></h1>
       <p class="sub">ChatGPT Solutions Practitioner 과정을 레슨별로 정리한 학습 노트</p>
       <div class="progress-wrap">

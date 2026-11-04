@@ -5,7 +5,7 @@ date: 2026-11-04
 categories: [강의 정리]
 tags: [OpenAI, ChatGPT, Codex, AI]
 permalink: /courses/openai/foundational-knowledge.html
-description: "mySUNI에서 수강한 OpenAI Foundational Knowledge(OpenAI 기초 지식) 과정을 레슨별로 정리한 학습 노트."
+description: "OpenAI Foundational Knowledge(OpenAI 기초 지식) 과정을 레슨별로 정리한 학습 노트."
 ---
 {% include course-styles.html %}
 
@@ -14,7 +14,7 @@ description: "mySUNI에서 수강한 OpenAI Foundational Knowledge(OpenAI 기초
   <aside class="sidebar">
     <div class="brand">
       <a class="backlink" href="/courses/openai/">← OpenAI Course</a>
-      <p class="kicker">mySUNI · OpenAI</p>
+      <p class="kicker">OpenAI</p>
       <h1>OpenAI <em>기초 지식</em></h1>
       <p class="sub">OpenAI Foundational Knowledge 과정을 레슨별로 정리한 학습 노트</p>
       <div class="progress-wrap">

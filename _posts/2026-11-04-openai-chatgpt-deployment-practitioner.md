@@ -5,7 +5,7 @@ date: 2026-11-04
 categories: [강의 정리]
 tags: [OpenAI, ChatGPT, AI]
 permalink: /courses/openai/chatgpt-deployment-practitioner.html
-description: "mySUNI에서 수강한 ChatGPT Deployment Practitioner(ChatGPT 배포 실무 전문가) 과정을 레슨별로 정리한 학습 노트."
+description: "ChatGPT Deployment Practitioner(ChatGPT 배포 실무 전문가) 과정을 레슨별로 정리한 학습 노트."
 ---
 {% include course-styles.html %}
 
@@ -14,7 +14,7 @@ description: "mySUNI에서 수강한 ChatGPT Deployment Practitioner(ChatGPT 배
   <aside class="sidebar">
     <div class="brand">
       <a class="backlink" href="/courses/openai/">← OpenAI Course</a>
-      <p class="kicker">mySUNI · OpenAI</p>
+      <p class="kicker">OpenAI</p>
       <h1>OpenAI <em>ChatGPT 배포</em></h1>
       <p class="sub">ChatGPT Deployment Practitioner 과정을 레슨별로 정리한 학습 노트</p>
       <div class="progress-wrap">
