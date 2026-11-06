@@ -136,3 +136,7 @@
       file: /courses/openai/codex-solutions-practitioner.html
       done: true
       desc: "Codex 기회 적합성, SDLC 워크플로 포지셔닝, 가치 서사와 활용 사례, 신뢰·보안·도입 대화 — 5개 강의."
+    - title: "Codex 배포 실무자"
+      file: /courses/openai/codex-deployment-practitioner.html
+      done: true
+      desc: "배포 운영 모델, 개발자 워크플로, 보안·거버넌스, 고급 통합, 배포 깊이와 실습 랩 2개 — 7개 강의."
