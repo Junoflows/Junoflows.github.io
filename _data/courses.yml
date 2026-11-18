@@ -110,7 +110,7 @@
 - id: openai
   name: "OpenAI Course"
   provider: "OpenAI"
-  desc: "OpenAI 교육 과정 — 기초 지식부터 컨설팅·ChatGPT·배포·기술·Codex·API 실무자 과정까지 정리합니다."
+  desc: "OpenAI 교육 과정 — 기초 지식부터 컨설팅·ChatGPT·배포·기술·Codex·API·사이버 실무자 과정까지 정리합니다."
   courses:
     - title: "OpenAI 기초 지식"
       file: /courses/openai/foundational-knowledge.html
@@ -144,3 +144,7 @@
       file: /courses/openai/api-deployment-practitioner.html
       done: true
       desc: "아키텍처·인터페이스 계약, 모델 선택, 보안·검색, 평가·가드레일, 프로덕션 준비, 실시간·특화 패턴과 실습 적용 — 11개 강의."
+    - title: "OpenAI 사이버 배포 실무자"
+      file: /courses/openai/cyber-deployment-practitioner.html
+      done: true
+      desc: "Codex Security 워크플로 패턴, 범위 지정 평가, 사이버 거버넌스, 가치 스토리와 경영진 보고, 응용 실습과 필기 랩 — 6개 강의."
