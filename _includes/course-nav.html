@@ -31,6 +31,54 @@
       nav.appendChild(wrap);
     });
 
+    // Mobile: the curriculum starts collapsed behind a toggle so the lesson is on the first screen.
+    const sidebar = nav.closest(".sidebar");
+    const toggle = document.createElement("button");
+    toggle.type = "button";
+    toggle.className = "spine-toggle";
+    toggle.setAttribute("aria-expanded", "false");
+    const setToggle = open => {
+      sidebar.classList.toggle("open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      toggle.innerHTML = `<span>레슨 목록</span><span>${open ? "접기 ▴" : "펼치기 ▾"}</span>`;
+    };
+    toggle.addEventListener("click", () => setToggle(!sidebar.classList.contains("open")));
+    nav.before(toggle);
+    setToggle(false);
+
+    // In-lesson table of contents for long lessons (h3 with nested h4).
+    document.querySelectorAll(".lesson").forEach(sec=>{
+      const heads = [...sec.querySelectorAll("h3, h4")];
+      if(heads.length < 5) return;
+      const toc = document.createElement("nav");
+      toc.className = "lesson-toc";
+      toc.setAttribute("aria-label", "이 레슨의 목차");
+      let html = `<div class="toc-label">이 레슨에서</div><ol>`, open = false;
+      heads.forEach((h, i)=>{
+        if(!h.id) h.id = `${sec.id}-s${i}`;
+        const text = h.textContent.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+        const link = `<a href="#${h.id}" data-scroll="${h.id}">${text}</a>`;
+        if(h.tagName === "H3"){
+          if(open) html += `</div></li>`;
+          html += `<li>${link}<div class="sub">`;
+          open = true;
+        } else {
+          html += open ? link : `<li>${link}</li>`;
+        }
+      });
+      if(open) html += `</div></li>`;
+      toc.innerHTML = html + `</ol>`;
+      // Scroll without touching location.hash, which selects the lesson.
+      toc.addEventListener("click", e=>{
+        const a = e.target.closest("a[data-scroll]");
+        if(!a) return;
+        e.preventDefault();
+        document.getElementById(a.dataset.scroll).scrollIntoView({behavior:"smooth"});
+      });
+      const head = sec.querySelector(".lesson-head");
+      (head || sec.firstElementChild).after(toc);
+    });
+
     const nodes = [...document.querySelectorAll(".node")];
     const progressFill = document.getElementById("progressFill");
     const progressPos  = document.getElementById("progressPos");
@@ -66,7 +114,8 @@
       progressFill.style.width = ((i+1)/total*100)+"%";
       progressPos.textContent = `레슨 ${pad(i+1)} / ${total}`;
       const active = nodes[i];
-      if(active) active.scrollIntoView({block:"nearest"});
+      if(active && getComputedStyle(toggle).display === "none") active.scrollIntoView({block:"nearest"});
+      setToggle(false);
       if(push && ("#"+id)!==location.hash) history.replaceState(null,"","#"+id);
       window.scrollTo({top:0, behavior:"smooth"});
     };

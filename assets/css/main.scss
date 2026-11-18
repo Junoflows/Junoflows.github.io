@@ -454,6 +454,9 @@ html[data-theme="dark"] .icon-sun { display: none; }
   .post-title { font-size: 1.7rem; }
   .hero-title { font-size: 1.7rem; }
   .post-nav { grid-template-columns: 1fr; }
-  .nav-link { padding: 6px 7px; font-size: 0.86rem; }
+  .nav-link { padding: 6px 7px; font-size: 0.86rem; white-space: nowrap; }
   .brand-name { font-size: 1.05rem; }
+  /* 좁은 화면에서 메뉴가 페이지 전체를 가로로 밀지 않고 메뉴 안에서만 스크롤 */
+  .header-inner { gap: 12px; }
+  .site-nav { min-width: 0; overflow-x: auto; scrollbar-width: none; }
 }
