@@ -144,6 +144,10 @@
       file: /courses/openai/api-deployment-practitioner.html
       done: true
       desc: "아키텍처·인터페이스 계약, 모델 선택, 보안·검색, 평가·가드레일, 프로덕션 준비, 실시간·특화 패턴과 실습 적용 — 11개 강의."
+    - title: "OpenAI 사이버 솔루션 실무자"
+      file: /courses/openai/cyber-solutions-practitioner.html
+      done: true
+      desc: "사이버 시장 동향과 Daybreak 포지셔닝, 기회 자격 검증과 페르소나, Daybreak 솔루션 라우팅과 액세스 경로 — 3개 강의."
     - title: "OpenAI 사이버 배포 실무자"
       file: /courses/openai/cyber-deployment-practitioner.html
       done: true
